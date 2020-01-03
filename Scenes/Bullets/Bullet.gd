@@ -2,11 +2,13 @@ extends Area2D
 
 export var speed = 500
 export var distance = 1000
-
+export var damage = 10
 
 var startPos:Vector2
 
 var enabled = false
+
+var id:int
 
 func _ready():
 	startPos = global_position
@@ -55,3 +57,11 @@ puppet func setPosition(pos:Vector2):
 remotesync func destroy():
 	disable()
 	pass
+
+
+func _on_Bullet_body_entered(body):
+	if get_tree().is_network_server():
+		if body.is_in_group("Shootable"):
+			if body.is_in_group("Enemy"):
+				body.rpc("hit", damage, id)
+		pass

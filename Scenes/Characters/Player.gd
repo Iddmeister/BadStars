@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+export var maxHealth = 400
+onready var health = maxHealth
+
 export var moveSpeed = 200
 
 export var poolSize = 100
@@ -66,6 +69,14 @@ func actions():
 		if Input.is_action_just_pressed("shoot"):
 			$Gun.rpc("shoot", get_tree().get_network_unique_id(), ObjectPool.getAvailableObjectIndex(ObjectPool.pools[get_tree().get_network_unique_id()].bullets))
 			pass
+	
+	pass
+	
+remotesync func hit(damage:int, id:int):
+	
+	health -= damage
+	if is_network_master():
+		print(Network.players[get_tree().get_network_unique_id()].name + "hit by" + Network.players[id].name)
 	
 	pass
 	

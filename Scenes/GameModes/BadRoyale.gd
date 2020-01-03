@@ -14,6 +14,10 @@ func spawnPlayers():
 	for player in Network.players.keys():
 		var p = playerScene.instance()
 		p.name = String(player)
+		if player == get_tree().get_network_unique_id():
+			p.add_to_group("Ally")
+		else:
+			p.add_to_group("Enemy")
 		add_child(p)
 	pass
 	
