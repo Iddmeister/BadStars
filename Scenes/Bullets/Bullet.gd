@@ -40,14 +40,17 @@ func enable():
 	pass
 	
 func disable():
-	$CollisionShape2D.disabled = true
 	visible = false
 	enabled = false
+	call_deferred("properDisable")
+	pass
+	
+func properDisable():
+	$CollisionShape2D.disabled = true
 	if is_inside_tree():
 		get_parent().remove_child(self)
 	set_process(false)
 	set_physics_process(false)
-	pass
 	
 	
 puppet func setPosition(pos:Vector2):
