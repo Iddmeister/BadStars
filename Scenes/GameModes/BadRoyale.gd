@@ -14,10 +14,6 @@ func spawnPlayers():
 	for player in Network.players.keys():
 		var p = playerScene.instance()
 		p.name = String(player)
-		if player == get_tree().get_network_unique_id():
-			p.add_to_group("Ally")
-		else:
-			p.add_to_group("Enemy")
 		add_child(p)
 	pass
 	
@@ -39,6 +35,10 @@ remotesync func startGame():
 	
 	for player in get_tree().get_nodes_in_group("Player"):
 		player.initialize(int(player.name))
+		if player.name == String(get_tree().get_network_unique_id()):
+			player.add_to_group("Ally")
+		else:
+			player.add_to_group("Enemy")
 		
 	Network.gameStarted = true
 	

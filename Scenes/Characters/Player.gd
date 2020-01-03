@@ -22,7 +22,6 @@ func initialize(id:int):
 	pass
 	
 func _physics_process(delta):
-	
 	if Network.gameStarted:
 	
 		movement()
