@@ -19,9 +19,6 @@ func initialize(id:int):
 	name = String(id)
 	if is_network_master():
 		$Camera.current = true
-		add_to_group("Ally")
-	else:
-		add_to_group("Enemy")
 	pass
 	
 func _physics_process(delta):

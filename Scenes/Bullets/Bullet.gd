@@ -65,8 +65,7 @@ remotesync func destroy():
 func _on_Bullet_body_entered(body):
 	if get_tree().is_network_server():
 		if body.is_in_group("Shootable"):
-			if body.is_in_group("Enemy"):
+			if not body.get_network_master() == id:
 				body.rpc("hit", damage, id)
-			if not body.is_in_group("Ally"):
 				rpc("destroy")
 		pass
