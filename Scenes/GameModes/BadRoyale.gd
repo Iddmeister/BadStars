@@ -35,10 +35,6 @@ remotesync func startGame():
 	
 	for player in get_tree().get_nodes_in_group("Player"):
 		player.initialize(int(player.name))
-		if player.name == String(get_tree().get_network_unique_id()):
-			player.add_to_group("Ally")
-		else:
-			player.add_to_group("Enemy")
 		
 	Network.gameStarted = true
 	
