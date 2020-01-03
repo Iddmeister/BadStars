@@ -2,6 +2,7 @@ extends Node
 
 enum characters {CLOT, YEETA}
 
+var mobile = false
 
 var characterInfo = {
 	
@@ -9,3 +10,13 @@ var characterInfo = {
 	characters.YEETA:{"poolSize":100, "bulletPath":"res://Scenes/Bullets/Bullet.tscn",},
 	
 	}
+	
+var leftStickAxis = Vector2()
+var rightStickAxis = Vector2()
+
+func _ready() -> void:
+	
+	if OS.get_name() == "Android" or OS.get_name() == "iOS":
+		mobile = true
+	
+	pass

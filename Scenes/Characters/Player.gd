@@ -12,6 +12,11 @@ export(Globals.characters) var character = Globals.characters.CLOT
 var velocity = Vector2()
 
 func _ready():
+	if Globals.mobile:
+		var controls = load("res://Scenes/UI/MobileControls.tscn")
+		var control = controls.instance()
+		$UI.add_child(control)
+		control.connect("rightStickReleased", self, "shoot")
 	pass
 	
 func initialize(id:int):
@@ -35,19 +40,25 @@ func movement():
 		
 		var dir = Vector2()
 		
-		if Input.is_action_pressed("left"):
-			dir.x = -1
-		elif Input.is_action_pressed("right"):
-			dir.x = 1
-		else:
-			dir.x = 0
+		if Globals.mobile:
 			
-		if Input.is_action_pressed("up"):
-			dir.y = -1
-		elif Input.is_action_pressed("down"):
-			dir.y = 1
+			dir = Globals.leftStickAxis
+			
 		else:
-			dir.y = 0
+			
+			if Input.is_action_pressed("left"):
+				dir.x = -1
+			elif Input.is_action_pressed("right"):
+				dir.x = 1
+			else:
+				dir.x = 0
+				
+			if Input.is_action_pressed("up"):
+				dir.y = -1
+			elif Input.is_action_pressed("down"):
+				dir.y = 1
+			else:
+				dir.y = 0
 			
 		dir = dir.normalized()
 		
@@ -62,13 +73,22 @@ func movement():
 func actions():
 	
 	if is_network_master():
-	
-		rpc("aimGun", get_angle_to(get_global_mouse_position()))
+		
+		if Globals.mobile:
+			
+			rpc("aimGun", Globals.rightStickAxis.angle())
+			
+		else:
+			rpc("aimGun", get_angle_to(get_global_mouse_position()))
 		
 		if Input.is_action_just_pressed("shoot"):
-			$Gun.rpc("shoot", get_tree().get_network_unique_id(), ObjectPool.getAvailableObjectIndex(ObjectPool.pools[get_tree().get_network_unique_id()].bullets))
+			shoot()
 			pass
 	
+	pass
+	
+func shoot():
+	$Gun.rpc("shoot", get_tree().get_network_unique_id(), ObjectPool.getAvailableObjectIndex(ObjectPool.pools[get_tree().get_network_unique_id()].bullets))
 	pass
 	
 remotesync func hit(damage:int, id:int):
