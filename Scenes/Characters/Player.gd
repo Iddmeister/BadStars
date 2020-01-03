@@ -59,12 +59,16 @@ func actions():
 	
 	if is_network_master():
 	
-		$Gun.look_at(get_global_mouse_position())
+		rpc("aimGun", get_angle_to(get_global_mouse_position()))
 		
 		if Input.is_action_just_pressed("shoot"):
 			$Gun.rpc("shoot", get_tree().get_network_unique_id())
 			pass
 	
+	pass
+	
+remotesync func aimGun(direction:float):
+	$Gun.global_rotation = direction
 	pass
 	
 	

@@ -17,6 +17,7 @@ func createPools():
 		for num in range(player.poolSize):
 			
 			var b = Bullet.instance()
+			b.name = player.name + String(num)
 			b.disable()
 			pools[int(player.name)].bullets.append(b)
 			
