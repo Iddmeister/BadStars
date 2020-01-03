@@ -22,6 +22,7 @@ config/icon="res://Graphics/icon.png"
 [autoload]
 
 Network="*res://Scripts/Network.gd"
+ObjectPool="*res://Scripts/ObjectPool.gd"
 
 [debug]
 

@@ -6,6 +6,7 @@ var playerScene = preload("res://Scenes/Characters/Player.tscn")
 
 func _ready():
 	spawnPlayers()
+	ObjectPool.createPools()
 	setReady()
 	pass
 

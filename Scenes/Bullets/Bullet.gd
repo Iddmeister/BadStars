@@ -3,7 +3,10 @@ extends Area2D
 export var speed = 500
 export var distance = 1000
 
+
 var startPos:Vector2
+
+var enabled = false
 
 func _ready():
 	startPos = global_position
@@ -26,11 +29,29 @@ func move(delta:float):
 	
 	pass
 	
+func enable():
+	$CollisionShape2D.disabled = false
+	visible = true
+	enabled = true
+	set_process(true)
+	set_physics_process(true)
+	pass
+	
+func disable():
+	$CollisionShape2D.disabled = true
+	visible = false
+	enabled = false
+	if is_inside_tree():
+		get_parent().remove_child(self)
+	set_process(false)
+	set_physics_process(false)
+	pass
+	
 	
 puppet func setPosition(pos:Vector2):
 	global_position = pos
 	pass
 	
 remotesync func destroy():
-	queue_free()
+	disable()
 	pass

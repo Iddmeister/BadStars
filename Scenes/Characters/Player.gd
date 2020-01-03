@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 export var moveSpeed = 200
 
+export var poolSize = 100
+
 var velocity = Vector2()
 
 func _ready():
