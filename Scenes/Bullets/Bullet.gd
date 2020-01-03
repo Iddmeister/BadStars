@@ -33,6 +33,8 @@ func move(delta:float):
 	
 func enable():
 	$CollisionShape2D.disabled = false
+	monitoring = true
+	monitorable = true
 	visible = true
 	enabled = true
 	set_process(true)
@@ -40,6 +42,8 @@ func enable():
 	pass
 	
 func disable():
+	monitoring = false
+	monitorable = false
 	visible = false
 	enabled = false
 	call_deferred("properDisable")
