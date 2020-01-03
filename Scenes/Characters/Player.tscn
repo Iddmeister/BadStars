@@ -9,6 +9,7 @@ radius = 31.0323
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
+"Shootable",
 ]]
 collision_mask = 4
 script = ExtResource( 1 )

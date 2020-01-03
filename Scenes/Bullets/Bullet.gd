@@ -64,4 +64,6 @@ func _on_Bullet_body_entered(body):
 		if body.is_in_group("Shootable"):
 			if body.is_in_group("Enemy"):
 				body.rpc("hit", damage, id)
+			if not body.is_in_group("Ally"):
+				rpc("destroy")
 		pass
