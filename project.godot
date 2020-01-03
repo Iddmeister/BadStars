@@ -21,6 +21,7 @@ config/icon="res://Graphics/icon.png"
 
 [autoload]
 
+Globals="*res://Scripts/Globals.gd"
 Network="*res://Scripts/Network.gd"
 ObjectPool="*res://Scripts/ObjectPool.gd"
 

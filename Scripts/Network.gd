@@ -14,7 +14,7 @@ var gameStarted = false
 var playerInfo = {
 	
 	"name":"EpicDude54",
-	"character":"",
+	"character":Globals.characters.CLOT,
 	"ready":false,
 	
 	}

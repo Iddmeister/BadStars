@@ -1,7 +1,5 @@
 extends Node
 
-var Bullet = preload("res://Scenes/Bullets/Bullet.tscn")
-
 var pools = {}
 
 func _ready():
@@ -9,17 +7,19 @@ func _ready():
 	
 func createPools():
 	
-	for player in get_tree().get_nodes_in_group("Player"):
+	for player in Network.players.keys():
 		
-		pools[int(player.name)] = {}
-		pools[int(player.name)]["bullets"] = []
+		pools[int(player)] = {}
+		pools[int(player)]["bullets"] = []
 		
-		for num in range(player.poolSize):
+		var Bullet = load(Globals.characterInfo[Network.players[player].character].bulletPath)
+		
+		for num in range(Globals.characterInfo[Network.players[player].character].poolSize):
 			
 			var b = Bullet.instance()
-			b.name = player.name + String(num)
+			b.name = String(player) + String(num)
 			b.disable()
-			pools[int(player.name)].bullets.append(b)
+			pools[int(player)].bullets.append(b)
 			
 			pass
 		

@@ -4,6 +4,8 @@ export var moveSpeed = 200
 
 export var poolSize = 100
 
+export(Globals.characters) var character = Globals.characters.CLOT
+
 var velocity = Vector2()
 
 func _ready():
