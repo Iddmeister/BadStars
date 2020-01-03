@@ -42,7 +42,7 @@ func getAvailableObject(objects:Array) -> Node:
 func getAvailableObjectIndex(objects:Array) -> int:
 	
 	for num in range(objects.size()):
-		if not objects[num].enabled:
+		if not objects[num].enabled and not objects[num].is_inside_tree():
 			return num
 		else:
 			continue
