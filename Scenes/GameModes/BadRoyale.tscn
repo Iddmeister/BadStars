@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/GameModes/BadRoyale.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/icon.png" type="Texture" id=2]
+
+[node name="BadRoyale" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 353.132, 319.611 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 728.245, 166.042 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 675.377, 440.453 )
+texture = ExtResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( -193.173, 113.173 )
+texture = ExtResource( 2 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( -218.348, -138.58 )
+texture = ExtResource( 2 )
+
+[node name="Sprite6" type="Sprite" parent="."]
+position = Vector2( 139.142, -166.273 )
+texture = ExtResource( 2 )
