@@ -48,7 +48,7 @@ func movement():
 		
 		velocity = move_and_slide(velocity)
 		
-		rpc("setPosition", global_position)
+		rpc_unreliable("setPosition", global_position)
 		
 	pass
 	

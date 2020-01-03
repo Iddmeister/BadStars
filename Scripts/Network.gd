@@ -126,6 +126,7 @@ remote func sendInfoToServer():
 	
 func disconnectedFromHost():
 	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
+	get_tree().network_peer = null
 	pass
 	
 func playerConnected(id:int):
