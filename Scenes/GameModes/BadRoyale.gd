@@ -37,5 +37,6 @@ remotesync func startGame():
 		player.initialize(int(player.name))
 		
 	Network.gameStarted = true
+	Network.starting = false
 	
 	pass

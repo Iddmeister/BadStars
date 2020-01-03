@@ -84,13 +84,12 @@ func _process(delta):
 		if packet:
 			joinableGames[packet[0]] = packet[1]
 			
-	
-	if get_tree().network_peer:
-		
-		if get_tree().is_network_server():
+	if starting:
+		if get_tree().network_peer:
 			
-			if starting:
+			if get_tree().is_network_server():
 				
+					
 				var allReady = true
 				
 				for player in players.keys():
