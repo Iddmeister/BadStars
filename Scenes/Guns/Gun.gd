@@ -7,7 +7,7 @@ func _ready():
 	
 remotesync func shoot(id:int, poolIndex:int):
 	
-	#var b = ObjectPool.getAvailableObject(ObjectPool.pools[id].bullets)
+	print(poolIndex)
 	var b = ObjectPool.pools[id].bullets[poolIndex]
 	b.enable()
 	b.global_rotation = global_rotation

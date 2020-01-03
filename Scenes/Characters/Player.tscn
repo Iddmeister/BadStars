@@ -26,6 +26,3 @@ drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 
 [node name="Gun" parent="." instance=ExtResource( 3 )]
-
-[node name="UI" type="CanvasLayer" parent="."]
-layer = 20

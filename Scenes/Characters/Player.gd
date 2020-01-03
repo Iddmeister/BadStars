@@ -94,8 +94,6 @@ func shoot():
 remotesync func hit(damage:int, id:int):
 	
 	health -= damage
-	if is_network_master():
-		print(Network.players[get_tree().get_network_unique_id()].name + "hit by" + Network.players[id].name)
 	
 	pass
 	

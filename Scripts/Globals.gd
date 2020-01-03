@@ -6,8 +6,8 @@ var mobile = false
 
 var characterInfo = {
 	
-	characters.CLOT:{"poolSize":100, "bulletPath":"res://Scenes/Bullets/Bullet.tscn",},
-	characters.YEETA:{"poolSize":100, "bulletPath":"res://Scenes/Bullets/Bullet.tscn",},
+	characters.CLOT:{"poolSize":30, "bulletPath":"res://Scenes/Bullets/Bullet.tscn",},
+	characters.YEETA:{"poolSize":30, "bulletPath":"res://Scenes/Bullets/Bullet.tscn",},
 	
 	}
 	
