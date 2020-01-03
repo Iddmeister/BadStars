@@ -19,6 +19,7 @@ func _physics_process(delta):
 	if Network.gameStarted:
 	
 		movement()
+		actions()
 	
 	pass
 	
@@ -50,6 +51,16 @@ func movement():
 		
 		rpc_unreliable("setPosition", global_position)
 		
+	pass
+	
+func actions():
+	
+	$Gun.look_at(get_global_mouse_position())
+	
+	if Input.is_action_just_pressed("shoot"):
+		$Gun.rpc("shoot")
+		pass
+	
 	pass
 	
 	

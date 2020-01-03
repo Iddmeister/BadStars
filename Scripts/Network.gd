@@ -154,6 +154,7 @@ remote func updatePlayersInfo(info:Dictionary):
 	
 func disconnectServer():
 	get_tree().network_peer.close_connection()
+	get_tree().network_peer = null
 	pass
 	
 remote func readyPlayer(id:int):
