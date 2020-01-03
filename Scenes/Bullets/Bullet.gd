@@ -42,8 +42,6 @@ func enable():
 	pass
 	
 func disable():
-	monitoring = false
-	monitorable = false
 	visible = false
 	enabled = false
 	call_deferred("properDisable")
@@ -51,6 +49,8 @@ func disable():
 	
 func properDisable():
 	$CollisionShape2D.disabled = true
+	monitoring = false
+	monitorable = false
 	if is_inside_tree():
 		get_parent().remove_child(self)
 	set_process(false)
@@ -67,9 +67,10 @@ remotesync func destroy():
 
 
 func _on_Bullet_body_entered(body):
-	if get_tree().is_network_server():
-		if body.is_in_group("Shootable"):
-			if not body.get_network_master() == id:
-				body.rpc("hit", damage, id)
-				rpc("destroy")
+	if enabled:
+		if get_tree().is_network_server():
+			if body.is_in_group("Shootable"):
+				if not body.get_network_master() == id:
+					body.rpc("hit", damage, id)
+					rpc("destroy")
 		pass
