@@ -55,11 +55,13 @@ func movement():
 	
 func actions():
 	
-	$Gun.look_at(get_global_mouse_position())
+	if is_network_master():
 	
-	if Input.is_action_just_pressed("shoot"):
-		$Gun.rpc("shoot")
-		pass
+		$Gun.look_at(get_global_mouse_position())
+		
+		if Input.is_action_just_pressed("shoot"):
+			$Gun.rpc("shoot", get_tree().get_network_unique_id())
+			pass
 	
 	pass
 	
