@@ -64,7 +64,7 @@ func actions():
 		rpc("aimGun", get_angle_to(get_global_mouse_position()))
 		
 		if Input.is_action_just_pressed("shoot"):
-			$Gun.rpc("shoot", get_tree().get_network_unique_id())
+			$Gun.rpc("shoot", get_tree().get_network_unique_id(), ObjectPool.getAvailableObjectIndex(ObjectPool.pools[get_tree().get_network_unique_id()].bullets))
 			pass
 	
 	pass

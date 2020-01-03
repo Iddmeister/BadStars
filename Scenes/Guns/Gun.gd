@@ -5,9 +5,10 @@ export var poolSize = 100
 func _ready():
 	pass
 	
-remotesync func shoot(id:int):
+remotesync func shoot(id:int, poolIndex:int):
 	
-	var b = ObjectPool.getAvailableObject(ObjectPool.pools[id].bullets)
+	#var b = ObjectPool.getAvailableObject(ObjectPool.pools[id].bullets)
+	var b = ObjectPool.pools[id].bullets[poolIndex]
 	b.enable()
 	b.global_rotation = global_rotation
 	b.global_position = $Muzzle.global_position

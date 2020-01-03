@@ -37,3 +37,14 @@ func getAvailableObject(objects:Array) -> Node:
 	return null
 	
 	pass
+	
+func getAvailableObjectIndex(objects:Array) -> int:
+	
+	for num in range(objects.size()):
+		if not objects[num].enabled:
+			return num
+		else:
+			continue
+	return -1
+	
+	pass
