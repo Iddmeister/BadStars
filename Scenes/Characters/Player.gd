@@ -11,12 +11,14 @@ export(Globals.characters) var character = Globals.characters.CLOT
 
 var velocity = Vector2()
 
+var mobileControls:Control
+
 func _ready():
 	if Globals.mobile:
 		var controls = load("res://Scenes/UI/MobileControls.tscn")
-		var control = controls.instance()
-		$UI.add_child(control)
-		control.connect("rightStickReleased", self, "shoot")
+		mobileControls = controls.instance()
+		$UI.add_child(mobileControls)
+		#control.connect("rightStickReleased", self, "shoot")
 	pass
 	
 func initialize(id:int):
@@ -78,12 +80,16 @@ func actions():
 			
 			rpc("aimGun", Globals.rightStickAxis.angle())
 			
+			if mobileControls.shot:
+				mobileControls.shot = false
+				shoot()
+			
 		else:
 			rpc("aimGun", get_angle_to(get_global_mouse_position()))
 		
-		if Input.is_action_just_pressed("shoot"):
-			shoot()
-			pass
+			if Input.is_action_just_pressed("shoot"):
+				shoot()
+				pass
 	
 	pass
 	

@@ -11,6 +11,8 @@ var leftStickGrabbed = false
 var rightStickGrabbed = false
 var superGrabbed = false
 
+var shot = false
+
 var leftStickAxis = Vector2()
 var rightStickAxis = Vector2()
 
@@ -58,6 +60,7 @@ func _input(event: InputEvent) -> void:
 				rightStickGrabbed = true
 			else:
 				emit_signal("rightStickReleased")
+				shot = true
 				rightStickGrabbed = false
 				$RightStick/Stick.position = Vector2(0, 0)
 				rightStickAxis = Vector2(0, 0)
