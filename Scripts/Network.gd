@@ -62,6 +62,7 @@ func join(ip:String):
 	get_tree().connect("connected_to_server", self, "connectedToHost")
 	get_tree().connect("connection_failed", self, "disconnectedFromHost")
 	get_tree().connect("server_disconnected", self, "disconnectedFromHost")
+	joinableGames = {}
 	
 	pass
 	
@@ -133,6 +134,7 @@ func disconnectedFromHost():
 	get_tree().disconnect("connection_failed", self, "disconnectedFromHost")
 	get_tree().disconnect("server_disconnected", self, "disconnectedFromHost")
 	get_tree().network_peer = null
+	players = {}
 	get_tree().paused = false
 	pass
 	
@@ -170,6 +172,7 @@ func disconnectServer():
 	get_tree().disconnect("network_peer_disconnected", self, "playerDisconnected")
 	broadcastTimer.disconnect("timeout", self, "sendBroadcast")
 	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
+	players = {}
 	get_tree().paused = false
 	pass
 	
