@@ -20,16 +20,19 @@ var mobileControls:Control
 var ui:gameUI
 
 func _ready():
-	if Globals.mobile:
-		var controls = load("res://Scenes/UI/MobileControls.tscn")
-		mobileControls = controls.instance()
-		$UI.add_child(mobileControls)
-		
-	var uiScene = preload("res://Scenes/UI/GameUI.tscn")
-	ui = uiScene.instance()
-	$UI.add_child(ui)
 	
-	ui.setupUI(maxHealth, maxAmmo)
+	if is_network_master():
+	
+		if Globals.mobile:
+			var controls = load("res://Scenes/UI/MobileControls.tscn")
+			mobileControls = controls.instance()
+			$UI.add_child(mobileControls)
+			
+		var uiScene = preload("res://Scenes/UI/GameUI.tscn")
+		ui = uiScene.instance()
+		$UI.add_child(ui)
+		
+		ui.setupUI(maxHealth, maxAmmo)
 	
 	pass
 	
@@ -118,7 +121,10 @@ func shoot():
 remotesync func hit(damage:int, id:int):
 	
 	health -= damage
-	ui.setHealth(health)
+	if is_network_master():
+		ui.setHealth(health)
+	else:
+		pass
 	
 	pass
 	
