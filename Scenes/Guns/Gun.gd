@@ -12,5 +12,6 @@ remotesync func shoot(id:int, poolIndex:int):
 	b.global_rotation = global_rotation
 	b.global_position = $Muzzle.global_position
 	get_tree().root.get_child(get_tree().root.get_child_count()-1).add_child(b)
+	b.startPos = b.global_position
 	
 	pass

@@ -11,7 +11,6 @@ var enabled = false
 var id:int
 
 func _ready():
-	startPos = global_position
 	pass
 	
 func _physics_process(delta):
