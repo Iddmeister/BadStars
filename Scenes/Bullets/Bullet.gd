@@ -52,8 +52,6 @@ func properDisable():
 	monitorable = false
 	set_process(false)
 	set_physics_process(false)
-	if is_inside_tree():
-		get_parent().remove_child(self)
 	
 	
 puppet func setPosition(pos:Vector2):

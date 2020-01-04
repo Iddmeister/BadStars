@@ -2,7 +2,11 @@ extends Node
 
 var pools = {}
 
+var objects:Node2D
+
 func _ready():
+	objects = Node2D.new()
+	add_child(objects)
 	pass
 	
 func createPools():
@@ -21,6 +25,7 @@ func createPools():
 			b.id = player
 			b.disable()
 			pools[int(player)].bullets.append(b)
+			objects.add_child(b)
 			
 			pass
 		
@@ -42,7 +47,7 @@ func getAvailableObject(objects:Array) -> Node:
 func getAvailableObjectIndex(objects:Array) -> int:
 	
 	for num in range(objects.size()):
-		if not objects[num].enabled and not objects[num].is_inside_tree():
+		if not objects[num].enabled:
 			return num
 		else:
 			continue
