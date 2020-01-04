@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Gun",
+"language": "GDScript",
+"path": "res://Scenes/Guns/Gun.gd"
+}, {
 "base": "Control",
 "class": "gameUI",
 "language": "GDScript",
 "path": "res://Scenes/UI/GameUI.gd"
 } ]
 _global_script_class_icons={
+"Gun": "",
 "gameUI": ""
 }
 

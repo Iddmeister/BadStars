@@ -2,8 +2,6 @@ extends KinematicBody2D
 
 export var maxHealth = 400
 onready var health = maxHealth
-export var maxAmmo = 3
-onready var ammo = maxAmmo
 
 export var moveSpeed = 200
 
@@ -12,7 +10,8 @@ export var poolSize = 100
 export(Globals.characters) var character = Globals.characters.CLOT
 
 export var gunPath:NodePath = "Gun"
-onready var gun = get_node(gunPath)
+onready var gun:Gun = get_node(gunPath)
+
 
 var velocity = Vector2()
 
@@ -40,7 +39,9 @@ func initialize(id:int):
 		ui = uiScene.instance()
 		$UI.add_child(ui)
 		
-		ui.setupUI(maxHealth, maxAmmo)
+		ui.setupUI(maxHealth, gun.maxAmmo)
+		
+		gun.connect("reloaded", ui, "setAmmo")
 		
 	else:
 		add_to_group("Enemy")
@@ -113,12 +114,15 @@ func actions():
 	
 func shoot():
 	
-	if gun.canShoot:
+	if gun.canShoot and not gun.ammo <= 0:
 		gun.rpc("shoot", get_tree().get_network_unique_id(), ObjectPool.getAvailableObjectIndex(ObjectPool.pools[get_tree().get_network_unique_id()].bullets))
-		ammo -= 1
-		ui.setAmmo(ammo)
+		gun.ammo -= 1
+		ui.setAmmo(gun.ammo)
 		gun.get_node("Cooldown").start()
 		gun.canShoot = false
+		if gun.get_node("Reload").is_stopped():
+			gun.get_node("Reload").start()
+		
 	pass
 	
 remotesync func hit(damage:int, id:int):
