@@ -1,7 +1,5 @@
 extends Control
 
-signal rightStickReleased()
-
 export var joystickRadius = 100
 
 export var LbufferTouch = 0
@@ -59,7 +57,6 @@ func _input(event: InputEvent) -> void:
 			if event.is_pressed():
 				rightStickGrabbed = true
 			else:
-				emit_signal("rightStickReleased")
 				shot = true
 				rightStickGrabbed = false
 				$RightStick/Stick.position = Vector2(0, 0)

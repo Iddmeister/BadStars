@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 export var maxHealth = 400
 onready var health = maxHealth
+export var maxAmmo = 3
+onready var ammo = maxAmmo
 
 export var moveSpeed = 200
 
@@ -9,16 +11,26 @@ export var poolSize = 100
 
 export(Globals.characters) var character = Globals.characters.CLOT
 
+export var gunPath:NodePath = "Gun"
+onready var gun = get_node(gunPath)
+
 var velocity = Vector2()
 
 var mobileControls:Control
+var ui:gameUI
 
 func _ready():
 	if Globals.mobile:
 		var controls = load("res://Scenes/UI/MobileControls.tscn")
 		mobileControls = controls.instance()
 		$UI.add_child(mobileControls)
-		#control.connect("rightStickReleased", self, "shoot")
+		
+	var uiScene = preload("res://Scenes/UI/GameUI.tscn")
+	ui = uiScene.instance()
+	$UI.add_child(ui)
+	
+	ui.setupUI(maxHealth, maxAmmo)
+	
 	pass
 	
 func initialize(id:int):
@@ -94,17 +106,24 @@ func actions():
 	pass
 	
 func shoot():
-	$Gun.rpc("shoot", get_tree().get_network_unique_id(), ObjectPool.getAvailableObjectIndex(ObjectPool.pools[get_tree().get_network_unique_id()].bullets))
+	
+	if gun.canShoot:
+		gun.rpc("shoot", get_tree().get_network_unique_id(), ObjectPool.getAvailableObjectIndex(ObjectPool.pools[get_tree().get_network_unique_id()].bullets))
+		ammo -= 1
+		ui.setAmmo(ammo)
+		gun.get_node("Cooldown").start()
+		gun.canShoot = false
 	pass
 	
 remotesync func hit(damage:int, id:int):
 	
 	health -= damage
+	ui.setHealth(health)
 	
 	pass
 	
 remotesync func aimGun(direction:float):
-	$Gun.global_rotation = direction
+	gun.global_rotation = direction
 	pass
 	
 	

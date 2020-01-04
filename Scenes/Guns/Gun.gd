@@ -2,6 +2,8 @@ extends Node2D
 
 export var poolSize = 100
 
+var canShoot = true
+
 func _ready():
 	pass
 	
@@ -13,4 +15,9 @@ remotesync func shoot(id:int, poolIndex:int):
 	b.startPos = b.global_position
 	b.enable()
 	
+	
 	pass
+
+
+func _on_Cooldown_timeout():
+	canShoot = true

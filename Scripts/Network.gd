@@ -42,7 +42,7 @@ func host(gameName:String):
 	searchPeer.set_dest_address(broadcastAddress, PORT)
 	searchPeer.put_var([gameName, IP.get_local_addresses()[1]])
 	get_tree().connect("network_peer_connected", self, "playerConnected")
-	get_tree().connect("network_peer_disconnected", self, "playerDiconnected")
+	get_tree().connect("network_peer_disconnected", self, "playerDisconnected")
 	
 	broadcastTimer.wait_time = 2
 	broadcastTimer.connect("timeout", self, "sendBroadcast", [gameName])
