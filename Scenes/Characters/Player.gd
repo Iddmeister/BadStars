@@ -133,28 +133,25 @@ remotesync func hit(damage:int, id:int):
 	else:
 		pass
 		
-	if health <= 0 :
+	if health <= 0:
 		
-		if get_network_master() == 1:
+		if get_tree().get_network_unique_id() == 1:
 			rpc("die")
-			rpc("endGame")
 		
 		pass
 		
 	pass
 		
-puppet func die():
+remotesync func die():
 	
 	visible = false
 	
-	pass
-	
-	
-master func endGame():
-	
-	print("Dead")
+	if is_network_master():
+		print("You Dead Boi")
 	
 	pass
+	
+	
 	
 	
 remotesync func aimGun(direction:float):
