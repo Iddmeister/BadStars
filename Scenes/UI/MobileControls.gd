@@ -61,6 +61,7 @@ func _input(event: InputEvent) -> void:
 				rightStickGrabbed = false
 				$RightStick/Stick.position = Vector2(0, 0)
 				rightStickAxis = Vector2(0, 0)
+				
 	
 	elif event is InputEventScreenDrag:
 		

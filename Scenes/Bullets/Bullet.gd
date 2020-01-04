@@ -50,10 +50,10 @@ func properDisable():
 	$CollisionShape2D.disabled = true
 	monitoring = false
 	monitorable = false
-	if is_inside_tree():
-		get_parent().remove_child(self)
 	set_process(false)
 	set_physics_process(false)
+	if is_inside_tree():
+		get_parent().remove_child(self)
 	
 	
 puppet func setPosition(pos:Vector2):
