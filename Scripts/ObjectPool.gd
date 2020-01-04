@@ -1,10 +1,13 @@
 extends Node
 
+signal poolCleared()
+
 var pools = {}
 
 var allObjects:Node2D
 
 func _ready():
+	pause_mode = Node.PAUSE_MODE_PROCESS
 	allObjects = Node2D.new()
 	add_child(allObjects)
 	pass
@@ -32,6 +35,12 @@ func createPools():
 		pass
 	
 	pass
+	
+func clearAllPools():
+	pools = {}
+	for obj in allObjects.get_children():
+		obj.queue_free()
+	call_deferred("emit_signal", "poolCleared")
 	
 func getAvailableObject(objects:Array) -> Node:
 	

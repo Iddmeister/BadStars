@@ -145,9 +145,11 @@ remotesync func hit(damage:int, id:int):
 remotesync func die():
 	
 	visible = false
+	$CollisionShape2D.set_deferred("disabled", true)
 	
 	if is_network_master():
 		print("You Dead Boi")
+		get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
 	
 	pass
 	

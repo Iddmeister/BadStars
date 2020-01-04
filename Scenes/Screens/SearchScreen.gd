@@ -15,3 +15,11 @@ func _process(delta):
 			joinBut.name = game
 	
 	pass
+
+
+func _on_Cancel_pressed():
+	Network.searchPeer.close()
+	Network.searchPeer = PacketPeerUDP.new()
+	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
+	get_tree().network_peer = null
+	Network.joinableGames = {}

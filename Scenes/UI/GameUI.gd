@@ -28,3 +28,14 @@ func setHealth(health:int):
 func setAmmo(ammo:int):
 	$Ammo.text = "Ammo: " + String(ammo) + "/" + String(maxAmmo)
 	pass
+
+
+func _on_Disconnect_pressed():
+	if get_tree().is_network_server():
+		Network.disconnectServer()
+	else:
+		Network.disconnectedFromHost()
+
+
+func _on_Pause_pressed():
+	$PauseMenu.popup()

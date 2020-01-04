@@ -69,7 +69,8 @@ func join(ip:String):
 func find():
 	
 	searchPeer.set_dest_address(broadcastAddress, PORT)
-	searchPeer.listen(PORT)
+	if not searchPeer.is_listening():
+		searchPeer.listen(PORT)
 	
 	pass
 	
@@ -124,8 +125,15 @@ remote func sendInfoToServer():
 	pass
 	
 func disconnectedFromHost():
+	get_tree().paused = true
+	ObjectPool.clearAllPools()
+	yield(ObjectPool, "poolCleared")
 	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
+	get_tree().disconnect("connected_to_server", self, "connectedToHost")
+	get_tree().disconnect("connection_failed", self, "disconnectedFromHost")
+	get_tree().disconnect("server_disconnected", self, "disconnectedFromHost")
 	get_tree().network_peer = null
+	get_tree().paused = false
 	pass
 	
 func playerConnected(id:int):
@@ -152,8 +160,17 @@ remote func updatePlayersInfo(info:Dictionary):
 	pass
 	
 func disconnectServer():
-	get_tree().network_peer.close_connection()
+	get_tree().paused = true
+	ObjectPool.clearAllPools()
+	yield(ObjectPool, "poolCleared")
+	#get_tree().network_peer.close_connection()
+	broadcastTimer.stop()
 	get_tree().network_peer = null
+	get_tree().disconnect("network_peer_connected", self, "playerConnected")
+	get_tree().disconnect("network_peer_disconnected", self, "playerDisconnected")
+	broadcastTimer.disconnect("timeout", self, "sendBroadcast")
+	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
+	get_tree().paused = false
 	pass
 	
 remote func readyPlayer(id:int):
@@ -163,6 +180,10 @@ remote func readyPlayer(id:int):
 	pass
 	
 remotesync func startGame(mode=""):
+	
+	if get_tree().is_network_server():
+		broadcastTimer.stop()
+		searchPeer = PacketPeerUDP.new()
 	
 	get_tree().paused = true
 	

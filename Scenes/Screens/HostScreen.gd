@@ -30,4 +30,3 @@ func _on_Start_pressed():
 
 func _on_Disconnect_pressed():
 	Network.disconnectServer()
-	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")

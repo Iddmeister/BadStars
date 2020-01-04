@@ -2,7 +2,7 @@ extends Area2D
 
 export var speed = 500
 export var distance = 1000
-export var damage = 10
+export var damage = 50
 
 var startPos:Vector2
 
