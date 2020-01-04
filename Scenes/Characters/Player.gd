@@ -132,8 +132,30 @@ remotesync func hit(damage:int, id:int):
 		ui.setHealth(health)
 	else:
 		pass
+		
+	if health <= 0 :
+		
+		if get_network_master() == 1:
+			rpc("die")
+			rpc("endGame")
+		
+		pass
+		
+	pass
+		
+puppet func die():
+	
+	visible = false
 	
 	pass
+	
+	
+master func endGame():
+	
+	print("Dead")
+	
+	pass
+	
 	
 remotesync func aimGun(direction:float):
 	gun.global_rotation = direction
