@@ -149,7 +149,7 @@ remotesync func die():
 	
 	if is_network_master():
 		print("You Dead Boi")
-		get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
+		Network.disconnectedFromHost()
 	
 	pass
 	
