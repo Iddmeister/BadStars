@@ -20,8 +20,16 @@ var mobileControls:Control
 var ui:gameUI
 
 func _ready():
+	pass
+	
+func initialize(id:int):
+	set_network_master(id)
+	name = String(id)
 	
 	if is_network_master():
+		$Camera.current = true
+		
+		add_to_group("Ally")
 	
 		if Globals.mobile:
 			var controls = load("res://Scenes/UI/MobileControls.tscn")
@@ -33,14 +41,9 @@ func _ready():
 		$UI.add_child(ui)
 		
 		ui.setupUI(maxHealth, maxAmmo)
-	
-	pass
-	
-func initialize(id:int):
-	set_network_master(id)
-	name = String(id)
-	if is_network_master():
-		$Camera.current = true
+		
+	else:
+		add_to_group("Enemy")
 	pass
 	
 func _physics_process(delta):
