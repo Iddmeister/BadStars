@@ -2,7 +2,6 @@ extends Node2D
 
 signal reloaded(ammo)
 
-class_name Gun
 
 export var poolSize = 100
 

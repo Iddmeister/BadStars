@@ -10,7 +10,7 @@ export var poolSize = 100
 export(Globals.characters) var character = Globals.characters.CLOT
 
 export var gunPath:NodePath = "Gun"
-onready var gun:Gun = get_node(gunPath)
+onready var gun = get_node(gunPath)
 
 
 var velocity = Vector2()
