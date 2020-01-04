@@ -2,11 +2,11 @@ extends Node
 
 var pools = {}
 
-var objects:Node2D
+var allObjects:Node2D
 
 func _ready():
-	objects = Node2D.new()
-	add_child(objects)
+	allObjects = Node2D.new()
+	add_child(allObjects)
 	pass
 	
 func createPools():
@@ -25,7 +25,7 @@ func createPools():
 			b.id = player
 			b.disable()
 			pools[int(player)].bullets.append(b)
-			objects.add_child(b)
+			allObjects.add_child(b)
 			
 			pass
 		
