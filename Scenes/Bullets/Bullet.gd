@@ -26,7 +26,7 @@ func move(delta:float):
 		if (global_position - startPos).length() >= distance:
 			rpc("destroy")
 		else:
-			rpc_unreliable("setPosition", global_position)
+			rpc("setPosition", global_position)
 	
 	pass
 	
