@@ -25,11 +25,11 @@ func initialize(id:int):
 	set_network_master(id)
 	name = String(id)
 	
+	add_to_group("Ally"+String(id))
+	
 	if is_network_master():
 		$Camera.current = true
 		
-		add_to_group("Ally")
-	
 		if Globals.mobile:
 			var controls = load("res://Scenes/UI/MobileControls.tscn")
 			mobileControls = controls.instance()
@@ -44,7 +44,7 @@ func initialize(id:int):
 		gun.connect("reloaded", ui, "setAmmo")
 		
 	else:
-		add_to_group("Enemy")
+		pass
 	pass
 	
 func _physics_process(delta):
@@ -53,10 +53,9 @@ func _physics_process(delta):
 		movement()
 		actions()
 		
-	for player in get_tree().get_nodes_in_group("Player"):
-		print(player.get_groups(), player.get_network_master())
 	
 	pass
+	
 	
 func movement():
 	

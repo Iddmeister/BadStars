@@ -68,7 +68,7 @@ func _on_Bullet_body_entered(body):
 	if enabled:
 		if get_tree().is_network_server():
 			if body.is_in_group("Shootable"):
-				if not body.is_in_group("Ally"):
+				if not body.is_in_group("Ally"+String(id)):
 					body.rpc("hit", damage, id)
 					rpc("destroy")
 			else:
