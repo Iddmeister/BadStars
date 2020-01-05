@@ -105,11 +105,12 @@ func actions():
 				if gun.canShoot:
 					rpc("aimGun", Globals.rightStickAxis.angle())
 					gun.aim(true)
-				if mobileControls.shot:
-					mobileControls.shot = false
-					shoot()
 			else:
 				gun.aim(false)
+				
+			if mobileControls.shot:
+				mobileControls.shot = false
+				shoot()
 			
 		else:
 			if Input.is_action_pressed("shoot"):
