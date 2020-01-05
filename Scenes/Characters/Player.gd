@@ -136,6 +136,24 @@ func actions():
 	
 func autoaim():
 	
+	var closestBody:Node2D
+	
+	for body in $AutoaimRange.get_overlapping_bodies():
+		
+		if body.is_in_group("Shootable") and not body.is_in_group("Ally"+String(get_tree().get_network_unique_id())):
+			if closestBody:
+				if global_position.distance_to(body.global_position) < global_position.distance_to(closestBody.global_position):
+					closestBody = body
+			else:
+				closestBody = body
+				
+			pass
+			
+	if closestBody:
+		rpc("aimGun", get_angle_to(closestBody.global_position))
+		shoot()
+		
+		pass
 	pass
 	
 func shoot():

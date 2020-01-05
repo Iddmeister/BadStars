@@ -94,4 +94,7 @@ autoaim={
 2d_physics/layer_1="Players"
 2d_physics/layer_2="Bullets"
 2d_physics/layer_3="Terrain"
-2d_physics/layer_4="MobileControls"
+
+[rendering]
+
+quality/2d/use_pixel_snap=true
