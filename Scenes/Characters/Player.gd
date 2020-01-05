@@ -52,6 +52,9 @@ func _physics_process(delta):
 	
 		movement()
 		actions()
+		
+	for player in get_tree().get_nodes_in_group("Player"):
+		print(player.get_groups(), player.get_network_master())
 	
 	pass
 	
