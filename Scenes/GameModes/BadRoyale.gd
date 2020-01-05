@@ -1,8 +1,6 @@
 extends Node2D
 
 
-var playerScene = preload("res://Scenes/Characters/Clot.tscn")
-
 var playerObjects = {}
 
 func _ready():
@@ -14,7 +12,7 @@ func _ready():
 
 func spawnPlayers():
 	for player in Network.players.keys():
-		var p = playerScene.instance()
+		var p = load(Globals.characterInfo[Network.players[player].character].playerPath).instance()
 		p.name = String(player)
 		add_child(p)
 	pass
