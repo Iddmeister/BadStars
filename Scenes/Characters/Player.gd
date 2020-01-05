@@ -136,6 +136,8 @@ func actions():
 	
 func autoaim():
 	
+	gun.aim(false)
+	
 	var closestBody:Node2D
 	
 	for body in $AutoaimRange.get_overlapping_bodies():
@@ -208,3 +210,4 @@ remotesync func aimGun(direction:float):
 puppet func setPosition(pos:Vector2):
 	global_position = pos
 	pass
+	

@@ -3,6 +3,7 @@ extends Node2D
 
 var playerScene = preload("res://Scenes/Characters/Clot.tscn")
 
+var playerObjects = {}
 
 func _ready():
 	spawnPlayers()
@@ -15,6 +16,22 @@ func spawnPlayers():
 		var p = playerScene.instance()
 		p.name = String(player)
 		add_child(p)
+	pass
+	
+func placePlayers():
+	
+	var spots = $SpawnPoints.get_children()
+	
+	for player in playerObjects.keys():
+		var spot = rand_range(0, spots.size())
+		rpc("placePlayer", player, spots[spot].global_position)
+		spots.remove(spot)
+		pass
+	
+	pass
+	
+remotesync func placePlayer(key:String, pos:Vector2):
+	playerObjects[key].global_position = pos
 	pass
 	
 func setReady():
@@ -35,6 +52,10 @@ remotesync func startGame():
 	
 	for player in get_tree().get_nodes_in_group("Player"):
 		player.initialize(int(player.name))
+		playerObjects[player.name] = player
+		
+	if get_tree().is_network_server():
+		placePlayers()
 		
 	Network.gameStarted = true
 	Network.starting = false
