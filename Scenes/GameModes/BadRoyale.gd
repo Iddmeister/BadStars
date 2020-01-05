@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var playerScene = preload("res://Scenes/Characters/Player.tscn")
+var playerScene = preload("res://Scenes/Characters/Clot.tscn")
 
 
 func _ready():

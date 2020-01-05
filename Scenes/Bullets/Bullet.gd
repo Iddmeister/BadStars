@@ -1,7 +1,7 @@
 extends Area2D
 
 export var speed = 500
-export var distance = 1000
+var distance = 1000
 export var damage = 50
 
 var startPos:Vector2
@@ -9,6 +9,7 @@ var startPos:Vector2
 var enabled = false
 
 var id:int
+
 
 func _ready():
 	pass
@@ -67,7 +68,9 @@ func _on_Bullet_body_entered(body):
 	if enabled:
 		if get_tree().is_network_server():
 			if body.is_in_group("Shootable"):
-				if not body.get_network_master() == id:
+				if not body.is_in_group("Ally"):
 					body.rpc("hit", damage, id)
 					rpc("destroy")
+			else:
+				rpc("destroy")
 		pass

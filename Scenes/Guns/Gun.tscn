@@ -13,5 +13,13 @@ one_shot = true
 
 [node name="Reload" type="Timer" parent="."]
 one_shot = true
+
+[node name="AimLine" type="Line2D" parent="."]
+width = 20.0
+default_color = Color( 1, 1, 1, 0.705882 )
+texture_mode = 1378093321
+__meta__ = {
+"_edit_lock_": true
+}
 [connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
 [connection signal="timeout" from="Reload" to="." method="_on_Reload_timeout"]

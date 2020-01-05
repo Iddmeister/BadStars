@@ -95,20 +95,31 @@ func actions():
 	
 	if is_network_master():
 		
+		
 		if Globals.mobile:
 			
-			rpc("aimGun", Globals.rightStickAxis.angle())
-			
-			if mobileControls.shot:
-				mobileControls.shot = false
-				shoot()
+			if mobileControls.rightStickGrabbed:
+				
+				if gun.canShoot:
+					rpc("aimGun", Globals.rightStickAxis.angle())
+					gun.aim(true)
+				if mobileControls.shot:
+					mobileControls.shot = false
+					shoot()
+			else:
+				gun.aim(false)
 			
 		else:
-			rpc("aimGun", get_angle_to(get_global_mouse_position()))
+			if Input.is_action_pressed("shoot"):
+				if gun.canShoot:
+					rpc("aimGun", get_angle_to(get_global_mouse_position()))
+					gun.aim(true)
 		
-			if Input.is_action_just_pressed("shoot"):
+			elif Input.is_action_just_released("shoot"):
 				shoot()
 				pass
+			else:
+				gun.aim(false)
 	
 	pass
 	
@@ -125,7 +136,7 @@ func shoot():
 		
 	pass
 	
-remotesync func hit(damage:int, id:int):
+remotesync func hit(damage:int, id:int, super=false):
 	
 	health -= damage
 	if is_network_master():

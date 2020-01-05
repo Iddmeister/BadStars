@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Gun",
+"language": "GDScript",
+"path": "res://Scenes/Guns/Gun.gd"
+}, {
 "base": "Control",
 "class": "gameUI",
 "language": "GDScript",
 "path": "res://Scenes/UI/GameUI.gd"
 } ]
 _global_script_class_icons={
+"Gun": "",
 "gameUI": ""
 }
 
@@ -83,3 +89,7 @@ super={
 2d_physics/layer_1="Players"
 2d_physics/layer_2="Bullets"
 2d_physics/layer_3="Terrain"
+
+[rendering]
+
+quality/2d/use_pixel_snap=true
