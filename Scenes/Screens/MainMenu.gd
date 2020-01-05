@@ -18,3 +18,10 @@ func _on_Host_Game_pressed():
 
 func _on_PlayerName_text_changed(new_text):
 	Network.playerInfo.name = new_text
+
+
+func _on_Character_item_selected(ID):
+	if ID == 0:
+		Network.playerInfo.character = Globals.characters.SHMELLY
+	elif ID == 1:
+		Network.playerInfo.character = Globals.characters.CLOT

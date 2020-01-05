@@ -39,15 +39,24 @@ margin_bottom = 557.0
 
 [node name="Options" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 129.0
-margin_top = 266.0
+margin_top = 254.0
 margin_right = 329.0
-margin_bottom = 290.0
+margin_bottom = 302.0
 
 [node name="PlayerName" type="LineEdit" parent="CenterContainer/Options"]
 margin_right = 200.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 200, 0 )
 text = "EpicDude54"
+
+[node name="Character" type="OptionButton" parent="CenterContainer/Options"]
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 48.0
+text = "Item 0"
+items = [ "Shmelly", null, false, 0, null, "Clot", null, false, 1, null ]
+selected = 0
 [connection signal="pressed" from="VBoxContainer/FindGame" to="." method="_on_Find_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HostGame" to="." method="_on_Host_Game_pressed"]
 [connection signal="text_changed" from="CenterContainer/Options/PlayerName" to="." method="_on_PlayerName_text_changed"]
+[connection signal="item_selected" from="CenterContainer/Options/Character" to="." method="_on_Character_item_selected"]
