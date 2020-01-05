@@ -2,6 +2,10 @@ extends Control
 
 func _ready():
 	$CenterContainer/Options/PlayerName.text = Network.playerInfo.name
+	if Network.playerInfo.character == Globals.characters.CLOT:
+		$CenterContainer/Options/Character.selected = 1
+	else:
+		$CenterContainer/Options/Character.selected = 0
 	pass
 
 

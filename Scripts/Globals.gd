@@ -4,6 +4,8 @@ enum characters {CLOT, YEETA, SHMELLY}
 
 var mobile = false
 
+var inGame = false
+
 var characterInfo = {
 	
 	characters.CLOT:{"poolSize":40, "bulletPath":"res://Scenes/Bullets/ClotBullet.tscn", "playerPath":"res://Scenes/Characters/Clot.tscn"},

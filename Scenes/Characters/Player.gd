@@ -19,6 +19,7 @@ var mobileControls:Control
 var ui:gameUI
 
 func _ready():
+	Globals.inGame = true
 	pass
 	
 func initialize(id:int):
@@ -102,6 +103,7 @@ func actions():
 			
 			if mobileControls.autoaim:
 				autoaim()
+				gun.aim(false)
 				mobileControls.autoaim = false
 			else:
 			
@@ -196,6 +198,7 @@ remotesync func die():
 	if is_network_master():
 		print("You Dead Boi")
 		Network.disconnectedFromHost()
+		get_tree().change_scene("res://Scenes/Screens/DeathScreen.tscn")
 	
 	pass
 	

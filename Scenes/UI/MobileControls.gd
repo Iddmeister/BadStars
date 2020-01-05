@@ -74,6 +74,9 @@ func _input(event: InputEvent) -> void:
 			else:
 				if not autoaimTimeUp:
 					autoaim = true
+					rightStickGrabbed = false
+					$RightStick/Stick.position = Vector2(0, 0)
+					rightStickAxis = Vector2(0, 0)
 				else:
 					if not deadzoned:
 						shot = true

@@ -7,7 +7,7 @@
 radius = 16.6475
 
 [node name="Bullet" instance=ExtResource( 1 )]
-damage = 30
+damage = 45
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )

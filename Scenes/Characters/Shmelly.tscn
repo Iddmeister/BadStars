@@ -9,7 +9,7 @@ radius = 19.5
 
 [node name="Player" instance=ExtResource( 1 )]
 maxHealth = 450
-moveSpeed = 222
+moveSpeed = 265
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 2, 2 )

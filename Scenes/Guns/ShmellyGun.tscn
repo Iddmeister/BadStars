@@ -6,7 +6,7 @@
 
 [node name="Gun" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-distance = 200
+distance = 320
 
 [node name="Muzzle" parent="." index="0"]
 position = Vector2( 25.59, 0 )

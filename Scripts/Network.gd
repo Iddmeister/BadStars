@@ -129,7 +129,11 @@ func disconnectedFromHost():
 	get_tree().paused = true
 	ObjectPool.clearAllPools()
 	yield(ObjectPool, "poolCleared")
-	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
+	if not Globals.inGame:
+		get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
+	else:
+		get_tree().change_scene("res://Scenes/Screens/DeathScreen.tscn")
+	Globals.inGame = false
 	get_tree().disconnect("connected_to_server", self, "connectedToHost")
 	get_tree().disconnect("connection_failed", self, "disconnectedFromHost")
 	get_tree().disconnect("server_disconnected", self, "disconnectedFromHost")
@@ -170,8 +174,11 @@ func disconnectServer():
 	get_tree().network_peer = null
 	get_tree().disconnect("network_peer_connected", self, "playerConnected")
 	get_tree().disconnect("network_peer_disconnected", self, "playerDisconnected")
-	broadcastTimer.disconnect("timeout", self, "sendBroadcast")
-	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
+	if not Globals.inGame:
+		get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
+	else:
+		get_tree().change_scene("res://Scenes/Screens/DeathScreen.tscn")
+	Globals.inGame = false
 	players = {}
 	get_tree().paused = false
 	pass
