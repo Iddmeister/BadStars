@@ -32,3 +32,8 @@ position = Vector2( 690.287, 332.062 )
 
 [node name="Stick" type="Sprite" parent="SuperStick"]
 texture = ExtResource( 2 )
+
+[node name="AutoaimTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+[connection signal="timeout" from="AutoaimTimer" to="." method="_on_AutoaimTimer_timeout"]

@@ -100,29 +100,41 @@ func actions():
 		
 		if Globals.mobile:
 			
-			if mobileControls.rightStickGrabbed:
-				
-				if gun.canShoot:
-					rpc("aimGun", Globals.rightStickAxis.angle())
-					gun.aim(true)
+			if mobileControls.autoaim:
+				autoaim()
+				mobileControls.autoaim = false
 			else:
-				gun.aim(false)
-				
-			if mobileControls.shot:
-				mobileControls.shot = false
-				shoot()
+			
+				if mobileControls.rightStickGrabbed and not mobileControls.deadzoned:
+					
+					if gun.canShoot:
+						rpc("aimGun", Globals.rightStickAxis.angle())
+						gun.aim(true)
+				else:
+					gun.aim(false)
+					
+				if mobileControls.shot:
+					mobileControls.shot = false
+					shoot()
 			
 		else:
-			if Input.is_action_pressed("shoot"):
-				if gun.canShoot:
-					rpc("aimGun", get_angle_to(get_global_mouse_position()))
-					gun.aim(true)
-		
-			elif Input.is_action_just_released("shoot"):
-				shoot()
-				pass
+			if Input.is_action_just_pressed("autoaim"):
+				autoaim()
 			else:
-				gun.aim(false)
+				if Input.is_action_pressed("shoot"):
+					if gun.canShoot:
+						rpc("aimGun", get_angle_to(get_global_mouse_position()))
+						gun.aim(true)
+			
+				elif Input.is_action_just_released("shoot"):
+					shoot()
+					pass
+				else:
+					gun.aim(false)
+	
+	pass
+	
+func autoaim():
 	
 	pass
 	
