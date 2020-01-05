@@ -6,6 +6,7 @@ var playerScene = preload("res://Scenes/Characters/Clot.tscn")
 var playerObjects = {}
 
 func _ready():
+	set_network_master(1)
 	spawnPlayers()
 	ObjectPool.createPools()
 	setReady()
