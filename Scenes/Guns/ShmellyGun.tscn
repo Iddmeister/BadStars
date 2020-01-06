@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Guns/ShmellyGun.gd" type="Script" id=2]
 [ext_resource path="res://Graphics/Weapons/ShmellyGun.png" type="Texture" id=3]
 
-[node name="Gun" instance=ExtResource( 1 )]
+[node name="Gun" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 distance = 320
 

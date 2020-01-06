@@ -78,10 +78,10 @@ margin_bottom = 133.5
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -20.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
 
 [node name="Disconnect" type="Button" parent="PauseMenu/VBoxContainer"]
 margin_right = 305.0

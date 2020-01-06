@@ -4,10 +4,27 @@ extends Node2D
 var playerObjects = {}
 
 func _ready():
+	set_process(false)
 	set_network_master(1)
 	spawnPlayers()
 	ObjectPool.createPools()
 	setReady()
+	pass
+	
+func _process(delta):
+	
+	if get_tree().is_network_server():
+		var notDead = 0
+		var winner:Node2D
+		for player in get_tree().get_nodes_in_group("Player"):
+			if not player.dead:
+				notDead += 1
+				winner = player
+				
+			if notDead == 1:
+				#print(Network.players[int(winner.name)].name)
+				pass
+	
 	pass
 
 func spawnPlayers():
@@ -47,6 +64,7 @@ func setReady():
 	pass
 	
 remotesync func startGame():
+	set_process(true)
 	get_tree().paused = false
 	
 	for player in get_tree().get_nodes_in_group("Player"):

@@ -7,19 +7,21 @@ export var moveSpeed = 200
 
 export var poolSize = 100
 
-export(Globals.characters) var character = Globals.characters.SHMELLY
+export(Globals.characters) var character = Globals.characters.size()-1
 
 export var gunPath:NodePath = "Gun"
 onready var gun = get_node(gunPath)
 
+var ghostTexture = preload("res://Graphics/Characters/Ghost.png")
 
 var velocity = Vector2()
 
 var mobileControls:Control
 var ui:gameUI
 
+var dead = false
+
 func _ready():
-	Globals.inGame = true
 	pass
 	
 func initialize(id:int):
@@ -27,6 +29,8 @@ func initialize(id:int):
 	name = String(id)
 	
 	add_to_group("Ally"+String(id))
+	
+	$NameTag/CenterContainer/Label.text = Network.players[id].name
 	
 	if is_network_master():
 		$Camera.current = true
@@ -51,9 +55,10 @@ func initialize(id:int):
 func _physics_process(delta):
 	if Network.gameStarted:
 	
+		if not dead:
+			actions()
 		movement()
-		actions()
-		
+			
 	
 	pass
 	
@@ -192,13 +197,11 @@ remotesync func hit(damage:int, id:int, super=false):
 		
 remotesync func die():
 	
-	visible = false
+	modulate = Color(1, 1, 1, 0.7)
 	$CollisionShape2D.set_deferred("disabled", true)
-	
-	if is_network_master():
-		print("You Dead Boi")
-		Network.disconnectedFromHost()
-		get_tree().change_scene("res://Scenes/Screens/DeathScreen.tscn")
+	$Sprite.texture = ghostTexture
+	dead = true
+	gun.visible = false
 	
 	pass
 	

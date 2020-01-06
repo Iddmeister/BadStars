@@ -1,11 +1,19 @@
 extends Control
 
+var currentCharacter = 0
+
+var characters = {
+	
+	Globals.characters.SHMELLY:{"icon":"res://Graphics/Characters/Shmelly.png", "info":"Schmelly: Faster Than Light but generally bad"},
+	Globals.characters.CLOT:{"icon":"res://Graphics/Characters/Clot.png", "info":"Clot: Has red hair"},
+	Globals.characters.SALMON:{"icon":"res://Graphics/Characters/Salmon.png", "info":"Salmon: ..."},
+	
+	}
+
 func _ready():
+	Network.playerInfo.name = Data.data.playerName
 	$CenterContainer/Options/PlayerName.text = Network.playerInfo.name
-	if Network.playerInfo.character == Globals.characters.CLOT:
-		$CenterContainer/Options/Character.selected = 1
-	else:
-		$CenterContainer/Options/Character.selected = 0
+	setCharacter(characters.keys()[currentCharacter])
 	pass
 
 
@@ -22,10 +30,37 @@ func _on_Host_Game_pressed():
 
 func _on_PlayerName_text_changed(new_text):
 	Network.playerInfo.name = new_text
+	Data.data.playerName = new_text
+	Data.saveData()
 
 
-func _on_Character_item_selected(ID):
-	if ID == 0:
-		Network.playerInfo.character = Globals.characters.SHMELLY
-	elif ID == 1:
-		Network.playerInfo.character = Globals.characters.CLOT
+
+
+func _on_DirectConnect_pressed():
+	Network.join($VBoxContainer/VBoxContainer/IP.text)
+	
+func setCharacter(key):
+	
+	$CenterContainer/Options/CharacterSelect/HBoxContainer/Image.texture = load(characters[key].icon)
+	$CenterContainer/Options/CharacterSelect/CharacterInfo.text = characters[key].info
+	Network.playerInfo.character = key
+	
+	pass
+
+
+func _on_Left_pressed():
+	if not currentCharacter == 0:
+		
+		currentCharacter-=1
+		setCharacter(characters.keys()[currentCharacter])
+		
+		pass
+
+
+func _on_Right_pressed():
+	if not currentCharacter == characters.keys().size()-1:
+		
+		currentCharacter+=1
+		setCharacter(characters.keys()[currentCharacter])
+		
+		pass

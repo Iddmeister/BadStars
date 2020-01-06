@@ -1,16 +1,15 @@
 extends Node
 
-enum characters {CLOT, YEETA, SHMELLY}
+enum characters {CLOT, YEETA, SHMELLY, SALMON}
 
 var mobile = false
-
-var inGame = false
 
 var characterInfo = {
 	
 	characters.CLOT:{"poolSize":40, "bulletPath":"res://Scenes/Bullets/ClotBullet.tscn", "playerPath":"res://Scenes/Characters/Clot.tscn"},
 	characters.SHMELLY:{"poolSize":50, "bulletPath":"res://Scenes/Bullets/ShmellyBullet.tscn", "playerPath":"res://Scenes/Characters/Shmelly.tscn"},
 	characters.YEETA:{"poolSize":30, "bulletPath":"res://Scenes/Bullets/Bullet.tscn"},
+	characters.SALMON:{"poolSize":10, "bulletPath":"res://Scenes/Bullets/UnoCard.tscn", "playerPath":"res://Scenes/Characters/Salmon.tscn"}
 	
 	}
 	

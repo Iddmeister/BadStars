@@ -7,8 +7,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 19.3874
 
-[node name="Player" index="0" instance=ExtResource( 1 )]
-character = 0
+[node name="Player" instance=ExtResource( 1 )]
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 2, 2 )
@@ -19,3 +18,9 @@ position = Vector2( 0, 15.673 )
 shape = SubResource( 1 )
 
 [node name="Gun" parent="." index="4" instance=ExtResource( 3 )]
+
+[node name="NameTag" parent="." index="6"]
+margin_left = -49.9738
+margin_top = 42.2464
+margin_right = 50.0262
+margin_bottom = 56.2464

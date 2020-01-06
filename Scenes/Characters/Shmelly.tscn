@@ -10,6 +10,7 @@ radius = 19.5
 [node name="Player" instance=ExtResource( 1 )]
 maxHealth = 450
 moveSpeed = 265
+character = 2
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 2, 2 )
@@ -21,3 +22,9 @@ shape = SubResource( 1 )
 
 [node name="Gun" parent="." index="5" instance=ExtResource( 3 )]
 poolSize = 200
+
+[node name="NameTag" parent="." index="6"]
+margin_left = -50.6182
+margin_top = 40.1129
+margin_right = 49.3818
+margin_bottom = 54.1129
