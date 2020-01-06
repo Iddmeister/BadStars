@@ -28,6 +28,7 @@ _global_script_class_icons={
 
 config/name="Bad Stars"
 run/main_scene="res://Scenes/Screens/MainMenu.tscn"
+boot_splash/image="res://Graphics/UI/LoadingScreen.png"
 config/icon="res://Graphics/Icons/192x192Icon.png"
 
 [autoload]

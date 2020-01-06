@@ -11,6 +11,7 @@ margin_top = 18.6396
 margin_right = -21.3604
 margin_bottom = -21.3604
 script = ExtResource( 1 )
+deadZoneRadius = 45
 
 [node name="LeftStick" type="Node2D" parent="."]
 modulate = Color( 1, 1, 1, 0.4 )
