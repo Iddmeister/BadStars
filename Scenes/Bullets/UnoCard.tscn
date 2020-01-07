@@ -8,7 +8,7 @@ extents = Vector2( 20, 30 )
 
 [node name="Bullet" instance=ExtResource( 1 )]
 speed = 700
-damage = 100
+damage = 300
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 9.53674e-07, 0 )

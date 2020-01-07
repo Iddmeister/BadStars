@@ -7,10 +7,10 @@ export var moveSpeed = 200
 
 export var poolSize = 100
 
-export(Globals.characters) var character = Globals.characters.size()-1
+export(Globals.characters) var character = 0
 
-export var gunPath:NodePath = "Gun"
-onready var gun = get_node(gunPath)
+export var weaponPath:NodePath = "Gun"
+onready var weapon = get_node(weaponPath)
 
 var ghostTexture = preload("res://Graphics/Characters/Ghost.png")
 
@@ -44,9 +44,9 @@ func initialize(id:int):
 		ui = uiScene.instance()
 		$UI.add_child(ui)
 		
-		ui.setupUI(maxHealth, gun.maxAmmo)
+		ui.setupUI(maxHealth, weapon.maxAmmo)
 		
-		gun.connect("reloaded", ui, "setAmmo")
+		weapon.connect("reloaded", ui, "setAmmo")
 		
 	else:
 		pass
@@ -108,17 +108,17 @@ func actions():
 			
 			if mobileControls.autoaim:
 				autoaim()
-				gun.aim(false)
+				weapon.aim(false)
 				mobileControls.autoaim = false
 			else:
 			
 				if mobileControls.rightStickGrabbed and not mobileControls.deadzoned:
 					
-					if gun.canShoot:
+					if weapon.canShoot:
 						rpc("aimGun", Globals.rightStickAxis.angle())
-						gun.aim(true)
+						weapon.aim(true)
 				else:
-					gun.aim(false)
+					weapon.aim(false)
 					
 				if mobileControls.shot:
 					mobileControls.shot = false
@@ -129,21 +129,21 @@ func actions():
 				autoaim()
 			else:
 				if Input.is_action_pressed("shoot"):
-					if gun.canShoot:
+					if weapon.canShoot:
 						rpc("aimGun", get_angle_to(get_global_mouse_position()))
-						gun.aim(true)
+						weapon.aim(true)
 			
 				elif Input.is_action_just_released("shoot"):
 					shoot()
 					pass
 				else:
-					gun.aim(false)
+					weapon.aim(false)
 	
 	pass
 	
 func autoaim():
 	
-	gun.aim(false)
+	weapon.aim(false)
 	
 	var closestBody:Node2D
 	
@@ -167,14 +167,14 @@ func autoaim():
 	
 func shoot():
 	
-	if gun.canShoot and not gun.ammo <= 0:
-		gun.rpc("shoot", get_tree().get_network_unique_id(), ObjectPool.getAvailableObjectIndex(ObjectPool.pools[get_tree().get_network_unique_id()].bullets))
-		gun.ammo -= 1
-		ui.setAmmo(gun.ammo)
-		gun.get_node("Cooldown").start()
-		gun.canShoot = false
-		if gun.get_node("Reload").is_stopped():
-			gun.get_node("Reload").start()
+	if weapon.canShoot and not weapon.ammo <= 0:
+		weapon.rpc("shoot", get_tree().get_network_unique_id(), ObjectPool.getAvailableObjectIndex(ObjectPool.pools[get_tree().get_network_unique_id()].bullets))
+		weapon.ammo -= 1
+		ui.setAmmo(weapon.ammo)
+		weapon.get_node("Cooldown").start()
+		weapon.canShoot = false
+		if weapon.get_node("Reload").is_stopped():
+			weapon.get_node("Reload").start()
 		
 	pass
 	
@@ -198,10 +198,12 @@ remotesync func hit(damage:int, id:int, super=false):
 remotesync func die():
 	
 	modulate = Color(1, 1, 1, 0.7)
+	$Sprite.scale = Vector2(2, 2)
+	$Sprite.rotation = 0
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Sprite.texture = ghostTexture
 	dead = true
-	gun.visible = false
+	weapon.visible = false
 	
 	pass
 	
@@ -209,7 +211,7 @@ remotesync func die():
 	
 	
 remotesync func aimGun(direction:float):
-	gun.global_rotation = direction
+	weapon.global_rotation = direction
 	pass
 	
 	

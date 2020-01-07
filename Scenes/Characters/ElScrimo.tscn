@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Graphics/Characters/ElScrimo.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Melee/Fists.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 28.9633
+
+[node name="Player" instance=ExtResource( 1 )]
+maxHealth = 500
+moveSpeed = 230
+character = 4
+weaponPath = NodePath("Melee")
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 1.12734, 6.3791 )
+shape = SubResource( 1 )
+
+[node name="Melee" parent="." index="6" instance=ExtResource( 3 )]
+
+[node name="AimLine" parent="Melee" index="2"]
+default_color = Color( 1, 1, 1, 0.705882 )
+
+[editable path="Melee"]

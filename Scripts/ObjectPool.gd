@@ -19,18 +19,20 @@ func createPools():
 		pools[int(player)] = {}
 		pools[int(player)]["bullets"] = []
 		
-		var Bullet = load(Globals.characterInfo[Network.players[player].character].bulletPath)
 		
-		for num in range(Globals.characterInfo[Network.players[player].character].poolSize):
+		if not Globals.characterInfo[Network.players[player].character].poolSize == 0:
+			var Bullet = load(Globals.characterInfo[Network.players[player].character].bulletPath)
 			
-			var b = Bullet.instance()
-			b.name = String(player) + String(num)
-			b.id = player
-			b.disable()
-			pools[int(player)].bullets.append(b)
-			allObjects.add_child(b)
-			
-			pass
+			for num in range(Globals.characterInfo[Network.players[player].character].poolSize):
+				
+				var b = Bullet.instance()
+				b.name = String(player) + String(num)
+				b.id = player
+				b.disable()
+				pools[int(player)].bullets.append(b)
+				allObjects.add_child(b)
+				
+				pass
 		
 		pass
 	
