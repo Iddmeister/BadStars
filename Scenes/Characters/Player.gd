@@ -5,8 +5,6 @@ onready var health = maxHealth
 
 export var moveSpeed = 200
 
-export(Globals.characters) var character = 0
-
 export var weaponPath:NodePath = "Gun"
 onready var weapon = get_node(weaponPath)
 

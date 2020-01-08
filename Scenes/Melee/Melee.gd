@@ -4,8 +4,6 @@ class_name Melee
 
 signal reloaded(ammo)
 
-export var poolSize = 100
-
 export var maxAmmo = 3
 export var distance = 1000
 export var damage = 50

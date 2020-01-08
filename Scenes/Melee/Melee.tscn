@@ -20,6 +20,7 @@ z_index = 5
 z_as_relative = false
 width = 20.0
 default_color = Color( 1, 1, 1, 0.705882 )
+texture_mode = 1
 __meta__ = {
 "_edit_lock_": true
 }
