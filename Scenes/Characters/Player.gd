@@ -5,8 +5,6 @@ onready var health = maxHealth
 
 export var moveSpeed = 200
 
-export var poolSize = 100
-
 export(Globals.characters) var character = 0
 
 export var weaponPath:NodePath = "Gun"

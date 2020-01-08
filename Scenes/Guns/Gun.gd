@@ -5,8 +5,6 @@ class_name Gun
 signal reloaded(ammo)
 
 
-export var poolSize = 100
-
 export var maxAmmo = 3
 export var distance = 1000
 onready var ammo = maxAmmo
