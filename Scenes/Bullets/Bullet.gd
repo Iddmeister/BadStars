@@ -70,6 +70,9 @@ func _on_Bullet_body_entered(body):
 			if body.is_in_group("Shootable"):
 				if not body.is_in_group("Ally"+String(id)):
 					body.rpc("hit", damage, id)
+					if body.is_in_group("Player"):
+						get_tree().get_nodes_in_group("Player")[get_tree().get_nodes_in_group("Player").find(id)].rpc("didDamage", damage)
+						pass
 					rpc("destroy")
 			else:
 				rpc("destroy")

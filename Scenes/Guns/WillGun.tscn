@@ -8,6 +8,3 @@ script = ExtResource( 2 )
 maxAmmo = 5
 distance = 400
 spread = 15
-
-[node name="Reload" parent="." index="2"]
-wait_time = 1.5

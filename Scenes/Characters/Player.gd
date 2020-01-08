@@ -6,7 +6,9 @@ onready var health = maxHealth
 export var moveSpeed = 200
 
 export var weaponPath:NodePath = "Gun"
+export var superPath:NodePath = "Super"
 onready var weapon = get_node(weaponPath)
+onready var super = get_node(superPath)
 
 var ghostTexture = preload("res://Graphics/Characters/Ghost.png")
 
@@ -174,7 +176,12 @@ func shoot():
 		
 	pass
 	
-remotesync func hit(damage:int, id:int, super=false):
+master func didDamage(damage:int):
+	print("Did Damage")
+	super.addCharge(damage)
+	pass
+	
+remotesync func hit(damage:int, id:int, isSuper=false):
 	
 	health -= damage
 	if is_network_master():
