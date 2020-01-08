@@ -4,7 +4,7 @@
 [ext_resource path="res://Graphics/icon.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 30.7225
+radius = 8.84015
 
 [node name="Bullet" type="Area2D" groups=[
 "Bullet",
