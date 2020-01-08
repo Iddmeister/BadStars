@@ -177,7 +177,6 @@ func shoot():
 	pass
 	
 master func didDamage(damage:int):
-	print("Did Damage")
 	super.addCharge(damage)
 	pass
 	

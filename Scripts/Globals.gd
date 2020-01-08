@@ -19,6 +19,7 @@ var characterInfo = {
 	
 var leftStickAxis = Vector2()
 var rightStickAxis = Vector2()
+var superStickAxis = Vector2()
 
 func _ready() -> void:
 	

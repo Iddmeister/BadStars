@@ -1,6 +1,7 @@
 extends Control
 
 export var joystickRadius = 100
+export var superStickRadius = 70
 export var deadZoneRadius = 30
 
 export var LbufferTouch = 0
@@ -11,15 +12,27 @@ var rightStickGrabbed = false
 var superGrabbed = false
 
 var shot = false
+var superShot = false
 var autoaim = false
 var deadzoned = false
+
+var showSuperVar = false
 
 var autoaimTimeUp = true
 
 var leftStickAxis = Vector2()
 var rightStickAxis = Vector2()
+var superStickAxis = Vector2()
 
 func _ready():
+	pass
+	
+func showSuper(val:bool):
+	
+	showSuperVar = val
+	update()
+	$SuperStick.visible = val
+	
 	pass
 	
 func _draw() -> void:
@@ -27,11 +40,15 @@ func _draw() -> void:
 	draw_circle($LeftStick.position, joystickRadius, Color(0.5, 1, 0, 0.7))
 	draw_circle($RightStick.position, joystickRadius, Color(1, 0, 0.2, 0.7))
 	draw_circle($RightStick.position, deadZoneRadius, Color(1, 0, 0.2, 0.7))
+	if showSuperVar:
+		draw_circle($SuperStick.position, superStickRadius, Color(1, 1, 0, 0.7))
+		draw_circle($SuperStick.position, deadZoneRadius, Color(1, 1, 0, 0.7))
 	
 func _process(delta: float) -> void:
 	
 	Globals.rightStickAxis = rightStickAxis
 	Globals.leftStickAxis = leftStickAxis
+	Globals.superStickAxis = superStickAxis
 	
 	pass
 	
@@ -42,7 +59,7 @@ func _input(event: InputEvent) -> void:
 	else:
 		LbufferTouch = 0
 		
-	if rightStickGrabbed:
+	if rightStickGrabbed or superGrabbed:
 		RbufferTouch = 1000
 	else:
 		RbufferTouch = 0
@@ -83,6 +100,21 @@ func _input(event: InputEvent) -> void:
 					rightStickGrabbed = false
 					$RightStick/Stick.position = Vector2(0, 0)
 					rightStickAxis = Vector2(0, 0)
+					
+		if ((event.position - $SuperStick.global_position).length() <= superStickRadius+RbufferTouch):
+			
+			
+			if event.is_pressed():
+				deadzoned = false
+				superStickAxis = (event.position - $SuperStick.global_position).normalized()
+				superGrabbed = true
+				
+			else:
+				if not deadzoned:
+					superShot = true
+				superGrabbed = false
+				$SuperStick/Stick.position = Vector2(0, 0)
+				superStickAxis = Vector2(0, 0)
 				
 	
 	elif event is InputEventScreenDrag:
@@ -101,6 +133,17 @@ func _input(event: InputEvent) -> void:
 			rightStickAxis = (event.position - $RightStick.global_position).normalized()
 			
 			if (event.position - $RightStick.global_position).length() > deadZoneRadius:
+				deadzoned = false
+			else:
+				deadzoned = true
+				
+		if ((event.position - $SuperStick.global_position).length() <= superStickRadius+RbufferTouch and superGrabbed):
+			
+			
+			$SuperStick/Stick.position = (event.position - $SuperStick.global_position).clamped(superStickRadius)
+			superStickAxis = (event.position - $SuperStick.global_position).normalized()
+			
+			if (event.position - $SuperStick.global_position).length() > deadZoneRadius:
 				deadzoned = false
 			else:
 				deadzoned = true

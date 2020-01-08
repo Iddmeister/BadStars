@@ -1,9 +1,11 @@
 extends Node2D
 
+signal charged()
+
 export var maxCharge = 100
 export var damageMultiplier:float = 1
-onready var charge = 0 setget setCharge
-var charged = false setget setCharged
+onready var charge = 0
+var charged = false
 
 func _ready():
 	pass
@@ -15,19 +17,11 @@ func addCharge(damage:int):
 	if charge >= maxCharge:
 		
 		charge = maxCharge
-		charged = true
+		if not charged:
+			charged = true
+			emit_signal("charged")
 		
 		pass
 	
 	pass
-	
-func setCharged(c:bool):
-	
-	charged = c
-	print("Super Charged")
-	
-	pass
-	
-func setCharge(c:int):
-	charge = c
-	pass
+
