@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Graphics/Characters/Clot.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Guns/ClotGun.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Supers/Super.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Supers/ClotSuper.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 19.3874

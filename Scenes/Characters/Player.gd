@@ -42,9 +42,11 @@ func initialize(id:int):
 		ui = uiScene.instance()
 		$UI.add_child(ui)
 		
-		ui.setupUI(maxHealth, weapon.maxAmmo)
+		ui.setupUI(maxHealth, weapon.maxAmmo, super.maxCharge)
 		
 		weapon.connect("reloaded", ui, "setAmmo")
+		if Globals.mobile:
+			super.connect("charged", mobileControls, "showSuper")
 		
 	else:
 		pass
@@ -70,6 +72,7 @@ func movement():
 		if Globals.mobile:
 			
 			dir = Globals.leftStickAxis
+			
 			
 		else:
 			
@@ -121,6 +124,17 @@ func actions():
 				if mobileControls.shot:
 					mobileControls.shot = false
 					shoot()
+					
+			if super.charged:
+				if mobileControls.superGrabbed and not mobileControls.deadZoned:
+					super.rpc("aim", Globals.superStickAxis.angle())
+					super.aimVisible(true)
+				elif mobileControls.superShot:
+					super.use(get_tree().get_network_unique_id())
+					super.aimVisible(false)
+				else:
+					super.aimVisible(false)
+					
 			
 		else:
 			if Input.is_action_just_pressed("autoaim"):
@@ -136,6 +150,16 @@ func actions():
 					pass
 				else:
 					weapon.aim(false)
+					
+			if super.charged:
+				if Input.is_action_pressed("super"):
+					super.rpc("aim", get_angle_to(get_global_mouse_position()))
+					super.aimVisible(true)
+				elif Input.is_action_just_released("super"):
+					super.use(get_tree().get_network_unique_id())
+					super.aimVisible(false)
+				else:
+					super.aimVisible(false)
 	
 	pass
 	
@@ -178,6 +202,7 @@ func shoot():
 	
 master func didDamage(damage:int):
 	super.addCharge(damage)
+	ui.setSuperCharge(super.charge)
 	pass
 	
 remotesync func hit(damage:int, id:int, isSuper=false):

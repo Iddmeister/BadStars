@@ -7,7 +7,7 @@ func _ready():
 	
 master func hit(damage:int, id:int, destroy=false):
 	if destroy:
-		destroy()
+		rpc("destroy")
 		pass
 	
 	pass
