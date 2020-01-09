@@ -9,6 +9,7 @@ radius = 244.002
 
 [node name="Super" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+damageMultiplier = 0.2
 
 [node name="Range" type="Area2D" parent="." index="0"]
 collision_layer = 2

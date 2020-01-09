@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Graphics/Characters/Salmon.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Guns/UnoCards.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Supers/SalmonSuper.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.6206
@@ -14,7 +15,6 @@ bg_color = Color( 0, 0, 0, 1 )
 [node name="Player" index="0" instance=ExtResource( 1 )]
 maxHealth = 300
 moveSpeed = 185
-character = 3
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( -3.50816, 1.12221 )
@@ -31,3 +31,5 @@ shape = SubResource( 1 )
 margin_top = 74.4694
 margin_bottom = 88.4694
 custom_styles/panel = SubResource( 2 )
+
+[node name="Super" parent="." index="7" instance=ExtResource( 4 )]
