@@ -1,6 +1,5 @@
 extends Node
 
-
 enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL}
 
 var mobile = false

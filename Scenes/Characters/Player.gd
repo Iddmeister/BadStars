@@ -126,14 +126,15 @@ func actions():
 					shoot()
 					
 			if super.charged:
-				if mobileControls.superGrabbed and not mobileControls.deadZoned:
+				if mobileControls.superGrabbed:# and not mobileControls.deadZoned:
 					super.rpc("aim", Globals.superStickAxis.angle())
 					super.aimVisible(true)
-				elif mobileControls.superShot:
-					super.use(get_tree().get_network_unique_id())
-					super.aimVisible(false)
 				else:
 					super.aimVisible(false)
+					
+				if mobileControls.superShot:
+					super.use(get_tree().get_network_unique_id())
+					mobileControls.superShot = false
 					
 			
 		else:

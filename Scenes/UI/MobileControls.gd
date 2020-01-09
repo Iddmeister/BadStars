@@ -6,6 +6,7 @@ export var deadZoneRadius = 30
 
 export var LbufferTouch = 0
 export var RbufferTouch = 0
+export var SuperBuffer = 0
 
 var leftStickGrabbed = false
 var rightStickGrabbed = false
@@ -59,13 +60,18 @@ func _input(event: InputEvent) -> void:
 	else:
 		LbufferTouch = 0
 		
-	if rightStickGrabbed or superGrabbed:
+	if rightStickGrabbed:
 		RbufferTouch = 1000
 	else:
 		RbufferTouch = 0
 		
+	if superGrabbed:
+		SuperBuffer = 1000
+	else:
+		SuperBuffer = 0
+		
 	
-	if event is InputEventScreenTouch:
+	if event is InputEventScreenTouch or event is InputEventMouseButton:
 		
 		if ((event.position - $LeftStick.global_position).length() <= joystickRadius+LbufferTouch) and event.position.x <= 512:
 			
@@ -78,7 +84,7 @@ func _input(event: InputEvent) -> void:
 				leftStickAxis = Vector2(0, 0)
 					
 				
-		if ((event.position - $RightStick.global_position).length() <= joystickRadius+RbufferTouch) and event.position.x > 512:
+		if ((event.position - $RightStick.global_position).length() <= joystickRadius+RbufferTouch) and event.position.x > 512 and not superGrabbed:
 			
 			
 			if event.is_pressed():
@@ -101,7 +107,7 @@ func _input(event: InputEvent) -> void:
 					$RightStick/Stick.position = Vector2(0, 0)
 					rightStickAxis = Vector2(0, 0)
 					
-		if ((event.position - $SuperStick.global_position).length() <= superStickRadius+RbufferTouch):
+		if ((event.position - $SuperStick.global_position).length() <= superStickRadius+SuperBuffer) and not rightStickGrabbed:
 			
 			
 			if event.is_pressed():
@@ -117,7 +123,7 @@ func _input(event: InputEvent) -> void:
 				superStickAxis = Vector2(0, 0)
 				
 	
-	elif event is InputEventScreenDrag:
+	elif event is InputEventScreenDrag or event is InputEventMouseMotion:
 		
 		if ((event.position - $LeftStick.global_position).length() <= joystickRadius+LbufferTouch and leftStickGrabbed) and event.position.x <= 512:
 		
@@ -126,18 +132,18 @@ func _input(event: InputEvent) -> void:
 
 			
 		
-		if ((event.position - $RightStick.global_position).length() <= joystickRadius+RbufferTouch and rightStickGrabbed) and event.position.x > 512:
-			
-			
+		if ((event.position - $RightStick.global_position).length() <= joystickRadius+RbufferTouch and rightStickGrabbed) and event.position.x > 512 and not superGrabbed:
+
+
 			$RightStick/Stick.position = (event.position - $RightStick.global_position).clamped(joystickRadius)
 			rightStickAxis = (event.position - $RightStick.global_position).normalized()
-			
+
 			if (event.position - $RightStick.global_position).length() > deadZoneRadius:
 				deadzoned = false
 			else:
 				deadzoned = true
 				
-		if ((event.position - $SuperStick.global_position).length() <= superStickRadius+RbufferTouch and superGrabbed):
+		if ((event.position - $SuperStick.global_position).length() <= superStickRadius+SuperBuffer and superGrabbed and not rightStickGrabbed):
 			
 			
 			$SuperStick/Stick.position = (event.position - $SuperStick.global_position).clamped(superStickRadius)
