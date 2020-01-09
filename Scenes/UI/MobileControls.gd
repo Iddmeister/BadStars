@@ -66,7 +66,7 @@ func _input(event: InputEvent) -> void:
 		RbufferTouch = 0
 		
 	if superGrabbed:
-		SuperBuffer = 1000
+		SuperBuffer = 300
 	else:
 		SuperBuffer = 0
 		
@@ -107,7 +107,7 @@ func _input(event: InputEvent) -> void:
 					$RightStick/Stick.position = Vector2(0, 0)
 					rightStickAxis = Vector2(0, 0)
 					
-		if ((event.position - $SuperStick.global_position).length() <= superStickRadius+SuperBuffer) and not rightStickGrabbed:
+		if ((event.position - $SuperStick.global_position).length() <= superStickRadius+SuperBuffer) and not rightStickGrabbed and event.position.x > 400:
 			
 			
 			if event.is_pressed():
@@ -143,7 +143,7 @@ func _input(event: InputEvent) -> void:
 			else:
 				deadzoned = true
 				
-		if ((event.position - $SuperStick.global_position).length() <= superStickRadius+SuperBuffer and superGrabbed and not rightStickGrabbed):
+		if ((event.position - $SuperStick.global_position).length() <= superStickRadius+SuperBuffer and superGrabbed and not rightStickGrabbed ):
 			
 			
 			$SuperStick/Stick.position = (event.position - $SuperStick.global_position).clamped(superStickRadius)

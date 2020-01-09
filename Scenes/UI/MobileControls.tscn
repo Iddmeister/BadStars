@@ -28,6 +28,7 @@ position = Vector2( 810, 396 )
 texture = ExtResource( 2 )
 
 [node name="SuperStick" type="Node2D" parent="."]
+visible = false
 position = Vector2( 650.224, 301.046 )
 
 [node name="Stick" type="Sprite" parent="SuperStick"]
