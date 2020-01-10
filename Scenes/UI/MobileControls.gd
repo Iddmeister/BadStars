@@ -24,6 +24,7 @@ var autoaimTimeUp = true
 var leftStickAxis = Vector2()
 var rightStickAxis = Vector2()
 var superStickAxis = Vector2()
+var released = true
 
 func _ready():
 	pass
@@ -54,6 +55,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func _input(event: InputEvent) -> void:
+	
 	
 	if leftStickGrabbed:
 		LbufferTouch = 1000
@@ -101,26 +103,34 @@ func _input(event: InputEvent) -> void:
 					$RightStick/Stick.position = Vector2(0, 0)
 					rightStickAxis = Vector2(0, 0)
 				else:
-					if not deadzoned:
-						shot = true
-					rightStickGrabbed = false
-					$RightStick/Stick.position = Vector2(0, 0)
-					rightStickAxis = Vector2(0, 0)
+					if released:
+						$Release.start()
+						released = false
+						if not deadzoned:
+							shot = true
+						rightStickGrabbed = false
+						$RightStick/Stick.position = Vector2(0, 0)
+						rightStickAxis = Vector2(0, 0)
 					
-		if ((event.position - $SuperStick.global_position).length() <= superStickRadius+SuperBuffer) and not rightStickGrabbed and event.position.x > 400:
-			
-			
-			if event.is_pressed():
-				deadzoned = false
-				superStickAxis = (event.position - $SuperStick.global_position).normalized()
-				superGrabbed = true
+		if showSuperVar:
+					
+			if ((event.position - $SuperStick.global_position).length() <= superStickRadius+SuperBuffer) and not rightStickGrabbed and event.position.x > 400:
 				
-			else:
-				if not deadzoned:
-					superShot = true
-				superGrabbed = false
-				$SuperStick/Stick.position = Vector2(0, 0)
-				superStickAxis = Vector2(0, 0)
+				
+				if event.is_pressed():
+					deadzoned = false
+					superStickAxis = (event.position - $SuperStick.global_position).normalized()
+					superGrabbed = true
+					
+				else:
+					if released:
+						$Release.start()
+						released = false
+						if not deadzoned:
+							superShot = true
+						superGrabbed = false
+						$SuperStick/Stick.position = Vector2(0, 0)
+						superStickAxis = Vector2(0, 0)
 				
 	
 	elif event is InputEventScreenDrag or event is InputEventMouseMotion:
@@ -143,16 +153,18 @@ func _input(event: InputEvent) -> void:
 			else:
 				deadzoned = true
 				
-		if ((event.position - $SuperStick.global_position).length() <= superStickRadius+SuperBuffer and superGrabbed and not rightStickGrabbed ):
-			
-			
-			$SuperStick/Stick.position = (event.position - $SuperStick.global_position).clamped(superStickRadius)
-			superStickAxis = (event.position - $SuperStick.global_position).normalized()
-			
-			if (event.position - $SuperStick.global_position).length() > deadZoneRadius:
-				deadzoned = false
-			else:
-				deadzoned = true
+		if showSuperVar:
+				
+			if ((event.position - $SuperStick.global_position).length() <= superStickRadius+SuperBuffer and superGrabbed and not rightStickGrabbed ):
+				
+				
+				$SuperStick/Stick.position = (event.position - $SuperStick.global_position).clamped(superStickRadius)
+				superStickAxis = (event.position - $SuperStick.global_position).normalized()
+				
+				if (event.position - $SuperStick.global_position).length() > deadZoneRadius:
+					deadzoned = false
+				else:
+					deadzoned = true
 				
 
 		
@@ -163,3 +175,7 @@ func _input(event: InputEvent) -> void:
 
 func _on_AutoaimTimer_timeout() -> void:
 	autoaimTimeUp = true
+
+
+func _on_Release_timeout():
+	released = true

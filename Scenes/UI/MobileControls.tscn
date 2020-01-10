@@ -37,4 +37,9 @@ texture = ExtResource( 2 )
 [node name="AutoaimTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Release" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
 [connection signal="timeout" from="AutoaimTimer" to="." method="_on_AutoaimTimer_timeout"]
+[connection signal="timeout" from="Release" to="." method="_on_Release_timeout"]
