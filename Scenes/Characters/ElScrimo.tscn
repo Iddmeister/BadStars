@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 28.9633
 
-[node name="Player" index="0" instance=ExtResource( 1 )]
+[node name="Player" instance=ExtResource( 1 )]
 maxHealth = 750
 moveSpeed = 230
 weaponPath = NodePath("Melee")
