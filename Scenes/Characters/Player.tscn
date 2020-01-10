@@ -10,8 +10,9 @@ radius = 10.4236
 radius = 644.961
 
 [node name="Player" type="KinematicBody2D" groups=[
-"Player",
 "Shootable",
+"Player",
+"Freezable",
 ]]
 pause_mode = 1
 collision_mask = 4

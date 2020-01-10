@@ -10,8 +10,7 @@ radius = 80.0
 
 [node name="Super" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-maxCharge = 300
-damageMultiplier = 0.5
+maxCharge = 900
 
 [node name="ShieldSprite" type="Sprite" parent="." index="0"]
 visible = false

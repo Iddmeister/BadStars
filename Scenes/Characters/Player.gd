@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal started()
+
 export var maxHealth = 400
 onready var health = maxHealth
 
@@ -18,6 +20,7 @@ var mobileControls:Control
 var ui:gameUI
 
 var dead = false
+var frozen = false
 
 func _ready():
 	pass
@@ -47,6 +50,8 @@ func initialize(id:int):
 		weapon.connect("reloaded", ui, "setAmmo")
 		if Globals.mobile:
 			super.connect("charged", mobileControls, "showSuper")
+			
+		emit_signal("started")
 		
 	else:
 		pass
@@ -54,11 +59,12 @@ func initialize(id:int):
 	
 func _physics_process(delta):
 	if Network.gameStarted:
-	
-		if not dead:
-			actions()
-		movement()
-			
+		
+		if not frozen:
+			if not dead:
+				actions()
+			movement()
+				
 	
 	pass
 	
@@ -235,7 +241,11 @@ remotesync func die():
 	
 	pass
 	
+remotesync func freeze(val:bool):
 	
+	frozen = val
+	
+	pass
 	
 	
 remotesync func aimGun(direction:float):

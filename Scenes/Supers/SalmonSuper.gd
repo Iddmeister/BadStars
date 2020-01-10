@@ -16,7 +16,7 @@ func _process(delta):
 				if not area.id == get_parent().get_network_master():
 					
 					area.rpc("destroy")
-					get_tree().get_nodes_in_group("Ally"+String(area.id))[0].hit(area.damage, get_parent().get_network_master())
+					get_tree().get_nodes_in_group("Ally"+String(area.id))[0].rpc("hit", area.damage, get_parent().get_network_master())
 					
 					pass
 			

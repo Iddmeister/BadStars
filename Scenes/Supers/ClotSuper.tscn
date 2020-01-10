@@ -8,7 +8,7 @@ extents = Vector2( 300, 20 )
 
 [node name="Super" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-damageMultiplier = 0.2
+damageMultiplier = 0.3
 
 [node name="AimLine" type="Line2D" parent="." index="0"]
 width = 30.0

@@ -8,6 +8,7 @@ func _ready():
 	set_network_master(1)
 	spawnPlayers()
 	ObjectPool.createPools()
+	Effects.createEffects()
 	setReady()
 	pass
 	
