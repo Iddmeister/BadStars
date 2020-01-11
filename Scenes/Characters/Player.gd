@@ -178,7 +178,7 @@ func autoaim():
 	
 	for body in $AutoaimRange.get_overlapping_bodies():
 		
-		if body.is_in_group("Shootable") and not body.is_in_group("Ally"+String(get_tree().get_network_unique_id())):
+		if body.is_in_group("Autoaim") and not body.is_in_group("Ally"+String(get_tree().get_network_unique_id())):
 			if closestBody:
 				if global_position.distance_to(body.global_position) < global_position.distance_to(closestBody.global_position):
 					closestBody = body

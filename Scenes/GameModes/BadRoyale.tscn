@@ -215,14 +215,37 @@ margin_right = 2144.0
 margin_bottom = 1984.0
 custom_styles/panel = SubResource( 1 )
 
-[node name="Dummy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1888, 1024 )
+[node name="Dummies" type="Node2D" parent="."]
 
-[node name="Dummy2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 320, 1344 )
+[node name="Dummy" parent="Dummies" instance=ExtResource( 4 )]
+position = Vector2( 416, 352 )
 
-[node name="Dummy3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 608, 192 )
+[node name="Dummy2" parent="Dummies" instance=ExtResource( 4 )]
+position = Vector2( 1184, 512 )
 
-[node name="Dummy4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1504, 1696 )
+[node name="Dummy3" parent="Dummies" instance=ExtResource( 4 )]
+position = Vector2( 1568, 128 )
+
+[node name="Dummy4" parent="Dummies" instance=ExtResource( 4 )]
+position = Vector2( 1888, 864 )
+
+[node name="Dummy5" parent="Dummies" instance=ExtResource( 4 )]
+position = Vector2( 1376, 1088 )
+
+[node name="Dummy6" parent="Dummies" instance=ExtResource( 4 )]
+position = Vector2( 1504, 1728 )
+
+[node name="Dummy7" parent="Dummies" instance=ExtResource( 4 )]
+position = Vector2( 704, 1792 )
+
+[node name="Dummy8" parent="Dummies" instance=ExtResource( 4 )]
+position = Vector2( 800, 1408 )
+
+[node name="Dummy11" parent="Dummies" instance=ExtResource( 4 )]
+position = Vector2( 1312, 1472 )
+
+[node name="Dummy9" parent="Dummies" instance=ExtResource( 4 )]
+position = Vector2( 192, 1344 )
+
+[node name="Dummy10" parent="Dummies" instance=ExtResource( 4 )]
+position = Vector2( 416, 736 )
