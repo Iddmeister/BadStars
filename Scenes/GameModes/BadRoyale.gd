@@ -8,6 +8,7 @@ func _ready():
 	set_network_master(1)
 	spawnPlayers()
 	ObjectPool.createPools()
+	Effects.createEffects()
 	setReady()
 	pass
 	
@@ -68,8 +69,9 @@ remotesync func startGame():
 	get_tree().paused = false
 	
 	for player in get_tree().get_nodes_in_group("Player"):
-		player.initialize(int(player.name))
-		playerObjects[player.name] = player
+		if player.has_method("initialize"):
+			player.initialize(int(player.name))
+			playerObjects[player.name] = player
 		
 	if get_tree().is_network_server():
 		placePlayers()

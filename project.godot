@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "Effect",
+"language": "GDScript",
+"path": "res://Scenes/Effects/Effect.gd"
+}, {
+"base": "Node2D",
 "class": "Gun",
 "language": "GDScript",
 "path": "res://Scenes/Guns/Gun.gd"
@@ -19,14 +24,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Melee/Melee.gd"
 }, {
+"base": "Node2D",
+"class": "Super",
+"language": "GDScript",
+"path": "res://Scenes/Supers/Super.gd"
+}, {
 "base": "Control",
 "class": "gameUI",
 "language": "GDScript",
 "path": "res://Scenes/UI/GameUI.gd"
 } ]
 _global_script_class_icons={
+"Effect": "",
 "Gun": "",
 "Melee": "",
+"Super": "",
 "gameUI": ""
 }
 
@@ -43,6 +55,7 @@ Data="*res://Scripts/Data.gd"
 Globals="*res://Scripts/Globals.gd"
 Network="*res://Scripts/Network.gd"
 ObjectPool="*res://Scripts/ObjectPool.gd"
+Effects="*res://Scenes/Game/Effects.tscn"
 
 [debug]
 

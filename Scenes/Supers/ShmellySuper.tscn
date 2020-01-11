@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Supers/Super.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Supers/ShmellySuper.gd" type="Script" id=2]
+[ext_resource path="res://Graphics/Weapons/ShmellyPoison.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 244.002
+
+[node name="Super" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+damageMultiplier = 0.2
+
+[node name="Range" type="Area2D" parent="." index="0"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range" index="0"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Time" type="Timer" parent="." index="1"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+visible = false
+modulate = Color( 1, 1, 1, 0.670588 )
+scale = Vector2( 15, 15 )
+z_index = -10
+texture = ExtResource( 3 )
+
+[node name="HitDelay" type="Timer" parent="." index="3"]
+wait_time = 0.5
+[connection signal="timeout" from="Time" to="." method="_on_Time_timeout"]
+[connection signal="timeout" from="HitDelay" to="." method="_on_HitDelay_timeout"]

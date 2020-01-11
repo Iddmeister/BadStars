@@ -4,8 +4,6 @@ class_name Melee
 
 signal reloaded(ammo)
 
-export var poolSize = 100
-
 export var maxAmmo = 3
 export var distance = 1000
 export var damage = 50
@@ -24,6 +22,9 @@ remotesync func shoot(id:int, irrelevantPoolIndex:int):
 			if body.is_in_group("Shootable"):
 				if not body.is_in_group("Ally"+String(id)):
 					body.rpc("hit", damage, id)
+					
+					if body.is_in_group("Player") or body.is_in_group("Dummy"):
+						get_tree().get_nodes_in_group("Ally"+String(id))[0].rpc("didDamage", damage)
 		
 		pass
 	

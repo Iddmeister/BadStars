@@ -7,6 +7,7 @@ extents = Vector2( 42, 20 )
 
 [node name="Melee" instance=ExtResource( 1 )]
 distance = 84
+damage = 170
 
 [node name="AimLine" parent="." index="2"]
 texture_mode = 1378093321

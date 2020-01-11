@@ -3,15 +3,15 @@
 [ext_resource path="res://Scenes/Terrain/DestructibleWall.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/Tilesets/DesertTerrain.png" type="Texture" id=2]
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
 region = Rect2( 32, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 96, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 16 )
 
 [node name="DestructibleWall" type="StaticBody2D" groups=[
@@ -21,17 +21,16 @@ z_index = -5
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 1 )
-destroyedTexture = SubResource( 3 )
+destroyedTexture = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = SubResource( 1 )
+texture = SubResource( 5 )
 centered = false
-hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 16, 16 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Bits" type="CPUParticles2D" parent="."]
 position = Vector2( 16, 16 )
