@@ -15,12 +15,9 @@ var canShoot = true
 func _ready():
 	drawAim()
 	$Aim.visible = false
-	$Fist.visible = false
 	pass
 	
 remotesync func shoot(id:int, irrelevantPoolIndex:int):
-	
-	$Animation.play("Punch")
 	
 	if get_tree().is_network_server():
 	

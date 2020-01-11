@@ -14,6 +14,7 @@ var canShoot = true
 
 func _ready():
 	drawAim()
+	$Aim.visible = false
 	pass
 	
 remotesync func shoot(id:int, poolIndex:int):

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Melee/Melee.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Graphics/Weapons/Fist.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Melee/Fists.gd" type="Script" id=2]
+[ext_resource path="res://Graphics/Weapons/Fist.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 30 )
@@ -33,10 +34,8 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[node name="Melee" instance=ExtResource( 1 )]
-distance = 96
-damage = 170
-aimWidth = 60
+[node name="Melee" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="Range" index="0"]
 position = Vector2( 50, 0 )
@@ -45,7 +44,7 @@ shape = SubResource( 1 )
 [node name="Fist" type="Sprite" parent="." index="5"]
 position = Vector2( 20, 0 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Animation" type="AnimationPlayer" parent="." index="6"]
 playback_speed = 5.0
