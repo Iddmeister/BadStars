@@ -20,7 +20,7 @@ remotesync func super(id:int):
 		for body in $Range.get_overlapping_bodies():
 			
 			if body.is_in_group("Player"):
-				if not body == get_parent():
+				if not body.is_in_group("Ally"+String(get_parent().get_network_master())):
 					
 					body.rpc("hit", leechAmount, get_parent().get_network_master())
 					get_parent().health += leechAmount

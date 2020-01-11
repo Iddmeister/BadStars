@@ -2,11 +2,17 @@ extends Super
 
 var frozenBodies = []
 
+var dropped = false
+
 func _ready():
 	pass
 	
+func _physics_process(delta):
+	if not dropped:
+		$Space/FreezeCircle.global_position = global_position
+	
 remotesync func super(id:int):
-	rpc("enableFreeze", true)
+	enableFreeze(true)
 	pass
 	
 remotesync func aim(dir:float):
@@ -28,11 +34,12 @@ remotesync func enableFreeze(val:bool):
 		$Space/FreezeCircle/Sprite.visible = true
 		
 		if get_tree().is_network_server():
-			
+			dropped = true
+			$Space/FreezeCircle/Range.update()
 			for body in $Space/FreezeCircle/Range.get_overlapping_bodies():
 				if body.is_in_group("Freezable"):
 			
-					if not body == get_parent():
+					if not body.is_in_group("Ally"+String(get_parent().get_network_master())):
 					
 						body.rpc("freeze", true)
 						frozenBodies.append(body)
@@ -54,19 +61,9 @@ remotesync func enableFreeze(val:bool):
 	
 	pass
 	
-func freezeBodiesInRange():
-	
-	for body in $Space/FreezeCircle/Range.get_overlapping_bodies():
-		print(body)
-		if body.is_in_group("Freezable"):
-			
-			if not body == get_parent():
-				
-				body.rpc("freeze", true)
-				frozenBodies.append(body)
-				
-				pass
 
 
 func _on_Time_timeout():
+	dropped = false
 	rpc("enableFreeze", false)
+

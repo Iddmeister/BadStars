@@ -42,5 +42,5 @@ func _on_Time_timeout():
 
 func _on_HitDelay_timeout():
 	for body in $Range.get_overlapping_bodies():
-		if not body == get_parent():
+		if not body.is_in_group("Ally"+String(get_parent().get_network_master())):
 			body.rpc("hit", damage, pId, false)

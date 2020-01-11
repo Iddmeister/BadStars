@@ -25,7 +25,7 @@ remotesync func super(id:int):
 		
 		for body in $Laser.get_overlapping_bodies():
 			
-			if not body == get_parent():
+			if not body.is_in_group("Ally"+String(get_parent().get_network_master())):
 				body.rpc("hit", damage, id, true)
 			
 			pass
