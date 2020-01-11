@@ -6,7 +6,7 @@ func _ready():
 	pass
 	
 remotesync func super(id:int):
-	enableFreeze(true)
+	rpc("enableFreeze", true)
 	pass
 	
 remotesync func aim(dir:float):
@@ -28,7 +28,16 @@ remotesync func enableFreeze(val:bool):
 		$Space/FreezeCircle/Sprite.visible = true
 		
 		if get_tree().is_network_server():
-			call_deferred("freezeBodiesInRange")
+			
+			for body in $Space/FreezeCircle/Range.get_overlapping_bodies():
+				if body.is_in_group("Freezable"):
+			
+					if not body == get_parent():
+					
+						body.rpc("freeze", true)
+						frozenBodies.append(body)
+				
+				pass
 			$Time.start()
 			
 	else:
@@ -48,6 +57,7 @@ remotesync func enableFreeze(val:bool):
 func freezeBodiesInRange():
 	
 	for body in $Space/FreezeCircle/Range.get_overlapping_bodies():
+		print(body)
 		if body.is_in_group("Freezable"):
 			
 			if not body == get_parent():

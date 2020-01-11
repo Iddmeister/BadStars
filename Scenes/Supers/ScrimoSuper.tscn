@@ -5,7 +5,7 @@
 [ext_resource path="res://Graphics/Weapons/ScrimoFreeze.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 207.002
+radius = 207.0
 
 [node name="Super" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -26,7 +26,7 @@ z_index = -10
 texture = ExtResource( 3 )
 
 [node name="Range" type="Area2D" parent="Space/FreezeCircle" index="1"]
-collision_layer = 0
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Space/FreezeCircle/Range" index="0"]
 shape = SubResource( 1 )
