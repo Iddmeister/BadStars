@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Bullets/Bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Graphics/Weapons/BALDBULLET.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.6475
+
+[node name="Bullet" index="0" instance=ExtResource( 1 )]
+damage = 45
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( -1.46195, -1.07722 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )

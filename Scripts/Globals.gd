@@ -1,6 +1,6 @@
 extends Node
 
-enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, JOKER}
+enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, JOKER, BALD}
 
 var mobile = false
 
@@ -14,7 +14,8 @@ var characterInfo = {
 	characters.WILL:{"poolSize":70, "bulletPath":"res://Scenes/Bullets/GenieBall.tscn", "playerPath":"res://Scenes/Characters/Will.tscn", "effects":["res://Scenes/Effects/WillTeleport.tscn", "res://Scenes/Effects/WillTeleport.tscn"]},
 	characters.BARREL:{"poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/Barryl.tscn"},
 	characters.POKO: {"poolSize":50, "bulletPath":"Scenes/Bullets/PokoBullet.tscn", "playerPath":"res://Scenes/Characters/Poko.tscn"},
-	characters.JOKER: {"poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/Joker.tscn"}
+	characters.JOKER: {"poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/Joker.tscn"},
+  characters.BALD:{"poolSize":45, "bulletPath":"res://Scenes/Bullets/BALDBULLET.tscn", "playerPath":"res://Scenes/Characters/BALD.tscn"}
 	}
 	
 var leftStickAxis = Vector2()
