@@ -10,8 +10,10 @@ var characters = {
 	Globals.characters.ELSCRIMO:{"icon":"res://Graphics/Characters/ElScrimo.png", "info":"El Scrimo: REEEEEEEEEEEEEEE"},
 	Globals.characters.WILL:{"icon":"res://Graphics/Characters/WillSmith.png", "info":"Will Smith: Blue"},
 	Globals.characters.BARREL:{"icon":"res://Graphics/Characters/Barryl.png", "info":"Barrel: is barrel"},
-	Globals.characters.POKO:{"icon":"res://Graphics/Characters/Poko.png", "info":"Poko: Buenos Dias"}
-	}
+	Globals.characters.POKO:{"icon":"res://Graphics/Characters/Poko.png", "info":"Poko: Buenos Dias"},
+	Globals.characters.JOKER:{"icon":"res://Graphics/Characters/Joker.png", "info":"Joker: You Wouldn't Get It"}
+	
+}
 
 func _ready():
 	Network.playerInfo.name = Data.data.playerName
