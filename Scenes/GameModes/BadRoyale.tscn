@@ -216,6 +216,7 @@ margin_bottom = 1984.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="Dummies" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Dummy" parent="Dummies" instance=ExtResource( 4 )]
 position = Vector2( 416, 352 )

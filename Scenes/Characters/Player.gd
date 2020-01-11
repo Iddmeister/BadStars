@@ -241,7 +241,7 @@ remotesync func die():
 	
 	pass
 	
-remotesync func freeze(val:bool):
+master func freeze(val:bool):
 	
 	frozen = val
 	
