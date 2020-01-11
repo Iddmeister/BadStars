@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 207.0
 
-[node name="Super" index="0" instance=ExtResource( 1 )]
+[node name="Super" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 damageMultiplier = 0.2
 

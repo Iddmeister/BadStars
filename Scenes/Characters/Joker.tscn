@@ -8,10 +8,10 @@ load_path = "res://.import/Joker.png-46637f28b07d2050c787a2deaa86cab0.stex"
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 15, -20, 10, 20, -5, 20, -10, -20 )
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 radius = 61.7366
 
-[node name="Player" index="0" instance=ExtResource( 1 )]
+[node name="Player" instance=ExtResource( 1 )]
 maxHealth = 200
 moveSpeed = 400
 
@@ -42,6 +42,6 @@ wait_time = 0.33
 
 [node name="CollisionShape2D" parent="Melee/Range" index="0"]
 position = Vector2( 0.210161, 0.805866 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [editable path="Melee"]

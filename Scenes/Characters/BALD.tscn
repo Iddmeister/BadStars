@@ -7,9 +7,8 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 19.5
 
-[node name="Player" instance=ExtResource( 1 )]
+[node name="Player" index="0" instance=ExtResource( 1 )]
 maxHealth = 450
-character = 2
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 2, 2 )
