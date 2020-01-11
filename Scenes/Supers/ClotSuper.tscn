@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Supers/Super.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Supers/ClotSuper.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 300, 20 )
+
+[node name="Super" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+damageMultiplier = 0.3
+
+[node name="AimLine" type="Line2D" parent="." index="0"]
+width = 30.0
+default_color = Color( 0.992157, 1, 0, 0.666667 )
+texture_mode = 1882092910
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Time" type="Timer" parent="." index="1"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Laser" type="Area2D" parent="." index="2"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser" index="0"]
+position = Vector2( 300, 0 )
+shape = SubResource( 1 )
+
+[node name="Space" type="Node" parent="." index="3"]
+
+[node name="LaserLine" type="Line2D" parent="Space" index="0"]
+width = 20.0
+default_color = Color( 1, 0, 0, 1 )
+texture_mode = 1882092910
+end_cap_mode = 2
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="timeout" from="Time" to="." method="_on_Time_timeout"]

@@ -6,9 +6,9 @@
 [node name="MobileControls" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 18.6396
+margin_left = 21.1571
 margin_top = 18.6396
-margin_right = -21.3604
+margin_right = -18.843
 margin_bottom = -21.3604
 script = ExtResource( 1 )
 deadZoneRadius = 45
@@ -29,7 +29,7 @@ texture = ExtResource( 2 )
 
 [node name="SuperStick" type="Node2D" parent="."]
 visible = false
-position = Vector2( 690.287, 332.062 )
+position = Vector2( 650.224, 301.046 )
 
 [node name="Stick" type="Sprite" parent="SuperStick"]
 texture = ExtResource( 2 )
@@ -37,4 +37,9 @@ texture = ExtResource( 2 )
 [node name="AutoaimTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Release" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
 [connection signal="timeout" from="AutoaimTimer" to="." method="_on_AutoaimTimer_timeout"]
+[connection signal="timeout" from="Release" to="." method="_on_Release_timeout"]

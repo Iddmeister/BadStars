@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Guns/ShmellyGun.tscn" type="PackedScene" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/PokoGun.png-10cb4c1dbee7ed8a17fb72a5e8338393.stex"
+
+[node name="Gun" index="0" instance=ExtResource( 1 )]
+maxAmmo = 5
+distance = 150
+spread = 30.0
+
+[node name="Reload" parent="." index="2"]
+wait_time = 0.75
+
+[node name="Sprite" parent="." index="4"]
+position = Vector2( 26.1572, -0.917083 )
+scale = Vector2( 0.529894, 0.529894 )
+texture = SubResource( 1 )

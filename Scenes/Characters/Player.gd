@@ -1,14 +1,16 @@
 extends KinematicBody2D
 
+signal started()
+
 export var maxHealth = 400
 onready var health = maxHealth
 
 export var moveSpeed = 200
 
-export(Globals.characters) var character = 0
-
 export var weaponPath:NodePath = "Gun"
+export var superPath:NodePath = "Super"
 onready var weapon = get_node(weaponPath)
+onready var super = get_node(superPath)
 
 var ghostTexture = preload("res://Graphics/Characters/Ghost.png")
 
@@ -18,6 +20,7 @@ var mobileControls:Control
 var ui:gameUI
 
 var dead = false
+var frozen = false
 
 func _ready():
 	pass
@@ -42,9 +45,13 @@ func initialize(id:int):
 		ui = uiScene.instance()
 		$UI.add_child(ui)
 		
-		ui.setupUI(maxHealth, weapon.maxAmmo)
+		ui.setupUI(maxHealth, weapon.maxAmmo, super.maxCharge)
 		
 		weapon.connect("reloaded", ui, "setAmmo")
+		if Globals.mobile:
+			super.connect("charged", mobileControls, "showSuper")
+			
+		emit_signal("started")
 		
 	else:
 		pass
@@ -52,11 +59,12 @@ func initialize(id:int):
 	
 func _physics_process(delta):
 	if Network.gameStarted:
-	
-		if not dead:
-			actions()
-		movement()
-			
+		
+		if not frozen:
+			if not dead:
+				actions()
+			movement()
+				
 	
 	pass
 	
@@ -70,6 +78,7 @@ func movement():
 		if Globals.mobile:
 			
 			dir = Globals.leftStickAxis
+			
 			
 		else:
 			
@@ -121,6 +130,18 @@ func actions():
 				if mobileControls.shot:
 					mobileControls.shot = false
 					shoot()
+					
+			if super.charged:
+				if mobileControls.superGrabbed:# and not mobileControls.deadZoned:
+					super.rpc("aim", Globals.superStickAxis.angle())
+					super.aimVisible(true)
+				else:
+					super.aimVisible(false)
+					
+				if mobileControls.superShot:
+					super.use(get_tree().get_network_unique_id())
+					mobileControls.superShot = false
+					
 			
 		else:
 			if Input.is_action_just_pressed("autoaim"):
@@ -136,6 +157,16 @@ func actions():
 					pass
 				else:
 					weapon.aim(false)
+					
+			if super.charged:
+				if Input.is_action_pressed("super"):
+					super.rpc("aim", get_angle_to(get_global_mouse_position()))
+					super.aimVisible(true)
+				elif Input.is_action_just_released("super"):
+					super.use(get_tree().get_network_unique_id())
+					super.aimVisible(false)
+				else:
+					super.aimVisible(false)
 	
 	pass
 	
@@ -176,7 +207,12 @@ func shoot():
 		
 	pass
 	
-remotesync func hit(damage:int, id:int, super=false):
+master func didDamage(damage:int):
+	super.addCharge(damage)
+	ui.setSuperCharge(super.charge)
+	pass
+	
+remotesync func hit(damage:int, id:int, isSuper=false):
 	
 	health -= damage
 	if is_network_master():
@@ -205,7 +241,11 @@ remotesync func die():
 	
 	pass
 	
+remotesync func freeze(val:bool):
 	
+	frozen = val
+	
+	pass
 	
 	
 remotesync func aimGun(direction:float):
