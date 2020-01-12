@@ -31,7 +31,7 @@ func _process(delta):
 				if notDead == 1:
 					gameWon = true
 					Network.rpc("event", Globals.events.MESSAGE, {"message":Network.players[int(winner.name)].name + " Wins!"}, true)
-					$Delay.start()
+					#$Delay.start()
 					pass
 	
 	pass
