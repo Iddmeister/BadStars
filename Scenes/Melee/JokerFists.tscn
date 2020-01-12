@@ -6,12 +6,11 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 44.8828, 20.6483 )
 
-[sub_resource type="StreamTexture" id=3]
+[sub_resource type="StreamTexture" id=2]
 flags = 4
 load_path = "res://.import/JokerFist.png-142c51d8c302c5616a4196e050107ae2.stex"
 
-[sub_resource type="Animation" id=2]
-resource_name = "Punch"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Fist:position")
 tracks/0/interp = 1
@@ -37,11 +36,13 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[node name="Melee" instance=ExtResource( 1 )]
+[node name="Melee" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 distance = 96
-damage = 200
 aimWidth = 60
+
+[node name="Reload" parent="." index="1"]
+wait_time = 0.7
 
 [node name="CollisionShape2D" parent="Range" index="0"]
 position = Vector2( 44.9023, -0.203908 )
@@ -52,8 +53,8 @@ visible = false
 position = Vector2( 20, 0 )
 rotation = 1.5708
 scale = Vector2( 0.0410339, 0.0410339 )
-texture = SubResource( 3 )
+texture = SubResource( 2 )
 
 [node name="Animation" type="AnimationPlayer" parent="." index="6"]
 playback_speed = 5.0
-anims/Punch = SubResource( 2 )
+anims/Punch = SubResource( 3 )

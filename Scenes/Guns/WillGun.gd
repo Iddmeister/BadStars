@@ -2,8 +2,6 @@ extends Gun
 
 export var spread = 30
 
-func _ready():
-	pass
 	
 remotesync func shoot(id:int, poolIndex:int):
 	
