@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/UI/EventLog.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 10.4236
+radius = 36.2131
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 644.961
@@ -59,3 +59,7 @@ margin_left = 50.0
 margin_right = 50.0
 margin_bottom = 14.0
 align = 1
+
+[node name="Poison" type="Timer" parent="."]
+wait_time = 2.0
+[connection signal="timeout" from="Poison" to="." method="_on_Poison_timeout"]

@@ -22,6 +22,11 @@ var ui:gameUI
 var dead = false
 var frozen = false
 
+var poisonDamage:int
+var poisonLength:int
+var currentPoisonLength = 0
+var poisonId:int
+
 func _ready():
 	pass
 	
@@ -32,6 +37,9 @@ func initialize(id:int):
 	add_to_group("Ally"+String(id))
 	
 	$NameTag/CenterContainer/Label.text = Network.players[id].name
+	
+	if super.has_method("initialize"):
+		super.initialize()
 	
 	if is_network_master():
 		$Camera.current = true
@@ -50,6 +58,7 @@ func initialize(id:int):
 		weapon.connect("reloaded", ui, "setAmmo")
 		if Globals.mobile:
 			super.connect("charged", mobileControls, "showSuper")
+			
 			
 		emit_signal("started")
 		
@@ -248,6 +257,15 @@ master func freeze(val:bool):
 	
 	pass
 	
+master func poison(damage:int, length:int, id:int):
+	
+	poisonDamage = damage
+	poisonLength = length
+	poisonId = id
+	$Poison.start()
+	
+	pass
+	
 	
 remotesync func aimGun(direction:float):
 	weapon.global_rotation = direction
@@ -258,3 +276,10 @@ puppet func setPosition(pos:Vector2):
 	global_position = pos
 	pass
 	
+
+
+func _on_Poison_timeout():
+	hit(poisonDamage, poisonId)
+	currentPoisonLength += 1
+	if currentPoisonLength >= poisonLength:
+		$Poison.stop()
