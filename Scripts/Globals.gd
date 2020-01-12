@@ -1,6 +1,6 @@
 extends Node
 
-enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL}
+enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BRICK, BARREL}
 
 var mobile = false
 
@@ -12,6 +12,7 @@ var characterInfo = {
 	characters.SALMON:{"poolSize":10, "bulletPath":"res://Scenes/Bullets/UnoCard.tscn", "playerPath":"res://Scenes/Characters/Salmon.tscn"},
 	characters.ELSCRIMO:{"poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/ElScrimo.tscn"},
 	characters.WILL:{"poolSize":70, "bulletPath":"res://Scenes/Bullets/GenieBall.tscn", "playerPath":"res://Scenes/Characters/Will.tscn"},
+	characters.BRICK:{"poolSize":40, "bulletPath":"res://Scenes/Bullets/BrickBullet.tscn", "playerPath":"res://Scenes/Characters/Brick.tscn"},
 	characters.BARREL:{"poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/Barryl.tscn"}
 	
 	}
