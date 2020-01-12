@@ -223,24 +223,28 @@ master func didDamage(damage:int):
 	
 remotesync func hit(damage:int, id:int, isSuper=false):
 	
-	health -= damage
-	if is_network_master():
-		ui.setHealth(health)
-	else:
-		pass
-		
-	if health <= 0:
-		
+	if not dead:
+	
+		health -= damage
 		if is_network_master():
-			rpc("die")
-			Network.rpc("event", Globals.events.KILL, {"killer":id, "killed":get_network_master(), "method":Globals.killLines[rand_range(0, Globals.killLines.size())]})
-		
-		pass
+			ui.setHealth(health)
+		else:
+			pass
+			
+		if health <= 0:
+			
+			if is_network_master():
+				rpc("die")
+				Network.rpc("event", Globals.events.KILL, {"killer":id, "killed":get_network_master(), "method":Globals.killLines[rand_range(0, Globals.killLines.size())]})
+			
+			pass
 		
 	pass
 		
 remotesync func die():
 	
+	$Poison.stop()
+	moveSpeed = 600
 	modulate = Color(1, 1, 1, 0.7)
 	$Sprite.scale = Vector2(2, 2)
 	$Sprite.rotation = 0

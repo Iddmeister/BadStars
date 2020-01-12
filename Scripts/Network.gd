@@ -200,15 +200,18 @@ remotesync func startGame(map="Basic"):
 	
 	pass
 	
-remotesync func event(type:int, info:Dictionary):
+remotesync func event(type:int, info:Dictionary, important=false):
 	
 	if type == Globals.events.KILL:
 		
-		emit_signal("eventHappened", players[info.killer].name + " " + info.method + " " + players[info.killed].name)
+		emit_signal("eventHappened", players[info.killer].name + " " + info.method + " " + players[info.killed].name, important)
 		
 	elif type == Globals.events.SUPER:
 		
-		emit_signal("eventHappened", players[info.player].name + " " + info.super)
+		emit_signal("eventHappened", players[info.player].name + " " + info.super, important)
+		
+	elif type == Globals.events.MESSAGE:
+		emit_signal("eventHappened", info.message, important)
 	
 	pass
 	

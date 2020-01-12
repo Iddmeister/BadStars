@@ -2,7 +2,7 @@ extends Node
 
 enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, JOKER, BALD, MAGPIE}
 
-enum events {KILL, SUPER}
+enum events {KILL, SUPER, MESSAGE}
 
 var killLines = ["destroyed", "rekt", "eliminated", "took out"]
 

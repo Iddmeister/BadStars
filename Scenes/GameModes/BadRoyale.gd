@@ -3,6 +3,9 @@ extends Node2D
 
 var playerObjects = {}
 
+var gameWon = false
+
+
 func _ready():
 	set_process(false)
 	set_network_master(1)
@@ -16,16 +19,19 @@ func _ready():
 func _process(delta):
 	
 	if get_tree().is_network_server():
-		var notDead = 0
-		var winner:Node2D
-		for player in get_tree().get_nodes_in_group("Player"):
-			if not player.dead:
-				notDead += 1
-				winner = player
-				
-			if notDead == 1:
-				#print(Network.players[int(winner.name)].name)
-				pass
+		if Network.gameStarted:
+			if not gameWon:
+				var notDead = 0
+				var winner:Node2D
+				for player in get_tree().get_nodes_in_group("Player"):
+					if not player.dead:
+						notDead += 1
+						winner = player
+						
+				if notDead == 1:
+					gameWon = true
+					Network.rpc("event", Globals.events.MESSAGE, {"message":Network.players[int(winner.name)].name + " Wins!"}, true)
+					pass
 	
 	pass
 	
