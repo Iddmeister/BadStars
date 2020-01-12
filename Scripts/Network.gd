@@ -31,6 +31,10 @@ var starting = false
 
 var currentMap = "Basic"
 
+var matchStats = {}
+
+remotesync var playersAlive = 0
+
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
@@ -187,6 +191,12 @@ remote func readyPlayer(id:int):
 	
 remotesync func startGame(map="Basic"):
 	
+	rset("playersAlive", players.keys().size())
+	
+	for key in players.keys():
+		
+		matchStats[players[key].name] = {"kills":0, "place":1}
+	
 	currentMap = map
 	
 	if get_tree().is_network_server():
@@ -213,5 +223,18 @@ remotesync func event(type:int, info:Dictionary, important=false):
 	elif type == Globals.events.MESSAGE:
 		emit_signal("eventHappened", info.message, important)
 	
+	pass
+	
+	
+master func addKill(player:String):
+	matchStats[player].kills += 1
+	matchStats[player].place = playersAlive
+	playersAlive -= 1
+	rset("playersAlive", playersAlive)
+	pass
+	
+remotesync func endGame(stats):
+	matchStats = stats
+	get_tree().change_scene("res://Scenes/Screens/MatchStats.tscn")
 	pass
 	

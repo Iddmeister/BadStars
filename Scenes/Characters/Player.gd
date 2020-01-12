@@ -234,6 +234,7 @@ remotesync func hit(damage:int, id:int, isSuper=false):
 		if health <= 0:
 			
 			if is_network_master():
+				Network.rpc("addKill", Network.players[id].name)
 				rpc("die")
 				Network.rpc("event", Globals.events.KILL, {"killer":id, "killed":get_network_master(), "method":Globals.killLines[rand_range(0, Globals.killLines.size())]})
 			

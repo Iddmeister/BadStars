@@ -31,6 +31,7 @@ func _process(delta):
 				if notDead == 1:
 					gameWon = true
 					Network.rpc("event", Globals.events.MESSAGE, {"message":Network.players[int(winner.name)].name + " Wins!"}, true)
+					$Delay.start()
 					pass
 	
 	pass
@@ -95,3 +96,6 @@ remotesync func startGame():
 	Network.starting = false
 	
 	pass
+
+func _on_Delay_timeout():
+	Network.rpc("endGame", Network.matchStats)
