@@ -10,6 +10,7 @@ radius = 207.0
 [node name="Super" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 damageMultiplier = 0.2
+superMessage = "placed Freeze Ring"
 
 [node name="Time" type="Timer" parent="." index="0"]
 wait_time = 3.0

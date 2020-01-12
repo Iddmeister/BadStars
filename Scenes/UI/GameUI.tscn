@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/UI/GameUI.gd" type="Script" id=1]
 
@@ -31,6 +31,14 @@ expand_margin_left = 2.0
 expand_margin_right = 2.0
 expand_margin_top = 2.0
 expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -92,8 +100,9 @@ step = 1.0
 percent_visible = false
 
 [node name="Ammo" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_right = 82.0
+margin_bottom = 24.0
+custom_styles/normal = SubResource( 5 )
 text = "Ammo: 3/3"
 
 [node name="Pause" type="Button" parent="."]

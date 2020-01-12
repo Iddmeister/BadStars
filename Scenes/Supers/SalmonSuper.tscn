@@ -11,6 +11,7 @@ radius = 80.0
 [node name="Super" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 maxCharge = 900
+superMessage = "used Uno Reverse Card"
 
 [node name="ShieldSprite" type="Sprite" parent="." index="0"]
 visible = false

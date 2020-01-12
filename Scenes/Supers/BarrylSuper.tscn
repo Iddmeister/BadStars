@@ -6,6 +6,7 @@
 [node name="Super" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 damageMultiplier = 0.7
+superMessage = "has entered Light Speed"
 speed = 1500
 
 [node name="Time" type="Timer" parent="." index="0"]

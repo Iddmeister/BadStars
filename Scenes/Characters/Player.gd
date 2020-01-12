@@ -222,8 +222,9 @@ remotesync func hit(damage:int, id:int, isSuper=false):
 		
 	if health <= 0:
 		
-		if get_tree().get_network_unique_id() == 1:
+		if is_network_master():
 			rpc("die")
+			Network.rpc("event", Globals.events.KILL, {"killer":id, "killed":get_network_master(), "method":Globals.killLines[rand_range(0, Globals.killLines.size())]})
 		
 		pass
 		

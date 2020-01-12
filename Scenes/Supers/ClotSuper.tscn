@@ -6,9 +6,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 300, 20 )
 
-[node name="Super" instance=ExtResource( 1 )]
+[node name="Super" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 damageMultiplier = 0.3
+superMessage = "shot Laser"
 
 [node name="AimLine" type="Line2D" parent="." index="0"]
 width = 30.0

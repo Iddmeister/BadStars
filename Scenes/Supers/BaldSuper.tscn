@@ -14,6 +14,7 @@ radius = 86.2601
 z_index = -5
 script = ExtResource( 2 )
 damageMultiplier = 0.2
+superMessage = "lost a Political Debate"
 
 [node name="Fire" type="CPUParticles2D" parent="." index="0"]
 emitting = false

@@ -6,6 +6,7 @@ var playerObjects = {}
 func _ready():
 	set_process(false)
 	set_network_master(1)
+	loadMap()
 	spawnPlayers()
 	ObjectPool.createPools()
 	Effects.createEffects()
@@ -27,6 +28,14 @@ func _process(delta):
 				pass
 	
 	pass
+	
+func loadMap():
+	
+	var map = load(Globals.maps[Network.currentMap]).instance()
+	map.name = "Map"
+	add_child(map)
+	
+	pass
 
 func spawnPlayers():
 	for player in Network.players.keys():
@@ -37,7 +46,7 @@ func spawnPlayers():
 	
 func placePlayers():
 	
-	var spots = $SpawnPoints.get_children()
+	var spots = $Map/SpawnPoints.get_children()
 	
 	for player in playerObjects.keys():
 		var spot = rand_range(0, spots.size())

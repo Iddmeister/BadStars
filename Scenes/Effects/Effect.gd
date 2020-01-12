@@ -4,24 +4,25 @@ class_name Effect
 
 var id:int
 
-func hide():
+
+remotesync func hide():
 	
 	visible = false
 	
 	pass
 	
-func show():
+remotesync func show():
 	
 	visible = true
 	
 	pass
 	
-func play():
+remotesync func play():
 	
 	
 	pass
 	
-func stop():
+remotesync func stop():
 	
 	
 	pass

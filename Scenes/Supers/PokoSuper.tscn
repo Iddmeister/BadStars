@@ -15,6 +15,8 @@ colors = PoolColorArray( 1, 0, 0, 1, 0.96875, 1, 0, 1 )
 [node name="Super" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 damageMultiplier = 0.4
+superMessage = "Leached"
+leechAmount = 60
 
 [node name="Range" type="Area2D" parent="." index="0"]
 collision_layer = 2

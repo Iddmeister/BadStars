@@ -6,6 +6,8 @@ signal charged(val)
 
 export var maxCharge = 100
 export var damageMultiplier:float = 1
+export var emitMessage = true
+export var superMessage = "used Super"
 onready var charge = 0
 var charged = false
 
@@ -43,6 +45,8 @@ remotesync func use(id:int):
 	charge = 0
 	get_parent().ui.setSuperCharge(0)
 	rpc("super", id)
+	if emitMessage:
+		Network.rpc("event", Globals.events.SUPER, {"player":get_parent().get_network_master(), "super":superMessage})
 	pass
 	
 remotesync func super(id:int):

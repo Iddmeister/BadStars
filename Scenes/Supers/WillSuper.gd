@@ -14,11 +14,13 @@ func _ready():
 	pass
 	
 remotesync func use(id:int):
-	if $Area.get_overlapping_bodies().empty():
+	if $Area.get_overlapping_bodies().empty() and not Globals.outOfBounds($Area.global_position):
 		emit_signal("charged", false)
 		charged = false
 		charge = 0
 		get_parent().ui.setSuperCharge(0)
+		if emitMessage:
+			Network.rpc("event", Globals.events.SUPER, {"player":get_parent().get_network_master(), "super":superMessage})
 		rpc("super", id)
 	pass
 	
@@ -49,7 +51,7 @@ func aimVisible(val:bool):
 	
 	if val:
 		$Sprite.visible = true
-		if $Area.get_overlapping_bodies().empty():
+		if $Area.get_overlapping_bodies().empty() and not Globals.outOfBounds($Area.global_position):
 			$Sprite.modulate = goColor
 		else:
 			$Sprite.modulate = noGoColor

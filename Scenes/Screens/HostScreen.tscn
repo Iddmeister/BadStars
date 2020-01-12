@@ -28,18 +28,50 @@ size_flags_vertical = 3
 custom_constants/separation = 30
 alignment = 1
 
-[node name="Start" type="Button" parent="Controls"]
-margin_top = 165.0
+[node name="MapSelect" type="HBoxContainer" parent="Controls"]
+margin_top = 75.0
 margin_right = 486.0
-margin_bottom = 265.0
+margin_bottom = 225.0
+rect_min_size = Vector2( 0, 150 )
+alignment = 1
+
+[node name="Left" type="Button" parent="Controls/MapSelect"]
+margin_right = 104.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+text = "<"
+
+[node name="CurrentMap" type="Label" parent="Controls/MapSelect"]
+margin_left = 108.0
+margin_top = 68.0
+margin_right = 378.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 270, 0 )
+size_flags_horizontal = 3
+text = "Map"
+align = 1
+
+[node name="Right" type="Button" parent="Controls/MapSelect"]
+margin_left = 382.0
+margin_right = 486.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+text = ">"
+
+[node name="Start" type="Button" parent="Controls"]
+margin_top = 255.0
+margin_right = 486.0
+margin_bottom = 355.0
 rect_min_size = Vector2( 0, 100 )
 text = "Start Game"
 
 [node name="Disconnect" type="Button" parent="Controls"]
-margin_top = 295.0
+margin_top = 385.0
 margin_right = 486.0
-margin_bottom = 395.0
+margin_bottom = 485.0
 rect_min_size = Vector2( 0, 100 )
 text = "Disconnect"
+[connection signal="pressed" from="Controls/MapSelect/Left" to="." method="_on_Left_pressed"]
+[connection signal="pressed" from="Controls/MapSelect/Right" to="." method="_on_Right_pressed"]
 [connection signal="pressed" from="Controls/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Controls/Disconnect" to="." method="_on_Disconnect_pressed"]

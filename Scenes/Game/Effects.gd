@@ -15,6 +15,7 @@ func createEffects():
 				var effect:Effect = load(effectPath).instance()
 				effects[player].append(effect)
 				add_child(effect)
+				effect.name = "effect"+String(player)
 				effect.id = player
 				effect.hide()
 				

@@ -1,6 +1,10 @@
 extends Control
 
+var currentMap = "Basic"
+var currentMapIndex = 0
+
 func _ready():
+	$Controls/MapSelect/CurrentMap.text = currentMap
 	pass
 	
 func _process(delta):
@@ -24,9 +28,22 @@ func _process(delta):
 
 
 func _on_Start_pressed():
-	Network.rpc("startGame")
+	Network.rpc("startGame", currentMap)
 	
 
 
 func _on_Disconnect_pressed():
 	Network.disconnectServer()
+
+func _on_Left_pressed():
+	if not currentMapIndex-1 < 0:
+		currentMapIndex -= 1
+		currentMap = Globals.maps.keys()[currentMapIndex]
+		$Controls/MapSelect/CurrentMap.text = currentMap
+
+
+func _on_Right_pressed():
+	if not currentMapIndex+1 > Globals.maps.keys().size()-1:
+		currentMapIndex += 1
+		currentMap = Globals.maps.keys()[currentMapIndex]
+		$Controls/MapSelect/CurrentMap.text = currentMap

@@ -2,7 +2,13 @@ extends Node
 
 enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, JOKER, BALD}
 
+enum events {KILL, SUPER}
+
+var killLines = ["destroyed", "rekt", "eliminated", "took out"]
+
 var mobile = false
+
+var bounds = Vector2(2144, 1984)
 
 var characterInfo = {
 	
@@ -18,6 +24,15 @@ var characterInfo = {
     characters.BALD:{"poolSize":45, "bulletPath":"res://Scenes/Bullets/BALDBULLET.tscn", "playerPath":"res://Scenes/Characters/BALD.tscn"}
 	}
 	
+var maps = {
+	
+	"Basic":"res://Scenes/Maps/BasicMap.tscn",
+	"BlockBlockBlock":"res://Scenes/Maps/BlockBlockBlock.tscn",
+	"No Dummies": "res://Scenes/Maps/NoDummies.tscn",
+	"Rings": "res://Scenes/Maps/Rings.tscn",
+	
+	}
+	
 var leftStickAxis = Vector2()
 var rightStickAxis = Vector2()
 var superStickAxis = Vector2()
@@ -29,5 +44,14 @@ func _ready() -> void:
 		
 	#mobile = true
 		
+	
+	pass
+	
+func outOfBounds(pos:Vector2):
+	
+	if (pos.x > bounds.x or pos.x < 0) or (pos.y > bounds.y or pos.y < 0):
+		return true
+	else:
+		return false
 	
 	pass

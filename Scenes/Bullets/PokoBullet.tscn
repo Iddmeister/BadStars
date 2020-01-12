@@ -10,7 +10,7 @@ points = PoolVector2Array( 0, -10, 15, 5, -15, 5 )
 
 [node name="Bullet" index="0" instance=ExtResource( 1 )]
 speed = 200
-damage = 50
+damage = 30
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( -0.118616, -0.480113 )

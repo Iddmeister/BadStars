@@ -10,8 +10,8 @@ radius = 37.0
 [node name="Super" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 damageMultiplier = 0.7
+superMessage = "Teleported"
 distance = 360
-selfChargeAmount = 5
 noGoColor = Color( 1, 0, 0, 0.666667 )
 goColor = Color( 0.992157, 1, 0, 0.666667 )
 
