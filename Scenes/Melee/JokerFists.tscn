@@ -39,7 +39,7 @@ tracks/1/keys = {
 [node name="Melee" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 distance = 96
-damage = 20
+damage = 300
 aimWidth = 60
 
 [node name="Reload" parent="." index="1"]
