@@ -13,7 +13,7 @@ damageMultiplier = 0.2
 superMessage = "placed Freeze Ring"
 
 [node name="Time" type="Timer" parent="." index="0"]
-wait_time = 3.0
+wait_time = 2.3
 one_shot = true
 
 [node name="Space" type="Node" parent="." index="1"]

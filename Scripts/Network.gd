@@ -193,10 +193,6 @@ remotesync func startGame(map="Basic"):
 	
 	rset("playersAlive", players.keys().size())
 	
-	for key in players.keys():
-		
-		matchStats[players[key].name] = {"kills":0, "place":1}
-	
 	currentMap = map
 	
 	if get_tree().is_network_server():
@@ -227,6 +223,7 @@ remotesync func event(type:int, info:Dictionary, important=false):
 	
 	
 master func addKill(player:String):
+	matchStats[player] = {}
 	matchStats[player].kills += 1
 	matchStats[player].place = playersAlive
 	playersAlive -= 1

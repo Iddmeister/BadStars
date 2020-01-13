@@ -33,8 +33,9 @@ remotesync func enableFreeze(val:bool):
 		
 		$Space/FreezeCircle/Sprite.visible = true
 		
+		dropped = true
+		
 		if get_tree().is_network_server():
-			dropped = true
 			$Space/FreezeCircle/Range.update()
 			for body in $Space/FreezeCircle/Range.get_overlapping_bodies():
 				if body.is_in_group("Freezable"):
@@ -50,6 +51,7 @@ remotesync func enableFreeze(val:bool):
 	else:
 		
 		$Space/FreezeCircle/Sprite.visible = false
+		dropped = false
 		
 		if get_tree().is_network_server():
 			
@@ -64,6 +66,5 @@ remotesync func enableFreeze(val:bool):
 
 
 func _on_Time_timeout():
-	dropped = false
 	rpc("enableFreeze", false)
 
