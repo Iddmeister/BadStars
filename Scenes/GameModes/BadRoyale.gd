@@ -30,8 +30,11 @@ func _process(delta):
 						
 				if notDead == 1:
 					gameWon = true
+					Network.matchStats.places.append(Network.players[int(winner.name)].name)
+					Network.matchStats.graph.end = OS.get_ticks_msec()
 					Network.rpc("event", Globals.events.MESSAGE, {"message":Network.players[int(winner.name)].name + " Wins!"}, true)
-					$Delay.start()
+					if not get_tree().get_nodes_in_group("Player").size() == 1:
+						$Delay.start()
 					pass
 	
 	pass

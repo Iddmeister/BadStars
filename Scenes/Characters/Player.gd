@@ -227,6 +227,8 @@ master func didDamage(damage:int):
 remotesync func hit(damage:int, id:int, isSuper=false):
 	
 	if not dead:
+		
+		Network.rpc("addGraphPoint", damage)
 	
 		health -= damage
 		if is_network_master():
@@ -256,6 +258,9 @@ remotesync func die():
 	$Sprite.texture = ghostTexture
 	dead = true
 	weapon.visible = false
+	
+	if get_tree().is_network_server():
+		Network.matchStats.places.append(Network.players[get_network_master()].name)
 	
 	pass
 	

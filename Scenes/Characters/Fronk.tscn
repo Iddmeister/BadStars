@@ -8,8 +8,8 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.8926, 43.8277 )
 
-[node name="Player" instance=ExtResource( 1 )]
-maxHealth = 1000
+[node name="Player" index="0" instance=ExtResource( 1 )]
+maxHealth = 780
 moveSpeed = 150
 weaponPath = NodePath("Melee")
 

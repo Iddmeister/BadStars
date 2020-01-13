@@ -8,7 +8,6 @@ func _ready():
 remotesync func hit(damage, id, super:bool=false):
 	
 	health-=damage
-	
 	if health <= 0:
 		rpc("destroy")
 	
