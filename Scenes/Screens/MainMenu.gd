@@ -12,6 +12,7 @@ var characters = {
 	Globals.characters.BARREL:{"icon":"res://Graphics/Characters/Barryl.png", "info":"Barrel: is barrel"},
 	Globals.characters.BALD:{"icon":"res://Graphics/Characters/Bald.png", "info":"Bald: Brexiteer"},
 	Globals.characters.POKO:{"icon":"res://Graphics/Characters/Poko.png", "info":"Poko: Buenos Dias"},
+	Globals.characters.THRIO:{"icon":"res://Graphics/Characters/THRiO.png", "info":"THRiO: It's a feature, not a bug"},
 	Globals.characters.JOKER:{"icon":"res://Graphics/Characters/Joker.png", "info":"Joker: You Wouldn't Get It"},
 	Globals.characters.MAGPIE:{"icon":"res://Graphics/Characters/Magpie.png", "info":"Magpie: SHINY SHINY SHINY"},
 	Globals.characters.FRONK:{"icon":"res://Graphics/Characters/Fronk.png", "info":"FRONK: ICH BIN FRONK"},
