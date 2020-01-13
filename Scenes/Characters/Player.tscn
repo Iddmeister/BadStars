@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/icon.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/UI/EventLog.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 36.2131
@@ -11,10 +10,10 @@ radius = 36.2131
 radius = 644.961
 
 [node name="Player" type="KinematicBody2D" groups=[
-"Shootable",
-"Player",
-"Autoaim",
 "Freezable",
+"Autoaim",
+"Player",
+"Shootable",
 ]]
 pause_mode = 1
 collision_mask = 4
@@ -32,8 +31,6 @@ drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 
 [node name="UI" type="CanvasLayer" parent="."]
-
-[node name="EventLog" parent="UI" instance=ExtResource( 3 )]
 
 [node name="AutoaimRange" type="Area2D" parent="."]
 visible = false

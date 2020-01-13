@@ -58,3 +58,7 @@ texture = ExtResource( 3 )
 [node name="Animation" type="AnimationPlayer" parent="." index="6"]
 playback_speed = 2.0
 anims/Slam = SubResource( 2 )
+
+[node name="FreezeTime" type="Timer" parent="." index="8"]
+one_shot = true
+[connection signal="timeout" from="FreezeTime" to="." method="_on_FreezeTime_timeout"]

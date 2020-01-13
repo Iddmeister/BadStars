@@ -15,6 +15,7 @@ var canShoot = true
 func _ready():
 	drawAim()
 	$Aim.visible = false
+	$Ray.add_exception(get_parent())
 	pass
 	
 remotesync func shoot(id:int, irrelevantPoolIndex:int):
@@ -24,10 +25,22 @@ remotesync func shoot(id:int, irrelevantPoolIndex:int):
 		for body in $Range.get_overlapping_bodies():
 			if body.is_in_group("Shootable"):
 				if not body.is_in_group("Ally"+String(id)):
-					body.rpc("hit", damage, id)
 					
-					if body.is_in_group("Player") or body.is_in_group("Dummy"):
-						get_tree().get_nodes_in_group("Ally"+String(id))[0].rpc("didDamage", damage)
+					var colliding = false
+					
+					$Ray.global_rotation = (body.global_position-global_position).angle()
+					
+					if $Ray.is_colliding():
+						
+						if not $Ray.get_collider() == body:
+							colliding = true
+						
+					if not colliding:
+					
+						body.rpc("hit", damage, id)
+						
+						if body.is_in_group("Player") or body.is_in_group("Dummy"):
+							get_tree().get_nodes_in_group("Ally"+String(id))[0].rpc("didDamage", damage)
 		
 		pass
 	

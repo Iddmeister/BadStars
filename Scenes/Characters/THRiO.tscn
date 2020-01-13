@@ -9,7 +9,7 @@
 radius = 13.1614
 height = 38.1282
 
-[node name="Player" index="0" instance=ExtResource( 1 )]
+[node name="Player" instance=ExtResource( 1 )]
 maxHealth = 300
 moveSpeed = 600
 

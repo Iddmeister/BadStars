@@ -52,6 +52,9 @@ func initialize(id:int):
 		var uiScene = preload("res://Scenes/UI/GameUI.tscn")
 		ui = uiScene.instance()
 		$UI.add_child(ui)
+		var eventLog = preload("res://Scenes/UI/EventLog.tscn").instance()
+		$UI.add_child(eventLog)
+		
 		
 		ui.setupUI(maxHealth, weapon.maxAmmo, super.maxCharge)
 		

@@ -55,7 +55,7 @@ position = Vector2( 704, 1792 )
 position = Vector2( 800, 1408 )
 
 [node name="Dummy11" parent="Objects/Dummies" instance=ExtResource( 2 )]
-position = Vector2( 1312, 1472 )
+position = Vector2( 1344, 1472 )
 
 [node name="Dummy9" parent="Objects/Dummies" instance=ExtResource( 2 )]
 position = Vector2( 192, 1344 )
