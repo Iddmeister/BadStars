@@ -14,12 +14,8 @@ one_shot = true
 [node name="Reload" type="Timer" parent="."]
 one_shot = true
 
-[node name="AimLine" type="Line2D" parent="."]
-z_index = 5
-z_as_relative = false
-width = 20.0
-default_color = Color( 1, 1, 1, 0.705882 )
-texture_mode = 1378093321
+[node name="Aim" type="Polygon2D" parent="."]
+color = Color( 1, 1, 1, 0.705882 )
 __meta__ = {
 "_edit_lock_": true
 }

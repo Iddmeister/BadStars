@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Bullets/Bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Bullets/Shuriken.gd" type="Script" id=2]
+[ext_resource path="res://Graphics/Weapons/Shuriken.png" type="Texture" id=3]
+
+[node name="Bullet" instance=ExtResource( 1 )]
+z_index = 5
+script = ExtResource( 2 )
+speed = 600
+damage = 30
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = true

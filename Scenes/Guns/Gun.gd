@@ -7,11 +7,14 @@ signal reloaded(ammo)
 
 export var maxAmmo = 3
 export var distance = 1000
+export var aimWidth = 20
 onready var ammo = maxAmmo
 
 var canShoot = true
 
 func _ready():
+	drawAim()
+	$Aim.visible = false
 	pass
 	
 remotesync func shoot(id:int, poolIndex:int):
@@ -33,14 +36,13 @@ func createBullet(id:int, poolIndex:int, direction:float=global_rotation, pos:Ve
 	
 func aim(do:bool):
 	
-	if do:
+	$Aim.visible = do
 	
-		$AimLine.clear_points()
-			
-		$AimLine.add_point($Muzzle.position)
-		$AimLine.add_point($Muzzle.position + Vector2(distance, 0))
-	else:
-		$AimLine.clear_points()
+	pass
+	
+func drawAim():
+	
+	$Aim.polygon = PoolVector2Array([$Muzzle.position-Vector2(0, aimWidth/2), $Muzzle.position+Vector2(distance, 0)-Vector2(0, aimWidth/2), $Muzzle.position+Vector2(distance, 0)+Vector2(0, aimWidth/2), $Muzzle.position+Vector2(0, aimWidth/2)])
 	
 	pass
 	

@@ -3,27 +3,47 @@ extends Node2D
 
 var playerObjects = {}
 
+var gameWon = false
+
+
 func _ready():
 	set_process(false)
 	set_network_master(1)
+	loadMap()
 	spawnPlayers()
 	ObjectPool.createPools()
+	Effects.createEffects()
 	setReady()
 	pass
 	
 func _process(delta):
 	
 	if get_tree().is_network_server():
-		var notDead = 0
-		var winner:Node2D
-		for player in get_tree().get_nodes_in_group("Player"):
-			if not player.dead:
-				notDead += 1
-				winner = player
-				
-			if notDead == 1:
-				#print(Network.players[int(winner.name)].name)
-				pass
+		if Network.gameStarted:
+			if not gameWon:
+				var notDead = 0
+				var winner:Node2D
+				for player in get_tree().get_nodes_in_group("Player"):
+					if not player.dead:
+						notDead += 1
+						winner = player
+						
+				if notDead == 1:
+					gameWon = true
+					Network.matchStats.places.append(Network.players[int(winner.name)].name)
+					Network.matchStats.graph.end = OS.get_ticks_msec()
+					Network.rpc("event", Globals.events.MESSAGE, {"message":Network.players[int(winner.name)].name + " Wins!"}, true)
+					if not get_tree().get_nodes_in_group("Player").size() == 1:
+						$Delay.start()
+					pass
+	
+	pass
+	
+func loadMap():
+	
+	var map = load(Globals.maps[Network.currentMap]).instance()
+	map.name = "Map"
+	add_child(map)
 	
 	pass
 
@@ -36,7 +56,7 @@ func spawnPlayers():
 	
 func placePlayers():
 	
-	var spots = $SpawnPoints.get_children()
+	var spots = $Map/SpawnPoints.get_children()
 	
 	for player in playerObjects.keys():
 		var spot = rand_range(0, spots.size())
@@ -68,8 +88,9 @@ remotesync func startGame():
 	get_tree().paused = false
 	
 	for player in get_tree().get_nodes_in_group("Player"):
-		player.initialize(int(player.name))
-		playerObjects[player.name] = player
+		if player.has_method("initialize"):
+			player.initialize(int(player.name))
+			playerObjects[player.name] = player
 		
 	if get_tree().is_network_server():
 		placePlayers()
@@ -78,3 +99,6 @@ remotesync func startGame():
 	Network.starting = false
 	
 	pass
+
+func _on_Delay_timeout():
+	Network.rpc("endGame", Network.matchStats)

@@ -1,14 +1,16 @@
 extends KinematicBody2D
 
+signal started()
+
 export var maxHealth = 400
 onready var health = maxHealth
 
 export var moveSpeed = 200
 
-export(Globals.characters) var character = 0
-
 export var weaponPath:NodePath = "Gun"
+export var superPath:NodePath = "Super"
 onready var weapon = get_node(weaponPath)
+onready var super = get_node(superPath)
 
 var ghostTexture = preload("res://Graphics/Characters/Ghost.png")
 
@@ -18,6 +20,12 @@ var mobileControls:Control
 var ui:gameUI
 
 var dead = false
+var frozen = false
+
+var poisonDamage:int
+var poisonLength:int
+var currentPoisonLength = 0
+var poisonId:int
 
 func _ready():
 	pass
@@ -30,6 +38,9 @@ func initialize(id:int):
 	
 	$NameTag/CenterContainer/Label.text = Network.players[id].name
 	
+	if super.has_method("initialize"):
+		super.initialize()
+	
 	if is_network_master():
 		$Camera.current = true
 		
@@ -41,10 +52,18 @@ func initialize(id:int):
 		var uiScene = preload("res://Scenes/UI/GameUI.tscn")
 		ui = uiScene.instance()
 		$UI.add_child(ui)
+		var eventLog = preload("res://Scenes/UI/EventLog.tscn").instance()
+		$UI.add_child(eventLog)
 		
-		ui.setupUI(maxHealth, weapon.maxAmmo)
+		
+		ui.setupUI(maxHealth, weapon.maxAmmo, super.maxCharge)
 		
 		weapon.connect("reloaded", ui, "setAmmo")
+		if Globals.mobile:
+			super.connect("charged", mobileControls, "showSuper")
+			
+			
+		emit_signal("started")
 		
 	else:
 		pass
@@ -52,11 +71,12 @@ func initialize(id:int):
 	
 func _physics_process(delta):
 	if Network.gameStarted:
-	
-		if not dead:
-			actions()
-		movement()
-			
+		
+		if not frozen:
+			if not dead:
+				actions()
+			movement()
+				
 	
 	pass
 	
@@ -70,6 +90,7 @@ func movement():
 		if Globals.mobile:
 			
 			dir = Globals.leftStickAxis
+			
 			
 		else:
 			
@@ -121,6 +142,18 @@ func actions():
 				if mobileControls.shot:
 					mobileControls.shot = false
 					shoot()
+					
+			if super.charged:
+				if mobileControls.superGrabbed:# and not mobileControls.deadZoned:
+					super.rpc("aim", Globals.superStickAxis.angle())
+					super.aimVisible(true)
+				else:
+					super.aimVisible(false)
+					
+				if mobileControls.superShot:
+					super.use(get_tree().get_network_unique_id())
+					mobileControls.superShot = false
+					
 			
 		else:
 			if Input.is_action_just_pressed("autoaim"):
@@ -136,6 +169,16 @@ func actions():
 					pass
 				else:
 					weapon.aim(false)
+					
+			if super.charged:
+				if Input.is_action_pressed("super"):
+					super.rpc("aim", get_angle_to(get_global_mouse_position()))
+					super.aimVisible(true)
+				elif Input.is_action_just_released("super"):
+					super.use(get_tree().get_network_unique_id())
+					super.aimVisible(false)
+				else:
+					super.aimVisible(false)
 	
 	pass
 	
@@ -147,7 +190,7 @@ func autoaim():
 	
 	for body in $AutoaimRange.get_overlapping_bodies():
 		
-		if body.is_in_group("Shootable") and not body.is_in_group("Ally"+String(get_tree().get_network_unique_id())):
+		if body.is_in_group("Autoaim") and not body.is_in_group("Ally"+String(get_tree().get_network_unique_id())):
 			if closestBody:
 				if global_position.distance_to(body.global_position) < global_position.distance_to(closestBody.global_position):
 					closestBody = body
@@ -176,25 +219,38 @@ func shoot():
 		
 	pass
 	
-remotesync func hit(damage:int, id:int, super=false):
+master func didDamage(damage:int):
+	super.addCharge(damage)
+	ui.setSuperCharge(super.charge)
+	pass
 	
-	health -= damage
-	if is_network_master():
-		ui.setHealth(health)
-	else:
-		pass
+remotesync func hit(damage:int, id:int, isSuper=false):
+	
+	if not dead:
 		
-	if health <= 0:
-		
-		if get_tree().get_network_unique_id() == 1:
-			rpc("die")
-		
-		pass
+		Network.rpc("addGraphPoint", damage)
+	
+		health -= damage
+		if is_network_master():
+			ui.setHealth(health)
+		else:
+			pass
+			
+		if health <= 0:
+			
+			if is_network_master():
+				Network.rpc("addKill", Network.players[id].name)
+				rpc("die")
+				Network.rpc("event", Globals.events.KILL, {"killer":id, "killed":get_network_master(), "method":Globals.killLines[rand_range(0, Globals.killLines.size())]})
+			
+			pass
 		
 	pass
 		
 remotesync func die():
 	
+	$Poison.stop()
+	moveSpeed = 600
 	modulate = Color(1, 1, 1, 0.7)
 	$Sprite.scale = Vector2(2, 2)
 	$Sprite.rotation = 0
@@ -203,9 +259,25 @@ remotesync func die():
 	dead = true
 	weapon.visible = false
 	
+	if get_tree().is_network_server():
+		Network.matchStats.places.append(Network.players[get_network_master()].name)
+	
 	pass
 	
+master func freeze(val:bool):
 	
+	frozen = val
+	
+	pass
+	
+master func poison(damage:int, length:int, id:int):
+	
+	poisonDamage = damage
+	poisonLength = length
+	poisonId = id
+	$Poison.start()
+	
+	pass
 	
 	
 remotesync func aimGun(direction:float):
@@ -217,3 +289,10 @@ puppet func setPosition(pos:Vector2):
 	global_position = pos
 	pass
 	
+
+
+func _on_Poison_timeout():
+	hit(poisonDamage, poisonId)
+	currentPoisonLength += 1
+	if currentPoisonLength >= poisonLength:
+		$Poison.stop()

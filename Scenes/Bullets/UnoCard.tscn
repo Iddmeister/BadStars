@@ -6,8 +6,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 30 )
 
-[node name="Bullet" instance=ExtResource( 1 )]
-speed = 700
+[node name="Bullet" index="0" groups=[
+"SalmonBullet",
+] instance=ExtResource( 1 )]
+speed = 570
 damage = 300
 
 [node name="Sprite" parent="." index="0"]

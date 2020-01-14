@@ -13,20 +13,17 @@ remotesync func shoot(id:int, poolIndex:int):
 	
 	pass
 	
-func aim(do:bool):
+func drawAim():
 	
-	if do:
+	$Aim.polygon = PoolVector2Array([
+	$Muzzle.position,
+	$Muzzle.position + Vector2(distance, 0).rotated(deg2rad(-spread)),
+	$Muzzle.position + Vector2(distance, 0).rotated(deg2rad(-spread/2)),
+	$Muzzle.position + Vector2(distance, 0),
+	$Muzzle.position + Vector2(distance, 0).rotated(deg2rad(spread/2)),
+	$Muzzle.position + Vector2(distance, 0).rotated(deg2rad(spread)),
+	$Muzzle.position
 	
-		$AimLine.clear_points()
-			
-		$AimLine.add_point($Muzzle.position)
-		$AimLine.add_point($Muzzle.position + Vector2(distance, 0).rotated(deg2rad(-spread)))
-		$AimLine.add_point($Muzzle.position + Vector2(distance, 0).rotated(deg2rad(-spread/2)))
-		$AimLine.add_point($Muzzle.position + Vector2(distance, 0))
-		$AimLine.add_point($Muzzle.position + Vector2(distance, 0).rotated(deg2rad(spread/2)))
-		$AimLine.add_point($Muzzle.position + Vector2(distance, 0).rotated(deg2rad(spread)))
-		$AimLine.add_point($Muzzle.position)
-	else:
-		$AimLine.clear_points()
+	])
 	
 	pass

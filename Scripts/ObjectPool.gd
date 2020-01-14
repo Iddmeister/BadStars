@@ -9,6 +9,7 @@ var allObjects:Node2D
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	allObjects = Node2D.new()
+	allObjects.name = "allObjects"
 	add_child(allObjects)
 	pass
 	
@@ -33,6 +34,7 @@ func createPools():
 				allObjects.add_child(b)
 				
 				pass
+				
 		
 		pass
 	

@@ -10,12 +10,21 @@ var characters = {
 	Globals.characters.ELSCRIMO:{"icon":"res://Graphics/Characters/ElScrimo.png", "info":"El Scrimo: REEEEEEEEEEEEEEE"},
 	Globals.characters.WILL:{"icon":"res://Graphics/Characters/WillSmith.png", "info":"Will Smith: Blue"},
 	Globals.characters.BARREL:{"icon":"res://Graphics/Characters/Barryl.png", "info":"Barrel: is barrel"},
-	Globals.characters.BRICK:{"icon":"res://Graphics/Characters/Brick.png", "info":"Brick is literally a brick"},
-	}
+	Globals.characters.BALD:{"icon":"res://Graphics/Characters/Bald.png", "info":"Bald: Brexiteer"},
+	Globals.characters.POKO:{"icon":"res://Graphics/Characters/Poko.png", "info":"Poko: Buenos Dias"},
+	Globals.characters.THRIO:{"icon":"res://Graphics/Characters/THRiO.png", "info":"THRiO: It's a feature, not a bug"},
+	Globals.characters.JOKER:{"icon":"res://Graphics/Characters/Joker.png", "info":"Joker: You Wouldn't Get It"},
+	Globals.characters.MAGPIE:{"icon":"res://Graphics/Characters/Magpie.png", "info":"Magpie: SHINY SHINY SHINY"},
+	Globals.characters.FRONK:{"icon":"res://Graphics/Characters/Fronk.png", "info":"FRONK: ICH BIN FRONK"},
+  #Globals.characters.BRICK:{"icon":"res://Graphics/Characters/Brick.png", "info":"Brick is literally a brick"},
+	
+}
+
 
 func _ready():
 	Network.playerInfo.name = Data.data.playerName
 	$CenterContainer/Options/PlayerName.text = Network.playerInfo.name
+	currentCharacter = characters.keys().find(int(Data.data["lastPlayed"]))
 	setCharacter(characters.keys()[currentCharacter])
 	pass
 
@@ -47,6 +56,8 @@ func setCharacter(key):
 	$CenterContainer/Options/CharacterSelect/HBoxContainer/Image.texture = load(characters[key].icon)
 	$CenterContainer/Options/CharacterSelect/CharacterInfo.text = characters[key].info
 	Network.playerInfo.character = key
+	Data.data["lastPlayed"] = key
+	Data.saveData()
 	
 	pass
 
@@ -67,3 +78,7 @@ func _on_Right_pressed():
 		setCharacter(characters.keys()[currentCharacter])
 		
 		pass
+
+
+func _on_CheckBox_toggled(button_pressed):
+	OS.window_fullscreen = button_pressed

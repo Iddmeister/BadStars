@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Supers/Super.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Supers/SalmonSuper.gd" type="Script" id=2]
+[ext_resource path="res://Graphics/Weapons/SalmonShield.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/Weapons/UnoReverseCard.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 80.0
+
+[node name="Super" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+maxCharge = 900
+superMessage = "used Uno Reverse Card"
+
+[node name="ShieldSprite" type="Sprite" parent="." index="0"]
+visible = false
+scale = Vector2( 5, 5 )
+texture = ExtResource( 3 )
+
+[node name="Card" type="Sprite" parent="." index="1"]
+visible = false
+position = Vector2( 0, -130 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+
+[node name="Time" type="Timer" parent="." index="2"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Shield" type="Area2D" parent="." index="3"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shield" index="0"]
+visible = false
+shape = SubResource( 1 )
+[connection signal="timeout" from="Time" to="." method="_on_Time_timeout"]

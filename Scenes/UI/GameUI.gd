@@ -7,21 +7,28 @@ var maxAmmo:int
 func _ready():
 	pass
 	
-func setupUI(maxHealth:int, maxA:int):
+func setupUI(maxHealth:int, maxA:int, maxCharge:int):
 	
-	$Health.max_value = maxHealth
-	$Health.value = maxHealth
-	$Health/AccurateAmount.text = String(maxHealth)
+	$Bars/Health.max_value = maxHealth
+	$Bars/Health.value = maxHealth
+	$Bars/Health/AccurateAmount.text = String(maxHealth)
+	$Bars/Super.max_value = maxCharge
 	
 	maxAmmo = maxA
 	$Ammo.text = "Ammo: " + String(maxAmmo) + "/" + String(maxAmmo)
 	
 	pass
 	
+func setSuperCharge(charge:int):
+	
+	$Bars/Super.value = charge
+	
+	pass
+	
 func setHealth(health:int):
 	
-	$Health.value = health
-	$Health/AccurateAmount.text = String(health)
+	$Bars/Health.value = health
+	$Bars/Health/AccurateAmount.text = String(health)
 	
 	pass
 	

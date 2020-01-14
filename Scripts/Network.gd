@@ -5,6 +5,8 @@ const MAX_PLAYERS = 10
 
 signal allPlayersReady()
 
+signal eventHappened(text)
+
 var searchPeer = PacketPeerUDP.new()
 
 var broadcastAddress = "255.255.255.255"
@@ -26,6 +28,12 @@ var joinableGames = {}
 var broadcastTimer = Timer.new()
 
 var starting = false
+
+var currentMap = "Basic"
+
+var matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
+
+remotesync var playersAlive = 0
 
 
 func _ready():
@@ -136,7 +144,9 @@ func disconnectedFromHost():
 	players = {}
 	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
 	get_tree().paused = false
+	matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
 	pass
+	
 	
 func playerConnected(id:int):
 	
@@ -173,6 +183,7 @@ func disconnectServer():
 	players = {}
 	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
 	get_tree().paused = false
+	matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
 	pass
 	
 remote func readyPlayer(id:int):
@@ -181,11 +192,21 @@ remote func readyPlayer(id:int):
 	
 	pass
 	
-remotesync func startGame(mode=""):
+remotesync func startGame(map="Basic"):
+	
+	rset("playersAlive", players.keys().size())
+	
+	for key in players.keys():
+		
+		matchStats.players[players[key].name] = {"kills":0}
+	
+	currentMap = map
 	
 	if get_tree().is_network_server():
 		broadcastTimer.stop()
 		searchPeer = PacketPeerUDP.new()
+		
+		matchStats.graph.start = OS.get_ticks_msec()
 	
 	get_tree().paused = true
 	
@@ -193,4 +214,38 @@ remotesync func startGame(mode=""):
 	starting = true
 	
 	pass
+	
+remotesync func event(type:int, info:Dictionary, important=false):
+	
+	if type == Globals.events.KILL:
+		
+		emit_signal("eventHappened", players[info.killer].name + " " + info.method + " " + players[info.killed].name, important)
+		
+	elif type == Globals.events.SUPER:
+		
+		emit_signal("eventHappened", players[info.player].name + " " + info.super, important)
+		
+	elif type == Globals.events.MESSAGE:
+		emit_signal("eventHappened", info.message, important)
+	
+	pass
+	
+	
+master func addKill(player:String):
+	matchStats.players[player].kills += 1
+	playersAlive -= 1
+	rset("playersAlive", playersAlive)
+	pass
+	
+master func addGraphPoint(damage:int):
+	
+	matchStats.graph.points.append({"damage":damage, "time":OS.get_ticks_msec()})
+	
+	pass
+	
+remotesync func endGame(stats):
+	matchStats = stats
+	get_tree().change_scene("res://Scenes/Screens/MatchStats.tscn")
+	pass
+	
 	

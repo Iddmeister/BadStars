@@ -27,11 +27,20 @@ __meta__ = {
 
 [node name="Range" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 position = Vector2( 60, 0.664 )
 shape = SubResource( 1 )
 
 [node name="Muzzle" type="Position2D" parent="."]
+
+[node name="Aim" type="Polygon2D" parent="."]
+color = Color( 1, 1, 1, 0.705882 )
+
+[node name="Ray" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 700, 0 )
+collision_mask = 5
 [connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
 [connection signal="timeout" from="Reload" to="." method="_on_Reload_timeout"]
