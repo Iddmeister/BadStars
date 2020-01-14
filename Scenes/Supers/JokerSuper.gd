@@ -11,6 +11,11 @@ func _ready():
 	$Aim.add_point(Vector2(distance, 0))
 	pass
 	
+func initialize():
+	if get_parent().is_network_master():
+		$SelfCharge.start()
+	pass
+	
 func aimVisible(val:bool):
 	$Aim.visible = val
 	pass

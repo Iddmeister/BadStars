@@ -16,7 +16,7 @@ remotesync func shoot(id:int, irrelevantPoolIndex:int):
 	
 func _process(delta):
 	
-	if get_parent().is_network_master():
+	if get_parent().is_network_master() and not get_parent().dead:
 		
 		for body in $Range.get_overlapping_bodies():
 			

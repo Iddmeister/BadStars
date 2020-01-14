@@ -32,7 +32,6 @@ var starting = false
 var currentMap = "Basic"
 
 var matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
-onready var defMatchStats = matchStats.duplicate(true)
 
 remotesync var playersAlive = 0
 
@@ -145,8 +144,9 @@ func disconnectedFromHost():
 	players = {}
 	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
 	get_tree().paused = false
-	matchStats = defMatchStats.duplicate()
+	matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
 	pass
+	
 	
 func playerConnected(id:int):
 	
@@ -183,7 +183,7 @@ func disconnectServer():
 	players = {}
 	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
 	get_tree().paused = false
-	matchStats = defMatchStats.duplicate()
+	matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
 	pass
 	
 remote func readyPlayer(id:int):

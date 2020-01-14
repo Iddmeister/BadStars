@@ -104,9 +104,15 @@ text = ">"
 margin_top = 286.0
 margin_right = 300.0
 margin_bottom = 300.0
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_right = 24.0
+margin_bottom = 24.0
+text = "Fullscreen"
 [connection signal="pressed" from="VBoxContainer/FindGame" to="." method="_on_Find_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HostGame" to="." method="_on_Host_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/DirectConnect" to="." method="_on_DirectConnect_pressed"]
 [connection signal="text_changed" from="CenterContainer/Options/PlayerName" to="." method="_on_PlayerName_text_changed"]
 [connection signal="pressed" from="CenterContainer/Options/CharacterSelect/HBoxContainer/Left" to="." method="_on_Left_pressed"]
 [connection signal="pressed" from="CenterContainer/Options/CharacterSelect/HBoxContainer/Right" to="." method="_on_Right_pressed"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
