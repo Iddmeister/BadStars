@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Graphics/Characters/bit.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Supers/Super.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Guns/BitGun.tscn" type="PackedScene" id=4]
+
+[node name="Bit" index="0" instance=ExtResource( 1 )]
+maxHealth = 500
+moveSpeed = 150
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="EventLog" parent="UI" index="0"]
+margin_left = 4.02744
+margin_top = 1.25146
+margin_right = -35.9725
+margin_bottom = -38.7487
+
+[node name="AutoaimRange" parent="." index="4"]
+editor/display_folded = true
+
+[node name="NameTag" parent="." index="5"]
+editor/display_folded = true
+
+[node name="Super" parent="." index="7" instance=ExtResource( 3 )]
+
+[node name="Gun" parent="." index="8" instance=ExtResource( 4 )]
+distance = 650
+
+[node name="Sprite" parent="Gun" index="3"]
+texture = null
+
+[editable path="Super"]
+
+[editable path="Gun"]
