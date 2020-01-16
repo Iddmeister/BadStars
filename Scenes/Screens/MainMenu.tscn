@@ -65,6 +65,7 @@ margin_right = 300.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
 text = "EpicDude54"
+max_length = 17
 
 [node name="CharacterSelect" type="VBoxContainer" parent="CenterContainer/Options"]
 margin_top = 104.0
