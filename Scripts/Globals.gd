@@ -10,6 +10,8 @@ var mobile = false
 
 var bounds = Vector2(2144, 1984)
 
+var version = "3.5"
+
 var characterInfo = {
 	
 	characters.CLOT:{"poolSize":40, "bulletPath":"res://Scenes/Bullets/ClotBullet.tscn", "playerPath":"res://Scenes/Characters/Clot.tscn"},

@@ -109,6 +109,14 @@ margin_bottom = 300.0
 margin_right = 24.0
 margin_bottom = 24.0
 text = "Fullscreen"
+
+[node name="Version" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -28.0
+margin_right = 28.0
+margin_bottom = 14.0
+text = "Version"
 [connection signal="pressed" from="VBoxContainer/FindGame" to="." method="_on_Find_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HostGame" to="." method="_on_Host_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/DirectConnect" to="." method="_on_DirectConnect_pressed"]

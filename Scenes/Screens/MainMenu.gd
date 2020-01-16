@@ -26,6 +26,7 @@ func _ready():
 	$CenterContainer/Options/PlayerName.text = Network.playerInfo.name
 	currentCharacter = characters.keys().find(int(Data.data["lastPlayed"]))
 	setCharacter(characters.keys()[currentCharacter])
+	$Version.text = "Version " + Globals.version
 	pass
 
 
