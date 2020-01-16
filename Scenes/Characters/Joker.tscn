@@ -9,7 +9,7 @@ load_path = "res://.import/Joker.png-46637f28b07d2050c787a2deaa86cab0.stex"
 
 [node name="Player" instance=ExtResource( 1 )]
 maxHealth = 100
-moveSpeed = 350
+moveSpeed = 300
 weaponPath = NodePath("Melee")
 
 [node name="Sprite" parent="." index="0"]
