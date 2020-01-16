@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Characters/Player.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/icon.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/UI/EventLog.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 36.2131
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 644.961
+
+[node name="Player" type="KinematicBody2D" groups=[
+"Shootable",
+"Player",
+"Autoaim",
+"Freezable",
+]]
+pause_mode = 1
+collision_mask = 4
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2( 1.5, 1.5 )
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="EventLog" parent="UI" instance=ExtResource( 3 )]
+
+[node name="AutoaimRange" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AutoaimRange"]
+shape = SubResource( 2 )
+
+[node name="NameTag" type="Panel" parent="."]
+margin_left = -49.5475
+margin_top = 59.9737
+margin_right = 50.4525
+margin_bottom = 73.9737
+rect_min_size = Vector2( 100, 0 )
+
+[node name="CenterContainer" type="CenterContainer" parent="NameTag"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="NameTag/CenterContainer"]
+margin_left = 50.0
+margin_right = 50.0
+margin_bottom = 14.0
+align = 1
+
+[node name="Poison" type="Timer" parent="."]
+wait_time = 2.0
+[connection signal="timeout" from="Poison" to="." method="_on_Poison_timeout"]
