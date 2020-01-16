@@ -6,7 +6,9 @@
 [node name="Super" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 emitMessage = false
-speed = 0.2
+distance = 350
+speed = 0.3
+selfChargeAmount = 50
 
 [node name="Aim" type="Line2D" parent="." index="0"]
 width = 20.0
@@ -25,4 +27,5 @@ collision_mask = 5
 
 [node name="SelfCharge" type="Timer" parent="." index="3"]
 wait_time = 0.3
+autostart = true
 [connection signal="timeout" from="SelfCharge" to="." method="_on_SelfCharge_timeout"]
