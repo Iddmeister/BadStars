@@ -16,8 +16,9 @@ var characters = {
 	Globals.characters.JOKER:{"icon":"res://Graphics/Characters/Joker.png", "info":"Joker: You Wouldn't Get It"},
 	Globals.characters.MAGPIE:{"icon":"res://Graphics/Characters/Magpie.png", "info":"Magpie: SHINY SHINY SHINY"},
 	Globals.characters.FRONK:{"icon":"res://Graphics/Characters/Fronk.png", "info":"FRONK: ICH BIN FRONK"},
- 	 #Globals.characters.BRICK:{"icon":"res://Graphics/Characters/Brick.png", "info":"Brick is literally a brick"},
-	Globals.characters.KARLMARX:{"icon":"res://Graphics/Characters/KarlMarx.png", "info":"Karl Marx: Communism"},
+	Globals.characters.BARELY:{"icon":"res://Graphics/Characters/Barely.png", "info":"Barely: Barely a character"},
+  #Globals.characters.BRICK:{"icon":"res://Graphics/Characters/Brick.png", "info":"Brick is literally a brick"},
+	
 }
 
 
@@ -26,7 +27,6 @@ func _ready():
 	$CenterContainer/Options/PlayerName.text = Network.playerInfo.name
 	currentCharacter = characters.keys().find(int(Data.data["lastPlayed"]))
 	setCharacter(characters.keys()[currentCharacter])
-	$Version.text = "Version " + Globals.version
 	pass
 
 
