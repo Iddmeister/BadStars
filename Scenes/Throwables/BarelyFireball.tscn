@@ -12,7 +12,7 @@ script = ExtResource( 2 )
 airTime = 1.5
 transType = 2
 easeType = 1
-damage = 35
+damage = 25
 
 [node name="AirSprite" type="Sprite" parent="." index="1"]
 visible = false
@@ -35,6 +35,6 @@ wait_time = 1.7
 one_shot = true
 
 [node name="Dps" type="Timer" parent="." index="5"]
-wait_time = 0.5
+wait_time = 0.3
 [connection signal="timeout" from="BurnTime" to="." method="_on_BurnTime_timeout"]
 [connection signal="timeout" from="Dps" to="." method="_on_Dps_timeout"]
