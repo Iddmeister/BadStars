@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Supers/ShmellySuper.tscn" type="PackedScene" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/BarelyFireball.png-95d00a5f018b2543f6fa598a9501c230.stex"
+
+[node name="Super" instance=ExtResource( 1 )]
+superMessage = "Started a fire"
+damage = 10
+
+[node name="Sprite" parent="." index="2"]
+texture = SubResource( 1 )
+
+[node name="HitDelay" parent="." index="3"]
+wait_time = 0.2
