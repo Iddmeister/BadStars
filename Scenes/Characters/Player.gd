@@ -156,6 +156,9 @@ func actions():
 					
 			
 		else:
+			
+			Globals.playerToMouse = get_global_mouse_position() - global_position
+			
 			if Input.is_action_just_pressed("autoaim"):
 				autoaim()
 			else:

@@ -26,7 +26,7 @@ var characterInfo = {
 	characters.FRONK:{"poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/Fronk.tscn"},
 	characters.THRIO:{"poolSize":7, "bulletPath":"res://Scenes/Bullets/Shuriken.tscn", "playerPath":"res://Scenes/Characters/THRiO.tscn"},
 	characters.BRICK:{"poolSize":40, "bulletPath":"res://Scenes/Bullets/BrickBullet.tscn", "playerPath":"res://Scenes/Characters/Brick.tscn"},
-	characters.BARELY: {"poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/Barely.tscn"},
+	characters.BARELY: {"poolSize":10, "bulletPath":"res://Scenes/Throwables/BarelyFireball.tscn", "playerPath":"res://Scenes/Characters/Barely.tscn"},
   }
 	
 var maps = {
@@ -41,6 +41,8 @@ var maps = {
 var leftStickAxis = Vector2()
 var rightStickAxis = Vector2()
 var superStickAxis = Vector2()
+
+var playerToMouse = Vector2()
 
 func _ready() -> void:
 	

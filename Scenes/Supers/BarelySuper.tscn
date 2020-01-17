@@ -5,7 +5,7 @@
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/BarelyFireball.png-95d00a5f018b2543f6fa598a9501c230.stex"
 
-[node name="Super" instance=ExtResource( 1 )]
+[node name="Super" index="0" instance=ExtResource( 1 )]
 superMessage = "Started a fire"
 damage = 10
 

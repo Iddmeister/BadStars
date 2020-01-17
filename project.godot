@@ -29,6 +29,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Supers/Super.gd"
 }, {
+"base": "Node2D",
+"class": "Throwable",
+"language": "GDScript",
+"path": "res://Scenes/Throwables/Throwable.gd"
+}, {
+"base": "Node2D",
+"class": "Thrower",
+"language": "GDScript",
+"path": "res://Scenes/Thrower/Thrower.gd"
+}, {
 "base": "Control",
 "class": "gameUI",
 "language": "GDScript",
@@ -39,6 +49,8 @@ _global_script_class_icons={
 "Gun": "",
 "Melee": "",
 "Super": "",
+"Throwable": "",
+"Thrower": "",
 "gameUI": ""
 }
 

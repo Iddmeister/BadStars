@@ -15,7 +15,8 @@ func _ready():
 	pass
 	
 func _physics_process(delta):
-	move(delta)
+	if enabled:
+		move(delta)
 	
 func move(delta:float):
 	

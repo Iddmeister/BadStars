@@ -98,17 +98,18 @@ func _on_Cooldown_timeout():
 
 
 func _on_Sickle_body_entered(body):
-	if is_network_master():
-		if body.is_in_group("Shootable"):
-			if not body.is_in_group("Ally"+String(get_parent().get_network_master())):
-				
-				body.rpc("hit", damage, get_parent().get_network_master())
-				
-				if body.is_in_group("Player") or body.is_in_group("Dummy"):
-					get_tree().get_nodes_in_group("Ally"+String(get_parent().get_network_master()))[0].rpc("didDamage", damage)
-				
-		if not body.is_in_group("Player"):
-			returning = true
+	if not get_parent().dead:
+		if is_network_master():
+			if body.is_in_group("Shootable"):
+				if not body.is_in_group("Ally"+String(get_parent().get_network_master())):
+					
+					body.rpc("hit", damage, get_parent().get_network_master())
+					
+					if body.is_in_group("Player") or body.is_in_group("Dummy"):
+						get_tree().get_nodes_in_group("Ally"+String(get_parent().get_network_master()))[0].rpc("didDamage", damage)
+					
+			if not body.is_in_group("Player"):
+				returning = true
 
 
 func _on_Gun_visibility_changed():
