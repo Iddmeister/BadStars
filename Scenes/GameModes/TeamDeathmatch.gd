@@ -13,6 +13,19 @@ func _ready():
 	Effects.createEffects()
 	setReady()
 	pass
+	
+	
+func _process(delta):
+	
+	if get_tree().is_network_server():
+		
+		if Network.gameStarted:
+			
+			rpc("setTime", int($Time.time_left))
+		
+		pass
+	
+	pass
 
 func loadMap():
 	
@@ -67,11 +80,38 @@ func placePlayers():
 			rpc("placePlayer", player, redSpots[spot].global_position)
 			redSpots.remove(spot)
 		pass
+		
 	
 	pass
 	
 remotesync func placePlayer(key:String, pos:Vector2):
 	playerObjects[key].global_position = pos
+	playerObjects[key].respawnPoint = pos
+	pass
+	
+	
+remotesync func teamPlayers():
+	
+	for player in get_tree().get_nodes_in_group("Blue"):
+		
+		for player2 in get_tree().get_nodes_in_group("Blue"):
+			
+			player.add_to_group("Ally"+String(player2.get_network_master()))
+			
+			pass
+		
+		pass
+		
+	for player in get_tree().get_nodes_in_group("Red"):
+		
+		for player2 in get_tree().get_nodes_in_group("Red"):
+			
+			player.add_to_group("Ally"+String(player2.get_network_master()))
+			
+			pass
+		
+		pass
+	
 	pass
 	
 remotesync func startGame():
@@ -86,7 +126,24 @@ remotesync func startGame():
 	if get_tree().is_network_server():
 		placePlayers()
 		
+	teamPlayers()
+	
+	for player in get_tree().get_nodes_in_group("Player"):
+		player.canRespawn = true
+		
 	Network.gameStarted = true
 	Network.starting = false
+	if get_tree().is_network_server():
+		$Time.start()
 	
 	pass
+	
+remotesync func setTime(time:int):
+	$UI/Control/Time.text = String(time)
+	if time <= 15:
+		$UI/Control/Time.modulate = Color(1, 0, 0)
+	pass
+
+func _on_Time_timeout():
+	pass # Replace with function body.
+
