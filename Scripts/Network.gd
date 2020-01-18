@@ -17,6 +17,7 @@ var playerInfo = {
 	
 	"name":"EpicDude54",
 	"character":Globals.characters.SHMELLY,
+	"team":"Blue",
 	"ready":false,
 	
 	}
@@ -35,9 +36,6 @@ var matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "point
 
 remotesync var playersAlive = 0
 
-enum gameModes {BADROYALE, BADBALL, TEAMS}
-
-var currentGameMode = gameModes.BADROYALE
 
 
 func _ready():
@@ -196,7 +194,7 @@ remote func readyPlayer(id:int):
 	
 	pass
 	
-remotesync func startGame(gameMode=gameModes.BADROYALE, map="Basic"):
+remotesync func startGame(gameMode=Globals.gameModes["Bad Royale"], map="Basic"):
 	
 	rset("playersAlive", players.keys().size())
 	
@@ -213,7 +211,7 @@ remotesync func startGame(gameMode=gameModes.BADROYALE, map="Basic"):
 		matchStats.graph.start = OS.get_ticks_msec()
 	
 	get_tree().paused = true
-	currentGameMode = gameMode
+	Globals.currentGameMode = gameMode
 	get_tree().change_scene("res://Scenes/GameModes/World.tscn")
 	starting = true
 	

@@ -1,10 +1,8 @@
 extends Node2D
 
-
 var playerObjects = {}
 
 var gameWon = false
-
 
 func _ready():
 	set_process(false)
@@ -15,30 +13,7 @@ func _ready():
 	Effects.createEffects()
 	setReady()
 	pass
-	
-func _process(delta):
-	
-	if get_tree().is_network_server():
-		if Network.gameStarted:
-			if not gameWon:
-				var notDead = 0
-				var winner:Node2D
-				for player in get_tree().get_nodes_in_group("Player"):
-					if not player.dead:
-						notDead += 1
-						winner = player
-						
-				if notDead == 1:
-					gameWon = true
-					Network.matchStats.places.append(Network.players[int(winner.name)].name)
-					Network.matchStats.graph.end = OS.get_ticks_msec()
-					Network.rpc("event", Globals.events.MESSAGE, {"message":Network.players[int(winner.name)].name + " Wins!"}, true)
-					if not get_tree().get_nodes_in_group("Player").size() == 1:
-						$Delay.start()
-					pass
-	
-	pass
-	
+
 func loadMap():
 	
 	var map = load(Globals.maps[Globals.currentGameMode][Network.currentMap]).instance()
@@ -46,29 +21,7 @@ func loadMap():
 	add_child(map)
 	
 	pass
-
-func spawnPlayers():
-	for player in Network.players.keys():
-		var p = load(Globals.characterInfo[Network.players[player].character].playerPath).instance()
-		p.name = String(player)
-		add_child(p)
-	pass
 	
-func placePlayers():
-	
-	var spots = $Map/SpawnPoints.get_children()
-	
-	for player in playerObjects.keys():
-		var spot = rand_range(0, spots.size())
-		rpc("placePlayer", player, spots[spot].global_position)
-		spots.remove(spot)
-		pass
-	
-	pass
-	
-remotesync func placePlayer(key:String, pos:Vector2):
-	playerObjects[key].global_position = pos
-	pass
 	
 func setReady():
 	if not get_tree().is_network_server():
@@ -81,6 +34,44 @@ func setReady():
 		
 		rpc("startGame")
 		
+	pass
+	
+func spawnPlayers():
+	for player in Network.players.keys():
+		var p = load(Globals.characterInfo[Network.players[player].character].playerPath).instance()
+		p.name = String(player)
+		p.add_to_group(Network.players[player].team)
+		add_child(p)
+	pass
+	
+func placePlayers():
+	
+	var spots = $Map/SpawnPoints.get_children()
+	
+	var blueSpots = []
+	var redSpots = []
+	
+	for s in range(spots.size()):
+		if s < 5:
+			blueSpots.append(spots[s])
+		else:
+			redSpots.append(spots[s])
+	
+	for player in playerObjects.keys():
+		if playerObjects[player].is_in_group("Blue"):
+			var spot = rand_range(0, blueSpots.size())
+			rpc("placePlayer", player, blueSpots[spot].global_position)
+			blueSpots.remove(spot)
+		else:
+			var spot = rand_range(0, redSpots.size())
+			rpc("placePlayer", player, redSpots[spot].global_position)
+			redSpots.remove(spot)
+		pass
+	
+	pass
+	
+remotesync func placePlayer(key:String, pos:Vector2):
+	playerObjects[key].global_position = pos
 	pass
 	
 remotesync func startGame():
@@ -99,6 +90,3 @@ remotesync func startGame():
 	Network.starting = false
 	
 	pass
-
-func _on_Delay_timeout():
-	Network.rpc("endGame", Network.matchStats)

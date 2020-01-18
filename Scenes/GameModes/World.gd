@@ -1,12 +1,14 @@
 extends Node2D
 
-var gameModePaths = {
-	
-	Network.gameModes.BADROYALE:"res://Scenes/GameModes/BadRoyale.tscn",
-	Network.gameModes.BADBALL:"",
-	Network.gameModes.TEAMS:"",
-	
-	}
+
 
 func _ready():
+	createMode(Globals.currentGameMode)
+	pass
+	
+func createMode(gameMode:String):
+	
+	var s = load(Globals.gameModes[gameMode]).instance()
+	add_child(s)
+	
 	pass
