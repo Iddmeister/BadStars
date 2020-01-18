@@ -1,6 +1,7 @@
 extends Control
 
 var currentMap = "Basic"
+var currentGameMode = Network.gameModes.BADROYALE
 var currentMapIndex = 0
 
 func _ready():
@@ -28,7 +29,7 @@ func _process(delta):
 
 
 func _on_Start_pressed():
-	Network.rpc("startGame", currentMap)
+	Network.rpc("startGame", currentGameMode, currentMap)
 	
 
 
