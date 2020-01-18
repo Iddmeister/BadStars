@@ -171,4 +171,10 @@ func _on_Time_timeout():
 	else:
 		text = "Draw!"
 	Network.rpc("event", Globals.events.MESSAGE, {"message":text}, true)
+	if Network.players.size() > 1:
+		$Delay.start()
 
+
+
+func _on_Delay_timeout():
+	Network.rpc("endGame", Network.matchStats)

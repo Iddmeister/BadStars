@@ -79,4 +79,9 @@ custom_fonts/font = SubResource( 1 )
 text = "0"
 align = 1
 valign = 1
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 [connection signal="timeout" from="Time" to="." method="_on_Time_timeout"]
+[connection signal="timeout" from="Delay" to="." method="_on_Delay_timeout"]

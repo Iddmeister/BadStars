@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Screens/HostScreen.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
@@ -112,6 +115,7 @@ anchor_bottom = 1.0
 margin_top = -70.0
 margin_right = 100.0
 rect_min_size = Vector2( 0, 70 )
+custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 1 )
 toggle_mode = true
 shortcut_in_tooltip = false

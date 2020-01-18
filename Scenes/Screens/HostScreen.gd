@@ -26,6 +26,16 @@ func _process(delta):
 				label.text = Network.players[player].name + " : " + IP.get_local_addresses()[1]
 			label.name = Network.players[player].name
 			label.align = Label.ALIGN_CENTER
+			
+		else:
+			var l = $Players.get_node(Network.players[player].name)
+			if currentGameMode == "Team Deathmatch":
+				if Network.players[player].team == "Blue":
+					l.modulate = Color(0, 0, 1)
+				else:
+					l.modulate = Color(1, 0, 0)
+			else:
+				l.modulate = Color(1, 1, 1)
 		
 		pass
 	

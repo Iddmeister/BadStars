@@ -247,7 +247,10 @@ master func addGraphPoint(damage:int):
 	
 remotesync func endGame(stats):
 	matchStats = stats
-	get_tree().change_scene("res://Scenes/Screens/MatchStats.tscn")
+	if Globals.currentGameMode == "Bad Royale":
+		get_tree().change_scene("res://Scenes/Screens/MatchStats.tscn")
+	else:
+		get_tree().change_scene("res://Scenes/Screens/TeamMatchStats.tscn")
 	pass
 	
 	

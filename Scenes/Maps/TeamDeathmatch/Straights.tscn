@@ -29,6 +29,7 @@ __meta__ = {
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="Dummies" type="Node2D" parent="Objects"]
+editor/display_folded = true
 
 [node name="Dummy" parent="Objects/Dummies" instance=ExtResource( 2 )]
 position = Vector2( 672, 448 )
