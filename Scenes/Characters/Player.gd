@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal started()
+signal death(id)
 
 export var maxHealth = 400
 onready var health = maxHealth
@@ -42,6 +43,7 @@ func initialize(id:int):
 	add_to_group("Ally"+String(id))
 	
 	$NameTag/CenterContainer/Label.text = Network.players[id].name
+	
 	
 	if super.has_method("initialize"):
 		super.initialize()
@@ -257,6 +259,9 @@ remotesync func hit(damage:int, id:int, isSuper=false):
 		
 remotesync func die():
 	
+	if get_tree().is_network_server():
+		emit_signal("death", get_network_master())
+	
 	if not canRespawn:
 		$Poison.stop()
 		moveSpeed = 600
@@ -325,6 +330,14 @@ remotesync func respawn():
 remotesync func goInvincible(do:bool):
 	invincible = do
 	$Shield.visible = do
+	pass
+	
+func setTeam(team:String):
+	$NameTag/CenterContainer/Label.add_color_override("font_color", Color(1, 1, 1))
+	if team == "Blue":
+		$NameTag.self_modulate = Color(0, 0, 1)
+	else:
+		$NameTag.self_modulate = Color(1, 0, 0)
 	pass
 
 func _on_InvincibleTime_timeout():

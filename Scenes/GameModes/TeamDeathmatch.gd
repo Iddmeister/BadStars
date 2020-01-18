@@ -4,6 +4,8 @@ var playerObjects = {}
 
 var gameWon = false
 
+var scores = {"blue":0, "red":0}
+
 func _ready():
 	set_process(false)
 	set_network_master(1)
@@ -22,6 +24,7 @@ func _process(delta):
 		if Network.gameStarted:
 			
 			rpc("setTime", int($Time.time_left))
+			rpc("updateKills", scores.blue, scores.red)
 		
 		pass
 	
@@ -54,6 +57,7 @@ func spawnPlayers():
 		var p = load(Globals.characterInfo[Network.players[player].character].playerPath).instance()
 		p.name = String(player)
 		p.add_to_group(Network.players[player].team)
+		p.setTeam(Network.players[player].team)
 		add_child(p)
 	pass
 	
@@ -125,6 +129,8 @@ remotesync func startGame():
 		
 	if get_tree().is_network_server():
 		placePlayers()
+		for player in get_tree().get_nodes_in_group("Player"):
+			player.connect("death", self, "kill")
 		
 	teamPlayers()
 	
@@ -139,11 +145,30 @@ remotesync func startGame():
 	pass
 	
 remotesync func setTime(time:int):
-	$UI/Control/Time.text = String(time)
+	$UI/Control/Info/Time.text = String(time)
 	if time <= 15:
-		$UI/Control/Time.modulate = Color(1, 0, 0)
+		$UI/Control/Info/Time.modulate = Color(1, 0, 0)
+	pass
+	
+remotesync func updateKills(blueKills:int, redKills:int):
+	$UI/Control/Info/Scores/Blue.text = String(blueKills)
+	$UI/Control/Info/Scores/Red.text = String(redKills)
+	pass
+	
+func kill(id:int):
+	if Network.players[id].team == "Blue":
+		scores.red += 1
+	else:
+		scores.blue += 1
 	pass
 
 func _on_Time_timeout():
-	pass # Replace with function body.
+	var text:String
+	if scores.blue > scores.red:
+		text = "Blue Wins!"
+	elif scores.red > scores.blue:
+		text = "Red Wins!"
+	else:
+		text = "Draw!"
+	Network.rpc("event", Globals.events.MESSAGE, {"message":text}, true)
 
