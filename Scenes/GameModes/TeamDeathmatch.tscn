@@ -3,12 +3,12 @@
 [ext_resource path="res://Scenes/GameModes/TeamDeathmatch.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Fonts/JetBrainsMono-Regular.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -51,7 +51,7 @@ alignment = 1
 margin_left = 25.0
 margin_right = 65.0
 margin_bottom = 19.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0.670588, 1, 1 )
 text = "Blue"
 
@@ -59,14 +59,14 @@ text = "Blue"
 margin_left = 75.0
 margin_right = 85.0
 margin_bottom = 19.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = ":"
 
 [node name="Red" type="Label" parent="UI/Control/Info/Scores"]
 margin_left = 95.0
 margin_right = 125.0
 margin_bottom = 19.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.235294, 0.235294, 1 )
 text = "Red"
 
@@ -75,7 +75,7 @@ margin_top = 23.0
 margin_right = 150.0
 margin_bottom = 63.0
 rect_min_size = Vector2( 150, 40 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "0"
 align = 1
 valign = 1

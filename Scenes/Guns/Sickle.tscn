@@ -10,9 +10,9 @@ radius = 14.9446
 [node name="Gun" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 maxAmmo = 1
-distance = 320
+distance = 360
 aimWidth = 30
-speed = 370
+speed = 380
 returnRange = 50
 
 [node name="Muzzle" parent="." index="0"]
