@@ -5,22 +5,22 @@
 [ext_resource path="res://Graphics/Weapons/BarelyFireball.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 75.8899
+radius = 119.688
 
 [node name="Throwable" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 airTime = 1.5
 transType = 2
 easeType = 1
-damage = 25
+damage = 20
 
 [node name="AirSprite" type="Sprite" parent="." index="1"]
 visible = false
 texture = ExtResource( 3 )
 
 [node name="GroundSprite" type="Sprite" parent="." index="2"]
-position = Vector2( -1.22943, 4.61034 )
-scale = Vector2( 5.5, 5.5 )
+position = Vector2( -4.54651, 14.5616 )
+scale = Vector2( 9, 9 )
 texture = ExtResource( 3 )
 
 [node name="Area" type="Area2D" parent="." index="3"]
@@ -35,6 +35,6 @@ wait_time = 1.7
 one_shot = true
 
 [node name="Dps" type="Timer" parent="." index="5"]
-wait_time = 0.3
+wait_time = 0.2
 [connection signal="timeout" from="BurnTime" to="." method="_on_BurnTime_timeout"]
 [connection signal="timeout" from="Dps" to="." method="_on_Dps_timeout"]

@@ -41,7 +41,7 @@ func _process(delta):
 	
 func loadMap():
 	
-	var map = load(Globals.maps[Network.currentMap]).instance()
+	var map = load(Globals.maps[Globals.currentGameMode][Network.currentMap]).instance()
 	map.name = "Map"
 	add_child(map)
 	

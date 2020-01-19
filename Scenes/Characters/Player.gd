@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal started()
+signal death(id)
 
 export var maxHealth = 400
 onready var health = maxHealth
@@ -27,6 +28,11 @@ var poisonLength:int
 var currentPoisonLength = 0
 var poisonId:int
 
+var respawnPoint = Vector2()
+
+var invincible = false
+var canRespawn = false
+
 func _ready():
 	pass
 	
@@ -37,6 +43,7 @@ func initialize(id:int):
 	add_to_group("Ally"+String(id))
 	
 	$NameTag/CenterContainer/Label.text = Network.players[id].name
+	
 	
 	if super.has_method("initialize"):
 		super.initialize()
@@ -229,7 +236,7 @@ master func didDamage(damage:int):
 	
 remotesync func hit(damage:int, id:int, isSuper=false):
 	
-	if not dead:
+	if not dead and not invincible:
 		
 		Network.rpc("addGraphPoint", damage)
 	
@@ -252,20 +259,28 @@ remotesync func hit(damage:int, id:int, isSuper=false):
 		
 remotesync func die():
 	
-	$Poison.stop()
-	moveSpeed = 600
-	modulate = Color(1, 1, 1, 0.7)
-	$Sprite.scale = Vector2(2, 2)
-	$Sprite.rotation = 0
-	$CollisionShape2D.set_deferred("disabled", true)
-	$Sprite.texture = ghostTexture
-	dead = true
-	weapon.visible = false
-	
 	if get_tree().is_network_server():
-		Network.matchStats.places.append(Network.players[get_network_master()].name)
+		emit_signal("death", get_network_master())
+	
+	if not canRespawn:
+		$Poison.stop()
+		moveSpeed = 600
+		modulate = Color(1, 1, 1, 0.7)
+		$Sprite.scale = Vector2(2, 2)
+		$Sprite.rotation = 0
+		$CollisionShape2D.set_deferred("disabled", true)
+		$Sprite.texture = ghostTexture
+		dead = true
+		weapon.visible = false
+		
+		if get_tree().is_network_server():
+			Network.matchStats.places.append(Network.players[get_network_master()].name)
+			
+	else:
+		rpc("respawn")
 	
 	pass
+	
 	
 master func freeze(val:bool):
 	
@@ -299,3 +314,31 @@ func _on_Poison_timeout():
 	currentPoisonLength += 1
 	if currentPoisonLength >= poisonLength:
 		$Poison.stop()
+		
+
+remotesync func respawn():
+	
+	if is_network_master():
+		global_position = respawnPoint
+		health = maxHealth
+		ui.setHealth(health)
+	goInvincible(true)
+	if get_tree().is_network_server():
+		$InvincibleTime.start()
+	pass
+
+remotesync func goInvincible(do:bool):
+	invincible = do
+	$Shield.visible = do
+	pass
+	
+func setTeam(team:String):
+	$NameTag/CenterContainer/Label.add_color_override("font_color", Color(1, 1, 1))
+	if team == "Blue":
+		$NameTag.self_modulate = Color(0, 0, 1)
+	else:
+		$NameTag.self_modulate = Color(1, 0, 0)
+	pass
+
+func _on_InvincibleTime_timeout():
+	rpc("goInvincible", false)

@@ -17,6 +17,7 @@ var playerInfo = {
 	
 	"name":"EpicDude54",
 	"character":Globals.characters.SHMELLY,
+	"team":"Blue",
 	"ready":false,
 	
 	}
@@ -34,6 +35,7 @@ var currentMap = "Basic"
 var matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
 
 remotesync var playersAlive = 0
+
 
 
 func _ready():
@@ -192,7 +194,7 @@ remote func readyPlayer(id:int):
 	
 	pass
 	
-remotesync func startGame(map="Basic"):
+remotesync func startGame(gameMode=Globals.gameModes["Bad Royale"], map="Basic"):
 	
 	rset("playersAlive", players.keys().size())
 	
@@ -209,8 +211,8 @@ remotesync func startGame(map="Basic"):
 		matchStats.graph.start = OS.get_ticks_msec()
 	
 	get_tree().paused = true
-	
-	get_tree().change_scene("res://Scenes/GameModes/BadRoyale.tscn")
+	Globals.currentGameMode = gameMode
+	get_tree().change_scene("res://Scenes/GameModes/World.tscn")
 	starting = true
 	
 	pass
@@ -245,7 +247,11 @@ master func addGraphPoint(damage:int):
 	
 remotesync func endGame(stats):
 	matchStats = stats
-	get_tree().change_scene("res://Scenes/Screens/MatchStats.tscn")
+	ObjectPool.clearAllPools()
+	if Globals.currentGameMode == "Bad Royale":
+		get_tree().change_scene("res://Scenes/Screens/MatchStats.tscn")
+	else:
+		get_tree().change_scene("res://Scenes/Screens/TeamMatchStats.tscn")
 	pass
 	
 	

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/icon.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Fonts/JetBrainsMono-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Graphics/UI/Circle.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 36.2131
@@ -9,11 +11,18 @@ radius = 36.2131
 [sub_resource type="CircleShape2D" id=2]
 radius = 644.961
 
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+use_mipmaps = true
+font_data = ExtResource( 3 )
+
 [node name="Player" type="KinematicBody2D" groups=[
-"Freezable",
-"Autoaim",
-"Player",
 "Shootable",
+"Autoaim",
+"Freezable",
+"Player",
 ]]
 pause_mode = 1
 collision_mask = 4
@@ -41,22 +50,38 @@ collision_mask = 5
 shape = SubResource( 2 )
 
 [node name="NameTag" type="Panel" parent="."]
-margin_left = -49.5475
-margin_top = 59.9737
-margin_right = 50.4525
-margin_bottom = 73.9737
-rect_min_size = Vector2( 100, 0 )
+margin_left = -59.0
+margin_top = 60.0
+margin_right = 61.0
+margin_bottom = 83.0
+rect_min_size = Vector2( 120, 16 )
+custom_styles/panel = SubResource( 4 )
 
 [node name="CenterContainer" type="CenterContainer" parent="NameTag"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = 3.0
 
 [node name="Label" type="Label" parent="NameTag/CenterContainer"]
-margin_left = 50.0
-margin_right = 50.0
-margin_bottom = 14.0
+margin_left = 60.0
+margin_top = 3.0
+margin_right = 60.0
+margin_bottom = 22.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 
 [node name="Poison" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="Shield" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0, 1, 0.94902, 0.552941 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+
+[node name="InvincibleTime" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 [connection signal="timeout" from="Poison" to="." method="_on_Poison_timeout"]
+[connection signal="timeout" from="InvincibleTime" to="." method="_on_InvincibleTime_timeout"]

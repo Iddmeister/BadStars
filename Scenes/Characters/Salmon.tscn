@@ -13,7 +13,7 @@ height = 62.0786
 bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Player" index="0" instance=ExtResource( 1 )]
-maxHealth = 300
+maxHealth = 210
 moveSpeed = 170
 
 [node name="Sprite" parent="." index="0"]
@@ -31,5 +31,9 @@ shape = SubResource( 1 )
 margin_top = 74.4694
 margin_bottom = 88.4694
 custom_styles/panel = SubResource( 2 )
+
+[node name="Label" parent="NameTag/CenterContainer" index="0"]
+margin_top = 0.0
+margin_bottom = 19.0
 
 [node name="Super" parent="." index="7" instance=ExtResource( 4 )]

@@ -24,9 +24,11 @@ var characters = {
 
 func _ready():
 	Network.playerInfo.name = Data.data.playerName
+	Network.playerInfo.team = "Blue"
 	$CenterContainer/Options/PlayerName.text = Network.playerInfo.name
 	currentCharacter = characters.keys().find(int(Data.data["lastPlayed"]))
 	setCharacter(characters.keys()[currentCharacter])
+	$Version.text = "Version "+Globals.version
 	pass
 
 

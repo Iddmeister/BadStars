@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Screens/JoinScreen.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
 
 [node name="JoinScreen" type="Control"]
 anchor_right = 1.0
@@ -21,10 +27,10 @@ margin_bottom = -2.39166
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 392.0
-margin_top = 173.0
+margin_top = 123.0
 margin_right = 592.0
-margin_bottom = 387.0
-custom_constants/separation = 100
+margin_bottom = 437.0
+custom_constants/separation = 50
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 200.0
@@ -32,10 +38,22 @@ margin_bottom = 14.0
 text = "Joined"
 align = 1
 
-[node name="Disconnect" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 114.0
+[node name="Team" type="Button" parent="CenterContainer/VBoxContainer"]
+modulate = Color( 0, 0.0901961, 1, 1 )
+margin_top = 64.0
 margin_right = 200.0
-margin_bottom = 214.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 0, 100 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+toggle_mode = true
+shortcut_in_tooltip = false
+
+[node name="Disconnect" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 214.0
+margin_right = 200.0
+margin_bottom = 314.0
 rect_min_size = Vector2( 200, 100 )
 text = "Disconnect"
+[connection signal="toggled" from="CenterContainer/VBoxContainer/Team" to="." method="_on_Team_toggled"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Disconnect" to="." method="_on_Disconnect_pressed"]

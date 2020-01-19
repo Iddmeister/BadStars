@@ -8,7 +8,11 @@ var killLines = ["destroyed", "rekt", "eliminated", "took out"]
 
 var mobile = false
 
+var version = "0.4-dev"
+
 var bounds = Vector2(2144, 1984)
+
+onready var currentGameMode = "Bad Royale"
 
 var characterInfo = {
 	
@@ -21,7 +25,7 @@ var characterInfo = {
 	characters.BARREL:{"poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/Barryl.tscn"},
 	characters.POKO: {"poolSize":50, "bulletPath":"Scenes/Bullets/PokoBullet.tscn", "playerPath":"res://Scenes/Characters/Poko.tscn"},
 	characters.JOKER: {"poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/Joker.tscn"},
-  characters.BALD:{"poolSize":45, "bulletPath":"res://Scenes/Bullets/BALDBULLET.tscn", "playerPath":"res://Scenes/Characters/BALD.tscn"},
+    characters.BALD:{"poolSize":45, "bulletPath":"res://Scenes/Bullets/BALDBULLET.tscn", "playerPath":"res://Scenes/Characters/BALD.tscn"},
 	characters.MAGPIE:{"poolSize":30, "bulletPath":"res://Scenes/Bullets/Feather.tscn", "playerPath":"res://Scenes/Characters/Magpie.tscn"},
 	characters.FRONK:{"poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/Fronk.tscn"},
 	characters.THRIO:{"poolSize":7, "bulletPath":"res://Scenes/Bullets/Shuriken.tscn", "playerPath":"res://Scenes/Characters/THRiO.tscn"},
@@ -31,12 +35,28 @@ var characterInfo = {
 	
 var maps = {
 	
-	"Basic":"res://Scenes/Maps/BasicMap.tscn",
-	"BlockBlockBlock":"res://Scenes/Maps/BlockBlockBlock.tscn",
-	"No Dummies": "res://Scenes/Maps/NoDummies.tscn",
-	"Rings": "res://Scenes/Maps/Rings.tscn",
+	"Bad Royale":{
+		"Basic":"res://Scenes/Maps/BadRoyale/BasicMap.tscn",
+		"BlockBlockBlock":"res://Scenes/Maps/BadRoyale/BlockBlockBlock.tscn",
+		"No Dummies": "res://Scenes/Maps/BadRoyale/NoDummies.tscn",
+		"Rings": "res://Scenes/Maps/BadRoyale/Rings.tscn",
+		},
+		
+	"Team Deathmatch":{
+		
+		"Straights":"res://Scenes/Maps/TeamDeathmatch/Straights.tscn",
+		
+		},
 	
 	}
+	
+var gameModes = {
+	
+	"Bad Royale":"res://Scenes/GameModes/BadRoyale.tscn",
+	"Team Deathmatch": "res://Scenes/GameModes/TeamDeathmatch.tscn",
+	
+	}
+	
 	
 var leftStickAxis = Vector2()
 var rightStickAxis = Vector2()
