@@ -11,7 +11,7 @@ load_path = "res://.import/Joker.png-46637f28b07d2050c787a2deaa86cab0.stex"
 radius = 11.5011
 height = 44.6451
 
-[node name="Player" index="0" instance=ExtResource( 1 )]
+[node name="Player" instance=ExtResource( 1 )]
 maxHealth = 100
 moveSpeed = 300
 weaponPath = NodePath("Melee")

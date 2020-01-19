@@ -1,6 +1,6 @@
 extends Control
 
-var skip = false
+var skip = true
 
 func _ready():
 	if skip:

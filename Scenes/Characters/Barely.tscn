@@ -11,7 +11,7 @@ load_path = "res://.import/Barely.png-d84fc2de55fbcba1da2f3b31557777b6.stex"
 points = PoolVector2Array( 12, -48, 12, 44, -11, 44, -12, -48 )
 
 [node name="Player" index="0" instance=ExtResource( 1 )]
-maxHealth = 500
+maxHealth = 275
 moveSpeed = 300
 weaponPath = NodePath("Thrower")
 

@@ -5,6 +5,7 @@ export var speed:float = 1
 export var selfChargeAmount = 20
 
 func _ready():
+	$Ray.add_exception(get_parent())
 	$Ray.cast_to = Vector2(distance, 0)
 	$Aim.visible = false
 	$Aim.add_point(Vector2(0, 0))
