@@ -12,7 +12,7 @@ load_path = "res://.import/BarelyCharged.png-bf682e729bfb13810784d92513a94811.st
 [node name="Super" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 damageMultiplier = 1
-superMessage = "used Super"
+superMessage = "started a Fire"
 damage = 10
 
 [node name="Sprite" parent="." index="2"]

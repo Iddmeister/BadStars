@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Thrower/Thrower.tscn" type="PackedScene" id=1]
+
+[node name="Thrower" index="0" instance=ExtResource( 1 )]
+areaDiam = 192.0
+
+[node name="Cooldown" parent="." index="1"]
+wait_time = 0.1
