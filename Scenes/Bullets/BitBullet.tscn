@@ -16,8 +16,12 @@ speed = 600
 damage = 100
 
 [node name="Sprite" type="Sprite" parent="."]
+<<<<<<< Updated upstream
 position = Vector2( -0.386218, -0.203872 )
 scale = Vector2( 3.93953, 2.0517 )
+=======
+scale = Vector2( 5.01755, 4.61842 )
+>>>>>>> Stashed changes
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
