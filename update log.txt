@@ -1,7 +1,0 @@
-01/05 -- initial first verssion - brawlstars knockoff
-01/06 -- added schmelly and salmon, added direct ip connect
-01/07 -- added el scrimo, will smith and barrel
-01/08 -- bug fixes
-01/09 -- added supers, highly unstable
-01/10 -- supers for all characters
-01/11 -- added Bald and Poko, character choice will save
