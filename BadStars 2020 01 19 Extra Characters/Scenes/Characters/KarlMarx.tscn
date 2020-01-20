@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Graphics/Characters/KarlMarx.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Guns/Sickle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Supers/KarlMarxSuper.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.1106, 20 )
+
+[node name="Player" instance=ExtResource( 1 )]
+maxHealth = 270
+moveSpeed = 240
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="Gun" parent="." index="7" instance=ExtResource( 3 )]
+
+[node name="Super" parent="." index="8" instance=ExtResource( 4 )]
+damageMultiplier = 0.2

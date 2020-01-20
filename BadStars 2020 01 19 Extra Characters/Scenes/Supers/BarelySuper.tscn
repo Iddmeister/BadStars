@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Supers/ShmellySuper.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Supers/BarelySuper.gd" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/BarelyFireball.png-95d00a5f018b2543f6fa598a9501c230.stex"
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/BarelyCharged.png-bf682e729bfb13810784d92513a94811.stex"
+
+[node name="Super" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+damageMultiplier = 1
+superMessage = "started a Fire"
+damage = 10
+
+[node name="Sprite" parent="." index="2"]
+texture = SubResource( 1 )
+
+[node name="HitDelay" parent="." index="3"]
+wait_time = 0.2
+
+[node name="ChargedBarely" type="Sprite" parent="." index="4"]
+scale = Vector2( 4.115, 3.369 )
+texture = SubResource( 2 )

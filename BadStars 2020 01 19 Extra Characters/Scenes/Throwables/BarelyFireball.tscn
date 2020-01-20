@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Throwables/Throwable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Throwables/BarelyFireball.gd" type="Script" id=2]
+[ext_resource path="res://Graphics/Weapons/BarelyFireball.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 96.2651
+
+[node name="Throwable" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+transType = 2
+easeType = 1
+damage = 20
+
+[node name="AirSprite" type="Sprite" parent="." index="1"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="GroundSprite" type="Sprite" parent="." index="2"]
+position = Vector2( -2, 10 )
+scale = Vector2( 7, 7 )
+texture = ExtResource( 3 )
+
+[node name="Area" type="Area2D" parent="." index="3"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" index="0"]
+shape = SubResource( 1 )
+
+[node name="BurnTime" type="Timer" parent="." index="4"]
+wait_time = 1.7
+one_shot = true
+
+[node name="Dps" type="Timer" parent="." index="5"]
+wait_time = 0.2
+[connection signal="timeout" from="BurnTime" to="." method="_on_BurnTime_timeout"]
+[connection signal="timeout" from="Dps" to="." method="_on_Dps_timeout"]

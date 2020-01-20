@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Thrower/Thrower.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/UI/Circle.png" type="Texture" id=2]
+
+[node name="Thrower" type="Node2D"]
+script = ExtResource( 1 )
+maxDistance = 500
+aimWidth = 10
+areaDiam = 100.0
+
+[node name="Reload" type="Timer" parent="."]
+wait_time = 1.7
+one_shot = true
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Aim" type="Polygon2D" parent="."]
+color = Color( 1, 1, 1, 0.705882 )
+
+[node name="Muzzle" type="Position2D" parent="."]
+
+[node name="Area" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.705882 )
+texture = ExtResource( 2 )
+[connection signal="timeout" from="Reload" to="." method="_on_Reload_timeout"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Melee/JokerFists.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Supers/JokerSuper.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/Joker.png-46637f28b07d2050c787a2deaa86cab0.stex"
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 11.5011
+height = 44.6451
+
+[node name="Player" instance=ExtResource( 1 )]
+maxHealth = 100
+moveSpeed = 300
+weaponPath = NodePath("Melee")
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( -0.205681, -0.165414 )
+scale = Vector2( 0.0799947, 0.0799947 )
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 1.28818, -9.7534 )
+shape = SubResource( 2 )
+
+[node name="Melee" parent="." index="6" instance=ExtResource( 2 )]
+
+[node name="Super" parent="." index="7" instance=ExtResource( 3 )]

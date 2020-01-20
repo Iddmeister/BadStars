@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Supers/BarelySuper.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Thrower/BarelyThrower.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/Barely.png-d84fc2de55fbcba1da2f3b31557777b6.stex"
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 12, -48, 12, 44, -11, 44, -12, -48 )
+
+[node name="Player" instance=ExtResource( 1 )]
+maxHealth = 275
+moveSpeed = 300
+weaponPath = NodePath("Thrower")
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 1.54308, -0.909531 )
+scale = Vector2( 4.1154, 3.36916 )
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( -0.593072, 2.13072 )
+shape = SubResource( 2 )
+
+[node name="Super" parent="." index="7" instance=ExtResource( 2 )]
+
+[node name="Thrower" parent="." index="10" instance=ExtResource( 3 )]

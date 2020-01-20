@@ -1,0 +1,505 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Resources/Tilesets/DesertTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/Characters/Dummy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Terrain/DestructibleWall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Graphics/Tilesets/DesertTerrain.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 32, 32, 32, 32 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.560784, 1, 0.415686, 1 )
+
+[node name="Map" type="Node2D"]
+
+[node name="Terrain" type="TileMap" parent="."]
+z_index = -10
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 4
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -1, 10, 0, -65536, 10, 0, -65535, 10, 0, -65534, 10, 0, -65533, 10, 0, -65532, 10, 0, -65531, 10, 0, -65530, 10, 0, -65529, 10, 0, -65528, 10, 0, -65527, 10, 0, -65526, 10, 0, -65525, 10, 0, -65524, 10, 0, -65523, 10, 0, -65522, 10, 0, -65521, 10, 0, -65520, 10, 0, -65519, 10, 0, -65518, 10, 0, -65517, 10, 0, -65516, 10, 0, -65515, 10, 0, -65514, 10, 0, -65513, 10, 0, -65512, 10, 0, -65511, 10, 0, -65510, 10, 0, -65509, 10, 0, -65508, 10, 0, -65507, 10, 0, -65506, 10, 0, -65505, 10, 0, -65504, 10, 0, -65503, 10, 0, -65502, 10, 0, -65501, 10, 0, -65500, 10, 0, -65499, 10, 0, -65498, 10, 0, -65497, 10, 0, -65496, 10, 0, -65495, 10, 0, -65494, 10, 0, -65493, 10, 0, -65492, 10, 0, -65491, 10, 0, -65490, 10, 0, -65489, 10, 0, -65488, 10, 0, -65487, 10, 0, -65486, 10, 0, -65485, 10, 0, -65484, 10, 0, -65483, 10, 0, -65482, 10, 0, -65481, 10, 0, -65480, 10, 0, -65479, 10, 0, -65478, 10, 0, -65477, 10, 0, -65476, 10, 0, -65475, 10, 0, -65474, 10, 0, -65473, 10, 0, -65472, 10, 0, -65471, 10, 0, -65470, 10, 0, -65469, 10, 0, 65535, 10, 0, 67, 10, 0, 131071, 10, 0, 65603, 10, 0, 196607, 10, 0, 131139, 10, 0, 262143, 10, 0, 196675, 10, 0, 327679, 10, 0, 262211, 10, 0, 393215, 10, 0, 327747, 10, 0, 458751, 10, 0, 393283, 10, 0, 524287, 10, 0, 458819, 10, 0, 589823, 10, 0, 524355, 10, 0, 655359, 10, 0, 589891, 10, 0, 720895, 10, 0, 655427, 10, 0, 786431, 10, 0, 720963, 10, 0, 851967, 10, 0, 786499, 10, 0, 917503, 10, 0, 852035, 10, 0, 983039, 10, 0, 917571, 10, 0, 1048575, 10, 0, 983107, 10, 0, 1114111, 10, 0, 1048643, 10, 0, 1179647, 10, 0, 1114179, 10, 0, 1245183, 10, 0, 1179715, 10, 0, 1310719, 10, 0, 1245251, 10, 0, 1376255, 10, 0, 1310787, 10, 0, 1441791, 10, 0, 1376323, 10, 0, 1507327, 10, 0, 1441859, 10, 0, 1572863, 10, 0, 1507395, 10, 0, 1638399, 10, 0, 1572931, 10, 0, 1703935, 10, 0, 1638467, 10, 0, 1769471, 10, 0, 1704003, 10, 0, 1835007, 10, 0, 1769539, 10, 0, 1900543, 10, 0, 1835075, 10, 0, 1966079, 10, 0, 1900611, 10, 0, 2031615, 10, 0, 1966147, 10, 0, 2097151, 10, 0, 2031683, 10, 0, 2162687, 10, 0, 2097219, 10, 0, 2228223, 10, 0, 2162755, 10, 0, 2293759, 10, 0, 2228291, 10, 0, 2359295, 10, 0, 2293827, 10, 0, 2424831, 10, 0, 2359363, 10, 0, 2490367, 10, 0, 2424899, 10, 0, 2555903, 10, 0, 2490435, 10, 0, 2621439, 10, 0, 2555971, 10, 0, 2686975, 10, 0, 2621507, 10, 0, 2752511, 10, 0, 2687043, 10, 0, 2818047, 10, 0, 2752579, 10, 0, 2883583, 10, 0, 2818115, 10, 0, 2949119, 10, 0, 2883651, 10, 0, 3014655, 10, 0, 2949187, 10, 0, 3080191, 10, 0, 3014723, 10, 0, 3145727, 10, 0, 3080259, 10, 0, 3211263, 10, 0, 3145795, 10, 0, 3276799, 10, 0, 3211331, 10, 0, 3342335, 10, 0, 3276867, 10, 0, 3407871, 10, 0, 3342403, 10, 0, 3473407, 10, 0, 3407939, 10, 0, 3538943, 10, 0, 3473475, 10, 0, 3604479, 10, 0, 3539011, 10, 0, 3670015, 10, 0, 3604547, 10, 0, 3735551, 10, 0, 3670083, 10, 0, 3801087, 10, 0, 3735619, 10, 0, 3866623, 10, 0, 3801155, 10, 0, 3932159, 10, 0, 3866691, 10, 0, 3997695, 10, 0, 3932227, 10, 0, 4063231, 10, 0, 3997763, 10, 0, 4128767, 10, 0, 4063232, 10, 0, 4063233, 10, 0, 4063234, 10, 0, 4063235, 10, 0, 4063236, 10, 0, 4063237, 10, 0, 4063238, 10, 0, 4063239, 10, 0, 4063240, 10, 0, 4063241, 10, 0, 4063242, 10, 0, 4063243, 10, 0, 4063244, 10, 0, 4063245, 10, 0, 4063246, 10, 0, 4063247, 10, 0, 4063248, 10, 0, 4063249, 10, 0, 4063250, 10, 0, 4063251, 10, 0, 4063252, 10, 0, 4063253, 10, 0, 4063254, 10, 0, 4063255, 10, 0, 4063256, 10, 0, 4063257, 10, 0, 4063258, 10, 0, 4063259, 10, 0, 4063260, 10, 0, 4063261, 10, 0, 4063262, 10, 0, 4063263, 10, 0, 4063264, 10, 0, 4063265, 10, 0, 4063266, 10, 0, 4063267, 10, 0, 4063268, 10, 0, 4063269, 10, 0, 4063270, 10, 0, 4063271, 10, 0, 4063272, 10, 0, 4063273, 10, 0, 4063274, 10, 0, 4063275, 10, 0, 4063276, 10, 0, 4063277, 10, 0, 4063278, 10, 0, 4063279, 10, 0, 4063280, 10, 0, 4063281, 10, 0, 4063282, 10, 0, 4063283, 10, 0, 4063284, 10, 0, 4063285, 10, 0, 4063286, 10, 0, 4063287, 10, 0, 4063288, 10, 0, 4063289, 10, 0, 4063290, 10, 0, 4063291, 10, 0, 4063292, 10, 0, 4063293, 10, 0, 4063294, 10, 0, 4063295, 10, 0, 4063296, 10, 0, 4063297, 10, 0, 4063298, 10, 0, 4063299, 10, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Dummies" type="Node2D" parent="Objects"]
+editor/display_folded = true
+
+[node name="Dummy" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 672, 448 )
+
+[node name="Dummy2" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1440, 448 )
+
+[node name="Dummy3" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 960, 992 )
+
+[node name="Dummy7" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1152, 992 )
+
+[node name="Dummy4" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1024, 992 )
+
+[node name="Dummy6" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1216, 992 )
+
+[node name="Dummy5" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 896, 992 )
+
+[node name="Dummy9" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 672, 1536 )
+
+[node name="Dummy10" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1472, 1536 )
+
+[node name="Dummy11" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1888, 1344 )
+
+[node name="Dummy19" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1920, 1856 )
+
+[node name="Dummy21" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1888, 128 )
+
+[node name="Dummy13" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 160, 1344 )
+
+[node name="Dummy16" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 160, 672 )
+
+[node name="Dummy18" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1888, 640 )
+
+[node name="Dummy12" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1952, 1344 )
+
+[node name="Dummy20" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 224, 1856 )
+
+[node name="Dummy22" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 192, 128 )
+
+[node name="Dummy14" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 224, 1344 )
+
+[node name="Dummy15" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 224, 672 )
+
+[node name="Dummy17" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1952, 640 )
+
+[node name="Dummy8" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1088, 992 )
+
+[node name="Walls" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="DestructibleWall" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1248, 416 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall31" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 640, 1664 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall6" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1280, 416 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall32" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 672, 1664 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall7" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1312, 384 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall33" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 704, 1632 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall8" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1344, 352 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall35" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 736, 1600 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall9" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1376, 320 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall36" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 768, 1568 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall10" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 960, 736 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall51" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 672 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall74" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 672 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall60" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 896 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall80" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 896 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall52" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 704 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall77" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 704 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall63" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 928 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall84" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 928 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall69" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 1120 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall89" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 1120 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall53" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 736 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall73" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 736 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall59" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 960 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall78" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 960 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall65" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 1152 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall86" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 1152 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall54" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 800 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall72" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 800 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall58" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 1024 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall82" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 1024 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall67" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 1216 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall87" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 1216 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall55" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 768 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall75" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 768 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall61" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 992 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall79" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 992 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall66" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 1184 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall71" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 1184 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall56" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 832 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall76" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 832 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall62" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 1056 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall83" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 1056 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall68" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 1248 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall88" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 1248 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall57" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 864 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall81" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 864 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall64" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 1088 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall85" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 1088 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall70" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 416, 1280 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall90" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1664, 1280 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall16" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 960, 1280 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall22" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1344, 1536 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall11" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 992, 736 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall17" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 992, 1280 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall23" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1408, 1600 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall12" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1024, 736 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall18" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1024, 1280 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall24" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1376, 1568 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall13" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1056, 736 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall19" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1056, 1280 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall25" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1440, 1632 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall14" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1088, 736 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall20" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1088, 1280 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall26" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1472, 1664 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall15" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1120, 736 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall37" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 704, 256 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall38" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 736, 288 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall39" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 768, 320 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall40" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 800, 352 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall41" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 832, 384 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall42" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 864, 416 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall43" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 832, 416 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall44" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 800, 384 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall45" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 768, 352 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall46" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 736, 320 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall47" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 704, 288 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall21" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1120, 1280 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall27" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1440, 1664 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall48" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1408, 1632 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall49" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1376, 1600 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall50" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1344, 1568 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall2" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1280, 384 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall28" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 672, 1632 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall3" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1312, 352 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall29" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 704, 1600 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall4" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1344, 320 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall30" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 736, 1568 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall5" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1376, 288 )
+destroyedTexture = SubResource( 1 )
+
+[node name="DestructibleWall34" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 768, 1536 )
+destroyedTexture = SubResource( 1 )
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="1" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 736, 1856 )
+
+[node name="2" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1056, 1856 )
+
+[node name="3" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1216, 1856 )
+
+[node name="4" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 896, 1856 )
+
+[node name="5" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1376, 1856 )
+
+[node name="6" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 874, 106 )
+
+[node name="7" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1354, 106 )
+
+[node name="8" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1194, 106 )
+
+[node name="9" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1034, 106 )
+
+[node name="10" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 746, 106 )
+
+[node name="Back" type="Node2D" parent="."]
+z_index = -100
+z_as_relative = false
+
+[node name="Background" type="Panel" parent="Back"]
+margin_right = 2144.0
+margin_bottom = 1984.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
