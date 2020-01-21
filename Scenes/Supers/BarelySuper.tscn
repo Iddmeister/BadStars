@@ -15,7 +15,11 @@ damageMultiplier = 1
 superMessage = "started a Fire"
 damage = 10
 
+[node name="CollisionShape2D" parent="Range" index="0"]
+position = Vector2( -1.80499, 0 )
+
 [node name="Sprite" parent="." index="2"]
+position = Vector2( -8.90695, 21.8819 )
 texture = SubResource( 1 )
 
 [node name="HitDelay" parent="." index="3"]
