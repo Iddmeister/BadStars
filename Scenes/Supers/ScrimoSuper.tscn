@@ -5,11 +5,11 @@
 [ext_resource path="res://Graphics/Weapons/ScrimoFreeze.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 207.0
+radius = 137.373
 
 [node name="Super" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-damageMultiplier = 0.2
+damageMultiplier = 0.15
 superMessage = "placed Freeze Ring"
 
 [node name="Time" type="Timer" parent="." index="0"]
@@ -22,7 +22,7 @@ one_shot = true
 
 [node name="Sprite" type="Sprite" parent="Space/FreezeCircle" index="0"]
 visible = false
-scale = Vector2( 13, 13 )
+scale = Vector2( 9, 9 )
 z_index = -10
 texture = ExtResource( 3 )
 

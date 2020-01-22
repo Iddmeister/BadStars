@@ -41,6 +41,7 @@ func initialize(id:int):
 	name = String(id)
 	
 	add_to_group("Ally"+String(id))
+	add_to_group("Master"+String(id))
 	
 	$NameTag/CenterContainer/Label.text = Network.players[id].name
 	
@@ -50,6 +51,7 @@ func initialize(id:int):
 	
 	if is_network_master():
 		$Camera.current = true
+		
 		
 		if Globals.mobile:
 			var controls = load("res://Scenes/UI/MobileControls.tscn")
@@ -336,8 +338,10 @@ func setTeam(team:String):
 	$NameTag/CenterContainer/Label.add_color_override("font_color", Color(1, 1, 1))
 	if team == "Blue":
 		$NameTag.self_modulate = Color(0, 0, 1)
+		add_to_group("Blue")
 	else:
 		$NameTag.self_modulate = Color(1, 0, 0)
+		add_to_group("Red")
 	pass
 
 func _on_InvincibleTime_timeout():

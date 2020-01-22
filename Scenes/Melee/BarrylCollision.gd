@@ -32,7 +32,7 @@ func _process(delta):
 						$Delay.start()
 						
 						if body.is_in_group("Player") or body.is_in_group("Dummy"):
-							get_tree().get_nodes_in_group("Ally"+String(get_parent().get_network_master()))[0].rpc("didDamage", damage)
+							get_tree().get_nodes_in_group("Master"+String(get_parent().get_network_master()))[0].rpc("didDamage", damage)
 				
 				pass
 			

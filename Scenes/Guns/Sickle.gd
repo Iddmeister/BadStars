@@ -106,7 +106,7 @@ func _on_Sickle_body_entered(body):
 					body.rpc("hit", damage, get_parent().get_network_master())
 					
 					if body.is_in_group("Player") or body.is_in_group("Dummy"):
-						get_tree().get_nodes_in_group("Ally"+String(get_parent().get_network_master()))[0].rpc("didDamage", damage)
+						get_tree().get_nodes_in_group("Master"+String(get_parent().get_network_master()))[0].rpc("didDamage", damage)
 					
 			if not body.is_in_group("Player"):
 				returning = true
