@@ -4,6 +4,11 @@ export var speed = 500
 var distance = 1000
 export var damage = 50
 
+export(int, 0, 100) var poisonDamage:int = 0
+export(int, 0, 7) var poisionLength:int = 0
+export(int, 0, 1000) var slowEffect:int = 0
+export(float, 0, 3) var slowTime:float = 0
+
 var startPos:Vector2
 
 var enabled = false
@@ -82,5 +87,11 @@ func _on_Bullet_body_entered(body):
 		pass
 		
 func hitPlayer(body):
+	
+	if not poisonDamage <= 0:
+		body.rpc("poison", poisonDamage, poisionLength, id)
+		
+	if not slowEffect <= 0:
+		body.rpc("slow", slowEffect, slowTime)
 	
 	pass

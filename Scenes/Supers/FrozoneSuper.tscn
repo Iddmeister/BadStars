@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Supers/Super.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Supers/FrozoneSuper.gd" type="Script" id=2]
+[ext_resource path="res://Graphics/Objects/IceWall.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 82, 20 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 80, 16 )
+
+[node name="Super" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+superMessage = "placed an Ice Wall"
+noGoColor = Color( 1, 0, 0, 0.666667 )
+goColor = Color( 0.992157, 1, 0, 0.666667 )
+
+[node name="Aim" type="Polygon2D" parent="." index="0"]
+visible = false
+position = Vector2( 0, 1.90735e-06 )
+scale = Vector2( 1, 1.57692 )
+polygon = PoolVector2Array( -20, -52, -20, 52, 20, 52, 20, -52 )
+
+[node name="Area" type="Area2D" parent="." index="1"]
+rotation = 1.5708
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" index="0"]
+shape = SubResource( 2 )
+
+[node name="Space" type="Node" parent="." index="2"]
+
+[node name="Wall" type="Node2D" parent="Space" index="0"]
+editor/display_folded = true
+visible = false
+
+[node name="Wall" type="StaticBody2D" parent="Space/Wall" index="0"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Sprite" type="Sprite" parent="Space/Wall/Wall" index="0"]
+position = Vector2( 0, -32 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="Space/Wall/Wall" index="1"]
+position = Vector2( 0, 32 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="Space/Wall/Wall" index="2"]
+texture = ExtResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="Space/Wall/Wall" index="3"]
+position = Vector2( 0, 64 )
+texture = ExtResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="Space/Wall/Wall" index="4"]
+position = Vector2( 0, -64 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/Wall/Wall" index="5"]
+rotation = 1.5708
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Time" type="Timer" parent="." index="3"]
+wait_time = 7.0
+one_shot = true
+[connection signal="timeout" from="Time" to="." method="_on_Time_timeout"]

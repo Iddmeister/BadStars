@@ -7,6 +7,7 @@ export var maxHealth = 400
 onready var health = maxHealth
 
 export var moveSpeed = 200
+onready var defSpeed = moveSpeed
 
 export var weaponPath:NodePath = "Gun"
 export var superPath:NodePath = "Super"
@@ -299,6 +300,13 @@ master func poison(damage:int, length:int, id:int):
 	
 	pass
 	
+master func slow(slowAmount:int, length:float):
+	
+	$Slow.start(length)
+	moveSpeed = slowAmount
+	
+	pass
+	
 	
 remotesync func aimGun(direction:float):
 	weapon.global_rotation = direction
@@ -346,3 +354,7 @@ func setTeam(team:String):
 
 func _on_InvincibleTime_timeout():
 	rpc("goInvincible", false)
+
+
+func _on_Slow_timeout():
+	moveSpeed = defSpeed
