@@ -11,18 +11,18 @@ radius = 36.2131
 [sub_resource type="CircleShape2D" id=2]
 radius = 644.961
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 use_mipmaps = true
 font_data = ExtResource( 3 )
 
 [node name="Player" type="KinematicBody2D" groups=[
-"Shootable",
+"Player",
 "Autoaim",
 "Freezable",
-"Player",
+"Shootable",
 ]]
 pause_mode = 1
 collision_mask = 4
@@ -55,7 +55,7 @@ margin_top = 60.0
 margin_right = 61.0
 margin_bottom = 83.0
 rect_min_size = Vector2( 120, 16 )
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 3 )
 
 [node name="CenterContainer" type="CenterContainer" parent="NameTag"]
 anchor_right = 1.0
@@ -67,7 +67,7 @@ margin_left = 60.0
 margin_top = 3.0
 margin_right = 60.0
 margin_bottom = 22.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 
