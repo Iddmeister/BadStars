@@ -4,14 +4,15 @@
 [ext_resource path="res://Scenes/Supers/FrozoneSuper.gd" type="Script" id=2]
 [ext_resource path="res://Graphics/Objects/IceWall.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 82, 20 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 80, 16 )
 
 [node name="Super" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+damageMultiplier = 0.7
 superMessage = "placed an Ice Wall"
 noGoColor = Color( 1, 0, 0, 0.666667 )
 goColor = Color( 0.992157, 1, 0, 0.666667 )
@@ -28,7 +29,7 @@ collision_layer = 0
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Space" type="Node" parent="." index="2"]
 
@@ -61,10 +62,10 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Space/Wall/Wall" index="5"]
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="Time" type="Timer" parent="." index="3"]
-wait_time = 7.0
+wait_time = 8.0
 one_shot = true
 [connection signal="timeout" from="Time" to="." method="_on_Time_timeout"]

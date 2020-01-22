@@ -47,6 +47,8 @@ var maps = {
 	"Team Deathmatch":{
 		
 		"Straights":"res://Scenes/Maps/TeamDeathmatch/Straights.tscn",
+		"No Man's Land":"res://Scenes/Maps/TeamDeathmatch/NoMansLand.tscn",
+		"Bits":"res://Scenes/Maps/TeamDeathmatch/Bits.tscn",
 		
 		},
 	
