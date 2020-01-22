@@ -8,9 +8,9 @@
 01/12 -- Added map select, event log
 01/13 -- Added THRiO, bug fixes, under the hood improvements
 01/14 -- balance changes, merged branches, added full screen
-01/15 -- No release, internal bug fixes
 01/16 -- Added Karl Marx, ripoff of Carl but with communism
 01/17 -- Added Barley and thrower class
 01/18 -- Added Team DeathMatch; temporarily removed Karl Marx
 01/19 -- Readded Karl and balanced Barely
 01/20 -- Branch with 64 bit, Pie-Per and Brick, none of which have supers
+01/22 -- Bug Fixes
