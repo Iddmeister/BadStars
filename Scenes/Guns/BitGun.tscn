@@ -5,13 +5,6 @@
 [node name="Gun" index="0" instance=ExtResource( 1 )]
 amount = 3
 
-<<<<<<< Updated upstream
-[node name="Reload" parent="." index="2"]
-wait_time = 2.0
-
-[node name="Sprite" parent="." index="3"]
-texture = null
-=======
 [node name="Cooldown" parent="." index="1"]
 wait_time = 0.5
 one_shot = false
@@ -25,4 +18,3 @@ texture = null
 [node name="FireDelay" parent="." index="4"]
 wait_time = 0.13
 one_shot = false
->>>>>>> Stashed changes

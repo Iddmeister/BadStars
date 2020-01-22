@@ -3,8 +3,6 @@ extends Control
 var currentCharacter = 0
 
 var characters = {
-	Globals.characters.PIE:{"icon":"res://Graphics/Characters/pie-per.png", "info":"PIE: Pie-Per"},
-	Globals.characters.BIT:{"icon":"res://Graphics/Characters/Bit.png", "info":"bit: Bit"},
 	Globals.characters.SHMELLY:{"icon":"res://Graphics/Characters/Shmelly.png", "info":"Shmelly: Stanks"},
 	Globals.characters.CLOT:{"icon":"res://Graphics/Characters/Clot.png", "info":"Clot: Has red hair"},
 	Globals.characters.SALMON:{"icon":"res://Graphics/Characters/Salmon.png", "info":"Salmon: ..."},
@@ -19,7 +17,9 @@ var characters = {
 	Globals.characters.FRONK:{"icon":"res://Graphics/Characters/Fronk.png", "info":"FRONK: ICH BIN FRONK"},
 	Globals.characters.KARLMARX:{"icon":"res://Graphics/Characters/KarlMarx.png", "info":"Karl Marx: Communism"},
 	Globals.characters.BARELY:{"icon":"res://Graphics/Characters/Barely.png", "info":"Barely: Barely a character"},
-    Globals.characters.BRICK:{"icon":"res://Graphics/Characters/Brick.png", "info":"Brick: is literally a brick"},
+	Globals.characters.PIE:{"icon":"res://Graphics/Characters/pie-per.png", "info":"PIE: Pie-Per"},
+	Globals.characters.BIT:{"icon":"res://Graphics/Characters/Bit.png", "info":"64 Bit: AN arcade cabinet..."},
+	Globals.characters.BRICK:{"icon":"res://Graphics/Characters/Brick.png", "info":"Brick: is literally a brick"},
 	
 }
 

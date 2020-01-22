@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://Scenes/Guns/Gun.gd"
 }, {
 "base": "Node2D",
+"class": "Gun1",
+"language": "GDScript",
+"path": "res://Gun.gd"
+}, {
+"base": "Node2D",
 "class": "Melee",
 "language": "GDScript",
 "path": "res://Scenes/Melee/Melee.gd"
@@ -47,6 +52,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Effect": "",
 "Gun": "",
+"Gun1": "",
 "Melee": "",
 "Super": "",
 "Throwable": "",
@@ -73,7 +79,6 @@ Effects="*res://Scenes/Game/Effects.tscn"
 
 gdscript/warnings/unassigned_variable=false
 gdscript/warnings/unused_variable=false
-gdscript/warnings/unused_class_variable=false
 gdscript/warnings/unused_argument=false
 gdscript/warnings/function_may_yield=false
 gdscript/warnings/unused_signal=false
