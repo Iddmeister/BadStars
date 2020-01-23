@@ -19,7 +19,6 @@ var characters = {
 	Globals.characters.KARLMARX:{"icon":"res://Graphics/Characters/KarlMarx.png", "info":"Karl Marx: Communism"},
 	Globals.characters.BARELY:{"icon":"res://Graphics/Characters/Barely.png", "info":"Barely: Barely a character"},
     #Globals.characters.BRICK:{"icon":"res://Graphics/Characters/Brick.png", "info":"Brick is literally a brick"},
-	Globals.characters.FROZONE:{"icon":"res://Graphics/Characters/Frozone.png", "info":"Frozone: Couldn't get the rights to Mr Incredible"},
 	
 }
 
@@ -31,6 +30,7 @@ func _ready():
 	currentCharacter = characters.keys().find(int(Data.data["lastPlayed"]))
 	setCharacter(characters.keys()[currentCharacter])
 	$Version.text = "Version "+Globals.version
+	$Credittext.visible = false
 	pass
 
 
@@ -81,9 +81,13 @@ func _on_Right_pressed():
 		
 		currentCharacter+=1
 		setCharacter(characters.keys()[currentCharacter])
-		
 		pass
 
 
 func _on_CheckBox_toggled(button_pressed):
 	OS.window_fullscreen = button_pressed
+
+
+func _on_CheckBox3_toggled(button_pressed):
+	$Credittext.visible = button_pressed
+	pass 
