@@ -52,4 +52,8 @@ remotesync func use(id:int):
 remotesync func super(id:int):
 	
 	pass
+	
+func playerDied():
+	
+	pass
 

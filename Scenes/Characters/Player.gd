@@ -12,7 +12,7 @@ onready var defSpeed = moveSpeed
 export var weaponPath:NodePath = "Gun"
 export var superPath:NodePath = "Super"
 onready var weapon = get_node(weaponPath)
-onready var super = get_node(superPath)
+onready var super:Super = get_node(superPath)
 
 var ghostTexture = preload("res://Graphics/Characters/Ghost.png")
 
@@ -261,6 +261,9 @@ remotesync func hit(damage:int, id:int, isSuper=false):
 	pass
 		
 remotesync func die():
+	
+	if is_network_master():
+		super.playerDied()
 	
 	if get_tree().is_network_server():
 		emit_signal("death", get_network_master())

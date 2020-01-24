@@ -48,7 +48,8 @@ remotesync func super(id:int):
 	
 	pass
 
-
+func playerDied():
+	$Move.stop_all()
 
 func _on_SelfCharge_timeout():
 	addCharge(selfChargeAmount)
