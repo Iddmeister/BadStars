@@ -13,6 +13,7 @@ func createPlayerStats(stats:Dictionary):
 		
 		var pl = Label.new()
 		pl.text = String(player + "   " + "Kills: "+String(stats.players[player].kills))
+		pl.name = player
 		$HBoxContainer/Players.add_child(pl)
 		pass
 		
