@@ -8,7 +8,7 @@ var killLines = ["destroyed", "rekt", "eliminated", "took out"]
 
 var mobile = false
 
-var version = "0.4.3-dev"
+var version = "0.4.4-dev"
 
 var bounds = Vector2(2144, 1984)
 

@@ -34,6 +34,8 @@ var respawnPoint = Vector2()
 var invincible = false
 var canRespawn = false
 
+var shot
+
 func _ready():
 	pass
 	
@@ -267,6 +269,7 @@ remotesync func die():
 	
 	if get_tree().is_network_server():
 		emit_signal("death", get_network_master())
+		
 	
 	if not canRespawn:
 		$Poison.stop()
