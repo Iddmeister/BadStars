@@ -76,6 +76,8 @@ func checkReturned():
 		returning = false
 		sickleShot = false
 		canShoot = true
+		ammo=1
+		emit_signal("reloaded", ammo)
 	
 	pass
 	
@@ -117,3 +119,6 @@ func _on_Gun_visibility_changed():
 		$Space/Sickle.visible = false
 	else:
 		$Space/Sickle.visible = true
+		
+func _on_Reload_timeout():
+	pass

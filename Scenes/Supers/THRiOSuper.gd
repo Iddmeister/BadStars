@@ -11,7 +11,7 @@ remotesync func super(id:int):
 remotesync func setInvisible(val:bool):
 	
 	if val:
-		
+		get_parent().remove_from_group("Autoaim")
 		if get_parent().is_network_master():
 			
 			get_parent().modulate = Color(1, 1, 1, 0.5)
@@ -20,6 +20,7 @@ remotesync func setInvisible(val:bool):
 			get_parent().visible = false
 			
 	else:
+		get_parent().add_to_group("Autoaim")
 		if get_parent().is_network_master():
 			
 			get_parent().modulate = Color(1, 1, 1, 1)
