@@ -12,7 +12,7 @@ extents = Vector2( 80, 16 )
 
 [node name="Super" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-damageMultiplier = 0.7
+damageMultiplier = 0.5
 superMessage = "placed an Ice Wall"
 noGoColor = Color( 1, 0, 0, 0.666667 )
 goColor = Color( 0.992157, 1, 0, 0.666667 )

@@ -120,34 +120,13 @@ rect_min_size = Vector2( 200, 20 )
 text = "Version"
 align = 1
 
-[node name="Credittext" type="TextEdit" parent="."]
-visible = false
-margin_left = 831.0
-margin_top = 500.0
-margin_right = 967.0
-margin_bottom = 575.0
-text = "Made By:
-	Iddmeister
-	sWordy
-	nothing00100
-	THRiO
-	[HA] Bot 1
-
-Thanks to:
-	Megaslobro
-	Lazyluna
-	Soupercell
-
-Thanks for playing!
-"
-readonly = true
-
-[node name="CheckBox3" type="CheckBox" parent="."]
-margin_left = 1001.2
-margin_top = 577.318
-margin_right = 1025.2
-margin_bottom = 601.318
-rect_scale = Vector2( 0.25, 0.25 )
+[node name="About" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -100.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 100, 30 )
+text = "About"
 [connection signal="pressed" from="VBoxContainer/FindGame" to="." method="_on_Find_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HostGame" to="." method="_on_Host_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/DirectConnect" to="." method="_on_DirectConnect_pressed"]
@@ -155,5 +134,4 @@ rect_scale = Vector2( 0.25, 0.25 )
 [connection signal="pressed" from="CenterContainer/Options/CharacterSelect/HBoxContainer/Left" to="." method="_on_Left_pressed"]
 [connection signal="pressed" from="CenterContainer/Options/CharacterSelect/HBoxContainer/Right" to="." method="_on_Right_pressed"]
 [connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
-[connection signal="mouse_entered" from="CheckBox3" to="." method="_on_CheckBox3_mouse_entered"]
-[connection signal="toggled" from="CheckBox3" to="." method="_on_CheckBox3_toggled"]
+[connection signal="pressed" from="About" to="." method="_on_About_pressed"]
