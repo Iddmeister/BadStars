@@ -51,8 +51,9 @@ margin_bottom = 128.0
 placeholder_text = "IP Address"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+margin_top = -4.88843
 margin_right = 459.0
-margin_bottom = 557.0
+margin_bottom = 552.112
 
 [node name="Options" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 79.0
@@ -127,6 +128,18 @@ margin_left = -100.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 100, 30 )
 text = "About"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_left = 200.0
+margin_top = 479.0
+margin_right = 250.0
+margin_bottom = 499.0
+alignment = 1
+
+[node name="Random" type="Button" parent="VBoxContainer2"]
+margin_right = 50.0
+margin_bottom = 20.0
+text = "?"
 [connection signal="pressed" from="VBoxContainer/FindGame" to="." method="_on_Find_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HostGame" to="." method="_on_Host_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/DirectConnect" to="." method="_on_DirectConnect_pressed"]
@@ -135,3 +148,5 @@ text = "About"
 [connection signal="pressed" from="CenterContainer/Options/CharacterSelect/HBoxContainer/Right" to="." method="_on_Right_pressed"]
 [connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
 [connection signal="pressed" from="About" to="." method="_on_About_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Random" to="../../.." method="_on_Random_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Random" to="." method="_on_Random_pressed"]

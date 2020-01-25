@@ -92,3 +92,9 @@ func _on_CheckBox_toggled(button_pressed):
 
 func _on_About_pressed():
 	get_tree().change_scene("res://Scenes/Screens/About.tscn")
+
+
+func _on_Random_pressed():
+	currentCharacter = rand_range(0, characters.keys().size())
+	setCharacter(characters.keys()[currentCharacter])
+	pass
