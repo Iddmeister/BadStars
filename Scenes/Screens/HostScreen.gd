@@ -11,6 +11,7 @@ var tagScene = preload("res://Scenes/UI/JoinTag.tscn")
 func _ready():
 	$Controls/MapSelect/CurrentMap.text = currentMap
 	$Controls/GameMode/CurrentMode.text = currentGameMode
+	$IP.text = "IP:  " + String(IP.get_local_addresses()[1])
 	pass
 	
 func _process(delta):
@@ -22,7 +23,7 @@ func _process(delta):
 			var tag = tagScene.instance()
 			tag.name = String(player)
 			tag.id = player
-			tag.setName(Network.players[player].name)
+			tag.setName(Network.players[player].name + "   -->   " + Globals.characterInfo[Network.players[player].character].name)
 			tag.connect("kick", self, "kickID")
 			$Players.add_child(tag)
 			

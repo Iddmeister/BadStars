@@ -54,7 +54,7 @@ func host(gameName:String):
 	get_tree().connect("network_peer_connected", self, "playerConnected")
 	get_tree().connect("network_peer_disconnected", self, "playerDisconnected")
 	
-	broadcastTimer.wait_time = 2
+	broadcastTimer.wait_time = 1
 	broadcastTimer.connect("timeout", self, "sendBroadcast", [gameName])
 	broadcastTimer.start()
 	

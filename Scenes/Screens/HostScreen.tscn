@@ -120,6 +120,11 @@ custom_styles/pressed = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
 toggle_mode = true
 shortcut_in_tooltip = false
+
+[node name="IP" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "IP:"
 [connection signal="pressed" from="Controls/GameMode/LeftM" to="." method="_on_LeftM_pressed"]
 [connection signal="pressed" from="Controls/GameMode/RightM" to="." method="_on_RightM_pressed"]
 [connection signal="pressed" from="Controls/MapSelect/Left" to="." method="_on_Left_pressed"]
