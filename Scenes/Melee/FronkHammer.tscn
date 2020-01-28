@@ -5,7 +5,7 @@
 [ext_resource path="res://Graphics/Weapons/FronkHammer.png" type="Texture" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0, 0, 300, -170, 325, -70, 330, 0, 325, 70, 300, 170, 0, 0 )
+points = PoolVector2Array( 0, 0, 230, -170, 260, -70, 270, 0, 260, 70, 230, 170, 0, 0 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Slam"
@@ -34,6 +34,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0.0, 89.9999, 0.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Bang:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Bang:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="Melee" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -61,4 +85,10 @@ anims/Slam = SubResource( 2 )
 
 [node name="FreezeTime" type="Timer" parent="." index="8"]
 one_shot = true
+
+[node name="Bang" type="Line2D" parent="." index="10"]
+visible = false
+points = PoolVector2Array( 230, -170, 260, -70, 270, 0, 260, 70, 230, 170 )
+default_color = Color( 1, 0.231373, 0.231373, 1 )
+texture_mode = 1
 [connection signal="timeout" from="FreezeTime" to="." method="_on_FreezeTime_timeout"]
