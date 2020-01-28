@@ -309,20 +309,31 @@ master func freeze(val:bool):
 	
 	pass
 	
-master func poison(damage:int, length:int, id:int):
+remotesync func poison(damage:int, length:int, id:int):
 	
-	poisonDamage = damage
-	poisonLength = length
-	poisonId = id
-	$Poison.start()
+	if is_network_master():
+	
+		poisonDamage = damage
+		poisonLength = length
+		poisonId = id
+		$Poison.start()
+		
+	modulate = Color(0, 1, 0)
 	
 	pass
 	
-master func slow(slowAmount:int, length:float):
+remotesync func slow(slowAmount:int, length:float):
 	
-	$Slow.start(length)
-	moveSpeed = slowAmount
+	if is_network_master():
+		$Slow.start(length)
+		moveSpeed = slowAmount
+		
+	modulate = Color(0, 0.5, 1)
 	
+	pass
+	
+remotesync func setNormal():
+	modulate = Color(1, 1, 1)
 	pass
 	
 	
@@ -342,6 +353,7 @@ func _on_Poison_timeout():
 	currentPoisonLength += 1
 	if currentPoisonLength >= poisonLength:
 		$Poison.stop()
+		rpc("setNormal")
 		
 
 remotesync func respawn():
@@ -376,3 +388,4 @@ func _on_InvincibleTime_timeout():
 
 func _on_Slow_timeout():
 	moveSpeed = defSpeed
+	rpc("setNormal")

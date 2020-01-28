@@ -9,7 +9,7 @@
 extents = Vector2( 29.8926, 43.8277 )
 
 [node name="Player" index="0" instance=ExtResource( 1 )]
-maxHealth = 780
+maxHealth = 620
 moveSpeed = 150
 weaponPath = NodePath("Melee")
 

@@ -21,8 +21,8 @@ font_data = ExtResource( 3 )
 [node name="Player" type="KinematicBody2D" groups=[
 "Freezable",
 "Autoaim",
-"Player",
 "Shootable",
+"Player",
 ]]
 pause_mode = 1
 collision_mask = 4

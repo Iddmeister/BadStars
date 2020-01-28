@@ -62,7 +62,7 @@ tracks/3/keys = {
 [node name="Melee" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 distance = 310
-damage = 150
+damage = 120
 
 [node name="Cooldown" parent="." index="0"]
 wait_time = 1.0
