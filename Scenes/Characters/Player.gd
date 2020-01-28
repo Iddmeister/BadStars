@@ -97,6 +97,8 @@ func movement():
 	
 	if is_network_master():
 		
+		checkCollisions()
+		
 		var dir = Vector2()
 		
 		if Globals.mobile:
@@ -124,7 +126,7 @@ func movement():
 		
 		velocity = dir*moveSpeed
 		
-		velocity = move_and_slide(velocity)
+		velocity = move_and_slide(velocity, Vector2(0, 0), false, 4, 0.78, false)
 		
 		rpc_unreliable("setPosition", global_position)
 		
@@ -290,7 +292,17 @@ remotesync func die():
 	
 	pass
 	
+func checkCollisions():
 	
+	if not get_slide_count() <= 0:
+		
+		var collision = get_slide_collision(0)
+		
+		if collision.collider.is_in_group("Ball"):
+			collision.collider.kick(moveSpeed, -collision.normal)
+		
+		pass
+		
 master func freeze(val:bool):
 	
 	frozen = val

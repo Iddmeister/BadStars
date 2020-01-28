@@ -172,6 +172,11 @@ debugNoClip={
 2d_physics/layer_2="Bullets"
 2d_physics/layer_3="Terrain"
 
+[physics]
+
+2d/default_gravity=0
+2d/default_gravity_vector=Vector2( 0, 0 )
+
 [rendering]
 
 quality/2d/use_pixel_snap=true

@@ -255,3 +255,8 @@ remotesync func endGame(stats):
 	pass
 	
 	
+remotesync func kick():
+	
+	disconnectedFromHost()
+	
+	pass

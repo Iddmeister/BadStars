@@ -66,6 +66,7 @@ margin_right = 300.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
 text = "EpicDude54"
+max_length = 20
 
 [node name="CharacterSelect" type="VBoxContainer" parent="CenterContainer/Options"]
 margin_top = 104.0
@@ -148,5 +149,4 @@ text = "?"
 [connection signal="pressed" from="CenterContainer/Options/CharacterSelect/HBoxContainer/Right" to="." method="_on_Right_pressed"]
 [connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
 [connection signal="pressed" from="About" to="." method="_on_About_pressed"]
-[connection signal="pressed" from="VBoxContainer2/Random" to="../../.." method="_on_Random_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Random" to="." method="_on_Random_pressed"]

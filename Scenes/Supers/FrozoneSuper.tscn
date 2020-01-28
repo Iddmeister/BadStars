@@ -36,6 +36,7 @@ shape = SubResource( 1 )
 [node name="Wall" type="Node2D" parent="Space" index="0"]
 editor/display_folded = true
 visible = false
+z_index = -5
 
 [node name="Wall" type="StaticBody2D" parent="Space/Wall" index="0"]
 collision_layer = 4

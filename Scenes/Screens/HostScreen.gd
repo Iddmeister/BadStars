@@ -6,6 +6,7 @@ var currentMapIndex = 0
 var currentGameMode = "Bad Royale"
 var currentGameModeIndex = 0
 
+var tagScene = preload("res://Scenes/UI/JoinTag.tscn")
 
 func _ready():
 	$Controls/MapSelect/CurrentMap.text = currentMap
@@ -16,28 +17,37 @@ func _process(delta):
 	
 	for player in Network.players.keys():
 		
-		if not $Players.has_node(Network.players[player].name):
+		if not $Players.has_node(String(player)):
 			
-			var label = Label.new()
-			$Players.add_child(label)
-			if not player == 1:
-				label.text = Network.players[player].name + " : " + get_tree().network_peer.get_peer_address(player)
-			else:
-				label.text = Network.players[player].name + " : " + IP.get_local_addresses()[1]
-			label.name = Network.players[player].name
-			label.align = Label.ALIGN_CENTER
+			var tag = tagScene.instance()
+			tag.name = String(player)
+			tag.id = player
+			tag.setName(Network.players[player].name)
+			tag.connect("kick", self, "kickID")
+			$Players.add_child(tag)
 			
 		else:
-			var l = $Players.get_node(Network.players[player].name)
+			var tag = $Players.get_node(String(player))
 			if currentGameMode == "Team Deathmatch":
-				if Network.players[player].team == "Blue":
-					l.modulate = Color(0, 0, 1)
-				else:
-					l.modulate = Color(1, 0, 0)
+				tag.setTeam(Network.players[player].team)
 			else:
-				l.modulate = Color(1, 1, 1)
+				tag.setTeam("None")
 		
 		pass
+		
+	for tag in $Players.get_children():
+		
+		if not int(tag.name) in Network.players:
+			$Players.remove_child(tag)
+	
+	pass
+	
+func kickID(id:int):
+	
+	if not id == get_tree().get_network_unique_id():
+		Network.rpc_id(id, "kick")
+	else:
+		Network.disconnectServer()
 	
 	pass
 
