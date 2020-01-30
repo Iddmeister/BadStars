@@ -79,7 +79,6 @@ Effects="*res://Scenes/Game/Effects.tscn"
 
 gdscript/warnings/unassigned_variable=false
 gdscript/warnings/unused_variable=false
-gdscript/warnings/unused_class_variable=false
 gdscript/warnings/unused_argument=false
 gdscript/warnings/function_may_yield=false
 gdscript/warnings/unused_signal=false
