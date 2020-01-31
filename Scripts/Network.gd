@@ -27,7 +27,7 @@ var players = {}
 var joinableGames = {}
 
 var timeoutList = {}
-var timeout = 100
+var timeout = 70
 
 var searching = false
 var broadcasting = false

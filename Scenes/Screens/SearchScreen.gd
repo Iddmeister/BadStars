@@ -30,3 +30,4 @@ func _on_Cancel_pressed():
 	get_tree().network_peer = null
 	Network.joinableGames = {}
 	Network.timeoutList = {}
+	Network.searching = false
