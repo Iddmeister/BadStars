@@ -29,3 +29,4 @@ func _on_Cancel_pressed():
 	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
 	get_tree().network_peer = null
 	Network.joinableGames = {}
+	Network.timeoutList = {}
