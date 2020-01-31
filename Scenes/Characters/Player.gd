@@ -318,7 +318,7 @@ remotesync func poison(damage:int, length:int, id:int):
 		poisonId = id
 		$Poison.start()
 		
-	modulate = Color(0, 1, 0)
+	$Sprite.modulate = Color(0, 1, 0)
 	
 	pass
 	
@@ -328,12 +328,12 @@ remotesync func slow(slowAmount:int, length:float):
 		$Slow.start(length)
 		moveSpeed = slowAmount
 		
-	modulate = Color(0, 0.5, 1)
+	$Sprite.modulate = Color(0, 0.5, 1)
 	
 	pass
 	
 remotesync func setNormal():
-	modulate = Color(1, 1, 1)
+	$Sprite.modulate = Color(1, 1, 1)
 	pass
 	
 	

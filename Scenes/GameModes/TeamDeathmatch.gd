@@ -164,6 +164,10 @@ func kill(id:int):
 
 func _on_Time_timeout():
 	var text:String
+	
+	Network.matchStats.blue = scores.blue
+	Network.matchStats.red = scores.red
+	
 	if scores.blue > scores.red:
 		text = "Blue Wins!"
 	elif scores.red > scores.blue:

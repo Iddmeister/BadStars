@@ -36,7 +36,7 @@ var starting = false
 
 var currentMap = "Basic"
 
-var matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
+var matchStats = {"places":[], "players":{}}
 
 remotesync var playersAlive = 0
 
@@ -170,7 +170,7 @@ func disconnectedFromHost():
 	players = {}
 	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
 	get_tree().paused = false
-	matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
+	matchStats = {"places":[], "players":{}}
 	searching = false
 	broadcasting = false
 	pass
@@ -209,7 +209,7 @@ func disconnectServer():
 	players = {}
 	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
 	get_tree().paused = false
-	matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
+	matchStats = {"places":[], "players":{}}
 	searchPeer.close()
 	searchPeer = PacketPeerUDP.new()
 	joinableGames = {}
@@ -239,8 +239,6 @@ remotesync func startGame(gameMode=Globals.gameModes["Bad Royale"], map="Basic")
 	
 	if get_tree().is_network_server():
 		searchPeer = PacketPeerUDP.new()
-		
-		matchStats.graph.start = OS.get_ticks_msec()
 	
 	get_tree().paused = true
 	Globals.currentGameMode = gameMode
@@ -269,12 +267,6 @@ master func addKill(player:String):
 	matchStats.players[player].kills += 1
 	playersAlive -= 1
 	rset("playersAlive", playersAlive)
-	pass
-	
-master func addGraphPoint(damage:int):
-	
-	matchStats.graph.points.append({"damage":damage, "time":OS.get_ticks_msec()})
-	
 	pass
 	
 remotesync func endGame(stats):
