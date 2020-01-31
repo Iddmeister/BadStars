@@ -11,8 +11,14 @@ func _process(delta):
 		if not $CenterContainer/VBoxContainer/List.has_node(game):
 			var joinBut = joinButtonScene.instance()
 			$CenterContainer/VBoxContainer/List.add_child(joinBut)
-			joinBut.setInfo(game, Network.joinableGames[game])
+			joinBut.setInfo(Network.joinableGames[game])
 			joinBut.name = game
+	for game in $CenterContainer/VBoxContainer/List.get_children():
+		
+		if not Network.joinableGames.keys().has(game.name):
+			$CenterContainer/VBoxContainer/List.remove_child(game)
+		
+		pass
 	
 	pass
 

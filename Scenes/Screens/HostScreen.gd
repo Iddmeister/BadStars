@@ -11,7 +11,7 @@ var tagScene = preload("res://Scenes/UI/JoinTag.tscn")
 func _ready():
 	$Controls/MapSelect/CurrentMap.text = currentMap
 	$Controls/GameMode/CurrentMode.text = currentGameMode
-	$IP.text = "IP:  " + String(IP.get_local_addresses()[1])
+	$IP.text = "IP:  " + String(IP.get_local_addresses()[0])
 	pass
 	
 func _process(delta):

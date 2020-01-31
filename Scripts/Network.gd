@@ -26,6 +26,9 @@ var players = {}
 
 var joinableGames = {}
 
+var timeoutList = {}
+var timeout = 180
+
 var searching = false
 var broadcasting = false
 
@@ -93,11 +96,24 @@ func _process(delta):
 	
 	
 	if searching:
+		
+		
+		if searchPeer.get_available_packet_count() > 0:
+		
+			var packet = searchPeer.get_var()
 
-		var packet = searchPeer.get_var()
-
-		if packet:
-			joinableGames[packet[0]] = packet[1]
+			if packet:
+				joinableGames[packet.name] = packet
+				timeoutList[packet.name] = 0
+				
+		for game in timeoutList.keys():
+			
+			timeoutList[game] += 1
+			
+			if timeoutList[game] >= timeout:
+				joinableGames.erase(game)
+			
+			
 			
 	elif broadcasting:
 		sendBroadcast(playerInfo.name)
@@ -129,7 +145,7 @@ func _process(delta):
 	
 func sendBroadcast(gameName:String):
 	searchPeer.set_dest_address(broadcastAddress, PORT)
-	searchPeer.put_var([gameName, IP.get_local_addresses()[1]])
+	searchPeer.put_var({"name":gameName, "ip":IP.get_local_addresses()[0], "players":0})
 	pass
 	
 func connectedToHost():
@@ -154,6 +170,8 @@ func disconnectedFromHost():
 	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
 	get_tree().paused = false
 	matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
+	searching = false
+	broadcasting = false
 	pass
 	
 	
@@ -191,6 +209,12 @@ func disconnectServer():
 	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
 	get_tree().paused = false
 	matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
+	searchPeer.close()
+	searchPeer = PacketPeerUDP.new()
+	joinableGames = {}
+	broadcasting = false
+	searching = false
+	
 	pass
 	
 remote func readyPlayer(id:int):

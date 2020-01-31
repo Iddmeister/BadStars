@@ -5,10 +5,10 @@ var ip:String
 func _ready():
 	pass
 	
-func setInfo(gameName, ipAd):
+func setInfo(info):
 	
-	text = gameName + " : " + ipAd
-	ip = ipAd
+	text = info.name + " : " + info.ip + "  Players: " + String(info.players)
+	ip = info.ip
 	
 	pass
 
