@@ -19,10 +19,10 @@ use_mipmaps = true
 font_data = ExtResource( 3 )
 
 [node name="Player" type="KinematicBody2D" groups=[
-"Freezable",
 "Autoaim",
-"Shootable",
+"Freezable",
 "Player",
+"Shootable",
 ]]
 pause_mode = 1
 collision_mask = 4
@@ -36,8 +36,6 @@ shape = SubResource( 1 )
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2( 1.5, 1.5 )
-drag_margin_h_enabled = false
-drag_margin_v_enabled = false
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -66,7 +64,7 @@ margin_bottom = 3.0
 margin_left = 60.0
 margin_top = 3.0
 margin_right = 60.0
-margin_bottom = 22.0
+margin_bottom = 23.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1

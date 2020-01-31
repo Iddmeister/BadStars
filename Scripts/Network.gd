@@ -26,13 +26,17 @@ var players = {}
 
 var joinableGames = {}
 
-var broadcastTimer = Timer.new()
+var timeoutList = {}
+var timeout = 70
+
+var searching = false
+var broadcasting = false
 
 var starting = false
 
 var currentMap = "Basic"
 
-var matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
+var matchStats = {"places":[], "players":{}}
 
 remotesync var playersAlive = 0
 
@@ -40,7 +44,6 @@ remotesync var playersAlive = 0
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
-	add_child(broadcastTimer)
 	pass
 
 func host(gameName:String):
@@ -49,16 +52,17 @@ func host(gameName:String):
 	peer.create_server(PORT, MAX_PLAYERS)
 	get_tree().network_peer = peer
 	
+	searchPeer.set_broadcast_enabled(true)
 	searchPeer.set_dest_address(broadcastAddress, PORT)
-	searchPeer.put_var([gameName, IP.get_local_addresses()[1]])
+	sendBroadcast(playerInfo.name)
+	
 	get_tree().connect("network_peer_connected", self, "playerConnected")
 	get_tree().connect("network_peer_disconnected", self, "playerDisconnected")
 	
-	broadcastTimer.wait_time = 1
-	broadcastTimer.connect("timeout", self, "sendBroadcast", [gameName])
-	broadcastTimer.start()
 	
 	players[1] = playerInfo
+	
+	broadcasting = true
 	
 	pass
 
@@ -66,6 +70,7 @@ func host(gameName:String):
 func join(ip:String):
 	
 	searchPeer.close()
+	searching = false
 	var peer = NetworkedMultiplayerENet.new()
 	peer.create_client(ip, PORT)
 	get_tree().network_peer = peer
@@ -73,12 +78,14 @@ func join(ip:String):
 	get_tree().connect("connection_failed", self, "disconnectedFromHost")
 	get_tree().connect("server_disconnected", self, "disconnectedFromHost")
 	joinableGames = {}
+	timeoutList = {}
 	
 	pass
 	
 	
 func find():
 	
+	searching = true
 	searchPeer.set_dest_address(broadcastAddress, PORT)
 	if not searchPeer.is_listening():
 		searchPeer.listen(PORT)
@@ -89,12 +96,29 @@ func find():
 func _process(delta):
 	
 	
-	if searchPeer.is_listening():
+	if searching:
 		
-		var packet = searchPeer.get_var()
 		
-		if packet:
-			joinableGames[packet[0]] = packet[1]
+		if searchPeer.get_available_packet_count() > 0:
+		
+			var packet = searchPeer.get_var()
+
+			if packet:
+				joinableGames[packet.name] = packet
+				timeoutList[packet.name] = 0
+				
+		for game in timeoutList.keys():
+			
+			timeoutList[game] += 1
+			
+			if timeoutList[game] >= timeout:
+				joinableGames.erase(game)
+			
+			
+			
+	elif broadcasting:
+		sendBroadcast(playerInfo.name)
+		
 			
 	if starting:
 		if get_tree().network_peer:
@@ -122,7 +146,7 @@ func _process(delta):
 	
 func sendBroadcast(gameName:String):
 	searchPeer.set_dest_address(broadcastAddress, PORT)
-	searchPeer.put_var([gameName, IP.get_local_addresses()[1]])
+	searchPeer.put_var({"name":gameName, "ip":IP.get_local_addresses()[0], "players":players.keys().size()})
 	pass
 	
 func connectedToHost():
@@ -146,7 +170,9 @@ func disconnectedFromHost():
 	players = {}
 	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
 	get_tree().paused = false
-	matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
+	matchStats = {"places":[], "players":{}}
+	searching = false
+	broadcasting = false
 	pass
 	
 	
@@ -177,15 +203,20 @@ func disconnectServer():
 	get_tree().paused = true
 	ObjectPool.clearAllPools()
 	yield(ObjectPool, "poolCleared")
-	broadcastTimer.stop()
 	get_tree().network_peer = null
 	get_tree().disconnect("network_peer_connected", self, "playerConnected")
 	get_tree().disconnect("network_peer_disconnected", self, "playerDisconnected")
-	broadcastTimer.disconnect("timeout", self, "sendBroadcast")
 	players = {}
 	get_tree().change_scene("res://Scenes/Screens/MainMenu.tscn")
 	get_tree().paused = false
-	matchStats = {"places":[], "players":{}, "graph":{"start":0, "end":0, "points":[]}}
+	matchStats = {"places":[], "players":{}}
+	searchPeer.close()
+	searchPeer = PacketPeerUDP.new()
+	joinableGames = {}
+	timeoutList = {}
+	broadcasting = false
+	searching = false
+	
 	pass
 	
 remote func readyPlayer(id:int):
@@ -196,6 +227,8 @@ remote func readyPlayer(id:int):
 	
 remotesync func startGame(gameMode=Globals.gameModes["Bad Royale"], map="Basic"):
 	
+	broadcasting = false
+	
 	rset("playersAlive", players.keys().size())
 	
 	for key in players.keys():
@@ -205,10 +238,7 @@ remotesync func startGame(gameMode=Globals.gameModes["Bad Royale"], map="Basic")
 	currentMap = map
 	
 	if get_tree().is_network_server():
-		broadcastTimer.stop()
 		searchPeer = PacketPeerUDP.new()
-		
-		matchStats.graph.start = OS.get_ticks_msec()
 	
 	get_tree().paused = true
 	Globals.currentGameMode = gameMode
@@ -237,12 +267,6 @@ master func addKill(player:String):
 	matchStats.players[player].kills += 1
 	playersAlive -= 1
 	rset("playersAlive", playersAlive)
-	pass
-	
-master func addGraphPoint(damage:int):
-	
-	matchStats.graph.points.append({"damage":damage, "time":OS.get_ticks_msec()})
-	
 	pass
 	
 remotesync func endGame(stats):

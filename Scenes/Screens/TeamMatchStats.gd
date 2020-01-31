@@ -2,8 +2,11 @@ extends Control
 
 func _ready():
 	createPlayerStats(Network.matchStats)
-	drawGraph(Network.matchStats.graph)
-	$HBoxContainer/Players.get_node(Network.playerInfo.name).modulate = Color(1, 1, 0)
+	$CenterContainer/VBoxContainer/Players.get_node(Network.playerInfo.name).modulate = Color(1, 1, 0)
+	
+	$CenterContainer/VBoxContainer/HBoxContainer/Blue.text = String(Network.matchStats.blue)
+	$CenterContainer/VBoxContainer/HBoxContainer/Red.text = String(Network.matchStats.red)
+	
 	pass
 	
 func createPlayerStats(stats:Dictionary):
@@ -14,32 +17,13 @@ func createPlayerStats(stats:Dictionary):
 		var pl = Label.new()
 		pl.text = String(player + "   " + "Kills: "+String(stats.players[player].kills))
 		pl.name = player
-		$HBoxContainer/Players.add_child(pl)
+		$CenterContainer/VBoxContainer/Players.add_child(pl)
 		pass
 		
 		
 	
 	pass
 	
-func drawGraph(info:Dictionary):
-	
-	var line = $HBoxContainer/Graph/Line
-	
-	line.add_point($HBoxContainer/Graph/Start.position)
-	
-	for point in info.points:
-		
-		var y = point.damage
-		var x = (float(point.time-info.start)/float(info.end-info.start))*400.0
-		
-		line.add_point(Vector2($HBoxContainer/Graph/Start.position.x+x, $HBoxContainer/Graph/Start.position.y))
-		line.add_point(Vector2($HBoxContainer/Graph/Start.position.x+x+2, $HBoxContainer/Graph/Start.position.y-y))
-		line.add_point(Vector2($HBoxContainer/Graph/Start.position.x+x+4, $HBoxContainer/Graph/Start.position.y))
-		pass
-		
-	line.add_point($HBoxContainer/Graph/End.position)
-	
-	pass
 
 
 func _on_Leave_pressed():
