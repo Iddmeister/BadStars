@@ -78,6 +78,7 @@ func join(ip:String):
 	get_tree().connect("connection_failed", self, "disconnectedFromHost")
 	get_tree().connect("server_disconnected", self, "disconnectedFromHost")
 	joinableGames = {}
+	timeoutList = {}
 	
 	pass
 	
@@ -212,6 +213,7 @@ func disconnectServer():
 	searchPeer.close()
 	searchPeer = PacketPeerUDP.new()
 	joinableGames = {}
+	timeoutList = {}
 	broadcasting = false
 	searching = false
 	
