@@ -54,7 +54,7 @@ func host(gameName:String):
 	
 	searchPeer.set_broadcast_enabled(true)
 	searchPeer.set_dest_address(broadcastAddress, PORT)
-	searchPeer.put_var([gameName, IP.get_local_addresses()[1]])
+	sendBroadcast(playerInfo.name)
 	
 	get_tree().connect("network_peer_connected", self, "playerConnected")
 	get_tree().connect("network_peer_disconnected", self, "playerDisconnected")
