@@ -13,6 +13,8 @@ func _process(delta):
 			$CenterContainer/VBoxContainer/List.add_child(joinBut)
 			joinBut.setInfo(Network.joinableGames[game])
 			joinBut.name = game
+		else:
+			$CenterContainer/VBoxContainer/List.get_node(game).setInfo(Network.joinableGames[game])
 	for game in $CenterContainer/VBoxContainer/List.get_children():
 		
 		if not Network.joinableGames.keys().has(game.name):
