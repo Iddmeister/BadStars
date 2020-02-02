@@ -51,6 +51,12 @@ var maps = {
 		"Bits":"res://Scenes/Maps/TeamDeathmatch/Bits.tscn",
 		
 		},
+		
+	"Bad Ball":{
+		
+		"Home Run":"res://Scenes/Maps/BadBall/HomeRun.tscn",
+		
+	},
 	
 	}
 	
@@ -58,6 +64,7 @@ var gameModes = {
 	
 	"Bad Royale":"res://Scenes/GameModes/BadRoyale.tscn",
 	"Team Deathmatch": "res://Scenes/GameModes/TeamDeathmatch.tscn",
+	"Bad Ball":"res://Scenes/GameModes/BadBall.tscn",
 	
 	}
 	
