@@ -22,7 +22,7 @@ func _process(delta):
 			
 			if body.is_in_group("Shootable"):
 				
-				if not body == get_parent():
+				if not body.is_in_group("Ally"+String(get_parent().get_network_master())):
 				
 					if not hasHitPlayer and not bodies.has(body):
 						

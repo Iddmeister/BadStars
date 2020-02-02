@@ -5,7 +5,7 @@
 [ext_resource path="res://Graphics/Weapons/FronkHammer.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 100, 50 )
+extents = Vector2( 160, 50 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Slam"
@@ -45,7 +45,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range" index="0"]
-position = Vector2( 100, 0 )
+position = Vector2( 160, 0 )
 shape = SubResource( 1 )
 
 [node name="Animation" type="AnimationPlayer" parent="." index="1"]

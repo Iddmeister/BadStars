@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 35 )
 
-[node name="Melee" index="0" instance=ExtResource( 1 )]
+[node name="Melee" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 maxAmmo = 0
 distance = 0
@@ -14,9 +14,6 @@ damage = 20
 
 [node name="Reload" parent="." index="1"]
 wait_time = 2.0
-
-[node name="Range" parent="." index="3"]
-collision_mask = 5
 
 [node name="CollisionShape2D" parent="Range" index="0"]
 position = Vector2( 0, 0 )

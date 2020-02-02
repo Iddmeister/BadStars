@@ -59,7 +59,7 @@ tracks/3/keys = {
 "values": [ true, false ]
 }
 
-[node name="Melee" index="0" instance=ExtResource( 1 )]
+[node name="Melee" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 distance = 310
 damage = 120

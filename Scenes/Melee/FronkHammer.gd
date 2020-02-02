@@ -7,6 +7,7 @@ func drawAim():
 	pass
 	
 remotesync func shoot(id:int, irrelevantPoolIndex:int):
+	aim(false)
 	$Animation.play("Slam")
 	.shoot(id, irrelevantPoolIndex)
 	get_parent().rpc("freeze", true)

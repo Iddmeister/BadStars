@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 signal started()
 signal death(id)
+signal playerHit(damage, id)
 
 export var maxHealth = 400
 onready var health = maxHealth
@@ -243,9 +244,11 @@ master func didDamage(damage:int):
 	
 remotesync func hit(damage:int, id:int, isSuper=false):
 	
+	if not dead:
+	
+		emit_signal("playerHit", damage, id)
+	
 	if not dead and not invincible:
-		
-		Network.rpc("addGraphPoint", damage)
 	
 		health -= damage
 		if is_network_master():
