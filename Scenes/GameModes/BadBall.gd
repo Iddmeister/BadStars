@@ -163,9 +163,12 @@ func goalScored(team:int):
 	
 	if team == 0:
 		scores.red += 1
+		Network.rpc("event", Globals.events.MESSAGE, {"message":"Red Scored!"}, false)
 	else:
 		scores.blue += 1
+		Network.rpc("event", Globals.events.MESSAGE, {"message":"Blue Scored!"}, false)
 		
+	
 	rpc("updateGoals", scores.blue, scores.red)
 	rpc("resetGame")
 	

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Resources/Tilesets/DesertTileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Scenes/Other/Goal.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Other/Ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Characters/Dummy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Terrain/DestructibleWall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Other/Ball.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Other/Goal.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.560784, 1, 0.415686, 1 )
@@ -67,12 +69,214 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Goal" parent="." instance=ExtResource( 2 )]
+[node name="Goal" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1060, 60 )
 team = 1
 
-[node name="Goal2" parent="." instance=ExtResource( 2 )]
+[node name="Goal2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1060, 1930 )
 
-[node name="Ball" parent="." instance=ExtResource( 3 )]
+[node name="Ball" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1060, 992 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="DestructibleWall" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 928, 512 )
+
+[node name="DestructibleWall2" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 960, 512 )
+
+[node name="DestructibleWall3" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 992, 512 )
+
+[node name="DestructibleWall4" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1024, 512 )
+
+[node name="DestructibleWall8" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 800, 512 )
+
+[node name="DestructibleWall7" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 832, 512 )
+
+[node name="DestructibleWall6" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 864, 512 )
+
+[node name="DestructibleWall5" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 896, 512 )
+
+[node name="DestructibleWall16" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1184, 512 )
+
+[node name="DestructibleWall15" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1216, 512 )
+
+[node name="DestructibleWall14" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1248, 512 )
+
+[node name="DestructibleWall13" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1280, 512 )
+
+[node name="DestructibleWall12" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1056, 512 )
+
+[node name="DestructibleWall11" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1088, 512 )
+
+[node name="DestructibleWall10" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1120, 512 )
+
+[node name="DestructibleWall9" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1152, 512 )
+
+[node name="DestructibleWall32" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 928, 1440 )
+
+[node name="DestructibleWall31" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 960, 1440 )
+
+[node name="DestructibleWall30" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 992, 1440 )
+
+[node name="DestructibleWall29" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1024, 1440 )
+
+[node name="DestructibleWall28" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 800, 1440 )
+
+[node name="DestructibleWall27" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 832, 1440 )
+
+[node name="DestructibleWall26" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 864, 1440 )
+
+[node name="DestructibleWall25" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 896, 1440 )
+
+[node name="DestructibleWall24" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1184, 1440 )
+
+[node name="DestructibleWall23" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1216, 1440 )
+
+[node name="DestructibleWall22" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1248, 1440 )
+
+[node name="DestructibleWall21" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1280, 1440 )
+
+[node name="DestructibleWall20" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1056, 1440 )
+
+[node name="DestructibleWall19" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1088, 1440 )
+
+[node name="DestructibleWall18" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1120, 1440 )
+
+[node name="DestructibleWall17" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 1152, 1440 )
+
+[node name="Dummies" type="Node2D" parent="."]
+
+[node name="Dummy" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1056, 1504 )
+
+[node name="Dummy2" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1120, 1504 )
+
+[node name="Dummy3" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 992, 1504 )
+
+[node name="Dummy4" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 928, 1504 )
+
+[node name="Dummy5" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1184, 1504 )
+
+[node name="Dummy11" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1920, 896 )
+
+[node name="Dummy12" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1920, 960 )
+
+[node name="Dummy13" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1920, 1024 )
+
+[node name="Dummy14" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1920, 1088 )
+
+[node name="Dummy18" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 224, 896 )
+
+[node name="Dummy17" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 224, 960 )
+
+[node name="Dummy16" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 224, 1024 )
+
+[node name="Dummy15" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 224, 1088 )
+
+[node name="Dummy10" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1056, 480 )
+
+[node name="Dummy9" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1120, 480 )
+
+[node name="Dummy8" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 992, 480 )
+
+[node name="Dummy7" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 928, 480 )
+
+[node name="Dummy19" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 224, 160 )
+
+[node name="Dummy20" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 288, 160 )
+
+[node name="Dummy21" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 288, 224 )
+
+[node name="Dummy22" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 224, 224 )
+
+[node name="Dummy26" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1888, 160 )
+
+[node name="Dummy25" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1952, 160 )
+
+[node name="Dummy24" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1952, 224 )
+
+[node name="Dummy23" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1888, 224 )
+
+[node name="Dummy34" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 224, 1760 )
+
+[node name="Dummy33" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 288, 1760 )
+
+[node name="Dummy32" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 288, 1824 )
+
+[node name="Dummy31" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 224, 1824 )
+
+[node name="Dummy30" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1888, 1760 )
+
+[node name="Dummy29" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1952, 1760 )
+
+[node name="Dummy28" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1952, 1824 )
+
+[node name="Dummy27" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1888, 1824 )
+
+[node name="Dummy6" parent="Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1184, 480 )

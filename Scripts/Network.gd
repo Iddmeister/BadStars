@@ -274,8 +274,10 @@ remotesync func endGame(stats):
 	ObjectPool.clearAllPools()
 	if Globals.currentGameMode == "Bad Royale":
 		get_tree().change_scene("res://Scenes/Screens/MatchStats.tscn")
-	else:
+	elif Globals.currentGameMode == "Team Deathmatch":
 		get_tree().change_scene("res://Scenes/Screens/TeamMatchStats.tscn")
+	elif Globals.currentGameMode == "Bad Ball":
+		get_tree().change_scene("res://Scenes/Screens/BadBallMatchStats.tscn")
 	pass
 	
 	

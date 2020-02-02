@@ -1,5 +1,7 @@
 extends "res://Scenes/Bullets/Bullet.gd"
 
+export var rotateSpeed = 100
+
 func _on_Bullet_body_entered(body):
 	if enabled:
 		if get_tree().is_network_server():
@@ -12,3 +14,7 @@ func _on_Bullet_body_entered(body):
 					elif body.is_in_group("Dummy"):
 						get_tree().get_nodes_in_group("Ally"+String(id))[0].rpc("didDamage", damage)
 		pass
+
+func frameAnim(delta:float):
+	$Sprite.rotation += rotateSpeed*delta
+	pass

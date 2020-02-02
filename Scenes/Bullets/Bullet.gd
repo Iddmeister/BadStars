@@ -21,6 +21,7 @@ func _ready():
 	
 func _physics_process(delta):
 	if enabled:
+		frameAnim(delta)
 		move(delta)
 	
 func move(delta:float):
@@ -93,5 +94,9 @@ func hitPlayer(body):
 		
 	if not slowEffect <= 0:
 		body.rpc("slow", slowEffect, slowTime)
+	
+	pass
+	
+func frameAnim(delta:float):
 	
 	pass

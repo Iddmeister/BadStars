@@ -5,7 +5,7 @@
 [node name="Gun" instance=ExtResource( 1 )]
 maxAmmo = 1
 distance = 800
-aimWidth = 87
+aimWidth = 32
 
 [node name="Muzzle" parent="." index="0"]
 position = Vector2( 40, 0 )
