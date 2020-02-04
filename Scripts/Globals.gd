@@ -12,6 +12,9 @@ var version = "0.5.1-dev"
 
 var bounds = Vector2(2144, 1984)
 
+var localIP:String
+#var globalIP:String
+
 onready var currentGameMode = "Bad Royale"
 
 var characterInfo = {
@@ -80,7 +83,14 @@ func _ready() -> void:
 	if OS.get_name() == "Android" or OS.get_name() == "iOS":
 		mobile = true
 		
-	#mobile = true
+	if OS.get_name() == "Windows":
+		localIP = IP.get_local_addresses()[1]
+	elif OS.get_name() == "X11":
+		localIP = IP.get_local_addresses()[0]
+	else:
+		localIP = IP.get_local_addresses()[0]
+		
+	
 		
 	
 	pass

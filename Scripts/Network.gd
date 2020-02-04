@@ -146,7 +146,7 @@ func _process(delta):
 	
 func sendBroadcast(gameName:String):
 	searchPeer.set_dest_address(broadcastAddress, PORT)
-	searchPeer.put_var({"name":gameName, "ip":IP.get_local_addresses()[0], "players":players.keys().size()})
+	searchPeer.put_var({"name":gameName, "ip":Globals.localIP, "players":players.keys().size()})
 	pass
 	
 func connectedToHost():

@@ -16,6 +16,9 @@ margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -20.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Players" type="VBoxContainer" parent="."]
 margin_left = 86.0
@@ -121,10 +124,23 @@ custom_styles/normal = SubResource( 2 )
 toggle_mode = true
 shortcut_in_tooltip = false
 
-[node name="IP" type="Label" parent="."]
+[node name="IPStuff" type="VBoxContainer" parent="."]
 margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IP" type="Label" parent="IPStuff"]
+margin_right = 121.0
 margin_bottom = 14.0
 text = "IP:"
+
+[node name="Global" type="CheckButton" parent="IPStuff"]
+margin_top = 18.0
+margin_right = 121.0
+margin_bottom = 58.0
+text = "Global"
 [connection signal="pressed" from="Controls/GameMode/LeftM" to="." method="_on_LeftM_pressed"]
 [connection signal="pressed" from="Controls/GameMode/RightM" to="." method="_on_RightM_pressed"]
 [connection signal="pressed" from="Controls/MapSelect/Left" to="." method="_on_Left_pressed"]
@@ -132,3 +148,4 @@ text = "IP:"
 [connection signal="pressed" from="Controls/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Controls/Disconnect" to="." method="_on_Disconnect_pressed"]
 [connection signal="toggled" from="Team" to="." method="_on_Team_toggled"]
+[connection signal="toggled" from="IPStuff/Global" to="." method="_on_Global_toggled"]
