@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Supers/Super.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Fonts/JetBrainsMono-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/Supers/BitSuper.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.00392157, 0.0431373, 0.603922, 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 2 )
+
+[node name="Super" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+damageMultiplier = 0.2
+superMessage = "used Blue Screen of Death"
+
+[node name="Layer" type="CanvasLayer" parent="." index="0"]
+
+[node name="Panel" type="Panel" parent="Layer" index="0"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Layer/Panel" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Layer/Panel/CenterContainer" index="0"]
+margin_left = 91.0
+margin_top = 270.0
+margin_right = 932.0
+margin_bottom = 330.0
+custom_fonts/font = SubResource( 1 )
+text = "Error Error Error Error Error"
+align = 1
+valign = 1
+
+[node name="Time" type="Timer" parent="." index="1"]
+wait_time = 3.0
+one_shot = true
+[connection signal="timeout" from="Time" to="." method="_on_Time_timeout"]
