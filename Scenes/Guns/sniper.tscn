@@ -4,6 +4,10 @@
 [ext_resource path="res://Graphics/Weapons/sniper.png" type="Texture" id=3]
 
 [node name="Gun" instance=ExtResource( 1 )]
+distance = 600
+
+[node name="Cooldown" parent="." index="1"]
+wait_time = 0.1
 
 [node name="Sprite" type="Sprite" parent="." index="4"]
 texture = ExtResource( 3 )
