@@ -1,6 +1,6 @@
 extends Node
 
-const PORT = 2500
+const PORT = 2542
 const MAX_PLAYERS = 10
 
 signal allPlayersReady()
@@ -203,6 +203,8 @@ func disconnectServer():
 	get_tree().paused = true
 	ObjectPool.clearAllPools()
 	yield(ObjectPool, "poolCleared")
+	var upnp = UPNP.new()
+	upnp.delete_port_mapping(Network.PORT)
 	get_tree().network_peer = null
 	get_tree().disconnect("network_peer_connected", self, "playerConnected")
 	get_tree().disconnect("network_peer_disconnected", self, "playerDisconnected")
