@@ -18,9 +18,11 @@ var characters = {
 	Globals.characters.FRONK:{"icon":"res://Graphics/Characters/Fronk.png", "info":"FRONK: ICH BIN FRONK"},
 	Globals.characters.KARLMARX:{"icon":"res://Graphics/Characters/KarlMarx.png", "info":"Karl Marx: Communism"},
 	Globals.characters.BARELY:{"icon":"res://Graphics/Characters/Barely.png", "info":"Barely: Barely a character"},
-	#Globals.characters.BRICK:{"icon":"res://Graphics/Characters/Brick.png", "info":"Brick is literally a brick"},
+	Globals.characters.BRICK:{"icon":"res://Graphics/Characters/Brick.png", "info":"Brick is literally a brick"},
 	Globals.characters.FROZONE:{"icon":"res://Graphics/Characters/Frozone.png", "info":"Frozone: Couldn't get the rights to Mr Incredible"},
-
+	Globals.characters.BARELY:{"icon":"res://Graphics/Characters/Barely.png", "info":"Barely: Barely a character"},
+	Globals.characters.PIE:{"icon":"res://Graphics/Characters/pie-per.png", "info":"PIE: Pie-Per"},
+	Globals.characters.BIT:{"icon":"res://Graphics/Characters/Bit.png", "info":"64 Bit: AN arcade cabinet..."},
 
 }
 

@@ -1,6 +1,6 @@
 extends Node
 
-enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, THRIO, JOKER, BALD, MAGPIE, FRONK, BRICK, KARLMARX, BARELY, FROZONE}
+enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, THRIO, JOKER, BALD, MAGPIE, FRONK, BRICK, KARLMARX, BARELY, FROZONE, PIE, BIT}
 
 enum events {KILL, SUPER, MESSAGE}
 
@@ -36,7 +36,9 @@ var characterInfo = {
 	characters.BARELY: {"name":"Barely", "poolSize":10, "bulletPath":"res://Scenes/Throwables/BarelyFireball.tscn", "playerPath":"res://Scenes/Characters/Barely.tscn"},
 	characters.KARLMARX: {"name":"Karl Marx", "poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/KarlMarx.tscn"},
 	characters.FROZONE:{"name":"Frozone", "poolSize":20, "bulletPath":"res://Scenes/Bullets/Icicle.tscn", "playerPath":"res://Scenes/Characters/Frozone.tscn"},
-  }
+	characters.BIT:{"name":"64-Bit", "poolSize":40, "bulletPath":"res://Scenes/Bullets/BitBullet.tscn", "playerPath":"res://Scenes/Characters/Bit.tscn"},
+	characters.PIE:{"name":"Pie-Per", "poolSize":40, "bulletPath":"res://Scenes/Bullets/PieBullet.tscn", "playerPath":"res://Scenes/Characters/PIE-PER.tscn"},  
+}
 	
 var maps = {
 	
