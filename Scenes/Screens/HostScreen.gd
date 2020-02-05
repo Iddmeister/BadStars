@@ -107,9 +107,8 @@ func _on_Team_toggled(button_pressed):
 func globalHost():
 	
 	var upnp = UPNP.new()
-	var device = upnp.discover(2000, 2, "InternetGatewayDevice")
-	upnp.add_device(upnp.get_device(device))
-	upnp.get_device(device).add_port_mapping(Network.PORT)
+	upnp.discover(2000, 2, "InternetGatewayDevice")
+	upnp.add_port_mapping(Network.PORT)
 	$IPStuff/IP.text = upnp.query_external_address()
 	
 	pass
