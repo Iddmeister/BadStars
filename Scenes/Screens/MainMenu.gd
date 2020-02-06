@@ -20,6 +20,8 @@ var characters = {
 	Globals.characters.BARELY:{"icon":"res://Graphics/Characters/Barely.png", "info":"Barely: Barely a character"},
 	#Globals.characters.BRICK:{"icon":"res://Graphics/Characters/Brick.png", "info":"Brick is literally a brick"},
 	Globals.characters.FROZONE:{"icon":"res://Graphics/Characters/Frozone.png", "info":"Frozone: Couldn't get the rights to Mr Incredible"},
+	Globals.characters.PIE:{"icon":"res://Graphics/Characters/pie-per.png", "info":"PIE: Pie-Per"},
+	Globals.characters.BIT:{"icon":"res://Graphics/Characters/Bit.png", "info":"64 Bit: AN arcade cabinet..."},
 
 
 }

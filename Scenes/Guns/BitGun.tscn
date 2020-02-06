@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Guns/ClotGun.tscn" type="PackedScene" id=1]
+
+[node name="Gun" instance=ExtResource( 1 )]
+amount = 3
+
+[node name="Cooldown" parent="." index="1"]
+wait_time = 0.5
+one_shot = false
+
+[node name="Reload" parent="." index="2"]
+wait_time = 1.5
+
+[node name="Sprite" parent="." index="3"]
+texture = null
+
+[node name="FireDelay" parent="." index="4"]
+wait_time = 0.13
+one_shot = false

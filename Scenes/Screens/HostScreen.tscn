@@ -1,12 +1,88 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Screens/HostScreen.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Screens/LeftRight.tres" type="Theme" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 1, 1, 1, 1 )
+bg_color = Color( 0.592157, 0.168627, 0.168627, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.898039, 0.196078, 0.196078, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.447059, 0.121569, 0.121569, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.898039, 0.196078, 0.196078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.537255, 0.152941, 0.152941, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.898039, 0.196078, 0.196078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.741176, 0.172549, 0.172549, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.658824, 0.12549, 0.12549, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.745098, 0.0666667, 0.0666667, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.596078, 0.0509804, 0.0509804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.705882, 0.172549, 0.172549, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.588235, 0.101961, 0.101961, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.545098, 0.109804, 0.109804, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.627451, 0.109804, 0.109804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.466667, 0.0470588, 0.0470588, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.592157, 0.0588235, 0.0588235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.470588, 0.105882, 0.105882, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.572549, 0.101961, 0.101961, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StreamTexture" id=12]
+load_path = "res://.import/BadBackground.png-8aba5c357cf4577eaa0e87e6af794818.stex"
 
 [node name="HostScreen" type="Control"]
 anchor_right = 1.0
@@ -16,6 +92,9 @@ margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -20.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Players" type="VBoxContainer" parent="."]
 margin_left = 86.0
@@ -47,6 +126,10 @@ alignment = 1
 margin_right = 104.0
 margin_bottom = 150.0
 size_flags_horizontal = 3
+theme = ExtResource( 2 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
 text = "<"
 
 [node name="CurrentMode" type="Label" parent="Controls/GameMode"]
@@ -63,6 +146,7 @@ margin_left = 382.0
 margin_right = 486.0
 margin_bottom = 150.0
 size_flags_horizontal = 3
+theme = ExtResource( 2 )
 text = ">"
 
 [node name="MapSelect" type="HBoxContainer" parent="Controls"]
@@ -76,6 +160,7 @@ alignment = 1
 margin_right = 104.0
 margin_bottom = 120.0
 size_flags_horizontal = 3
+theme = ExtResource( 2 )
 text = "<"
 
 [node name="CurrentMap" type="Label" parent="Controls/MapSelect"]
@@ -93,6 +178,7 @@ margin_left = 382.0
 margin_right = 486.0
 margin_bottom = 120.0
 size_flags_horizontal = 3
+theme = ExtResource( 2 )
 text = ">"
 
 [node name="Start" type="Button" parent="Controls"]
@@ -100,6 +186,9 @@ margin_top = 330.0
 margin_right = 486.0
 margin_bottom = 430.0
 rect_min_size = Vector2( 0, 100 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
 text = "Start Game"
 
 [node name="Disconnect" type="Button" parent="Controls"]
@@ -107,6 +196,9 @@ margin_top = 460.0
 margin_right = 486.0
 margin_bottom = 560.0
 rect_min_size = Vector2( 0, 100 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
 text = "Disconnect"
 
 [node name="Team" type="Button" parent="."]
@@ -116,15 +208,39 @@ anchor_bottom = 1.0
 margin_top = -70.0
 margin_right = 100.0
 rect_min_size = Vector2( 0, 70 )
-custom_styles/pressed = SubResource( 1 )
-custom_styles/normal = SubResource( 2 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 toggle_mode = true
 shortcut_in_tooltip = false
 
-[node name="IP" type="Label" parent="."]
+[node name="IPStuff" type="VBoxContainer" parent="."]
 margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IP" type="Label" parent="IPStuff"]
+margin_right = 121.0
 margin_bottom = 14.0
 text = "IP:"
+
+[node name="Global" type="CheckButton" parent="IPStuff"]
+margin_top = 18.0
+margin_right = 121.0
+margin_bottom = 58.0
+text = "Global"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+margin_left = -13.95
+margin_top = -12.1387
+margin_right = 1053.05
+margin_bottom = 606.861
+texture = SubResource( 12 )
+expand = true
 [connection signal="pressed" from="Controls/GameMode/LeftM" to="." method="_on_LeftM_pressed"]
 [connection signal="pressed" from="Controls/GameMode/RightM" to="." method="_on_RightM_pressed"]
 [connection signal="pressed" from="Controls/MapSelect/Left" to="." method="_on_Left_pressed"]
@@ -132,3 +248,4 @@ text = "IP:"
 [connection signal="pressed" from="Controls/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Controls/Disconnect" to="." method="_on_Disconnect_pressed"]
 [connection signal="toggled" from="Team" to="." method="_on_Team_toggled"]
+[connection signal="toggled" from="IPStuff/Global" to="." method="_on_Global_toggled"]

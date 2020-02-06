@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Screens/SearchScreen.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/BadBackground.png-8aba5c357cf4577eaa0e87e6af794818.stex"
 
 [node name="SearchScreen" type="Control"]
 anchor_right = 1.0
@@ -43,4 +46,15 @@ margin_right = 100.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 50 )
 text = "Cancel"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+margin_left = -16.0
+margin_top = -11.0
+margin_right = 1035.0
+margin_bottom = 617.0
+texture = SubResource( 1 )
+expand = true
 [connection signal="pressed" from="Cancel" to="." method="_on_Cancel_pressed"]

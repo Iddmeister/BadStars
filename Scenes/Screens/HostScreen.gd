@@ -11,7 +11,7 @@ var tagScene = preload("res://Scenes/UI/JoinTag.tscn")
 func _ready():
 	$Controls/MapSelect/CurrentMap.text = currentMap
 	$Controls/GameMode/CurrentMode.text = currentGameMode
-	$IP.text = "IP:  " + String(IP.get_local_addresses()[0])
+	$IPStuff/IP.text = "IP:  " + Globals.localIP
 	pass
 	
 func _process(delta):
@@ -102,3 +102,25 @@ func _on_Team_toggled(button_pressed):
 		$Team.modulate = Color(0, 0, 1)
 		Network.playerInfo.team = "Blue" 
 		Network.rpc("updatePlayersInfo", Network.players)
+
+
+func globalHost():
+	var upnp = UPNP.new()
+	upnp.discover(2000, 2, "InternetGatewayDevice")
+	upnp.add_port_mapping(Network.PORT)
+	$IPStuff/IP.text = upnp.query_external_address()
+	
+	pass
+	
+func disconnectGlobalHost():
+	var upnp = UPNP.new()
+	upnp.delete_port_mapping(Network.PORT)
+	$IPStuff/IP.text = Globals.localIP
+	
+	pass
+
+func _on_Global_toggled(button_pressed):
+	if button_pressed:
+		globalHost()
+	else:
+		disconnectGlobalHost()

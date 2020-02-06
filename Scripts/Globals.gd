@@ -1,6 +1,6 @@
 extends Node
 
-enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, THRIO, JOKER, BALD, MAGPIE, FRONK, BRICK, KARLMARX, BARELY, FROZONE}
+enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, THRIO, JOKER, BALD, MAGPIE, FRONK, BRICK, KARLMARX, BARELY, FROZONE, PIE, BIT}
 
 enum events {KILL, SUPER, MESSAGE}
 
@@ -8,9 +8,12 @@ var killLines = ["destroyed", "rekt", "eliminated", "took out"]
 
 var mobile = false
 
-var version = "0.5.1-dev"
+var version = "0.5.3"
 
 var bounds = Vector2(2144, 1984)
+
+var localIP:String
+#var globalIP:String
 
 onready var currentGameMode = "Bad Royale"
 
@@ -33,7 +36,9 @@ var characterInfo = {
 	characters.BARELY: {"name":"Barely", "poolSize":10, "bulletPath":"res://Scenes/Throwables/BarelyFireball.tscn", "playerPath":"res://Scenes/Characters/Barely.tscn"},
 	characters.KARLMARX: {"name":"Karl Marx", "poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/KarlMarx.tscn"},
 	characters.FROZONE:{"name":"Frozone", "poolSize":20, "bulletPath":"res://Scenes/Bullets/Icicle.tscn", "playerPath":"res://Scenes/Characters/Frozone.tscn"},
-  }
+	characters.BIT:{"name":"64-Bit", "poolSize":40, "bulletPath":"res://Scenes/Bullets/BitBullet.tscn", "playerPath":"res://Scenes/Characters/Bit.tscn"},
+	characters.PIE:{"name":"Pie-Per", "poolSize":40, "bulletPath":"res://Scenes/Bullets/PieBullet.tscn", "playerPath":"res://Scenes/Characters/PIE-PER.tscn"},  
+}
 	
 var maps = {
 	
@@ -80,7 +85,14 @@ func _ready() -> void:
 	if OS.get_name() == "Android" or OS.get_name() == "iOS":
 		mobile = true
 		
-	#mobile = true
+	if OS.get_name() == "Windows":
+		localIP = IP.get_local_addresses()[1]
+	elif OS.get_name() == "X11":
+		localIP = IP.get_local_addresses()[0]
+	else:
+		localIP = IP.get_local_addresses()[0]
+		
+	
 		
 	
 	pass
