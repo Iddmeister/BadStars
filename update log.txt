@@ -1,23 +1,26 @@
-DATE  - VERSION - DETAILS
------------------------------
-05/01 -- 0.1   -- Initial first verssion - brawlstars knockoff
-06/01 -- 0.2   -- Added schmelly and salmon, added direct ip connect
-07/01 -- 0.2.1 -- Added el scrimo, will smith and barrel
-08/01 -- N/A   -- Bug fixes
-09/01 -- 0.3   -- Added supers, highly unstable
-10/01 -- 0.3+  -- Supers for all characters
-11/01 -- 0.3.1 -- Added Bald and Poko, character choice will save
-12/01 -- 0.3.2 -- Added map select, event log
-13/01 -- 0.3.3 -- Added THRiO, bug fixes, under the hood improvements
-14/01 -- 0.3.4 -- balance changes, merged branches, added full screen
-16/01 -- 0.3.5 -- Added Karl Marx, ripoff of Carl but with communism
-17/01 -- N/A   -- Added Barely and thrower class
-18/01 -- 0.4   -- Added Team DeathMatch; temporarily removed Karl Marx
-19/01 -- 0.4.1 -- Readded Karl and balanced Barely
-20/01 -- N/A   -- Branch with 64 bit, Pie-Per and Brick, none of which have supers
-21/01 -- 0.4.2 -- Bug Fixes
-22/01 -- 0.4.3 -- Added Frozone(unlicensed from Disney); more TDM maps
-24/01 -- 0.4.4 -- Added about button; added random chartacter button
-28/01 -- 0.4.5 -- Added Kick button; 20 character name limit; bug fixes
-30/01 -- 0.5   -- Moved to Godot 3.2; new networking scripts
-02/02 -- 0.5.1 -- BadBall has been added!
+DATE  | VERSION | DETAILS
+------+---------+----------------
+05/01 | 0.1     | Initial first verssion | brawlstars knockoff
+06/01 | 0.2     | Added schmelly and salmon, added direct ip connect
+07/01 | 0.2.1   | Added el scrimo, will smith and barrel
+08/01 | N/A     | Bug fixes
+09/01 | 0.3     | Added supers, highly unstable
+10/01 | 0.3+    | Supers for all characters
+11/01 | 0.3.1   | Added Bald and Poko, character choice will save
+12/01 | 0.3.2   | Added map select, event log
+13/01 | 0.3.3   | Added THRiO, bug fixes, under the hood improvements
+14/01 | 0.3.4   | balance changes, merged branches, added full screen
+16/01 | 0.3.5   | Added Karl Marx, ripoff of Carl but with communism
+17/01 | N/A     | Added Barely and thrower class
+18/01 | 0.4     | Added Team DeathMatch; temporarily removed Karl Marx
+19/01 | 0.4.1   | Readded Karl and balanced Barely
+20/01 | N/A     | Branch with 64 bit, Pie-Per and Brick, none of which have supers
+21/01 | 0.4.2   | Bug Fixes
+22/01 | 0.4.3   | Added Frozone(unlicensed from Disney); more TDM maps
+24/01 | 0.4.4   | Added about button; added random chartacter button
+28/01 | 0.4.5   | Added Kick button; 20 character name limit; bug fixes
+30/01 | 0.5     | Moved to Godot 3.2; new networking scripts
+02/02 | 0.5.1   | BadBall has been added!
+04/02 | 0.5.2   | Global play via UPnP has been added, very buggy
+05/02 | 0.5.3   | FINALLY added 4 bit and pie; still bugs with Global play
+06/02 | 0.5.3+  | Lunar New year is here (but a bit late)
