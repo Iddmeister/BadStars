@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Screens/About.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Fonts/JetBrainsMono-Regular.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,35 @@
 [sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.639216, 0.0784314, 0.0784314, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.729412, 0.0588235, 0.0588235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.666667, 0.0588235, 0.0588235, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.74902, 0.0745098, 0.0745098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.592157, 0.0980392, 0.0980392, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.741176, 0.137255, 0.137255, 1 )
+
+[sub_resource type="Theme" id=6]
+
+[sub_resource type="StreamTexture" id=5]
+load_path = "res://.import/BadBackground.png-8aba5c357cf4577eaa0e87e6af794818.stex"
 
 [node name="About" type="Control"]
 anchor_right = 1.0
@@ -77,6 +106,19 @@ underline = 1
 margin_right = 100.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 50 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
 text = "Back"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+margin_right = 1024.0
+margin_bottom = 601.0
+theme = SubResource( 6 )
+texture = SubResource( 5 )
+expand = true
 [connection signal="pressed" from="Links/GitHub" to="." method="_on_GitHub_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

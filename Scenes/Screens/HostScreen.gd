@@ -105,7 +105,6 @@ func _on_Team_toggled(button_pressed):
 
 
 func globalHost():
-	
 	var upnp = UPNP.new()
 	upnp.discover(2000, 2, "InternetGatewayDevice")
 	upnp.add_port_mapping(Network.PORT)

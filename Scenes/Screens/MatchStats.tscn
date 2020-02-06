@@ -1,6 +1,33 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Screens/MatchStats.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.654902, 0.0862745, 0.0862745, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.761719, 0.0952148, 0.0952148, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.509804, 0.0666667, 0.0666667, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.564706, 0.0627451, 0.0627451, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.572549, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.635294, 0.0313726, 0.0313726, 1 )
+
+[sub_resource type="StreamTexture" id=4]
+load_path = "res://.import/BadBackground.png-8aba5c357cf4577eaa0e87e6af794818.stex"
 
 [node name="MatchStats" type="Control"]
 anchor_right = 1.0
@@ -20,6 +47,9 @@ anchor_right = 1.0
 margin_left = -200.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
 text = "Leave"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -42,4 +72,13 @@ alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+margin_right = 1027.0
+margin_bottom = 603.0
+texture = SubResource( 4 )
+expand = true
 [connection signal="pressed" from="Leave" to="." method="_on_Leave_pressed"]

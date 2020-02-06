@@ -1,59 +1,245 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scenes/Screens/MainMenu.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.729412, 0.254902, 0.0666667, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.8125, 0.285306, 0.0761719, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.623529, 0.231373, 0.0745098, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.761719, 0.258015, 0.0565338, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.647059, 0.239216, 0.0784314, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.742188, 0.253527, 0.0608826, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.741176, 0.172549, 0.172549, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.658824, 0.12549, 0.12549, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.745098, 0.0666667, 0.0666667, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.596078, 0.0509804, 0.0509804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.705882, 0.172549, 0.172549, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.588235, 0.101961, 0.101961, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.545098, 0.109804, 0.109804, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.627451, 0.109804, 0.109804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.466667, 0.0470588, 0.0470588, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.592157, 0.0588235, 0.0588235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.470588, 0.105882, 0.105882, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.572549, 0.101961, 0.101961, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.313726, 0.101961, 0.101961, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.360784, 0.0313726, 0.0313726, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.507813, 0.0654602, 0.0654602, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.592157, 0.168627, 0.168627, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.898039, 0.196078, 0.196078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.447059, 0.121569, 0.121569, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.898039, 0.196078, 0.196078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.537255, 0.152941, 0.152941, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.898039, 0.196078, 0.196078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.592157, 0.168627, 0.168627, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.898039, 0.196078, 0.196078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.447059, 0.121569, 0.121569, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.898039, 0.196078, 0.196078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0.537255, 0.152941, 0.152941, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.898039, 0.196078, 0.196078, 1 )
+
+[sub_resource type="StreamTexture" id=18]
+flags = 4
+load_path = "res://.import/PokoGun.png-10cb4c1dbee7ed8a17fb72a5e8338393.stex"
+
+[sub_resource type="StreamTexture" id=19]
+flags = 4
+load_path = "res://.import/Ghost.png-65c659696b2a923611b93269540655f0.stex"
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.9375, 0.36319, 0.19043, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.796875, 0.272215, 0.115173, 1 )
+
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0.675781, 0.23057, 0.0976715, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.855469, 0.254376, 0.0735168, 1 )
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.784314, 0.301961, 0.156863, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.9375, 0.301254, 0.109863, 1 )
+
+[sub_resource type="StyleBoxFlat" id=23]
+bg_color = Color( 0.87451, 0.0431373, 0.0431373, 1 )
+
+[sub_resource type="StyleBoxFlat" id=24]
+bg_color = Color( 0.768627, 0.109804, 0.109804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="StreamTexture" id=26]
+load_path = "res://.import/BadBackground.png-8aba5c357cf4577eaa0e87e6af794818.stex"
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
+margin_left = 17.15
 margin_top = 20.0
-margin_right = -20.0
+margin_right = -22.85
 margin_bottom = -20.0
 script = ExtResource( 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 498.0
-margin_right = 984.0
+margin_left = 500.0
+margin_right = 986.0
 margin_bottom = 560.0
 size_flags_horizontal = 3
 custom_constants/separation = 50
 alignment = 1
 
 [node name="FindGame" type="Button" parent="VBoxContainer"]
-margin_top = 66.0
+margin_top = 71.0
 margin_right = 486.0
-margin_bottom = 166.0
+margin_bottom = 171.0
 rect_min_size = Vector2( 0, 100 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
 text = "Find Game"
 
 [node name="HostGame" type="Button" parent="VBoxContainer"]
-margin_top = 216.0
+margin_top = 221.0
 margin_right = 486.0
-margin_bottom = 316.0
+margin_bottom = 321.0
 rect_min_size = Vector2( 0, 100 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
 text = "Host Game"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 366.0
+margin_top = 371.0
 margin_right = 486.0
-margin_bottom = 494.0
+margin_bottom = 489.0
 
 [node name="DirectConnect" type="Button" parent="VBoxContainer/VBoxContainer"]
 margin_right = 486.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
 text = "Connect Via IP"
 
 [node name="IP" type="LineEdit" parent="VBoxContainer/VBoxContainer"]
 margin_top = 104.0
 margin_right = 486.0
-margin_bottom = 128.0
+margin_bottom = 118.0
+custom_styles/normal = SubResource( 10 )
 placeholder_text = "IP Address"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-margin_top = -4.88843
-margin_right = 459.0
-margin_bottom = 552.112
+margin_left = -3.90002
+margin_top = -2.03839
+margin_right = 455.1
+margin_bottom = 554.962
 
 [node name="Options" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 79.0
@@ -65,6 +251,7 @@ margin_bottom = 480.0
 margin_right = 300.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
+custom_styles/normal = SubResource( 11 )
 text = "EpicDude54"
 max_length = 20
 
@@ -84,6 +271,9 @@ size_flags_vertical = 3
 margin_right = 50.0
 margin_bottom = 282.0
 rect_min_size = Vector2( 50, 0 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
 text = "<"
 
 [node name="Image" type="TextureRect" parent="CenterContainer/Options/CharacterSelect/HBoxContainer"]
@@ -100,6 +290,10 @@ margin_left = 250.0
 margin_right = 300.0
 margin_bottom = 282.0
 rect_min_size = Vector2( 50, 0 )
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
+custom_colors/font_color = Color( 0.12549, 0, 0, 1 )
 text = ">"
 
 [node name="CharacterInfo" type="Label" parent="CenterContainer/Options/CharacterSelect"]
@@ -108,8 +302,12 @@ margin_right = 300.0
 margin_bottom = 300.0
 
 [node name="CheckBox" type="CheckBox" parent="."]
-margin_right = 24.0
-margin_bottom = 24.0
+margin_left = -1.16635
+margin_top = 1.16635
+margin_right = 108.834
+margin_bottom = 41.1664
+custom_icons/checked = SubResource( 18 )
+custom_icons/unchecked = SubResource( 19 )
 text = "Fullscreen"
 
 [node name="Version" type="Label" parent="."]
@@ -128,6 +326,9 @@ anchor_right = 1.0
 margin_left = -100.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 100, 30 )
+custom_styles/hover = SubResource( 20 )
+custom_styles/pressed = SubResource( 21 )
+custom_styles/normal = SubResource( 22 )
 text = "About"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
@@ -138,9 +339,24 @@ margin_bottom = 499.0
 alignment = 1
 
 [node name="Random" type="Button" parent="VBoxContainer2"]
+margin_top = 3.0
 margin_right = 50.0
-margin_bottom = 20.0
+margin_bottom = 17.0
+custom_styles/hover = SubResource( 23 )
+custom_styles/pressed = SubResource( 24 )
+custom_styles/normal = SubResource( 25 )
 text = "?"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+margin_left = -16.842
+margin_top = -14.7369
+margin_right = 1058.16
+margin_bottom = 607.263
+texture = SubResource( 26 )
+expand = true
 [connection signal="pressed" from="VBoxContainer/FindGame" to="." method="_on_Find_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HostGame" to="." method="_on_Host_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/DirectConnect" to="." method="_on_DirectConnect_pressed"]
