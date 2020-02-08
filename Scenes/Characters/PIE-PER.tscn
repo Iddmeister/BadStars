@@ -13,7 +13,7 @@ height = 0.836569
 bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Player" instance=ExtResource( 1 )]
-maxHealth = 300
+maxHealth = 200
 moveSpeed = 225
 
 [node name="Sprite" parent="." index="0"]
