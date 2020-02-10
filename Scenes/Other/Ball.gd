@@ -20,6 +20,8 @@ remotesync func reset():
 func _process(delta):
 	if is_network_master():
 		rpc("updatePos", global_position)
+		if Globals.outOfBounds(global_position):
+			reset()
 
 func kick(speed:int, direction:Vector2):
 	apply_central_impulse(direction*(kickNullifier*speed))
