@@ -54,7 +54,8 @@ func aim(do:bool):
 
 func drawAim():
 	
-	$Aim.polygon = PoolVector2Array([$Muzzle.position-Vector2(0, aimWidth/2), $Muzzle.position+Vector2(distance, 0)-Vector2(0, aimWidth/2), $Muzzle.position+Vector2(distance, 0)+Vector2(0, aimWidth/2), $Muzzle.position+Vector2(0, aimWidth/2)])
+	$Aim.polygon = $Range/CollisionPolygon2D.polygon
+	$Aim.global_position = $Range/CollisionPolygon2D.global_position
 	
 	pass
 

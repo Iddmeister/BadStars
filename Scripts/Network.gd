@@ -13,6 +13,8 @@ var broadcastAddress = "255.255.255.255"
 
 var gameStarted = false
 
+var upnpHost:UPNP = UPNP.new()
+
 var playerInfo = {
 	
 	"name":"EpicDude54",
@@ -203,8 +205,8 @@ func disconnectServer():
 	get_tree().paused = true
 	ObjectPool.clearAllPools()
 	yield(ObjectPool, "poolCleared")
-	var upnp = UPNP.new()
-	upnp.delete_port_mapping(Network.PORT)
+	if upnpHost.get_device_count() > 0:
+		upnpHost.delete_port_mapping(Network.PORT)
 	get_tree().network_peer = null
 	get_tree().disconnect("network_peer_connected", self, "playerConnected")
 	get_tree().disconnect("network_peer_disconnected", self, "playerDisconnected")

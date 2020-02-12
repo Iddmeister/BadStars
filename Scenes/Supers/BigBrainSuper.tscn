@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Supers/Super.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Supers/BigBrainSuper.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Fonts/BigBrainFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Resources/Misc/BigBrainTex.tres" type="Texture" id=4]
+
+[node name="Super" instance=ExtResource( 1 )]
+z_index = 5
+script = ExtResource( 2 )
+damageMultiplier = 0.25
+superMessage = "has Increased Brain Capacity"
+lineColour = Color( 0, 0.909804, 1, 1 )
+lineWidth = 7
+font = ExtResource( 3 )
+bigBrainTex = ExtResource( 4 )
+
+[node name="Time" type="Timer" parent="." index="0"]
+wait_time = 4.0
+one_shot = true
+[connection signal="timeout" from="Time" to="." method="_on_Time_timeout"]

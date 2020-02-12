@@ -6,7 +6,7 @@
 [ext_resource path="res://Graphics/UI/Circle.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 11.0913
+radius = 40.0
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 644.961
@@ -54,11 +54,17 @@ margin_right = 61.0
 margin_bottom = 83.0
 rect_min_size = Vector2( 120, 16 )
 custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CenterContainer" type="CenterContainer" parent="NameTag"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 3.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="NameTag/CenterContainer"]
 margin_left = 60.0
