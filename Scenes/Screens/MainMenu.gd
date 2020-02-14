@@ -22,8 +22,8 @@ var characters = {
 	Globals.characters.FROZONE:{"icon":"res://Graphics/Characters/Frozone.png", "info":"Frozone: Couldn't get the rights to Mr Incredible"},
 	Globals.characters.PIE:{"icon":"res://Graphics/Characters/pie-per.png", "info":"PIE: Pie-Per"},
 	Globals.characters.BIT:{"icon":"res://Graphics/Characters/Bit.png", "info":"64 Bit: AN arcade cabinet..."},
-	Globals.characters.BIGBRAIN:{"icon":"res://Graphics/Characters/BigBrain.png", "info":"Big Brain: Funky Fonky when it’s Chunky Chonky"}
-
+	Globals.characters.BIGBRAIN:{"icon":"res://Graphics/Characters/BigBrain.png", "info":"Big Brain: Funky Fonky when it’s Chunky Chonky"},
+	Globals.characters.HARLEM:{"icon":"res://Graphics/Characters/Harlem.png", "info":"Harlem: Wack"},
 }
 
 
