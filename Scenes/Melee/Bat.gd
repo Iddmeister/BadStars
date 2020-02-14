@@ -12,6 +12,9 @@ remotesync func shoot(id:int, irrelevantPoolIndex:int):
 	
 	.shoot(id, irrelevantPoolIndex)
 	pass
+	
+func _process(delta):
+	print(damage)
 
 func _on_Reload_timeout():
 	if not ammo == maxAmmo:
@@ -20,5 +23,6 @@ func _on_Reload_timeout():
 		emit_signal("reloaded", ammo)
 		if not ammo == maxAmmo:
 			$Reload.start()
-	elif ammo == maxAmmo:
-		damage = 100
+		
+		if ammo == maxAmmo:
+			damage = 100
