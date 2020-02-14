@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Supers/HarlemSuper.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Supers/Super.tscn" type="PackedScene" id=2]
+
+[node name="Super" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+damageMultiplier = 0.5
+superMessage = "Burst a bubble"
+
+[node name="Aim" type="Polygon2D" parent="." index="0"]
+color = Color( 0.992157, 1, 0, 0.666667 )
+polygon = PoolVector2Array( 0, -50, 150, -50, 150, 50, 0, 50 )

@@ -1,6 +1,6 @@
 extends Node
 
-enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, THRIO, JOKER, BALD, MAGPIE, FRONK, BRICK, KARLMARX, BARELY, FROZONE, PIE, BIT, BIGBRAIN}
+enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, THRIO, JOKER, BALD, MAGPIE, FRONK, BRICK, KARLMARX, BARELY, FROZONE, PIE, BIT, BIGBRAIN, HARLEM}
 
 enum events {KILL, SUPER, MESSAGE}
 
@@ -38,6 +38,7 @@ var characterInfo = {
 	characters.BIT:{"name":"64-Bit", "poolSize":40, "bulletPath":"res://Scenes/Bullets/BitBullet.tscn", "playerPath":"res://Scenes/Characters/Bit.tscn"},
 	characters.PIE:{"name":"Pie-Per", "poolSize":40, "bulletPath":"res://Scenes/Bullets/PieBullet.tscn", "playerPath":"res://Scenes/Characters/PIE-PER.tscn"},  
 	characters.BIGBRAIN:{"name":"Big Brain", "poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/BigBrain.tscn"},
+	characters.HARLEM: {"name":"Harlem", "poolSize":15, "bulletPath":"res://Scenes/Bullets/Bubble.tscn", "playerPath":"res://Scenes/Characters/Harlem.tscn"},
 }
 	
 var maps = {
