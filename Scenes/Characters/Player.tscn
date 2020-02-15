@@ -15,7 +15,6 @@ radius = 644.961
 bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="DynamicFont" id=4]
-use_mipmaps = true
 font_data = ExtResource( 3 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -66,14 +65,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="NameTag/CenterContainer"]
-margin_left = 60.0
+[node name="Label" type="RichTextLabel" parent="NameTag/CenterContainer"]
+margin_left = 9.0
 margin_top = 3.0
-margin_right = 60.0
+margin_right = 109.0
 margin_bottom = 23.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-align = 1
+rect_min_size = Vector2( 100, 20 )
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+scroll_active = false
 
 [node name="Poison" type="Timer" parent="."]
 wait_time = 1.5
