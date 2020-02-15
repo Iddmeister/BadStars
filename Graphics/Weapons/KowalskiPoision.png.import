@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BadBackground.png-54a965cd0123910d0044660ee881339c.stex"
+path="res://.import/KowalskiPoision.png-cd1b65a4459869ddabd9fbd652afe859.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/BadBackground.png"
-dest_files=[ "res://.import/BadBackground.png-54a965cd0123910d0044660ee881339c.stex" ]
+source_file="res://Graphics/Weapons/KowalskiPoision.png"
+dest_files=[ "res://.import/KowalskiPoision.png-cd1b65a4459869ddabd9fbd652afe859.stex" ]
 
 [params]
 

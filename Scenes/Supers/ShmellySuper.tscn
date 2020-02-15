@@ -5,9 +5,9 @@
 [ext_resource path="res://Graphics/Weapons/ShmellyPoison.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 244.002
+radius = 511.885
 
-[node name="Super" index="0" instance=ExtResource( 1 )]
+[node name="Super" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 damageMultiplier = 0.2
 superMessage = "activated Stank"

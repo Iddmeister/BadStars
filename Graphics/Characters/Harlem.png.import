@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BadBackground.png-54a965cd0123910d0044660ee881339c.stex"
+path="res://.import/Harlem.png-6e948c32159a8ee15bad658e5a3a11cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/BadBackground.png"
-dest_files=[ "res://.import/BadBackground.png-54a965cd0123910d0044660ee881339c.stex" ]
+source_file="res://Graphics/Characters/Harlem.png"
+dest_files=[ "res://.import/Harlem.png-6e948c32159a8ee15bad658e5a3a11cb.stex" ]
 
 [params]
 

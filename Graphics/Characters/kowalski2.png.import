@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BadBackground.png-54a965cd0123910d0044660ee881339c.stex"
+path="res://.import/kowalski2.png-0a2ba7698504a664fbddd89d46259db2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/BadBackground.png"
-dest_files=[ "res://.import/BadBackground.png-54a965cd0123910d0044660ee881339c.stex" ]
+source_file="res://Graphics/Characters/kowalski2.png"
+dest_files=[ "res://.import/kowalski2.png-0a2ba7698504a664fbddd89d46259db2.stex" ]
 
 [params]
 

@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Melee/HarlemBat.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Supers/HarlemSuper.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/Harlem.png-6e948c32159a8ee15bad658e5a3a11cb.stex"
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( -15, -35, 15, -35, 15, 40, -15, 40 )
+
+[node name="Player" instance=ExtResource( 1 )]
+maxHealth = 300
+moveSpeed = 250
+weaponPath = NodePath("Melee")
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0.153685, -0.763437 )
+scale = Vector2( 2.63593, 2.63593 )
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( -1.53678, -0.614715 )
+shape = SubResource( 2 )
+
+[node name="Melee" parent="." index="10" instance=ExtResource( 2 )]
+
+[node name="Super" parent="." index="11" instance=ExtResource( 3 )]

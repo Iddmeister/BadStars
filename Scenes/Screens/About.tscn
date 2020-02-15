@@ -31,9 +31,9 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0.741176, 0.137255, 0.137255, 1 )
 
-[sub_resource type="Theme" id=6]
+[sub_resource type="Theme" id=5]
 
-[sub_resource type="StreamTexture" id=5]
+[sub_resource type="StreamTexture" id=6]
 load_path = "res://.import/BadBackground.png-8aba5c357cf4577eaa0e87e6af794818.stex"
 
 [node name="About" type="Control"]
@@ -44,26 +44,17 @@ margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -20.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
-<<<<<<< Updated upstream
-editor/display_folded = true
-margin_left = 394.0
-margin_top = 213.0
-margin_right = 590.0
-margin_bottom = 346.0
 
-[node name="Credits" type="Label" parent="CenterContainer/HBoxContainer"]
-margin_right = 118.0
-margin_bottom = 133.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "Made By:
-=======
+
 margin_left = 365.0
 margin_top = 180.0
 margin_right = 619.0
@@ -75,6 +66,7 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 150, 200 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
+
 bbcode_enabled = true
 bbcode_text = "[center]
 Made By:
@@ -92,36 +84,26 @@ Thanks for playing!
 text = "
 Made By:
 
->>>>>>> Stashed changes
 	Iddmeister
+	
 	sWordy
-<<<<<<< Updated upstream
+
 	[HA] Bot 100
+  
 	nothing001
-=======
+  
 	Spreehox
-	nothing00100
->>>>>>> Stashed changes
 	THRiO
 	
 
-Thanks for playing!"
-align = 1
-valign = 1
+Thanks for playing!
+"
 
-<<<<<<< Updated upstream
+
 [node name="Credits2" type="Label" parent="CenterContainer/HBoxContainer"]
-margin_left = 122.0
-margin_right = 196.0
-margin_bottom = 133.0
-=======
-[node name="Credits2" type="RichTextLabel" parent="CenterContainer/HBoxContainer"]
-light_mask = 0
 margin_left = 154.0
-margin_right = 254.0
+margin_right = 246.0
 margin_bottom = 200.0
-rect_min_size = Vector2( 100, 200 )
->>>>>>> Stashed changes
 size_flags_horizontal = 3
 size_flags_vertical = 7
 bbcode_enabled = true
@@ -168,19 +150,10 @@ text = "Back"
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-<<<<<<< Updated upstream
 margin_right = 1024.0
 margin_bottom = 601.0
-theme = SubResource( 6 )
-texture = SubResource( 5 )
-=======
-margin_left = 1.70641
-margin_top = -0.568817
-margin_right = 1025.71
-margin_bottom = 600.431
 theme = SubResource( 5 )
 texture = SubResource( 6 )
->>>>>>> Stashed changes
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false

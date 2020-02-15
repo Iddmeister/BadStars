@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BadBackground.png-54a965cd0123910d0044660ee881339c.stex"
+path="res://.import/HarlemBat.png-8fec3ebec9d3c1081cb2de2de49a1da8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/BadBackground.png"
-dest_files=[ "res://.import/BadBackground.png-54a965cd0123910d0044660ee881339c.stex" ]
+source_file="res://Graphics/Weapons/HarlemBat.png"
+dest_files=[ "res://.import/HarlemBat.png-8fec3ebec9d3c1081cb2de2de49a1da8.stex" ]
 
 [params]
 
