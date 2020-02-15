@@ -14,13 +14,3 @@ remotesync func stepAnim():
 	$AirSprite.scale = Vector2(scaleVal, scaleVal)
 	pass
 
-
-
-func _on_AirSprite_frame_changed(delta:float):
-	$AirSprite.rotation += rotateSpeed*delta
-	pass # Replace with function body.
-
-
-func _on_AirSprite_visibility_changed(delta:float):
-	$AirSprite.rotation += rotateSpeed*delta
-	pass # Replace with function body.
