@@ -38,10 +38,15 @@ func createPools():
 				
 		if Globals.characterInfo[Network.players[player].character].has("minions"):
 			
-			for path in Globals.characterInfo[Network.players[player].character]["minions"]:
+			for num in range(Globals.characterInfo[Network.players[player].character]["minions"].size()):
 				
-				var m = load(path)
-				m.name = String(player)+String()
+				var m = load(Globals.characterInfo[Network.players[player].character]["minions"][num]).instance()
+				m.name = String(player)+String(num)
+				m.player = player
+				m.initialize(player)
+				m.disable()
+				pools[int(player)].minions.append(m)
+				allObjects.add_child(m)
 			
 			pass
 				

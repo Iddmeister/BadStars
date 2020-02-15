@@ -7,8 +7,10 @@ onready var health = maxHealth
 
 var enabled = false
 
-func initialize():
-	
+var player:int
+
+func initialize(id:int):
+	set_network_master(id)
 	pass
 	
 func enable():
@@ -29,3 +31,26 @@ func properDisable():
 	$CollisionShape2D.disabled = true
 	set_process(false)
 	set_physics_process(false)
+	
+remotesync func place(pos:Vector2):
+	
+	health = maxHealth
+	global_position = pos
+	enable()
+	
+	pass
+	
+remotesync func hit(damage:int, id:int, super:bool=false):
+	
+	health-=damage
+	
+	if health <= 0:
+		rpc("destroy")
+	
+	pass
+	
+remotesync func destroy():
+	
+	disable()
+	
+	pass
