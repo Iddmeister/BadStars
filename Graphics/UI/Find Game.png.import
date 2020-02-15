@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BadBackground.png-54a965cd0123910d0044660ee881339c.stex"
+path="res://.import/Find Game.png-6d5ce349ac07dfbf23a76c011c58d634.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/BadBackground.png"
-dest_files=[ "res://.import/BadBackground.png-54a965cd0123910d0044660ee881339c.stex" ]
+source_file="res://Graphics/UI/Find Game.png"
+dest_files=[ "res://.import/Find Game.png-6d5ce349ac07dfbf23a76c011c58d634.stex" ]
 
 [params]
 

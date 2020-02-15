@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BadBackground.png-54a965cd0123910d0044660ee881339c.stex"
+path="res://.import/Connect via ip.png-53764dbd0d4166efa2cb3f65972824f5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/BadBackground.png"
-dest_files=[ "res://.import/BadBackground.png-54a965cd0123910d0044660ee881339c.stex" ]
+source_file="res://Graphics/UI/Connect via ip.png"
+dest_files=[ "res://.import/Connect via ip.png-53764dbd0d4166efa2cb3f65972824f5.stex" ]
 
 [params]
 
