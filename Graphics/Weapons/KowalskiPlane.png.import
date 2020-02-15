@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/KowalskiPlane.png-74dfebfe25a754408cd2a9f275487b56.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Graphics/Characters/Kowalski.jpg"
+source_file="res://Graphics/Weapons/KowalskiPlane.png"
+dest_files=[ "res://.import/KowalskiPlane.png-74dfebfe25a754408cd2a9f275487b56.stex" ]
+
 [params]
 
 compress/mode=0

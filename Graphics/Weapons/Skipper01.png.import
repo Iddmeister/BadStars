@@ -6,7 +6,7 @@ valid=false
 
 [deps]
 
-source_file="res://Graphics/Characters/Kowalski.jpg"
+source_file="res://Graphics/Weapons/Skipper01.png"
 [params]
 
 compress/mode=0
