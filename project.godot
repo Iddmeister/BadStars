@@ -29,6 +29,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Melee/Melee.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Minion",
+"language": "GDScript",
+"path": "res://Scenes/Minions/Minion.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Scenes/Characters/Player.gd"
+}, {
 "base": "Node2D",
 "class": "Super",
 "language": "GDScript",
@@ -54,6 +64,8 @@ _global_script_class_icons={
 "Effect": "",
 "Gun": "",
 "Melee": "",
+"Minion": "",
+"Player": "",
 "Super": "",
 "Throwable": "",
 "Thrower": "",
@@ -174,6 +186,7 @@ debugNoClip={
 2d_physics/layer_1="Players"
 2d_physics/layer_2="Bullets"
 2d_physics/layer_3="Terrain"
+2d_physics/layer_4="Minions"
 
 [physics]
 

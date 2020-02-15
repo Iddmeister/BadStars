@@ -19,6 +19,7 @@ func createPools():
 		
 		pools[int(player)] = {}
 		pools[int(player)]["bullets"] = []
+		pools[int(player)]["minions"] = []
 		
 		
 		if not Globals.characterInfo[Network.players[player].character].poolSize == 0:
@@ -34,6 +35,15 @@ func createPools():
 				allObjects.add_child(b)
 				
 				pass
+				
+		if Globals.characterInfo[Network.players[player].character].has("minions"):
+			
+			for path in Globals.characterInfo[Network.players[player].character]["minions"]:
+				
+				var m = load(path)
+				m.name = String(player)+String()
+			
+			pass
 				
 		
 		pass
