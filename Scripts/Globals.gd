@@ -48,6 +48,7 @@ var maps = {
 		"BlockBlockBlock":"res://Scenes/Maps/BadRoyale/BlockBlockBlock.tscn",
 		"No Dummies": "res://Scenes/Maps/BadRoyale/NoDummies.tscn",
 		"Rings": "res://Scenes/Maps/BadRoyale/Rings.tscn",
+		"Tower Royale": "res://Scenes/Maps/BadRoyale/Tower Royale.tscn",
 		},
 		
 	"Team Deathmatch":{
