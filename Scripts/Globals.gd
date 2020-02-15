@@ -61,6 +61,7 @@ var maps = {
 	"Bad Ball":{
 		
 		"Home Run":"res://Scenes/Maps/BadBall/HomeRun.tscn",
+		"Swamp":"res://Scenes/Maps/BadBall/Swamp.tscn",
 		
 	},
 	
