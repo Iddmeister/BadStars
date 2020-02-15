@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Tilesets/DesertTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Characters/Dummy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Other/BlueTowers.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Terrain/DestructibleWall.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Other/RedTowers.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.560784, 1, 0.415686, 1 )
@@ -96,27 +94,6 @@ position = Vector2( 1088, 992 )
 [node name="Towers" type="Node2D" parent="Objects"]
 position = Vector2( 32.3406, 0 )
 
-[node name="BTower1" parent="Objects/Towers" instance=ExtResource( 3 )]
-position = Vector2( 151.401, 516.562 )
-
-[node name="BTower2" parent="Objects/Towers" instance=ExtResource( 3 )]
-position = Vector2( 988.254, 584.098 )
-
-[node name="BTower3" parent="Objects/Towers" instance=ExtResource( 3 )]
-position = Vector2( 1877.96, 498.944 )
-
-[node name="RTower1" parent="Objects/Towers" instance=ExtResource( 5 )]
-position = Vector2( 147.535, 1573.79 )
-scale = Vector2( 0.410578, 0.552375 )
-
-[node name="RTower2" parent="Objects/Towers" instance=ExtResource( 5 )]
-position = Vector2( 1022.28, 1553.34 )
-scale = Vector2( 0.410578, 0.552375 )
-
-[node name="RTower3" parent="Objects/Towers" instance=ExtResource( 5 )]
-position = Vector2( 1867.5, 1560.16 )
-scale = Vector2( 0.410578, 0.552375 )
-
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="1" type="Position2D" parent="SpawnPoints"]
@@ -160,6 +137,7 @@ margin_right = 2141.95
 margin_bottom = 1992.2
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
