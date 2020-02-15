@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Thrower/Kowalski.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Supers/Kowalskisuper.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/kowalski2.png-0a2ba7698504a664fbddd89d46259db2.stex"
+
+[node name="Player" instance=ExtResource( 1 )]
+weaponPath = NodePath("Thrower")
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 1.94752, 0.529088 )
+scale = Vector2( 0.135216, 0.135216 )
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 3.70633, -22.7013 )
+
+[node name="Super" parent="." index="11" instance=ExtResource( 3 )]
+
+[node name="Thrower" parent="." index="12" instance=ExtResource( 2 )]

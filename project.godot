@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Melee/Melee.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Scenes/Characters/Player.gd"
+}, {
 "base": "Node2D",
 "class": "Super",
 "language": "GDScript",
@@ -54,6 +59,7 @@ _global_script_class_icons={
 "Effect": "",
 "Gun": "",
 "Melee": "",
+"Player": "",
 "Super": "",
 "Throwable": "",
 "Thrower": "",
