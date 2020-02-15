@@ -4,10 +4,10 @@ signal started()
 signal death(id)
 signal playerHit(damage, id)
 
-export var maxHealth = 400
+export var maxHealth = 450
 onready var health = maxHealth
 
-export var moveSpeed = 200
+export var moveSpeed = 300
 onready var defSpeed = moveSpeed
 
 export var weaponPath:NodePath = "Gun"
