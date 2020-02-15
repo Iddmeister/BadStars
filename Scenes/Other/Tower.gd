@@ -25,7 +25,6 @@ func _ready():
 	pass
 
 remotesync func hit(dmg, id, super:bool=false):
-	print("yo")
 	health -= dmg
 	if health <= 0:
 		rpc("destroy")
@@ -37,6 +36,7 @@ remotesync func destroy():
 
 	visible = false
 	$CollisionShape2D.set_deferred("disabled", true)
+	$Range/CollisionShape2D.set_deferred("disabled", true)
 
 	pass
 	
