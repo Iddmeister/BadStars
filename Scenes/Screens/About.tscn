@@ -85,10 +85,15 @@ Made By:
 	Iddmeister
 	
 	sWordy
+<<<<<<< HEAD
 	
 	nothing00100
+=======
+	[HA] Bot 100
+	nothing001
+>>>>>>> 05a0d00248226ce50965d1d5af4e836e113c87c1
 	THRiO
-	[HA] Bot 1
+	
 
 Thanks for playing!
 "
@@ -103,6 +108,7 @@ text = "
 Thanks to:
 	Megaslowbroo
 	Lazyluna
+	JTJ
 	Soupercell"
 align = 1
 valign = 1
