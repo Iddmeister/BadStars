@@ -1,7 +1,7 @@
 extends Melee
 
 export var knockPower = 300
-export var knockTime = 1
+export var knockTime:float = 1
 
 func _ready():
 	drawAim()
@@ -17,7 +17,6 @@ remotesync func shoot(id:int, irrelevantPoolIndex:int):
 	pass
 	
 func hitPlayer(p:Player):
-	
 	if ammo == maxAmmo:
 		p.rpc("knockback", Vector2(knockPower, 0).rotated(rotation), knockTime)
 	

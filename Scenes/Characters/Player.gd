@@ -345,7 +345,6 @@ master func knockback(vel:Vector2, time:float):
 	addedVelocity = vel
 	$Knockback.wait_time = time
 	$Knockback.start()
-	print("yo")
 	
 	pass
 
