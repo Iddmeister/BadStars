@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BadBackground.png-54a965cd0123910d0044660ee881339c.stex"
+path="res://.import/RED TEAM TOWER.png-29f5d28904fbcc18eeb7820762d7b191.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/BadBackground.png"
-dest_files=[ "res://.import/BadBackground.png-54a965cd0123910d0044660ee881339c.stex" ]
+source_file="res://Graphics/Objects/RED TEAM TOWER.png"
+dest_files=[ "res://.import/RED TEAM TOWER.png-29f5d28904fbcc18eeb7820762d7b191.stex" ]
 
 [params]
 
