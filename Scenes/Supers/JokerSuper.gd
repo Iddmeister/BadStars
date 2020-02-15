@@ -36,15 +36,18 @@ remotesync func aim(dir:float):
 	
 remotesync func super(id:int):
 	
+#	if get_parent().is_network_master():
+#		var maxDistance:int
+#		if $Ray.is_colliding():
+#			maxDistance = ($Ray.get_collision_point()-global_position).length()
+#		else:
+#			maxDistance = distance
+#		$Move.interpolate_property(get_parent(), "global_position", null, get_parent().global_position+(Vector2(maxDistance, 0).rotated(rotation)), speed, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 0)
+#		$Move.start()
+#		pass
+
 	if get_parent().is_network_master():
-		var maxDistance:int
-		if $Ray.is_colliding():
-			maxDistance = ($Ray.get_collision_point()-global_position).length()
-		else:
-			maxDistance = distance
-		$Move.interpolate_property(get_parent(), "global_position", null, get_parent().global_position+(Vector2(maxDistance, 0).rotated(rotation)), speed, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 0)
-		$Move.start()
-		pass
+		get_parent().rpc("knockback", Vector2(2000, 0).rotated(rotation), 0.2)
 	
 	pass
 

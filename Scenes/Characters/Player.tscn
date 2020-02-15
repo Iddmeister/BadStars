@@ -90,6 +90,10 @@ one_shot = true
 
 [node name="Slow" type="Timer" parent="."]
 one_shot = true
+
+[node name="Knockback" type="Timer" parent="."]
+one_shot = true
 [connection signal="timeout" from="Poison" to="." method="_on_Poison_timeout"]
 [connection signal="timeout" from="InvincibleTime" to="." method="_on_InvincibleTime_timeout"]
 [connection signal="timeout" from="Slow" to="." method="_on_Slow_timeout"]
+[connection signal="timeout" from="Knockback" to="." method="_on_Knockback_timeout"]

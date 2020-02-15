@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Player
+
 signal started()
 signal death(id)
 signal playerHit(damage, id)
@@ -18,6 +20,8 @@ onready var super:Super = get_node(superPath)
 var ghostTexture = preload("res://Graphics/Characters/Ghost.png")
 
 var velocity = Vector2()
+
+var addedVelocity = Vector2()
 
 var mobileControls:Control
 var ui:gameUI
@@ -127,7 +131,7 @@ func movement():
 		
 		velocity = dir*moveSpeed
 		
-		velocity = move_and_slide(velocity, Vector2(0, 0), false, 4, 0.78, false)
+		velocity = move_and_slide(velocity+addedVelocity, Vector2(0, 0), false, 4, 0.78, false)
 		
 		rpc_unreliable("setPosition", global_position)
 		
@@ -335,6 +339,17 @@ remotesync func slow(slowAmount:int, length:float):
 	
 	pass
 	
+	
+master func knockback(vel:Vector2, time:float):
+	
+	addedVelocity = vel
+	$Knockback.wait_time = time
+	$Knockback.start()
+	
+	pass
+
+
+
 remotesync func setNormal():
 	$Sprite.modulate = Color(1, 1, 1)
 	pass
@@ -392,3 +407,7 @@ func _on_InvincibleTime_timeout():
 func _on_Slow_timeout():
 	moveSpeed = defSpeed
 	rpc("setNormal")
+
+
+func _on_Knockback_timeout():
+	addedVelocity = Vector2(0, 0)
