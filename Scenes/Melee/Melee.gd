@@ -38,12 +38,16 @@ remotesync func shoot(id:int, irrelevantPoolIndex:int):
 					if not colliding:
 					
 						body.rpc("hit", damage, id)
-						
+						if body.is_in_group("Player"):
+							hitPlayer(body)
 						if body.is_in_group("Player") or body.is_in_group("Dummy"):
 							get_tree().get_nodes_in_group("Master"+String(id))[0].rpc("didDamage", damage)
 		
 		pass
 	
+	pass
+	
+func hitPlayer(p:Player):
 	pass
 	
 func aim(do:bool):
