@@ -41,9 +41,6 @@ position = Vector2( 786.781, 1643.07 )
 [node name="Dummy5" parent="Objects/Dummies" instance=ExtResource( 2 )]
 position = Vector2( 1566.65, 939.871 )
 
-[node name="Dummy6" parent="Objects/Dummies" instance=ExtResource( 2 )]
-position = Vector2( 2286.01, 1336.29 )
-
 [node name="Dummy7" parent="Objects/Dummies" instance=ExtResource( 2 )]
 position = Vector2( 743.632, 351.648 )
 
@@ -102,9 +99,6 @@ position = Vector2( 900.798, 345.403 )
 [node name="DestructibleWall220" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 903.734, 1261.54 )
 
-[node name="DestructibleWall130" parent="Walls" instance=ExtResource( 3 )]
-position = Vector2( 2476.59, 554.716 )
-
 [node name="DestructibleWall195" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 1410.99, 486.403 )
 
@@ -146,9 +140,6 @@ position = Vector2( 1278.96, 335.907 )
 
 [node name="DestructibleWall219" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 1281.89, 1252.04 )
-
-[node name="DestructibleWall137" parent="Walls" instance=ExtResource( 3 )]
-position = Vector2( 2444.59, 554.716 )
 
 [node name="DestructibleWall201" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 1378.99, 486.403 )
@@ -453,9 +444,6 @@ position = Vector2( 903.734, 1287.66 )
 [node name="DestructibleWall134" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 1668.93, 722.921 )
 
-[node name="DestructibleWall198" parent="Walls" instance=ExtResource( 3 )]
-position = Vector2( 3164.38, 743.564 )
-
 [node name="DestructibleWall20" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 811.626, 465.595 )
 
@@ -479,9 +467,6 @@ position = Vector2( 1278.96, 367.907 )
 
 [node name="DestructibleWall217" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 1281.89, 1284.04 )
-
-[node name="DestructibleWall135" parent="Walls" instance=ExtResource( 3 )]
-position = Vector2( 2444.59, 586.716 )
 
 [node name="DestructibleWall200" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 1378.99, 518.403 )
