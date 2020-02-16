@@ -1,0 +1,26 @@
+[gd_resource type="RichTextEffect" load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "tool
+
+extends RichTextEffect
+
+var bbcode = \"squeeze\"
+
+
+func _process_custom_fx(char_fx):
+	
+	var speed = char_fx.env.get(\"speed\", 100)
+	var length = char_fx.env.get(\"length\", 100)
+	
+	var percent = (char_fx.relative_index/length)-0.5
+	
+	
+	char_fx.offset = Vector2(sin(char_fx.elapsed_time), 0)
+	
+	pass
+"
+
+[resource]
+resource_name = "squeeze"
+script = SubResource( 1 )
