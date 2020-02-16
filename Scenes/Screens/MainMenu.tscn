@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scenes/Screens/MainMenu.gd" type="Script" id=1]
@@ -10,6 +11,7 @@
 [ext_resource path="res://Graphics/UI/Left Button.png" type="Texture" id=9]
 [ext_resource path="res://Graphics/UI/Random button.png" type="Texture" id=10]
 [ext_resource path="res://Graphics/UI/Right Button.png" type="Texture" id=11]
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.729412, 0.254902, 0.0666667, 1 )
@@ -381,6 +383,7 @@ layer = -1
 [node name="TextureRect" type="TextureRect" parent="Back"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 4
