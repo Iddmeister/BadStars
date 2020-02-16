@@ -49,6 +49,7 @@ var maps = {
 		"No Dummies": "res://Scenes/Maps/BadRoyale/NoDummies.tscn",
 		"Rings": "res://Scenes/Maps/BadRoyale/Rings.tscn",
 		"Tower Royale": "res://Scenes/Maps/BadRoyale/Tower Royale.tscn",
+		"Tower Of London":"res://Scenes/Maps/BadRoyale/TowerOfLondon.tscn",
 		},
 		
 	"Team Deathmatch":{
