@@ -26,3 +26,7 @@ func _on_Discord_pressed():
 
 func _on_Text_meta_clicked(meta):
 	OS.shell_open(meta)
+
+
+func _on_Godot_pressed():
+	OS.shell_open("https://godotengine.org/")
