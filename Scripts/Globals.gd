@@ -2,6 +2,7 @@ extends Node
 
 enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, THRIO, JOKER, BALD, MAGPIE, FRONK, BRICK, KARLMARX, BARELY, FROZONE, PIE, BIT, BIGBRAIN, HARLEM, KOWALSKI}
 
+
 enum events {KILL, SUPER, MESSAGE}
 
 var killLines = ["destroyed", "rekt", "eliminated", "took out"]
@@ -49,6 +50,7 @@ var maps = {
 		"BlockBlockBlock":"res://Scenes/Maps/BadRoyale/BlockBlockBlock.tscn",
 		"No Dummies": "res://Scenes/Maps/BadRoyale/NoDummies.tscn",
 		"Rings": "res://Scenes/Maps/BadRoyale/Rings.tscn",
+		"Tower Royale": "res://Scenes/Maps/BadRoyale/Tower Royale.tscn",
 		},
 		
 	"Team Deathmatch":{
@@ -56,6 +58,7 @@ var maps = {
 		"Straights":"res://Scenes/Maps/TeamDeathmatch/Straights.tscn",
 		"No Man's Land":"res://Scenes/Maps/TeamDeathmatch/NoMansLand.tscn",
 		"Bits":"res://Scenes/Maps/TeamDeathmatch/Bits.tscn",
+		"Towerland":"res://Scenes/Maps/TeamDeathmatch/TowerLand.tscn",
 		
 		},
 		

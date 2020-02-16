@@ -1,0 +1,508 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Tilesets/DesertTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/Characters/Dummy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Other/Tower.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Terrain/DestructibleWall.tscn" type="PackedScene" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.560784, 1, 0.415686, 1 )
+
+[node name="Map" type="Node2D"]
+
+[node name="Terrain" type="TileMap" parent="."]
+z_index = -10
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 4
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -1, 10, 0, -65536, 10, 0, -65535, 10, 0, -65534, 10, 0, -65533, 10, 0, -65532, 10, 0, -65531, 10, 0, -65530, 10, 0, -65529, 10, 0, -65528, 10, 0, -65527, 10, 0, -65526, 10, 0, -65525, 10, 0, -65524, 10, 0, -65523, 10, 0, -65522, 10, 0, -65521, 10, 0, -65520, 10, 0, -65519, 10, 0, -65518, 10, 0, -65517, 10, 0, -65516, 10, 0, -65515, 10, 0, -65514, 10, 0, -65513, 10, 0, -65512, 10, 0, -65511, 10, 0, -65510, 10, 0, -65509, 10, 0, -65508, 10, 0, -65507, 10, 0, -65506, 10, 0, -65505, 10, 0, -65504, 10, 0, -65503, 10, 0, -65502, 10, 0, -65501, 10, 0, -65500, 10, 0, -65499, 10, 0, -65498, 10, 0, -65497, 10, 0, -65496, 10, 0, -65495, 10, 0, -65494, 10, 0, -65493, 10, 0, -65492, 10, 0, -65491, 10, 0, -65490, 10, 0, -65489, 10, 0, -65488, 10, 0, -65487, 10, 0, -65486, 10, 0, -65485, 10, 0, -65484, 10, 0, -65483, 10, 0, -65482, 10, 0, -65481, 10, 0, -65480, 10, 0, -65479, 10, 0, -65478, 10, 0, -65477, 10, 0, -65476, 10, 0, -65475, 10, 0, -65474, 10, 0, -65473, 10, 0, -65472, 10, 0, -65471, 10, 0, -65470, 10, 0, -65469, 10, 0, 65535, 10, 0, 67, 10, 0, 131071, 10, 0, 65603, 10, 0, 196607, 10, 0, 131139, 10, 0, 262143, 10, 0, 196675, 10, 0, 327679, 10, 0, 262211, 10, 0, 393215, 10, 0, 327747, 10, 0, 458751, 10, 0, 393283, 10, 0, 524287, 10, 0, 458819, 10, 0, 589823, 10, 0, 524355, 10, 0, 655359, 10, 0, 589891, 10, 0, 720895, 10, 0, 655427, 10, 0, 786431, 10, 0, 720963, 10, 0, 851967, 10, 0, 786499, 10, 0, 917503, 10, 0, 852035, 10, 0, 983039, 10, 0, 917571, 10, 0, 1048575, 10, 0, 983107, 10, 0, 1114111, 10, 0, 1048643, 10, 0, 1179647, 10, 0, 1114179, 10, 0, 1245183, 10, 0, 1179715, 10, 0, 1310719, 10, 0, 1245251, 10, 0, 1376255, 10, 0, 1310787, 10, 0, 1441791, 10, 0, 1376323, 10, 0, 1507327, 10, 0, 1441859, 10, 0, 1572863, 10, 0, 1507395, 10, 0, 1638399, 10, 0, 1572931, 10, 0, 1703935, 10, 0, 1638467, 10, 0, 1769471, 10, 0, 1704003, 10, 0, 1835007, 10, 0, 1769539, 10, 0, 1900543, 10, 0, 1835075, 10, 0, 1966079, 10, 0, 1900611, 10, 0, 2031615, 10, 0, 1966147, 10, 0, 2097151, 10, 0, 2031683, 10, 0, 2162687, 10, 0, 2097219, 10, 0, 2228223, 10, 0, 2162755, 10, 0, 2293759, 10, 0, 2228291, 10, 0, 2359295, 10, 0, 2293827, 10, 0, 2424831, 10, 0, 2359363, 10, 0, 2490367, 10, 0, 2424899, 10, 0, 2555903, 10, 0, 2490435, 10, 0, 2621439, 10, 0, 2555971, 10, 0, 2686975, 10, 0, 2621507, 10, 0, 2752511, 10, 0, 2687043, 10, 0, 2818047, 10, 0, 2752579, 10, 0, 2883583, 10, 0, 2818115, 10, 0, 2949119, 10, 0, 2883651, 10, 0, 3014655, 10, 0, 2949187, 10, 0, 3080191, 10, 0, 3014723, 10, 0, 3145727, 10, 0, 3080259, 10, 0, 3211263, 10, 0, 3145795, 10, 0, 3276799, 10, 0, 3211331, 10, 0, 3342335, 10, 0, 3276867, 10, 0, 3407871, 10, 0, 3342403, 10, 0, 3473407, 10, 0, 3407939, 10, 0, 3538943, 10, 0, 3473475, 10, 0, 3604479, 10, 0, 3539011, 10, 0, 3670015, 10, 0, 3604547, 10, 0, 3735551, 10, 0, 3670083, 10, 0, 3801087, 10, 0, 3735619, 10, 0, 3866623, 10, 0, 3801155, 10, 0, 3932159, 10, 0, 3866691, 10, 0, 3997695, 10, 0, 3932227, 10, 0, 4063231, 10, 0, 3997763, 10, 0, 4128767, 10, 0, 4063232, 10, 0, 4063233, 10, 0, 4063234, 10, 0, 4063235, 10, 0, 4063236, 10, 0, 4063237, 10, 0, 4063238, 10, 0, 4063239, 10, 0, 4063240, 10, 0, 4063241, 10, 0, 4063242, 10, 0, 4063243, 10, 0, 4063244, 10, 0, 4063245, 10, 0, 4063246, 10, 0, 4063247, 10, 0, 4063248, 10, 0, 4063249, 10, 0, 4063250, 10, 0, 4063251, 10, 0, 4063252, 10, 0, 4063253, 10, 0, 4063254, 10, 0, 4063255, 10, 0, 4063256, 10, 0, 4063257, 10, 0, 4063258, 10, 0, 4063259, 10, 0, 4063260, 10, 0, 4063261, 10, 0, 4063262, 10, 0, 4063263, 10, 0, 4063264, 10, 0, 4063265, 10, 0, 4063266, 10, 0, 4063267, 10, 0, 4063268, 10, 0, 4063269, 10, 0, 4063270, 10, 0, 4063271, 10, 0, 4063272, 10, 0, 4063273, 10, 0, 4063274, 10, 0, 4063275, 10, 0, 4063276, 10, 0, 4063277, 10, 0, 4063278, 10, 0, 4063279, 10, 0, 4063280, 10, 0, 4063281, 10, 0, 4063282, 10, 0, 4063283, 10, 0, 4063284, 10, 0, 4063285, 10, 0, 4063286, 10, 0, 4063287, 10, 0, 4063288, 10, 0, 4063289, 10, 0, 4063290, 10, 0, 4063291, 10, 0, 4063292, 10, 0, 4063293, 10, 0, 4063294, 10, 0, 4063295, 10, 0, 4063296, 10, 0, 4063297, 10, 0, 4063298, 10, 0, 4063299, 10, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Dummies" type="Node2D" parent="Objects"]
+
+[node name="Dummy" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 571.762, 400.745 )
+
+[node name="Dummy2" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1578.9, 405.041 )
+
+[node name="Dummy3" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 850.305, 1039.65 )
+
+[node name="Dummy7" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1259.48, 1041.86 )
+
+[node name="Dummy28" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 850.305, 693.646 )
+
+[node name="Dummy27" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1259.48, 695.862 )
+
+[node name="Dummy4" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 897.684, 924.41 )
+
+[node name="Dummy24" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 897.684, 809.41 )
+
+[node name="Dummy6" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1216, 992 )
+
+[node name="Dummy5" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 896, 992 )
+
+[node name="Dummy26" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1213, 744 )
+
+[node name="Dummy25" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 893, 744 )
+
+[node name="Dummy9" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 557, 1369 )
+
+[node name="Dummy10" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1564.81, 1371.96 )
+
+[node name="Dummy11" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 2072, 1344 )
+
+[node name="Dummy19" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1920, 1856 )
+
+[node name="Dummy21" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1888, 128 )
+
+[node name="Dummy13" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 49, 1344 )
+
+[node name="Dummy16" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 160, 672 )
+
+[node name="Dummy18" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1888, 640 )
+
+[node name="Dummy12" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1717, 1344 )
+
+[node name="Dummy20" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 224, 1856 )
+
+[node name="Dummy22" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 192, 128 )
+
+[node name="Dummy14" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 408, 1344 )
+
+[node name="Dummy15" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 224, 672 )
+
+[node name="Dummy17" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1952, 640 )
+
+[node name="Dummy8" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1213.21, 925.518 )
+
+[node name="Dummy23" parent="Objects/Dummies" instance=ExtResource( 2 )]
+position = Vector2( 1213.21, 810.518 )
+
+[node name="Towers" type="Node2D" parent="Objects"]
+position = Vector2( 32.3406, 0 )
+
+[node name="Tower" parent="Objects/Towers" instance=ExtResource( 3 )]
+position = Vector2( 196.791, 1531.91 )
+damage = 5
+health = 400
+
+[node name="Tower2" parent="Objects/Towers" instance=ExtResource( 3 )]
+position = Vector2( 1032.36, 1456.01 )
+damage = 5
+health = 400
+
+[node name="Tower3" parent="Objects/Towers" instance=ExtResource( 3 )]
+position = Vector2( 1863.21, 1539.89 )
+damage = 5
+health = 400
+
+[node name="Tower6" parent="Objects/Towers" instance=ExtResource( 3 )]
+position = Vector2( 204.78, 377.494 )
+team = "Red"
+damage = 5
+health = 400
+
+[node name="Tower7" parent="Objects/Towers" instance=ExtResource( 3 )]
+position = Vector2( 1025, 895.527 )
+team = "None"
+damage = 5
+health = 400
+
+[node name="Tower5" parent="Objects/Towers" instance=ExtResource( 3 )]
+position = Vector2( 1044.34, 369.505 )
+team = "Red"
+damage = 5
+health = 400
+
+[node name="Tower4" parent="Objects/Towers" instance=ExtResource( 3 )]
+position = Vector2( 1871.2, 385.483 )
+team = "Red"
+damage = 5
+health = 400
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="1" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 736, 1856 )
+
+[node name="2" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1056, 1856 )
+
+[node name="3" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1216, 1856 )
+
+[node name="4" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 896, 1856 )
+
+[node name="5" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1376, 1856 )
+
+[node name="6" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 874, 106 )
+
+[node name="7" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1354, 106 )
+
+[node name="8" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1194, 106 )
+
+[node name="9" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1034, 106 )
+
+[node name="10" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 746, 106 )
+
+[node name="Back" type="Node2D" parent="."]
+z_index = -100
+z_as_relative = false
+
+[node name="Background" type="Panel" parent="Back"]
+margin_left = -2.05054
+margin_top = 8.20218
+margin_right = 2141.95
+margin_bottom = 1992.2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="DestructibleWall" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 543.787, 261.823 )
+
+[node name="DestructibleWall37" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1570.95, 264.914 )
+
+[node name="DestructibleWall28" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 544.84, 537.613 )
+
+[node name="DestructibleWall50" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1572.01, 540.704 )
+
+[node name="DestructibleWall30" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 541.784, 1169.45 )
+
+[node name="DestructibleWall77" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1568.95, 1172.54 )
+
+[node name="DestructibleWall35" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 541.784, 1107.7 )
+
+[node name="DestructibleWall85" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1568.95, 1110.79 )
+
+[node name="DestructibleWall38" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 541.784, 1045.96 )
+
+[node name="DestructibleWall76" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1568.95, 1049.05 )
+
+[node name="DestructibleWall41" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 544.784, 597.957 )
+
+[node name="DestructibleWall86" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1571.95, 601.047 )
+
+[node name="DestructibleWall44" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 544.784, 657.957 )
+
+[node name="DestructibleWall58" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1571.95, 661.047 )
+
+[node name="DestructibleWall46" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 575.784, 687.957 )
+
+[node name="DestructibleWall88" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1602.95, 691.047 )
+
+[node name="DestructibleWall49" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 571.784, 1018.96 )
+
+[node name="DestructibleWall94" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1598.95, 1022.05 )
+
+[node name="DestructibleWall53" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 571.244, 959.123 )
+
+[node name="DestructibleWall99" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 539.244, 959.123 )
+
+[node name="DestructibleWall100" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 539.244, 927.123 )
+
+[node name="DestructibleWall92" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1598.95, 962.214 )
+
+[node name="DestructibleWall55" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 576.216, 744.164 )
+
+[node name="DestructibleWall90" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1603.38, 747.255 )
+
+[node name="DestructibleWall16" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 540.453, 1228.69 )
+
+[node name="DestructibleWall80" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1567.62, 1231.78 )
+
+[node name="DestructibleWall29" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 541.506, 1504.48 )
+
+[node name="DestructibleWall79" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1568.67, 1507.57 )
+
+[node name="DestructibleWall2" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 543.791, 292.041 )
+
+[node name="DestructibleWall32" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1570.96, 295.132 )
+
+[node name="DestructibleWall27" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 544.843, 567.83 )
+
+[node name="DestructibleWall64" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1572.01, 570.921 )
+
+[node name="DestructibleWall31" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 541.787, 1199.67 )
+
+[node name="DestructibleWall67" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1568.95, 1202.76 )
+
+[node name="DestructibleWall34" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 541.787, 1137.92 )
+
+[node name="DestructibleWall59" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1568.95, 1141.01 )
+
+[node name="DestructibleWall36" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 541.787, 1076.17 )
+
+[node name="DestructibleWall51" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1568.95, 1079.26 )
+
+[node name="DestructibleWall39" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 544.787, 628.174 )
+
+[node name="DestructibleWall68" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1571.95, 631.265 )
+
+[node name="DestructibleWall42" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 544.787, 688.174 )
+
+[node name="DestructibleWall57" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1571.95, 691.265 )
+
+[node name="DestructibleWall45" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 575.787, 718.174 )
+
+[node name="DestructibleWall87" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1602.95, 721.265 )
+
+[node name="DestructibleWall48" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 571.787, 1049.17 )
+
+[node name="DestructibleWall93" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1598.95, 1052.26 )
+
+[node name="DestructibleWall52" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 571.787, 989.34 )
+
+[node name="DestructibleWall89" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1598.95, 992.431 )
+
+[node name="DestructibleWall54" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 576.219, 773.406 )
+
+[node name="DestructibleWall101" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 544.219, 773.406 )
+
+[node name="DestructibleWall102" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 544.219, 805.406 )
+
+[node name="DestructibleWall91" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1603.39, 776.497 )
+
+[node name="DestructibleWall95" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1635.09, 776.497 )
+
+[node name="DestructibleWall96" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1631.09, 962.497 )
+
+[node name="DestructibleWall97" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1631.09, 930.497 )
+
+[node name="DestructibleWall98" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1635.09, 808.497 )
+
+[node name="DestructibleWall14" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 540.457, 1258.91 )
+
+[node name="DestructibleWall71" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1567.62, 1262 )
+
+[node name="DestructibleWall3" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 511.716, 292.041 )
+
+[node name="DestructibleWall40" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1601.88, 295.672 )
+
+[node name="DestructibleWall17" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 508.382, 1258.91 )
+
+[node name="DestructibleWall72" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1598.55, 1262 )
+
+[node name="DestructibleWall4" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 512.093, 323.739 )
+
+[node name="DestructibleWall43" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1602.26, 327.369 )
+
+[node name="DestructibleWall18" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 508.759, 1290.6 )
+
+[node name="DestructibleWall83" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1598.93, 1293.7 )
+
+[node name="DestructibleWall5" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 480.844, 323.739 )
+
+[node name="DestructibleWall47" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1634.01, 327.369 )
+
+[node name="DestructibleWall19" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 477.51, 1290.6 )
+
+[node name="DestructibleWall63" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1630.68, 1293.7 )
+
+[node name="DestructibleWall6" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 480.844, 354.988 )
+
+[node name="DestructibleWall33" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1634.01, 358.618 )
+
+[node name="DestructibleWall15" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 477.51, 1321.85 )
+
+[node name="DestructibleWall82" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1630.68, 1324.94 )
+
+[node name="DestructibleWall8" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 480.844, 416.686 )
+
+[node name="DestructibleWall70" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1634.01, 420.317 )
+
+[node name="DestructibleWall24" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 477.51, 1383.55 )
+
+[node name="DestructibleWall66" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1630.68, 1386.64 )
+
+[node name="DestructibleWall11" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 512.688, 446.54 )
+
+[node name="DestructibleWall81" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1602.86, 450.17 )
+
+[node name="DestructibleWall26" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 509.354, 1413.41 )
+
+[node name="DestructibleWall75" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1599.52, 1416.5 )
+
+[node name="DestructibleWall13" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 544.114, 476.568 )
+
+[node name="DestructibleWall69" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1571.28, 479.659 )
+
+[node name="DestructibleWall23" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 540.78, 1443.43 )
+
+[node name="DestructibleWall61" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1567.95, 1446.52 )
+
+[node name="DestructibleWall7" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 480.844, 386.832 )
+
+[node name="DestructibleWall60" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1634.01, 390.463 )
+
+[node name="DestructibleWall21" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 477.51, 1353.7 )
+
+[node name="DestructibleWall74" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1630.68, 1356.79 )
+
+[node name="DestructibleWall9" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 480.844, 448.53 )
+
+[node name="DestructibleWall56" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1634.01, 452.161 )
+
+[node name="DestructibleWall20" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 477.51, 1415.4 )
+
+[node name="DestructibleWall73" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1630.68, 1418.49 )
+
+[node name="DestructibleWall10" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 512.688, 478.384 )
+
+[node name="DestructibleWall78" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1602.86, 482.015 )
+
+[node name="DestructibleWall25" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 509.354, 1445.25 )
+
+[node name="DestructibleWall62" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1599.52, 1448.34 )
+
+[node name="DestructibleWall12" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 544.114, 508.412 )
+
+[node name="DestructibleWall65" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1571.28, 511.503 )
+
+[node name="DestructibleWall22" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 540.78, 1475.28 )
+
+[node name="DestructibleWall84" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 1567.95, 1478.37 )

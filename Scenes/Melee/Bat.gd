@@ -1,7 +1,9 @@
 extends Melee
 
 export var knockPower = 300
+
 export var knockTime:float = 1
+
 
 func _ready():
 	drawAim()

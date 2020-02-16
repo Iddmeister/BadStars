@@ -1,162 +1,192 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Screens/About.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Fonts/JetBrainsMono-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Graphics/BadBackground.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Fonts/JetBrainsMono-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Resources/Fonts/GOTHIC_745063ed9142edcdcdfaeed69c36e6d2.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+outline_size = 2
+font_data = ExtResource( 4 )
+
 
 [sub_resource type="DynamicFont" id=1]
-size = 32
-font_data = ExtResource( 2 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.639216, 0.0784314, 0.0784314, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0.729412, 0.0588235, 0.0588235, 1 )
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.666667, 0.0588235, 0.0588235, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0.74902, 0.0745098, 0.0745098, 1 )
+size = 20
+font_data = ExtResource( 3 )
 
 [sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.592157, 0.0980392, 0.0980392, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0.741176, 0.137255, 0.137255, 1 )
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="Theme" id=5]
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="StreamTexture" id=6]
-load_path = "res://.import/BadBackground.png-8aba5c357cf4577eaa0e87e6af794818.stex"
 
 [node name="About" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -20.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
-
-
-margin_left = 365.0
-margin_top = 180.0
-margin_right = 619.0
-margin_bottom = 380.0
-
-[node name="Credits" type="RichTextLabel" parent="CenterContainer/HBoxContainer"]
-margin_right = 150.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 150, 200 )
-size_flags_horizontal = 3
-size_flags_vertical = 6
-
-bbcode_enabled = true
-bbcode_text = "[center]
-Made By:
-
-	[wave amp=40 freq=7][rainbow]Iddmeister[/rainbow][/wave]
-	
-	[tornado amp=3 freq=6][color=green]sWordy[/color][/tornado]
-	[shake rate=200 level=15][tornado amp = 3 freq = 5][color=red]Spreehox[/color][/tornado][/shake]
-	nothing00100
-	THRiO
-	
-
-Thanks for playing!
-[/center]"
-text = "
-Made By:
-
-	Iddmeister
-	
-	sWordy
-
-	[HA] Bot 100
-  
-	nothing001
-  
-	Spreehox
-	THRiO
-	
-
-Thanks for playing!
-"
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
 
-[node name="Credits2" type="Label" parent="CenterContainer/HBoxContainer"]
-margin_left = 154.0
-margin_right = 246.0
-margin_bottom = 200.0
-size_flags_horizontal = 3
-size_flags_vertical = 7
-bbcode_enabled = true
-bbcode_text = "thanks to:
-	[shake rate=200 level=50]
-   megaslowbro
-   JTJ
-   LazyLuna[/shake]"
-text = "thanks to:
-	
-   megaslowbro
-   JTJ
-   LazyLuna"
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 
-[node name="Links" type="HBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -142.5
-margin_top = -40.0
-margin_right = 142.5
+margin_left = -392.5
+margin_top = -80.0
+margin_right = 392.5
+custom_constants/separation = 30
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GitHub" type="LinkButton" parent="Links"]
-margin_right = 285.0
-margin_bottom = 40.0
-custom_fonts/font = SubResource( 1 )
-text = "BadStars Github"
+[node name="GitHub" type="LinkButton" parent="HBoxContainer"]
+margin_right = 114.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 2 )
+text = "Github"
 underline = 1
 
-[node name="Back" type="Button" parent="."]
-margin_right = 100.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 100, 50 )
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
-text = "Back"
+[node name="Itch" type="LinkButton" parent="HBoxContainer"]
+margin_left = 144.0
+margin_right = 277.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 2 )
+text = "itch.io"
+underline = 1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
+[node name="Subreddit" type="LinkButton" parent="HBoxContainer"]
+margin_left = 307.0
+margin_right = 497.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 2 )
+text = "r/BadStars"
+underline = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-margin_right = 1024.0
-margin_bottom = 601.0
-theme = SubResource( 5 )
-texture = SubResource( 6 )
-expand = true
+
+[node name="Discord" type="LinkButton" parent="HBoxContainer"]
+margin_left = 527.0
+margin_right = 660.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 2 )
+text = "Discord"
+underline = 1
+
+[node name="Godot" type="LinkButton" parent="HBoxContainer"]
+margin_left = 690.0
+margin_right = 785.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 2 )
+text = "Godot"
+underline = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -250.0
+margin_right = 250.0
+margin_bottom = 481.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Links/GitHub" to="." method="_on_GitHub_pressed"]
+
+[node name="Text" type="RichTextLabel" parent="VBoxContainer"]
+margin_right = 500.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 500, 500 )
+custom_fonts/bold_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]
+
+Thanks to:
+
+[wave freq=10 amp=40][rainbow]Iddmeister[/rainbow][/wave]
+
+[tornado freq=5][color=#0cfd00]sWordy76[/color][/tornado]
+
+[shake level=20 power=50][color=red]Spreehox[/color][/shake] ([url=https://www.twitch.tv/spreehox]Twitch[/url])
+
+[color=#fd00da]Megaslowbrew[/color]
+
+[color=#0db1fc]nothing0100[/color]
+
+[color=black][tornado freq=-3][wave amp=50 freq=10][b]THRiO[/b][/wave][/tornado][/color]
+
+[color=#fc7d0d]JTJ[/color]
+
+
+[/center]"
+text = "
+
+Thanks to:
+
+Iddmeister
+
+sWordy76
+
+Spreehox (Twitch)
+
+Megaslowbrew
+
+nothing0100
+
+THRiO
+
+JTJ
+
+
+"
+scroll_active = false
+
+[node name="Back" type="Button" parent="."]
+margin_right = 147.0
+margin_bottom = 83.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Back"
+
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="HBoxContainer/GitHub" to="." method="_on_GitHub_pressed"]
+[connection signal="pressed" from="HBoxContainer/Itch" to="." method="_on_Itch_pressed"]
+[connection signal="pressed" from="HBoxContainer/Subreddit" to="." method="_on_Subreddit_pressed"]
+[connection signal="pressed" from="HBoxContainer/Discord" to="." method="_on_Discord_pressed"]
+[connection signal="pressed" from="HBoxContainer/Godot" to="." method="_on_Godot_pressed"]
+[connection signal="meta_clicked" from="VBoxContainer/Text" to="." method="_on_Text_meta_clicked"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

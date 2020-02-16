@@ -62,8 +62,10 @@ tracks/3/keys = {
 [node name="Melee" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 damage = 100
+
 knockPower = 1000
 knockTime = 0.3
+
 
 [node name="Cooldown" parent="." index="0"]
 wait_time = 0.5
