@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/skipperBig.png-d8c9b548d0eeeafd5ca1799e7416de18.stex"
+path="res://.import/skipperSmoll.png-dd4d6111ff55fa27ee0b189215a1a7cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Weapons/skipperBig.png"
-dest_files=[ "res://.import/skipperBig.png-d8c9b548d0eeeafd5ca1799e7416de18.stex" ]
+source_file="res://Graphics/Weapons/skipperSmoll.png"
+dest_files=[ "res://.import/skipperSmoll.png-dd4d6111ff55fa27ee0b189215a1a7cb.stex" ]
 
 [params]
 
