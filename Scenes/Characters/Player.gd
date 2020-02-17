@@ -6,10 +6,10 @@ signal started()
 signal death(id)
 signal playerHit(damage, id)
 
-export var maxHealth = 400
+export var maxHealth = 450
 onready var health = maxHealth
 
-export var moveSpeed = 200
+export var moveSpeed = 300
 onready var defSpeed = moveSpeed
 
 export var weaponPath:NodePath = "Gun"
@@ -51,7 +51,7 @@ func initialize(id:int):
 	add_to_group("Ally"+String(id))
 	add_to_group("Master"+String(id))
 	
-	$NameTag/CenterContainer/Label.text = Network.players[id].name
+	$NameTag/CenterContainer/Label.bbcode_text = "[center]"+Network.players[id].name+"[/center]"
 	
 	
 	if super.has_method("initialize"):
@@ -345,7 +345,6 @@ master func knockback(vel:Vector2, time:float):
 	addedVelocity = vel
 	$Knockback.wait_time = time
 	$Knockback.start()
-	print("yo")
 	
 	pass
 

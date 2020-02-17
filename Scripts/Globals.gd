@@ -1,6 +1,7 @@
 extends Node
 
-enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, THRIO, JOKER, BALD, MAGPIE, FRONK, BRICK, KARLMARX, BARELY, FROZONE, PIE, BIT, BIGBRAIN, HARLEM}
+enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, THRIO, JOKER, BALD, MAGPIE, FRONK, BRICK, KARLMARX, BARELY, FROZONE, PIE, BIT, BIGBRAIN, HARLEM, KOWALSKI}
+
 
 enum events {KILL, SUPER, MESSAGE}
 
@@ -8,7 +9,7 @@ var killLines = ["destroyed", "rekt", "eliminated", "took out"]
 
 var mobile = false
 
-var version = "0.5.3"
+var version = "0.5.5"
 
 var bounds = Vector2(2144, 1984)
 
@@ -39,6 +40,7 @@ var characterInfo = {
 	characters.PIE:{"name":"Pie-Per", "poolSize":40, "bulletPath":"res://Scenes/Bullets/PieBullet.tscn", "playerPath":"res://Scenes/Characters/PIE-PER.tscn"},  
 	characters.BIGBRAIN:{"name":"Big Brain", "poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/BigBrain.tscn"},
 	characters.HARLEM: {"name":"Harlem", "poolSize":15, "bulletPath":"res://Scenes/Bullets/Bubble.tscn", "playerPath":"res://Scenes/Characters/Harlem.tscn"},
+	characters.KOWALSKI: {"name":"Kowalski", "poolSize":15, "bulletPath":"res://Scenes/Throwables/Kowalski.tscn", "playerPath":"res://Scenes/Characters/Kowalski.tscn"},
 }
 	
 var maps = {
@@ -64,6 +66,7 @@ var maps = {
 	"Bad Ball":{
 		
 		"Home Run":"res://Scenes/Maps/BadBall/HomeRun.tscn",
+		"Swamp":"res://Scenes/Maps/BadBall/Swamp.tscn",
 		
 	},
 	
