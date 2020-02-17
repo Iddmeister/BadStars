@@ -257,6 +257,7 @@ remotesync func hit(damage:int, id:int, isSuper=false):
 		health -= damage
 		if is_network_master():
 			ui.setHealth(health)
+			rpc_id(1, "updateServerHealth", health)
 		else:
 			pass
 			
@@ -375,11 +376,12 @@ func _on_Poison_timeout():
 		
 
 remotesync func respawn():
-	
+	dead = false
 	if is_network_master():
 		global_position = respawnPoint
 		health = maxHealth
 		ui.setHealth(health)
+		rpc_id(1, "updateServerHealth", health)
 	goInvincible(true)
 	if get_tree().is_network_server():
 		$InvincibleTime.start()
@@ -407,6 +409,13 @@ func _on_InvincibleTime_timeout():
 func _on_Slow_timeout():
 	moveSpeed = defSpeed
 	rpc("setNormal")
+	
+remote func updateServerHealth(h:int):
+	
+	health = h
+	
+	pass
+	
 
 
 func _on_Knockback_timeout():

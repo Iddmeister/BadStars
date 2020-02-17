@@ -24,3 +24,4 @@ remotesync func shoot(id:int, irrelevantPoolIndex:int):
 	
 	pass
 
+

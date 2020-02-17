@@ -31,6 +31,7 @@ var characters = {
 func _ready():
 	Network.playerInfo.name = Data.data.playerName
 	Network.playerInfo.team = "Blue"
+	$CheckBox.pressed = OS.window_fullscreen
 	$CenterContainer/Options/PlayerName.text = Network.playerInfo.name
 	currentCharacter = characters.keys().find(int(Data.data["lastPlayed"]))
 	setCharacter(characters.keys()[currentCharacter])

@@ -62,6 +62,7 @@ func _process(delta):
 	pass
 	
 remotesync func super(id:int):
+	info = {}
 	setSprite(true)
 	on = true
 	if get_tree().is_network_server():

@@ -14,11 +14,8 @@ speed = 0.5
 [node name="Reload" parent="." index="1"]
 wait_time = 2.3
 
-[node name="Range" parent="." index="2"]
-position = Vector2( 200, 0 )
-
 [node name="CollisionPolygon2D" parent="Range" index="0"]
-polygon = PoolVector2Array( 20, -52, 40, -64, 72, -72, 104, -64, 124, -52, 144, -28, 148, 0, 144, 28, 124, 52, 104, 64, 72, 72, 40, 64, 20, 52, 0, 28, -4, 0, 0, -28 )
+polygon = PoolVector2Array( 0, -70, 300, -70, 300, 70, 0, 70 )
 
 [node name="Muzzle" parent="." index="3"]
 position = Vector2( 80, 0 )
