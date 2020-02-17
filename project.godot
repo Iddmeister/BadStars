@@ -69,6 +69,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Bad Stars"
+config/description="Epic Multiplayer Shooter
+Please don't sue us Supercell"
 run/main_scene="res://Scenes/UI/LoadingScreen.tscn"
 boot_splash/image="res://Graphics/UI/LoadingScreen.png"
 config/icon="res://Graphics/Icons/192x192Icon.png"
