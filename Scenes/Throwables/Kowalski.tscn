@@ -31,6 +31,7 @@ texture = SubResource( 1 )
 [node name="CollisionShape2D" parent="Area" index="0"]
 position = Vector2( 0.9025, 0.902504 )
 
+
 [node name="BurnTime" parent="." index="4"]
 wait_time = 0.6
 
