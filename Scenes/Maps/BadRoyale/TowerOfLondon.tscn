@@ -1,0 +1,597 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Maps/BadRoyale/Tower Royale.tscn" type="PackedScene" id=1]
+
+[node name="Map" instance=ExtResource( 1 )]
+
+[node name="Dummy" parent="Objects/Dummies" index="0"]
+position = Vector2( 1048, 968 )
+
+[node name="Dummy2" parent="Objects/Dummies" index="1"]
+position = Vector2( 1121.45, 968 )
+
+[node name="Dummy3" parent="Objects/Dummies" index="2"]
+position = Vector2( 1343.97, 1153.81 )
+
+[node name="Dummy4" parent="Objects/Dummies" index="3"]
+position = Vector2( 1088, 904 )
+
+[node name="Dummy5" parent="Objects/Dummies" index="4"]
+position = Vector2( 1343.97, 760 )
+
+[node name="Dummy7" parent="Objects/Dummies" index="5"]
+position = Vector2( 831.334, 1162.34 )
+
+[node name="Dummy8" parent="Objects/Dummies" index="6"]
+position = Vector2( 831.334, 768 )
+
+[node name="Tower" parent="Objects/Towers" index="0"]
+position = Vector2( 408, 360 )
+
+[node name="Tower2" parent="Objects/Towers" index="1"]
+position = Vector2( 1717.42, 360 )
+
+[node name="Tower3" parent="Objects/Towers" index="2"]
+position = Vector2( 1717.42, 1544 )
+
+[node name="Tower4" parent="Objects/Towers" index="3"]
+position = Vector2( 408, 1544 )
+
+[node name="DestructibleWall" parent="Walls" index="0"]
+position = Vector2( 881.491, 736 )
+
+[node name="DestructibleWall63" parent="Walls" index="1"]
+position = Vector2( 880, 1210.96 )
+
+[node name="DestructibleWall79" parent="Walls" index="2"]
+position = Vector2( 1925.21, 1090.61 )
+
+[node name="DestructibleWall95" parent="Walls" index="3"]
+position = Vector2( 1553.35, 801.262 )
+
+[node name="DestructibleWall111" parent="Walls" index="4"]
+position = Vector2( 713.064, 588.037 )
+scale = Vector2( 1.0437, 1.06665 )
+
+[node name="DestructibleWall127" parent="Walls" index="5"]
+position = Vector2( 96, 1087.15 )
+
+[node name="DestructibleWall178" parent="Walls" index="6"]
+position = Vector2( 881.491, 166.182 )
+
+[node name="DestructibleWall220" parent="Walls" index="7"]
+position = Vector2( 736, 1087.75 )
+
+[node name="DestructibleWall195" parent="Walls" index="8"]
+position = Vector2( 128, 182.182 )
+
+[node name="DestructibleWall11" parent="Walls" index="9"]
+position = Vector2( 881.491, 672.744 )
+
+[node name="DestructibleWall24" parent="Walls" index="10"]
+position = Vector2( 160.29, 150.182 )
+
+[node name="DestructibleWall38" parent="Walls" index="11"]
+position = Vector2( 1273.51, 1368 )
+
+[node name="DestructibleWall52" parent="Walls" index="12"]
+position = Vector2( 880, 1240.77 )
+
+[node name="DestructibleWall148" parent="Walls" index="13"]
+position = Vector2( 1088, 1600 )
+
+[node name="DestructibleWall164" parent="Walls" index="14"]
+position = Vector2( 1996.43, 1720 )
+
+[node name="DestructibleWall68" parent="Walls" index="15"]
+position = Vector2( 1985.63, 1090.61 )
+
+[node name="DestructibleWall85" parent="Walls" index="16"]
+position = Vector2( 1521.35, 801.262 )
+
+[node name="DestructibleWall103" parent="Walls" index="17"]
+position = Vector2( 880.608, 1087.2 )
+
+[node name="DestructibleWall119" parent="Walls" index="18"]
+position = Vector2( 192, 799.964 )
+
+[node name="DestructibleWall212" parent="Walls" index="19"]
+position = Vector2( 32, 1087.15 )
+
+[node name="DestructibleWall185" parent="Walls" index="20"]
+position = Vector2( 350.568, 944 )
+
+[node name="DestructibleWall219" parent="Walls" index="21"]
+position = Vector2( 1271.8, 1242.96 )
+
+[node name="DestructibleWall201" parent="Walls" index="22"]
+position = Vector2( 160.29, 182.182 )
+
+[node name="DestructibleWall2" parent="Walls" index="23"]
+position = Vector2( 881.491, 549.847 )
+
+[node name="DestructibleWall61" parent="Walls" index="24"]
+position = Vector2( 688, 1268.8 )
+
+[node name="DestructibleWall77" parent="Walls" index="25"]
+position = Vector2( 1301.17, 799.964 )
+
+[node name="DestructibleWall93" parent="Walls" index="26"]
+position = Vector2( 1585.25, 801.262 )
+
+[node name="DestructibleWall110" parent="Walls" index="27"]
+position = Vector2( 881.452, 609.731 )
+
+[node name="DestructibleWall126" parent="Walls" index="28"]
+position = Vector2( 880, 800.089 )
+
+[node name="DestructibleWall177" parent="Walls" index="29"]
+position = Vector2( 1276.37, 6.18176 )
+
+[node name="DestructibleWall228" parent="Walls" index="30"]
+position = Vector2( 160, 1087.15 )
+
+[node name="DestructibleWall129" parent="Walls" index="31"]
+position = Vector2( 2024.7, 801.262 )
+
+[node name="DestructibleWall194" parent="Walls" index="32"]
+position = Vector2( 1760, 944 )
+
+[node name="DestructibleWall3" parent="Walls" index="33"]
+position = Vector2( 696.29, 801.262 )
+
+[node name="DestructibleWall46" parent="Walls" index="34"]
+position = Vector2( 1271.8, 1214.97 )
+
+[node name="DestructibleWall62" parent="Walls" index="35"]
+position = Vector2( 1459.54, 1268.8 )
+
+[node name="DestructibleWall232" parent="Walls" index="36"]
+position = Vector2( 1269.26, 1761.4 )
+
+[node name="DestructibleWall158" parent="Walls" index="37"]
+position = Vector2( 881.491, 1300.8 )
+
+[node name="DestructibleWall78" parent="Walls" index="38"]
+position = Vector2( 1270.25, 672 )
+
+[node name="DestructibleWall94" parent="Walls" index="39"]
+position = Vector2( 1617.25, 801.262 )
+
+[node name="DestructibleWall109" parent="Walls" index="40"]
+position = Vector2( 881.452, 640 )
+
+[node name="DestructibleWall125" parent="Walls" index="41"]
+position = Vector2( 880.608, 768.089 )
+
+[node name="DestructibleWall191" parent="Walls" index="42"]
+position = Vector2( 880, 6.18176 )
+
+[node name="DestructibleWall227" parent="Walls" index="43"]
+position = Vector2( 883.995, 1825.4 )
+
+[node name="DestructibleWall143" parent="Walls" index="44"]
+position = Vector2( 2016, 144.678 )
+
+[node name="DestructibleWall207" parent="Walls" index="45"]
+position = Vector2( 1984, 144 )
+
+[node name="DestructibleWall56" parent="Walls" index="46"]
+position = Vector2( 883.995, 1793.4 )
+
+[node name="DestructibleWall72" parent="Walls" index="47"]
+position = Vector2( 1270.25, 640 )
+
+[node name="DestructibleWall89" parent="Walls" index="48"]
+position = Vector2( 1270.28, 704.028 )
+
+[node name="DestructibleWall107" parent="Walls" index="49"]
+position = Vector2( 664.29, 801.262 )
+
+[node name="DestructibleWall123" parent="Walls" index="50"]
+position = Vector2( 816, 801.262 )
+
+[node name="DestructibleWall189" parent="Walls" index="51"]
+position = Vector2( 881.491, 134.182 )
+
+[node name="DestructibleWall226" parent="Walls" index="52"]
+position = Vector2( 883.995, 1920 )
+
+[node name="DestructibleWall141" parent="Walls" index="53"]
+position = Vector2( 1416, 549.847 )
+
+[node name="DestructibleWall205" parent="Walls" index="54"]
+position = Vector2( 1936, 799.964 )
+
+[node name="DestructibleWall55" parent="Walls" index="55"]
+position = Vector2( 1271.12, 1150.97 )
+
+[node name="DestructibleWall71" parent="Walls" index="56"]
+position = Vector2( 128, 1690.18 )
+
+[node name="DestructibleWall88" parent="Walls" index="57"]
+position = Vector2( 1301.17, 1090.12 )
+
+[node name="DestructibleWall106" parent="Walls" index="58"]
+position = Vector2( 672, 1088 )
+
+[node name="DestructibleWall122" parent="Walls" index="59"]
+position = Vector2( 883.995, 1952 )
+
+[node name="DestructibleWall188" parent="Walls" index="60"]
+position = Vector2( 881.491, 102.182 )
+
+[node name="DestructibleWall225" parent="Walls" index="61"]
+position = Vector2( 883.995, 1856 )
+
+[node name="DestructibleWall140" parent="Walls" index="62"]
+position = Vector2( 2114.91, 801.262 )
+
+[node name="DestructibleWall204" parent="Walls" index="63"]
+position = Vector2( 714.309, 560 )
+
+[node name="DestructibleWall37" parent="Walls" index="64"]
+position = Vector2( 1426.99, 801.262 )
+
+[node name="DestructibleWall51" parent="Walls" index="65"]
+position = Vector2( 881.491, 1353.73 )
+
+[node name="DestructibleWall147" parent="Walls" index="66"]
+position = Vector2( 1394.99, 801.262 )
+
+[node name="DestructibleWall163" parent="Walls" index="67"]
+position = Vector2( 2028.43, 1688 )
+
+[node name="DestructibleWall67" parent="Walls" index="68"]
+position = Vector2( 160, 1720 )
+
+[node name="DestructibleWall84" parent="Walls" index="69"]
+position = Vector2( 1617.25, 1090.12 )
+
+[node name="DestructibleWall102" parent="Walls" index="70"]
+position = Vector2( 768, 1088 )
+
+[node name="DestructibleWall118" parent="Walls" index="71"]
+position = Vector2( 128, 799.964 )
+
+[node name="DestructibleWall211" parent="Walls" index="72"]
+position = Vector2( 685.155, 590.199 )
+
+[node name="DestructibleWall184" parent="Walls" index="73"]
+position = Vector2( 881.491, 70.1818 )
+
+[node name="DestructibleWall224" parent="Walls" index="74"]
+position = Vector2( 883.995, 1888 )
+
+[node name="DestructibleWall136" parent="Walls" index="75"]
+position = Vector2( 2056, 801.262 )
+
+[node name="DestructibleWall199" parent="Walls" index="76"]
+position = Vector2( 1088, 1568 )
+
+[node name="DestructibleWall44" parent="Walls" index="77"]
+position = Vector2( 1271.8, 1182.97 )
+
+[node name="DestructibleWall60" parent="Walls" index="78"]
+position = Vector2( 1427.54, 1300.8 )
+
+[node name="DestructibleWall231" parent="Walls" index="79"]
+position = Vector2( 656, 1268.8 )
+
+[node name="DestructibleWall156" parent="Walls" index="80"]
+position = Vector2( 881.491, 1323.98 )
+
+[node name="DestructibleWall76" parent="Walls" index="81"]
+position = Vector2( 128, 150.182 )
+
+[node name="DestructibleWall82" parent="Walls" index="82"]
+position = Vector2( 1271.12, 736.089 )
+
+[node name="DestructibleWall99" parent="Walls" index="83"]
+position = Vector2( 632.29, 801.262 )
+
+[node name="DestructibleWall115" parent="Walls" index="84"]
+position = Vector2( 128, 1087.15 )
+
+[node name="DestructibleWall181" parent="Walls" index="85"]
+position = Vector2( 1276.37, 32 )
+
+[node name="DestructibleWall223" parent="Walls" index="86"]
+position = Vector2( 0, 800.089 )
+
+[node name="DestructibleWall133" parent="Walls" index="87"]
+position = Vector2( 1984, 174.601 )
+
+[node name="DestructibleWall193" parent="Walls" index="88"]
+position = Vector2( 1096, 276 )
+
+[node name="DestructibleWall41" parent="Walls" index="89"]
+position = Vector2( 1458.99, 801.262 )
+
+[node name="DestructibleWall57" parent="Walls" index="90"]
+position = Vector2( 1271.12, 1952 )
+
+[node name="DestructibleWall153" parent="Walls" index="91"]
+position = Vector2( 1365.17, 801.262 )
+
+[node name="DestructibleWall167" parent="Walls" index="92"]
+position = Vector2( 2028.43, 1720 )
+
+[node name="DestructibleWall73" parent="Walls" index="93"]
+position = Vector2( 1953.63, 1090.61 )
+
+[node name="DestructibleWall90" parent="Walls" index="94"]
+position = Vector2( 1333.17, 1090.61 )
+
+[node name="DestructibleWall97" parent="Walls" index="95"]
+position = Vector2( 640, 1088 )
+
+[node name="DestructibleWall113" parent="Walls" index="96"]
+position = Vector2( 160, 799.964 )
+
+[node name="DestructibleWall210" parent="Walls" index="97"]
+position = Vector2( 192, 1087.15 )
+
+[node name="DestructibleWall179" parent="Walls" index="98"]
+position = Vector2( 1276.37, 96 )
+
+[node name="DestructibleWall222" parent="Walls" index="99"]
+position = Vector2( 1271.12, 1888 )
+
+[node name="DestructibleWall131" parent="Walls" index="100"]
+position = Vector2( 1416, 581.847 )
+
+[node name="DestructibleWall196" parent="Walls" index="101"]
+position = Vector2( 1448, 549.847 )
+
+[node name="DestructibleWall59" parent="Walls" index="102"]
+position = Vector2( 1270.28, 1119.75 )
+
+[node name="DestructibleWall75" parent="Walls" index="103"]
+position = Vector2( 2017.3, 1090.61 )
+
+[node name="DestructibleWall92" parent="Walls" index="104"]
+position = Vector2( 1585.35, 1090.61 )
+
+[node name="DestructibleWall105" parent="Walls" index="105"]
+position = Vector2( 794.045, 1087.75 )
+
+[node name="DestructibleWall121" parent="Walls" index="106"]
+position = Vector2( 96, 800.089 )
+
+[node name="DestructibleWall187" parent="Walls" index="107"]
+position = Vector2( 1276.37, 64 )
+
+[node name="DestructibleWall221" parent="Walls" index="108"]
+position = Vector2( 1271.8, 1920 )
+
+[node name="DestructibleWall139" parent="Walls" index="109"]
+position = Vector2( 2088, 801.262 )
+
+[node name="DestructibleWall203" parent="Walls" index="110"]
+position = Vector2( 1269.26, 549.847 )
+
+[node name="DestructibleWall35" parent="Walls" index="111"]
+position = Vector2( 1490.99, 801.262 )
+
+[node name="DestructibleWall49" parent="Walls" index="112"]
+position = Vector2( 656, 1300.59 )
+
+[node name="DestructibleWall145" parent="Walls" index="113"]
+position = Vector2( 1333.17, 801.262 )
+
+[node name="DestructibleWall161" parent="Walls" index="114"]
+position = Vector2( 1996.43, 1689.4 )
+
+[node name="DestructibleWall65" parent="Walls" index="115"]
+position = Vector2( 1964.43, 801.262 )
+
+[node name="DestructibleWall81" parent="Walls" index="116"]
+position = Vector2( 1271.12, 768 )
+
+[node name="DestructibleWall100" parent="Walls" index="117"]
+position = Vector2( 600, 801.262 )
+
+[node name="DestructibleWall116" parent="Walls" index="118"]
+position = Vector2( 0, 1087.15 )
+
+[node name="DestructibleWall209" parent="Walls" index="119"]
+position = Vector2( 64, 1087.15 )
+
+[node name="DestructibleWall182" parent="Walls" index="120"]
+position = Vector2( 1276.37, 128 )
+
+[node name="DestructibleWall218" parent="Walls" index="121"]
+position = Vector2( 880.608, 1118.97 )
+
+[node name="DestructibleWall134" parent="Walls" index="122"]
+position = Vector2( 1270.25, 579.382 )
+
+[node name="DestructibleWall20" parent="Walls" index="123"]
+position = Vector2( 881.491, 198.182 )
+
+[node name="DestructibleWall50" parent="Walls" index="124"]
+position = Vector2( 880.608, 1268.8 )
+
+[node name="DestructibleWall66" parent="Walls" index="125"]
+position = Vector2( 2049.3, 1090.12 )
+
+[node name="DestructibleWall83" parent="Walls" index="126"]
+position = Vector2( 1270.25, 799.964 )
+
+[node name="DestructibleWall101" parent="Walls" index="127"]
+position = Vector2( 568.29, 801.262 )
+
+[node name="DestructibleWall117" parent="Walls" index="128"]
+position = Vector2( 32, 799.964 )
+
+[node name="DestructibleWall183" parent="Walls" index="129"]
+position = Vector2( 1276.37, 160 )
+
+[node name="DestructibleWall217" parent="Walls" index="130"]
+position = Vector2( 1271.8, 1272.77 )
+
+[node name="DestructibleWall200" parent="Walls" index="131"]
+position = Vector2( 1276.37, 192 )
+
+[node name="DestructibleWall48" parent="Walls" index="132"]
+position = Vector2( 1270.25, 1090.61 )
+
+[node name="DestructibleWall64" parent="Walls" index="133"]
+position = Vector2( 1459.54, 1300.8 )
+
+[node name="DestructibleWall230" parent="Walls" index="134"]
+position = Vector2( 160, 1688 )
+
+[node name="DestructibleWall160" parent="Walls" index="135"]
+position = Vector2( 1427.54, 1090.61 )
+
+[node name="DestructibleWall80" parent="Walls" index="136"]
+position = Vector2( 2081.26, 1090.12 )
+
+[node name="DestructibleWall96" parent="Walls" index="137"]
+position = Vector2( 1365.17, 1090.61 )
+
+[node name="DestructibleWall112" parent="Walls" index="138"]
+position = Vector2( 610.14, 1088 )
+
+[node name="DestructibleWall128" parent="Walls" index="139"]
+position = Vector2( 64, 799.964 )
+
+[node name="DestructibleWall192" parent="Walls" index="140"]
+position = Vector2( 880, 38.1818 )
+
+[node name="DestructibleWall216" parent="Walls" index="141"]
+position = Vector2( 880.608, 1150.97 )
+
+[node name="DestructibleWall144" parent="Walls" index="142"]
+position = Vector2( 2016, 173.276 )
+
+[node name="DestructibleWall208" parent="Walls" index="143"]
+position = Vector2( 318.568, 944 )
+
+[node name="DestructibleWall54" parent="Walls" index="144"]
+position = Vector2( 883.995, 1761.4 )
+
+[node name="DestructibleWall70" parent="Walls" index="145"]
+position = Vector2( 1270.28, 1825.4 )
+
+[node name="DestructibleWall87" parent="Walls" index="146"]
+position = Vector2( 1553.35, 1090.61 )
+
+[node name="DestructibleWall98" parent="Walls" index="147"]
+position = Vector2( 822.84, 1088 )
+
+[node name="DestructibleWall114" parent="Walls" index="148"]
+position = Vector2( 728, 801.262 )
+
+[node name="DestructibleWall180" parent="Walls" index="149"]
+position = Vector2( 704, 1087.75 )
+
+[node name="DestructibleWall215" parent="Walls" index="150"]
+position = Vector2( 880.608, 1182.97 )
+
+[node name="DestructibleWall132" parent="Walls" index="151"]
+position = Vector2( 2112.92, 1090.61 )
+
+[node name="DestructibleWall197" parent="Walls" index="152"]
+position = Vector2( 1792, 944 )
+
+[node name="DestructibleWall23" parent="Walls" index="153"]
+position = Vector2( 881.491, 704.028 )
+
+[node name="DestructibleWall58" parent="Walls" index="154"]
+position = Vector2( 688, 1300.59 )
+
+[node name="DestructibleWall74" parent="Walls" index="155"]
+position = Vector2( 1271.12, 1857.4 )
+
+[node name="DestructibleWall91" parent="Walls" index="156"]
+position = Vector2( 1394.99, 1090.61 )
+
+[node name="DestructibleWall108" parent="Walls" index="157"]
+position = Vector2( 584, 1088 )
+
+[node name="DestructibleWall124" parent="Walls" index="158"]
+position = Vector2( 788.8, 801.262 )
+
+[node name="DestructibleWall190" parent="Walls" index="159"]
+position = Vector2( 685.155, 560 )
+
+[node name="DestructibleWall214" parent="Walls" index="160"]
+position = Vector2( 1273.51, 1304.77 )
+
+[node name="DestructibleWall142" parent="Walls" index="161"]
+position = Vector2( 1269.26, 609.731 )
+
+[node name="DestructibleWall206" parent="Walls" index="162"]
+position = Vector2( 1992.7, 801.262 )
+
+[node name="DestructibleWall25" parent="Walls" index="163"]
+position = Vector2( 848, 801.262 )
+
+[node name="DestructibleWall39" parent="Walls" index="164"]
+position = Vector2( 1490.99, 1090.61 )
+
+[node name="DestructibleWall53" parent="Walls" index="165"]
+position = Vector2( 1427.54, 1268.8 )
+
+[node name="DestructibleWall229" parent="Walls" index="166"]
+position = Vector2( 128, 1720 )
+
+[node name="DestructibleWall149" parent="Walls" index="167"]
+position = Vector2( 1458.99, 1090.61 )
+
+[node name="DestructibleWall69" parent="Walls" index="168"]
+position = Vector2( 1270.25, 1793.4 )
+
+[node name="DestructibleWall86" parent="Walls" index="169"]
+position = Vector2( 1521.35, 1090.61 )
+
+[node name="DestructibleWall104" parent="Walls" index="170"]
+position = Vector2( 851.995, 1087.15 )
+
+[node name="DestructibleWall120" parent="Walls" index="171"]
+position = Vector2( 758.063, 801.262 )
+
+[node name="DestructibleWall186" parent="Walls" index="172"]
+position = Vector2( 881.491, 579.382 )
+
+[node name="DestructibleWall213" parent="Walls" index="173"]
+position = Vector2( 1272.88, 1336 )
+
+[node name="DestructibleWall138" parent="Walls" index="174"]
+position = Vector2( 1448, 581.847 )
+
+[node name="DestructibleWall202" parent="Walls" index="175"]
+position = Vector2( 1096, 308 )
+
+[node name="1" parent="SpawnPoints" index="0"]
+position = Vector2( 788.8, 944 )
+
+[node name="2" parent="SpawnPoints" index="1"]
+position = Vector2( 1491.54, 944 )
+
+[node name="3" parent="SpawnPoints" index="2"]
+position = Vector2( 1080, 1162.34 )
+
+[node name="4" parent="SpawnPoints" index="3"]
+position = Vector2( 80, 72 )
+
+[node name="5" parent="SpawnPoints" index="4"]
+position = Vector2( 1089.15, 112 )
+
+[node name="11" parent="SpawnPoints" index="5"]
+position = Vector2( 1080, 632 )
+
+[node name="7" parent="SpawnPoints" index="7"]
+position = Vector2( 1080, 1825.4 )
+
+[node name="8" parent="SpawnPoints" index="8"]
+position = Vector2( 2017.3, 936 )
+
+[node name="9" parent="SpawnPoints" index="9"]
+position = Vector2( 1960, 1857.4 )
+
+[node name="10" parent="SpawnPoints" index="10"]
+position = Vector2( 96, 944 )
