@@ -18,6 +18,7 @@ shader_param/freq = 1.0
 shader_param/amp = 1.0
 
 [node name="Tower" type="StaticBody2D" groups=[
+"Autoaim",
 "Shootable",
 "Tower",
 ]]

@@ -257,7 +257,7 @@ remotesync func hit(damage:int, id:int, isSuper=false):
 		health -= damage
 		if is_network_master():
 			ui.setHealth(health)
-			rpc_id(1, "updateServerHealth", health)
+			rpc("updateServerHealth", health)
 		else:
 			pass
 			
