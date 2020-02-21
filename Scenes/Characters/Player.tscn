@@ -66,9 +66,9 @@ __meta__ = {
 }
 
 [node name="Label" type="RichTextLabel" parent="NameTag/CenterContainer"]
-margin_left = 9.0
+margin_left = 10.0
 margin_top = 3.0
-margin_right = 109.0
+margin_right = 110.0
 margin_bottom = 23.0
 rect_min_size = Vector2( 100, 20 )
 custom_fonts/normal_font = SubResource( 4 )
@@ -93,6 +93,10 @@ one_shot = true
 one_shot = true
 
 [node name="Knockback" type="Timer" parent="."]
+one_shot = true
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 [connection signal="timeout" from="Poison" to="." method="_on_Poison_timeout"]
 [connection signal="timeout" from="InvincibleTime" to="." method="_on_InvincibleTime_timeout"]
