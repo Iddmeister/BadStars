@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Screens/About.gd" type="Script" id=1]
-[ext_resource path="res://Graphics/BadBackground.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/BadBackground2.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Fonts/JetBrainsMono-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Resources/Fonts/GOTHIC_745063ed9142edcdcdfaeed69c36e6d2.ttf" type="DynamicFontData" id=4]
 
@@ -125,7 +125,6 @@ custom_fonts/bold_font = SubResource( 2 )
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]
-
 Thanks to:
 
 [wave freq=10 amp=40][rainbow]Iddmeister[/rainbow][/wave]
@@ -136,16 +135,17 @@ Thanks to:
 
 [color=#fd00da]Megaslowbrew[/color]
 
-[wave freq=10 amp=25][shake level=10 power=5][color=#0000FF]nothing0100[/color][/shake][/wave]
+[wave freq=7.5 amp=100][shake level=10 power=25][color=#FFFF00]Nothing00100[/color][/shake][/wave]
 
-[color=black][tornado freq=-3][wave amp=50 freq=10][b]THRiO[/b][/wave][/tornado][/color]
+[url=https://www.bit.ly/][color=black][tornado freq=-3][wave amp=50 freq=10][b]THRiO[/b][/wave][/tornado][/color][/url]
 
+[color=#FFFFFF]Assisted by:[/color]
+[color=#fc7d0d]LazyLuna678[/color]
+[color=#fc7d0d]Kyrinth[/color]
 [color=#fc7d0d]JTJ[/color]
-
 
 [/center]"
 text = "
-
 Thanks to:
 
 Iddmeister
@@ -156,12 +156,14 @@ Spreehox (Twitch)
 
 Megaslowbrew
 
-nothing0100
+Nothing00100
 
 THRiO
 
+Assisted by:
+LazyLuna678
+Kyrinth
 JTJ
-
 
 "
 scroll_active = false
