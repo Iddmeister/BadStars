@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Supers/ShmellySuper.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Supers/Kowlaskisuper.gd" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/KowalskiPoision.png-cd1b65a4459869ddabd9fbd652afe859.stex"
+
+[sub_resource type="Animation" id=2]
+resource_name = "Plane"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plane:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1941.92, 1947.93 ), Vector2( -1353.43, 1243.5 ), Vector2( -332.402, 249.703 ), Vector2( -150.886, 86.3383 ), Vector2( -1.13555, -8.95761 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plane:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 9.21067, 9.21067 ), Vector2( 9.21067, 9.21067 ), Vector2( 6.20701, 6.20701 ), Vector2( 3.00887, 3.00887 ), Vector2( 1.56107, 1.56107 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Plane:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/KowalskiPlane.png-74dfebfe25a754408cd2a9f275487b56.stex"
+
+[node name="Super" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+superMessage = "used Super"
+damage = 1000
+
+[node name="CollisionShape2D" parent="Range" index="0"]
+visible = true
+position = Vector2( 0, -7.02264 )
+script = ExtResource( 2 )
+
+[node name="Time" parent="." index="1"]
+wait_time = 0.51
+
+[node name="Sprite" parent="." index="2"]
+position = Vector2( -20.6519, -53.4112 )
+scale = Vector2( 2.18692, 2.18692 )
+texture = SubResource( 1 )
+
+[node name="Animation" type="AnimationPlayer" parent="." index="4"]
+anims/Plane = SubResource( 2 )
+
+[node name="Plane" type="Sprite" parent="." index="5"]
+visible = false
+position = Vector2( -1941.92, 1947.93 )
+scale = Vector2( 9.21067, 9.21067 )
+texture = SubResource( 3 )

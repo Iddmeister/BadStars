@@ -1,15 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Supers/BitSuper.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Graphics/Characters/Bit.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Guns/BitGun.tscn" type="PackedScene" id=5]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30.3194, 27.831 )
+
 [node name="Bit" instance=ExtResource( 1 )]
+maxHealth = 300
+moveSpeed = 250
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 1.15779, -5.71273 )
 texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
 
 [node name="Gun" parent="." index="9" instance=ExtResource( 5 )]
 

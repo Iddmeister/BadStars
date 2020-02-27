@@ -105,16 +105,14 @@ func _on_Team_toggled(button_pressed):
 
 
 func globalHost():
-	var upnp = UPNP.new()
-	upnp.discover(2000, 2, "InternetGatewayDevice")
-	upnp.add_port_mapping(Network.PORT)
-	$IPStuff/IP.text = upnp.query_external_address()
+	Network.upnpHost.discover(2000, 2, "InternetGatewayDevice")
+	Network.upnpHost.add_port_mapping(Network.PORT)
+	$IPStuff/IP.text = Network.upnpHost.query_external_address()
 	
 	pass
 	
 func disconnectGlobalHost():
-	var upnp = UPNP.new()
-	upnp.delete_port_mapping(Network.PORT)
+	Network.upnpHost.delete_port_mapping(Network.PORT)
 	$IPStuff/IP.text = Globals.localIP
 	
 	pass

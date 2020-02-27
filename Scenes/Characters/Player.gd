@@ -1,13 +1,15 @@
 extends KinematicBody2D
 
+class_name Player
+
 signal started()
 signal death(id)
 signal playerHit(damage, id)
 
-export var maxHealth = 400
+export var maxHealth = 450
 onready var health = maxHealth
 
-export var moveSpeed = 200
+export var moveSpeed = 300
 onready var defSpeed = moveSpeed
 
 export var weaponPath:NodePath = "Gun"
@@ -18,6 +20,8 @@ onready var super:Super = get_node(superPath)
 var ghostTexture = preload("res://Graphics/Characters/Ghost.png")
 
 var velocity = Vector2()
+
+var addedVelocity = Vector2()
 
 var mobileControls:Control
 var ui:gameUI
@@ -47,7 +51,7 @@ func initialize(id:int):
 	add_to_group("Ally"+String(id))
 	add_to_group("Master"+String(id))
 	
-	$NameTag/CenterContainer/Label.text = Network.players[id].name
+	$NameTag/CenterContainer/Label.bbcode_text = "[center]"+Network.players[id].name+"[/center]"
 	
 	
 	if super.has_method("initialize"):
@@ -127,7 +131,7 @@ func movement():
 		
 		velocity = dir*moveSpeed
 		
-		velocity = move_and_slide(velocity, Vector2(0, 0), false, 4, 0.78, false)
+		velocity = move_and_slide(velocity+addedVelocity, Vector2(0, 0), false, 4, 0.78, false)
 		
 		rpc_unreliable("setPosition", global_position)
 		
@@ -253,6 +257,7 @@ remotesync func hit(damage:int, id:int, isSuper=false):
 		health -= damage
 		if is_network_master():
 			ui.setHealth(health)
+			rpc("updateServerHealth", health)
 		else:
 			pass
 			
@@ -335,6 +340,17 @@ remotesync func slow(slowAmount:int, length:float):
 	
 	pass
 	
+	
+master func knockback(vel:Vector2, time:float):
+	
+	addedVelocity = vel
+	$Knockback.wait_time = time
+	$Knockback.start()
+	
+	pass
+
+
+
 remotesync func setNormal():
 	$Sprite.modulate = Color(1, 1, 1)
 	pass
@@ -360,11 +376,12 @@ func _on_Poison_timeout():
 		
 
 remotesync func respawn():
-	
+	dead = false
 	if is_network_master():
 		global_position = respawnPoint
 		health = maxHealth
 		ui.setHealth(health)
+		rpc_id(1, "updateServerHealth", health)
 	goInvincible(true)
 	if get_tree().is_network_server():
 		$InvincibleTime.start()
@@ -392,3 +409,14 @@ func _on_InvincibleTime_timeout():
 func _on_Slow_timeout():
 	moveSpeed = defSpeed
 	rpc("setNormal")
+	
+remote func updateServerHealth(h:int):
+	
+	health = h
+	
+	pass
+	
+
+
+func _on_Knockback_timeout():
+	addedVelocity = Vector2(0, 0)

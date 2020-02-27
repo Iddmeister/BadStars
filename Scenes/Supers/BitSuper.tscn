@@ -1,15 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Supers/Super.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Fonts/JetBrainsMono-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/Supers/BitSuper.gd" type="Script" id=3]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.00392157, 0.0431373, 0.603922, 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 48
 font_data = ExtResource( 2 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 0, 0, 400, -100, 400, 100, 0, 0 )
 
 [node name="Super" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -23,7 +26,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -40,12 +43,22 @@ margin_left = 91.0
 margin_top = 270.0
 margin_right = 932.0
 margin_bottom = 330.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Error Error Error Error Error"
 align = 1
 valign = 1
 
 [node name="Time" type="Timer" parent="." index="1"]
-wait_time = 3.0
+wait_time = 4.0
 one_shot = true
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource( 3 )
+
+[node name="Aim" type="Polygon2D" parent="." index="3"]
+visible = false
+color = Color( 0.992157, 1, 0, 0.666667 )
 [connection signal="timeout" from="Time" to="." method="_on_Time_timeout"]

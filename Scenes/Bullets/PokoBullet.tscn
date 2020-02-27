@@ -8,9 +8,9 @@ load_path = "res://.import/PokoBullet (2).png-480d65d7d39be2e16fe389003356d6fc.s
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, -10, 15, 5, -15, 5 )
 
-[node name="Bullet" index="0" instance=ExtResource( 1 )]
+[node name="Bullet" instance=ExtResource( 1 )]
 speed = 200
-damage = 30
+damage = 23
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( -0.118616, -0.480113 )

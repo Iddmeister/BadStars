@@ -6,7 +6,7 @@
 [ext_resource path="res://Graphics/UI/Circle.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 11.0913
+radius = 40.0
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 644.961
@@ -15,7 +15,6 @@ radius = 644.961
 bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="DynamicFont" id=4]
-use_mipmaps = true
 font_data = ExtResource( 3 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -54,20 +53,28 @@ margin_right = 61.0
 margin_bottom = 83.0
 rect_min_size = Vector2( 120, 16 )
 custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CenterContainer" type="CenterContainer" parent="NameTag"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 3.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="NameTag/CenterContainer"]
-margin_left = 60.0
+[node name="Label" type="RichTextLabel" parent="NameTag/CenterContainer"]
+margin_left = 9.0
 margin_top = 3.0
-margin_right = 60.0
+margin_right = 109.0
 margin_bottom = 23.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-align = 1
+rect_min_size = Vector2( 100, 20 )
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+scroll_active = false
 
 [node name="Poison" type="Timer" parent="."]
 wait_time = 1.5
@@ -84,6 +91,10 @@ one_shot = true
 
 [node name="Slow" type="Timer" parent="."]
 one_shot = true
+
+[node name="Knockback" type="Timer" parent="."]
+one_shot = true
 [connection signal="timeout" from="Poison" to="." method="_on_Poison_timeout"]
 [connection signal="timeout" from="InvincibleTime" to="." method="_on_InvincibleTime_timeout"]
 [connection signal="timeout" from="Slow" to="." method="_on_Slow_timeout"]
+[connection signal="timeout" from="Knockback" to="." method="_on_Knockback_timeout"]

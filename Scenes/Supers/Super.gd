@@ -21,6 +21,7 @@ func addCharge(damage:int):
 	if charge >= maxCharge:
 		
 		charge = maxCharge
+		rpc("updateServerCharge", charge)
 		if not charged:
 			charged = true
 			emit_signal("charged", true)
@@ -43,11 +44,15 @@ remotesync func use(id:int):
 	emit_signal("charged", false)
 	charged = false
 	charge = 0
+	rpc("updateServerCharge", charge)
 	get_parent().ui.setSuperCharge(0)
 	rpc("super", id)
 	if emitMessage:
 		Network.rpc("event", Globals.events.SUPER, {"player":get_parent().get_network_master(), "super":superMessage})
 	pass
+	
+master func updateSeverCharge(c:int):
+	charge = c
 	
 remotesync func super(id:int):
 	
