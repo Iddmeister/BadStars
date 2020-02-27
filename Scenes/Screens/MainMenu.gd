@@ -25,6 +25,7 @@ var characters = {
 	Globals.characters.BIGBRAIN:{"icon":"res://Graphics/Characters/BigBrain.png", "info":"Big Brain: Funky Fonky when it’s Chunky Chonky"},
 	Globals.characters.HARLEM:{"icon":"res://Graphics/Characters/Harlem.png", "info":"Harlem: Wack"},
 	Globals.characters.KOWALSKI:{"icon":"res://Graphics/Characters/kowalski2.png", "info":"Kowalski: Analysis "},
+	Globals.characters.SPIK:{"icon":"res://Graphics/Characters/spik.png", "info":"Thorn: Kinda like a cactus"},
 }
 
 
