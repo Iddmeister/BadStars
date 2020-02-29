@@ -9,7 +9,7 @@ var killLines = ["destroyed", "rekt", "eliminated", "took out", "brutally murder
 
 var mobile = false
 
-var version = "0.5.6 and Thorn"
+var version = "0.5.7"
 
 var bounds = Vector2(2144, 1984)
 

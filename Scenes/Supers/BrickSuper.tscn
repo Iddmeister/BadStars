@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Supers/Super.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Graphics/Weapons/BrickShield.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Supers/BrickSuper.gd" type="Script" id=3]
+
+[node name="Super" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+emitMessage = false
+autocharge = 10
+
+[node name="Time" type="Timer" parent="." index="0"]
+wait_time = 0.6
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+visible = false
+scale = Vector2( 3, 3 )
+z_index = 1
+texture = ExtResource( 2 )
+
+[node name="Autocharge" type="Timer" parent="." index="2"]
+wait_time = 0.2
+[connection signal="timeout" from="Time" to="." method="_on_Time_timeout"]
+[connection signal="timeout" from="Autocharge" to="." method="_on_Autocharge_timeout"]
