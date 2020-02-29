@@ -185,12 +185,16 @@ func actions():
 			else:
 				angle = get_angle_to(get_global_mouse_position())
 			
-			Globals.playerToMouse = get_global_mouse_position() - global_position
+			if Globals.usingController:
+				Globals.playerToMouse = (Vector2(Input.get_joy_axis(Globals.device, 2), Input.get_joy_axis(Globals.device, 3)))*500
+			else:
+				Globals.playerToMouse = get_global_mouse_position() - global_position
 			
 			if Input.is_action_just_pressed("autoaim"):
 				autoaim()
 			else:
 				if Input.is_action_pressed("shoot"):
+					
 					if weapon.canShoot:
 						rpc("aimGun", angle)
 						weapon.aim(true)
