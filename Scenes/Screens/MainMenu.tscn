@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scenes/Screens/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/BadBackground.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Graphics/UI/Find Game.png" type="Texture" id=5]
 [ext_resource path="res://Graphics/UI/Host Game 2.png" type="Texture" id=6]
 [ext_resource path="res://Graphics/UI/Maximise.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/UI/red.png" type="Texture" id=8]
 [ext_resource path="res://Graphics/UI/Left Button.png" type="Texture" id=9]
 [ext_resource path="res://Graphics/UI/Random button.png" type="Texture" id=10]
 [ext_resource path="res://Graphics/UI/Right Button.png" type="Texture" id=11]
@@ -381,11 +382,40 @@ layer = -1
 [node name="TextureRect" type="TextureRect" parent="Back"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 896.0
+margin_bottom = 480.0
 texture = ExtResource( 2 )
-expand = true
-stretch_mode = 4
+stretch_mode = 1
 __meta__ = {
-"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Back"]
+margin_left = 92.0
+margin_top = 482.61
+margin_right = 391.0
+margin_bottom = 498.61
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 8 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="Back"]
+anchor_right = 0.527
+anchor_bottom = 0.067
+margin_left = 425.0
+margin_top = 18.0
+margin_right = 50.352
+margin_bottom = -3.2
+texture = ExtResource( 8 )
+stretch_mode = 1
+__meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="VBoxContainer/FindGame" to="." method="_on_Find_Game_pressed"]

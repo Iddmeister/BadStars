@@ -1,15 +1,15 @@
 extends Node
 
-enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, THRIO, JOKER, BALD, MAGPIE, FRONK, BRICK, KARLMARX, BARELY, FROZONE, PIE, BIT, BIGBRAIN, HARLEM, KOWALSKI}
+enum characters {CLOT, YEETA, SHMELLY, SALMON, ELSCRIMO, WILL, BARREL, POKO, THRIO, JOKER, BALD, MAGPIE, FRONK, BRICK, KARLMARX, BARELY, FROZONE, PIE, BIT, BIGBRAIN, HARLEM, KOWALSKI, THORN}
 
 
 enum events {KILL, SUPER, MESSAGE}
 
-var killLines = ["destroyed", "rekt", "eliminated", "took out"]
+var killLines = ["destroyed", "rekt", "eliminated", "took out", "brutally murdered"]
 
 var mobile = false
 
-var version = "0.5.6"
+var version = "0.5.6 and Thorn"
 
 var bounds = Vector2(2144, 1984)
 
@@ -41,6 +41,7 @@ var characterInfo = {
 	characters.BIGBRAIN:{"name":"Big Brain", "poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/BigBrain.tscn"},
 	characters.HARLEM: {"name":"Harlem", "poolSize":15, "bulletPath":"res://Scenes/Bullets/Bubble.tscn", "playerPath":"res://Scenes/Characters/Harlem.tscn"},
 	characters.KOWALSKI: {"name":"Kowalski", "poolSize":15, "bulletPath":"res://Scenes/Throwables/Kowalski.tscn", "playerPath":"res://Scenes/Characters/Kowalski.tscn"},
+	characters.THORN:{"name":"THORN", "poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/spik.tscn"},
 }
 	
 var maps = {

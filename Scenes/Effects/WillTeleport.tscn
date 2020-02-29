@@ -6,12 +6,12 @@
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.44091, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.744802, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[node name="Effect" index="0" instance=ExtResource( 1 )]
+[node name="Effect" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Puff" type="CPUParticles2D" parent="." index="0"]
 emitting = false
-amount = 25
+amount = 30
 one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0

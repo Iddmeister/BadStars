@@ -8,8 +8,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 19.5
 
-[node name="Player" index="0" instance=ExtResource( 1 )]
-maxHealth = 450
+[node name="Player" instance=ExtResource( 1 )]
 moveSpeed = 350
 
 [node name="Sprite" parent="." index="0"]
@@ -27,5 +26,11 @@ margin_left = -50.6182
 margin_top = 40.1129
 margin_right = 49.3818
 margin_bottom = 54.1129
+
+[node name="Label" parent="NameTag/CenterContainer" index="0"]
+margin_left = 10.0
+margin_top = 0.0
+margin_right = 110.0
+margin_bottom = 20.0
 
 [node name="Super" parent="." index="7" instance=ExtResource( 4 )]

@@ -1,20 +1,20 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Screens/About.gd" type="Script" id=1]
-[ext_resource path="res://Graphics/BadBackground.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/BadBackground2.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Fonts/JetBrainsMono-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Resources/Fonts/GOTHIC_745063ed9142edcdcdfaeed69c36e6d2.ttf" type="DynamicFontData" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 20
 outline_size = 2
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 20
 font_data = ExtResource( 3 )
 
@@ -71,7 +71,7 @@ __meta__ = {
 [node name="GitHub" type="LinkButton" parent="HBoxContainer"]
 margin_right = 114.0
 margin_bottom = 80.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Github"
 underline = 1
 
@@ -79,7 +79,7 @@ underline = 1
 margin_left = 144.0
 margin_right = 277.0
 margin_bottom = 80.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "itch.io"
 underline = 1
 
@@ -87,7 +87,7 @@ underline = 1
 margin_left = 307.0
 margin_right = 497.0
 margin_bottom = 80.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "r/BadStars"
 underline = 1
 
@@ -95,7 +95,7 @@ underline = 1
 margin_left = 527.0
 margin_right = 660.0
 margin_bottom = 80.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Discord"
 underline = 1
 
@@ -103,7 +103,7 @@ underline = 1
 margin_left = 690.0
 margin_right = 785.0
 margin_bottom = 80.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Godot"
 underline = 1
 
@@ -121,11 +121,10 @@ __meta__ = {
 margin_right = 500.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 500, 500 )
-custom_fonts/bold_font = SubResource( 3 )
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/bold_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]
-
 Thanks to:
 
 [wave freq=10 amp=40][rainbow]Iddmeister[/rainbow][/wave]
@@ -136,16 +135,17 @@ Thanks to:
 
 [color=#fd00da]Megaslowbrew[/color]
 
-[color=#0db1fc]nothing0100[/color]
+[wave freq=7.5 amp=100][shake level=10 power=25][color=#FFFF00]Nothing00100[/color][/shake][/wave]
 
-[color=black][tornado freq=-3][wave amp=50 freq=10][b]THRiO[/b][/wave][/tornado][/color]
+[url=https://www.bit.ly/][color=black][tornado freq=-3][wave amp=50 freq=10][b]THRiO[/b][/wave][/tornado][/color][/url]
 
+[color=#FFFFFF]Assisted by:[/color]
+[color=#fc7d0d]LazyLuna678[/color]
+[color=#fc7d0d]Kyrinth[/color]
 [color=#fc7d0d]JTJ[/color]
-
 
 [/center]"
 text = "
-
 Thanks to:
 
 Iddmeister
@@ -156,12 +156,14 @@ Spreehox (Twitch)
 
 Megaslowbrew
 
-nothing0100
+Nothing00100
 
 THRiO
 
+Assisted by:
+LazyLuna678
+Kyrinth
 JTJ
-
 
 "
 scroll_active = false
