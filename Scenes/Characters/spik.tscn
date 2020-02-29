@@ -20,16 +20,11 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
 
-[node name="Label" parent="NameTag/CenterContainer" index="0"]
-margin_left = 10.0
-margin_right = 110.0
-
 [node name="Melee" parent="." index="6" instance=ExtResource( 2 )]
 scale = Vector2( 1.5, 1.15 )
 damage = 250
 
 [node name="Super" parent="." index="12" instance=ExtResource( 5 )]
-emitMessage = true
 superMessage = "grew legs and moved"
 distance = 500
 speed = 0.5

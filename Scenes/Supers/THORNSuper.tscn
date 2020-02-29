@@ -6,5 +6,6 @@
 [node name="Super" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 damageMultiplier = 1.0
+emitMessage = false
 superMessage = "used Super"
 speed = 500

@@ -29,9 +29,7 @@ margin_right = 50.0262
 margin_bottom = 56.2464
 
 [node name="Label" parent="NameTag/CenterContainer" index="0"]
-margin_left = 10.0
 margin_top = 0.0
-margin_right = 110.0
 margin_bottom = 20.0
 
 [node name="Super" parent="." index="7" instance=ExtResource( 4 )]
