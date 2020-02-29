@@ -7,6 +7,8 @@ signal allPlayersReady()
 
 signal eventHappened(text)
 
+signal killPlayer(id)
+
 var searchPeer = PacketPeerUDP.new()
 
 var broadcastAddress = "255.255.255.255"
@@ -187,6 +189,7 @@ func playerConnected(id:int):
 func playerDisconnected(id:int):
 	
 	players.erase(id)
+	emit_signal("killPlayer", id)
 	
 	pass
 	
