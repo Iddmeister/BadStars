@@ -7,10 +7,11 @@ onready var health = maxHealth
 
 var enabled = false
 
-var player:int
+var pOwner:int
 
 func initialize(id:int):
 	set_network_master(id)
+	pOwner = id
 	pass
 	
 func enable():
@@ -39,6 +40,7 @@ remotesync func place(pos:Vector2):
 	enable()
 	
 	pass
+	
 	
 remotesync func hit(damage:int, id:int, super:bool=false):
 	

@@ -8,6 +8,6 @@ func initialize():
 
 remotesync func super(id:int):
 	
-	bear.place(global_position)
+	bear.rpc("place", global_position)
 	
 	pass

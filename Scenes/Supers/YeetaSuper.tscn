@@ -5,3 +5,5 @@
 
 [node name="Super" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+damageMultiplier = 0.3
+superMessage = "let loose their Child"

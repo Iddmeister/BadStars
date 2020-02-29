@@ -42,7 +42,7 @@ func createPools():
 				
 				var m = load(Globals.characterInfo[Network.players[player].character]["minions"][num]).instance()
 				m.name = String(player)+String(num)
-				m.player = player
+				m.pOwner= player
 				m.initialize(player)
 				m.disable()
 				pools[int(player)].minions.append(m)

@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Supers/YeetaSuper.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 19.4056
+radius = 26.7732
 
 [node name="Player" instance=ExtResource( 1 )]
 maxHealth = 300
@@ -14,7 +14,7 @@ moveSpeed = 210
 weaponPath = NodePath("Melee")
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="1"]
