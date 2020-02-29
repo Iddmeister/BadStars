@@ -21,7 +21,7 @@ var characterInfo = {
 	
 	characters.CLOT:{"name":"Clot", "poolSize":40, "bulletPath":"res://Scenes/Bullets/ClotBullet.tscn", "playerPath":"res://Scenes/Characters/Clot.tscn"},
 	characters.SHMELLY:{"name":"Shmelly", "poolSize":50, "bulletPath":"res://Scenes/Bullets/ShmellyBullet.tscn", "playerPath":"res://Scenes/Characters/Shmelly.tscn"},
-	characters.YEETA:{"name":"Yeeta", "poolSize":30, "bulletPath":"res://Scenes/Bullets/Bullet.tscn"},
+	characters.YEETA:{"name":"Yeeta", "poolSize":30, "bulletPath":"res://Scenes/Bullets/Bullet.tscn", "playerPath":"res://Scenes/Characters/Yeeta.tscn", "minions":["res://Scenes/Minions/YeetaBear.tscn"]},
 	characters.SALMON:{"name":"Salmon", "poolSize":10, "bulletPath":"res://Scenes/Bullets/UnoCard.tscn", "playerPath":"res://Scenes/Characters/Salmon.tscn"},
 	characters.ELSCRIMO:{"name":"El Scrimo", "poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/ElScrimo.tscn"},
 	characters.WILL:{"name":"Will Smith", "poolSize":70, "bulletPath":"res://Scenes/Bullets/GenieBall.tscn", "playerPath":"res://Scenes/Characters/Will.tscn", "effects":["res://Scenes/Effects/WillTeleport.tscn", "res://Scenes/Effects/WillTeleport.tscn"]},

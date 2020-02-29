@@ -14,7 +14,7 @@ one_shot = true
 
 [node name="Range" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 5
+collision_mask = 13
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Range"]
 polygon = PoolVector2Array( 0, -5, 15, -5, 15, 5, 0, 5 )

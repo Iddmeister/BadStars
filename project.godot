@@ -30,6 +30,13 @@ _global_script_classes=[ {
 "path": "res://Scenes/Melee/Melee.gd"
 }, {
 "base": "KinematicBody2D",
+
+"class": "Minion",
+"language": "GDScript",
+"path": "res://Scenes/Minions/Minion.gd"
+}, {
+"base": "KinematicBody2D",
+
 "class": "Player",
 "language": "GDScript",
 "path": "res://Scenes/Characters/Player.gd"
@@ -59,6 +66,9 @@ _global_script_class_icons={
 "Effect": "",
 "Gun": "",
 "Melee": "",
+
+"Minion": "",
+
 "Player": "",
 "Super": "",
 "Throwable": "",

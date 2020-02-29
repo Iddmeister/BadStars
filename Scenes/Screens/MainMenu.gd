@@ -23,6 +23,7 @@ var characters = {
 	Globals.characters.PIE:{"icon":"res://Graphics/Characters/pie-per.png", "info":"PIE: Pie-Per"},
 	Globals.characters.BIT:{"icon":"res://Graphics/Characters/Bit.png", "info":"64 Bit: AN arcade cabinet..."},
 	Globals.characters.BIGBRAIN:{"icon":"res://Graphics/Characters/BigBrain.png", "info":"Big Brain: Funky Fonky when it’s Chunky Chonky"},
+	Globals.characters.YEETA:{"icon":"res://Graphics/Characters/Yeeta.png", "info":"Yeeta: Bears have feelings too"},
 	Globals.characters.HARLEM:{"icon":"res://Graphics/Characters/Harlem.png", "info":"Harlem: Wack"},
 	Globals.characters.KOWALSKI:{"icon":"res://Graphics/Characters/kowalski2.png", "info":"Kowalski: Analysis "},
 	Globals.characters.THORN:{"icon":"res://Graphics/Characters/spik.png", "info":"Thorn: Kinda like a cactus"},
