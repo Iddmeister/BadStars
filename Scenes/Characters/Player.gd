@@ -41,6 +41,8 @@ var canRespawn = false
 
 var shot
 
+var angle:float
+
 func _ready():
 	pass
 	
@@ -114,16 +116,16 @@ func movement():
 		else:
 			
 			if Input.is_action_pressed("left"):
-				dir.x = -1
+				dir.x = -1*Input.get_action_strength("left")
 			elif Input.is_action_pressed("right"):
-				dir.x = 1
+				dir.x = 1*Input.get_action_strength("right")
 			else:
 				dir.x = 0
 				
 			if Input.is_action_pressed("up"):
-				dir.y = -1
+				dir.y = -1*Input.get_action_strength("up")
 			elif Input.is_action_pressed("down"):
-				dir.y = 1
+				dir.y = 1*Input.get_action_strength("down")
 			else:
 				dir.y = 0
 			
@@ -176,6 +178,13 @@ func actions():
 			
 		else:
 			
+			if Globals.usingController:
+				var angle2 = Vector2(Input.get_joy_axis(Globals.device, 2), Input.get_joy_axis(Globals.device, 3))
+				if angle2.length() > 0.5:
+					angle = angle2.angle()
+			else:
+				angle = get_angle_to(get_global_mouse_position())
+			
 			Globals.playerToMouse = get_global_mouse_position() - global_position
 			
 			if Input.is_action_just_pressed("autoaim"):
@@ -183,7 +192,7 @@ func actions():
 			else:
 				if Input.is_action_pressed("shoot"):
 					if weapon.canShoot:
-						rpc("aimGun", get_angle_to(get_global_mouse_position()))
+						rpc("aimGun", angle)
 						weapon.aim(true)
 			
 				elif Input.is_action_just_released("shoot"):
@@ -194,7 +203,7 @@ func actions():
 					
 			if super.charged:
 				if Input.is_action_pressed("super"):
-					super.rpc("aim", get_angle_to(get_global_mouse_position()))
+					super.rpc("aim", angle)
 					super.aimVisible(true)
 				elif Input.is_action_just_released("super"):
 					super.use(get_tree().get_network_unique_id())

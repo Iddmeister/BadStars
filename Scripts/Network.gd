@@ -177,6 +177,7 @@ func disconnectedFromHost():
 	matchStats = {"places":[], "players":{}}
 	searching = false
 	broadcasting = false
+	Popups.disconnected()
 	pass
 	
 	
@@ -223,6 +224,8 @@ func disconnectServer():
 	timeoutList = {}
 	broadcasting = false
 	searching = false
+	
+	Popups.serverClosed()
 	
 	pass
 	

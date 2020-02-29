@@ -87,20 +87,43 @@ var superStickAxis = Vector2()
 
 var playerToMouse = Vector2()
 
+var usingController = false
+
+var device:int
+
 func _ready() -> void:
+	
+	Input.connect("joy_connection_changed", self, "setController")
+	
+	if not Input.get_connected_joypads().empty():
+		
+		setController(Input.get_connected_joypads()[0], true)
+		
+		pass
 	
 	if OS.get_name() == "Android" or OS.get_name() == "iOS":
 		mobile = true
 		
-	if OS.get_name() == "Windows":
-		localIP = IP.get_local_addresses()[1]
-	elif OS.get_name() == "X11":
-		localIP = IP.get_local_addresses()[0]
-	else:
-		localIP = IP.get_local_addresses()[0]
+	for ip in IP.get_local_addresses():
+		
+		if ip.begins_with("192"):
+			localIP = ip
+		
+		pass
+		
 		
 	
 		
+	
+	pass
+	
+func setController(d, c):
+	
+	if c:
+		device = d
+		usingController = true
+	else:
+		usingController = false
 	
 	pass
 	
