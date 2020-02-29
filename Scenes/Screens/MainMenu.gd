@@ -18,18 +18,22 @@ var characters = {
 	Globals.characters.FRONK:{"icon":"res://Graphics/Characters/Fronk.png", "info":"FRONK: ICH BIN FRONK"},
 	Globals.characters.KARLMARX:{"icon":"res://Graphics/Characters/KarlMarx.png", "info":"Karl Marx: Communism"},
 	Globals.characters.BARELY:{"icon":"res://Graphics/Characters/Barely.png", "info":"Barely: Barely a character"},
-	#Globals.characters.BRICK:{"icon":"res://Graphics/Characters/Brick.png", "info":"Brick is literally a brick"},
+	Globals.characters.BRICK:{"icon":"res://Graphics/Characters/Brick.png", "info":"Brick is literally a brick"},
 	Globals.characters.FROZONE:{"icon":"res://Graphics/Characters/Frozone.png", "info":"Frozone: Couldn't get the rights to Mr Incredible"},
 	Globals.characters.PIE:{"icon":"res://Graphics/Characters/pie-per.png", "info":"PIE: Pie-Per"},
 	Globals.characters.BIT:{"icon":"res://Graphics/Characters/Bit.png", "info":"64 Bit: AN arcade cabinet..."},
 	Globals.characters.BIGBRAIN:{"icon":"res://Graphics/Characters/BigBrain.png", "info":"Big Brain: Funky Fonky when it’s Chunky Chonky"},
 	Globals.characters.YEETA:{"icon":"res://Graphics/Characters/Yeeta.png", "info":"Yeeta: Bears have feelings too"},
+	Globals.characters.HARLEM:{"icon":"res://Graphics/Characters/Harlem.png", "info":"Harlem: Wack"},
+	Globals.characters.KOWALSKI:{"icon":"res://Graphics/Characters/kowalski2.png", "info":"Kowalski: Analysis "},
+	Globals.characters.THORN:{"icon":"res://Graphics/Characters/spik.png", "info":"Thorn: Kinda like a cactus"},
 }
 
 
 func _ready():
 	Network.playerInfo.name = Data.data.playerName
 	Network.playerInfo.team = "Blue"
+	$CheckBox.pressed = OS.window_fullscreen
 	$CenterContainer/Options/PlayerName.text = Network.playerInfo.name
 	currentCharacter = characters.keys().find(int(Data.data["lastPlayed"]))
 	setCharacter(characters.keys()[currentCharacter])

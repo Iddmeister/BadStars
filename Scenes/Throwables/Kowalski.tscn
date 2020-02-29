@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Throwables/BarelyFireball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Throwables/Kowalskiyeet.gd" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/skipperSmollAir.png-2973ab23ac5f68251666ba5895d847be.stex"
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/skipperSmollground.png-4633069cd5273c3ae06769eb16e90d98.stex"
+
+[node name="Throwable" instance=ExtResource( 1 )]
+position = Vector2( -1.16635, 0 )
+z_index = 5
+script = ExtResource( 2 )
+transType = 1
+easeType = 0
+damage = 30
+
+[node name="AirSprite" parent="." index="1"]
+position = Vector2( 1.56787, -0.562135 )
+rotation = 1.5708
+scale = Vector2( 0.152399, 0.152399 )
+texture = SubResource( 2 )
+
+[node name="GroundSprite" parent="." index="2"]
+position = Vector2( 0.426713, -1.34243 )
+scale = Vector2( 0.647321, 0.647321 )
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="Area" index="0"]
+position = Vector2( 0.9025, 0.902504 )
+
+
+[node name="BurnTime" parent="." index="4"]
+wait_time = 0.6
+
+[node name="Dps" parent="." index="5"]
+wait_time = 0.5

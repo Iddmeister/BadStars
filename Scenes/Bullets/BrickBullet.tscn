@@ -7,9 +7,9 @@
 radius = 23.5743
 height = 20.5523
 
-[node name="Bullet" index="0" instance=ExtResource( 1 )]
+[node name="Bullet" instance=ExtResource( 1 )]
 speed = 700
-damage = 25
+damage = 30
 
 [node name="Sprite" parent="." index="0"]
 rotation = 3.14159

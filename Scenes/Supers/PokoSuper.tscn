@@ -352,7 +352,7 @@ tracks/27/keys = {
 "values": [ true, false ]
 }
 
-[node name="Super" index="0" instance=ExtResource( 1 )]
+[node name="Super" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 damageMultiplier = 0.4
 superMessage = "Leached"

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 30 )
 
-[node name="Bullet" index="0" groups=[
+[node name="Bullet" groups=[
 "SalmonBullet",
 ] instance=ExtResource( 1 )]
 speed = 570

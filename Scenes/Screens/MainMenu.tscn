@@ -1,6 +1,16 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scenes/Screens/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/BadBackground.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/UI/About button.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/UI/Connect via ip.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/UI/Find Game.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/UI/Host Game 2.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/UI/Maximise.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/UI/red.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/UI/Left Button.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/UI/Random button.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/UI/Right Button.png" type="Texture" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.729412, 0.254902, 0.0666667, 1 )
@@ -75,10 +85,10 @@ border_width_bottom = 1
 border_color = Color( 0.572549, 0.101961, 0.101961, 1 )
 
 [sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 0.313726, 0.101961, 0.101961, 1 )
+bg_color = Color( 1, 0, 0, 0.537255 )
 
 [sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0.360784, 0.0313726, 0.0313726, 1 )
+bg_color = Color( 1, 0, 0, 0.580392 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -134,14 +144,9 @@ border_width_bottom = 1
 border_color = Color( 0.898039, 0.196078, 0.196078, 1 )
 
 [sub_resource type="StreamTexture" id=18]
-flags = 4
-load_path = "res://.import/PokoGun.png-10cb4c1dbee7ed8a17fb72a5e8338393.stex"
+load_path = "res://.import/Minimise.png-5b3f7db22dabeceba0a0a756f10a5ec0.stex"
 
-[sub_resource type="StreamTexture" id=19]
-flags = 4
-load_path = "res://.import/Ghost.png-65c659696b2a923611b93269540655f0.stex"
-
-[sub_resource type="StyleBoxFlat" id=20]
+[sub_resource type="StyleBoxFlat" id=19]
 bg_color = Color( 0.9375, 0.36319, 0.19043, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -149,7 +154,7 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0.796875, 0.272215, 0.115173, 1 )
 
-[sub_resource type="StyleBoxFlat" id=21]
+[sub_resource type="StyleBoxFlat" id=20]
 bg_color = Color( 0.675781, 0.23057, 0.0976715, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -157,7 +162,7 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0.855469, 0.254376, 0.0735168, 1 )
 
-[sub_resource type="StyleBoxFlat" id=22]
+[sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0.784314, 0.301961, 0.156863, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -165,13 +170,13 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0.9375, 0.301254, 0.109863, 1 )
 
-[sub_resource type="StyleBoxFlat" id=23]
+[sub_resource type="StyleBoxFlat" id=22]
 bg_color = Color( 0.87451, 0.0431373, 0.0431373, 1 )
 
-[sub_resource type="StyleBoxFlat" id=24]
+[sub_resource type="StyleBoxFlat" id=23]
 bg_color = Color( 0.768627, 0.109804, 0.109804, 1 )
 
-[sub_resource type="StyleBoxFlat" id=25]
+[sub_resource type="StyleBoxFlat" id=24]
 bg_color = Color( 1, 0, 0, 1 )
 
 [node name="MainMenu" type="Control"]
@@ -187,51 +192,63 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 500.0
-margin_right = 986.0
-margin_bottom = 560.0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -564.0
+margin_top = -280.0
+margin_bottom = 280.0
 size_flags_horizontal = 3
 custom_constants/separation = 50
 alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="FindGame" type="Button" parent="VBoxContainer"]
-margin_top = 71.0
-margin_right = 486.0
-margin_bottom = 171.0
+margin_top = 65.0
+margin_right = 564.0
+margin_bottom = 169.0
 rect_min_size = Vector2( 0, 100 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
-text = "Find Game"
+icon = ExtResource( 5 )
 
 [node name="HostGame" type="Button" parent="VBoxContainer"]
-margin_top = 221.0
-margin_right = 486.0
-margin_bottom = 321.0
+margin_top = 219.0
+margin_right = 564.0
+margin_bottom = 323.0
 rect_min_size = Vector2( 0, 100 )
 custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
-text = "Host Game"
+icon = ExtResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 371.0
-margin_right = 486.0
-margin_bottom = 489.0
+margin_top = 373.0
+margin_right = 564.0
+margin_bottom = 495.0
 
-[node name="DirectConnect" type="Button" parent="VBoxContainer/VBoxContainer"]
-margin_right = 486.0
-margin_bottom = 100.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+margin_right = 564.0
+margin_bottom = 104.0
+
+[node name="DirectConnect" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 564.0
+margin_bottom = 104.0
 rect_min_size = Vector2( 0, 100 )
 custom_styles/hover = SubResource( 7 )
 custom_styles/pressed = SubResource( 8 )
 custom_styles/normal = SubResource( 9 )
-text = "Connect Via IP"
+icon = ExtResource( 4 )
 
 [node name="IP" type="LineEdit" parent="VBoxContainer/VBoxContainer"]
-margin_top = 104.0
-margin_right = 486.0
-margin_bottom = 118.0
+margin_top = 108.0
+margin_right = 564.0
+margin_bottom = 122.0
+custom_icons/clear = ExtResource( 4 )
 custom_styles/normal = SubResource( 10 )
 placeholder_text = "IP Address"
 
@@ -240,66 +257,69 @@ margin_left = -3.90002
 margin_top = -2.03839
 margin_right = 455.1
 margin_bottom = 554.962
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Options" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 79.0
-margin_top = 76.0
+margin_top = 75.0
 margin_right = 379.0
-margin_bottom = 480.0
+margin_bottom = 481.0
 
 [node name="PlayerName" type="LineEdit" parent="CenterContainer/Options"]
 margin_right = 300.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
 custom_styles/normal = SubResource( 11 )
-text = "EpicDude54"
+text = "EpicDude55"
 max_length = 20
 
 [node name="CharacterSelect" type="VBoxContainer" parent="CenterContainer/Options"]
 margin_top = 104.0
 margin_right = 300.0
-margin_bottom = 404.0
+margin_bottom = 406.0
 rect_min_size = Vector2( 300, 300 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Options/CharacterSelect"]
 margin_right = 300.0
-margin_bottom = 282.0
+margin_bottom = 284.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Left" type="Button" parent="CenterContainer/Options/CharacterSelect/HBoxContainer"]
-margin_right = 50.0
-margin_bottom = 282.0
+margin_right = 52.0
+margin_bottom = 284.0
 rect_min_size = Vector2( 50, 0 )
 custom_styles/hover = SubResource( 12 )
 custom_styles/pressed = SubResource( 13 )
 custom_styles/normal = SubResource( 14 )
-text = "<"
+icon = ExtResource( 9 )
 
 [node name="Image" type="TextureRect" parent="CenterContainer/Options/CharacterSelect/HBoxContainer"]
-margin_left = 54.0
-margin_right = 246.0
-margin_bottom = 282.0
+margin_left = 56.0
+margin_right = 244.0
+margin_bottom = 284.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 expand = true
 stretch_mode = 6
 
 [node name="Right" type="Button" parent="CenterContainer/Options/CharacterSelect/HBoxContainer"]
-margin_left = 250.0
+margin_left = 248.0
 margin_right = 300.0
-margin_bottom = 282.0
+margin_bottom = 284.0
 rect_min_size = Vector2( 50, 0 )
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/normal = SubResource( 17 )
 custom_colors/font_color = Color( 0.12549, 0, 0, 1 )
-text = ">"
+icon = ExtResource( 11 )
 
 [node name="CharacterInfo" type="Label" parent="CenterContainer/Options/CharacterSelect"]
-margin_top = 286.0
+margin_top = 288.0
 margin_right = 300.0
-margin_bottom = 300.0
+margin_bottom = 302.0
 
 [node name="CheckBox" type="CheckBox" parent="."]
 margin_left = -1.16635
@@ -307,8 +327,10 @@ margin_top = 1.16635
 margin_right = 108.834
 margin_bottom = 41.1664
 custom_icons/checked = SubResource( 18 )
-custom_icons/unchecked = SubResource( 19 )
-text = "Fullscreen"
+custom_icons/unchecked = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Version" type="Label" parent="."]
 anchor_left = 0.5
@@ -319,17 +341,24 @@ margin_bottom = 20.0
 rect_min_size = Vector2( 200, 20 )
 text = "Version"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="About" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -100.0
-margin_bottom = 30.0
+margin_right = 2.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 100, 30 )
-custom_styles/hover = SubResource( 20 )
-custom_styles/pressed = SubResource( 21 )
-custom_styles/normal = SubResource( 22 )
-text = "About"
+custom_styles/hover = SubResource( 19 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/normal = SubResource( 21 )
+icon = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 margin_left = 200.0
@@ -342,26 +371,56 @@ alignment = 1
 margin_top = 3.0
 margin_right = 50.0
 margin_bottom = 17.0
-custom_styles/hover = SubResource( 23 )
-custom_styles/pressed = SubResource( 24 )
-custom_styles/normal = SubResource( 25 )
-text = "?"
+custom_styles/hover = SubResource( 22 )
+custom_styles/pressed = SubResource( 23 )
+custom_styles/normal = SubResource( 24 )
+icon = ExtResource( 10 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Back" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-margin_left = -16.842
-margin_top = -14.7369
-margin_right = 1058.16
-margin_bottom = 607.263
-expand = true
+[node name="TextureRect" type="TextureRect" parent="Back"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 896.0
+margin_bottom = 480.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Back"]
+margin_left = 92.0
+margin_top = 482.61
+margin_right = 391.0
+margin_bottom = 498.61
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 8 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="Back"]
+anchor_right = 0.527
+anchor_bottom = 0.067
+margin_left = 425.0
+margin_top = 18.0
+margin_right = 50.352
+margin_bottom = -3.2
+texture = ExtResource( 8 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="VBoxContainer/FindGame" to="." method="_on_Find_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HostGame" to="." method="_on_Host_Game_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/DirectConnect" to="." method="_on_DirectConnect_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/HBoxContainer/DirectConnect" to="." method="_on_DirectConnect_pressed"]
 [connection signal="text_changed" from="CenterContainer/Options/PlayerName" to="." method="_on_PlayerName_text_changed"]
 [connection signal="pressed" from="CenterContainer/Options/CharacterSelect/HBoxContainer/Left" to="." method="_on_Left_pressed"]
 [connection signal="pressed" from="CenterContainer/Options/CharacterSelect/HBoxContainer/Right" to="." method="_on_Right_pressed"]
