@@ -39,7 +39,8 @@ func _physics_process(delta):
 				velocity = Vector2(1, 0).rotated(rotation)
 				velocity = move_and_slide(velocity*speed)
 				
-		rpc_unreliable("updatePos", global_position)
+		rpc("updatePos", global_position)
+		rpc("updateRot", global_rotation)
 		
 	
 	pass
@@ -47,6 +48,12 @@ func _physics_process(delta):
 remotesync func updatePos(pos:Vector2):
 	
 	global_position = pos
+	
+	pass
+	
+remotesync func updateRot(rot:float):
+	
+	global_rotation = rot
 	
 	pass
 	
