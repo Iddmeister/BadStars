@@ -45,7 +45,7 @@ func _physics_process(delta):
 	
 	pass
 	
-remotesync func updatePos(pos:Vector2):
+puppet func updatePos(pos:Vector2):
 	
 	global_position = pos
 	

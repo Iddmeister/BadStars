@@ -10,7 +10,6 @@ var enabled = false
 var pOwner:int
 
 func initialize(id:int):
-	set_network_master(id)
 	pOwner = id
 	pass
 	
