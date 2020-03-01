@@ -12,9 +12,6 @@ remotesync func super(id:int):
 	get_parent().moveSpeed = speed
 	if get_parent().is_network_master():
 		$Time.start()
-	if emitMessage:
-		Network.rpc("event", Globals.events.SUPER, {"player":get_parent().get_network_master(), "super":superMessage})
-	rpc("super", id)
 	pass
 	
 	

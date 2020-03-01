@@ -389,8 +389,8 @@ func _on_Poison_timeout():
 		
 
 remotesync func respawn():
-	$RespawnTimer.start()
-	yield($RespawnTimer, "timeout")
+#	$RespawnTimer.start()
+#	yield($RespawnTimer, "timeout")
 	dead = false
 	if is_network_master():
 		global_position = respawnPoint
