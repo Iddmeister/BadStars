@@ -15,3 +15,9 @@ func serverClosed():
 	$Main/Animation.play("ServerClosed")
 	
 	pass
+	
+func failed():
+	
+	$Main/Animation.play("Failed")
+	
+	pass

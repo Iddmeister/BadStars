@@ -248,6 +248,58 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Twitch" type="HBoxContainer" parent="."]
+margin_left = 150.0
+margin_right = 482.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Channel" type="LineEdit" parent="Twitch"]
+margin_right = 200.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 200, 40 )
+placeholder_text = "Channel Name"
+placeholder_alpha = 0.4
+
+[node name="Connect" type="Button" parent="Twitch"]
+margin_left = 204.0
+margin_right = 332.0
+margin_bottom = 40.0
+text = "Connect To Twitch"
+
+[node name="TwitchStuff" type="HBoxContainer" parent="."]
+anchor_left = 0.145
+anchor_top = 0.891
+anchor_right = 0.46
+anchor_bottom = 0.989
+margin_left = 0.319992
+margin_top = 0.039978
+margin_right = 0.359985
+margin_bottom = 0.159973
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Map" type="Button" parent="TwitchStuff"]
+margin_right = 206.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+text = "Vote For Map"
+
+[node name="Time" type="Label" parent="TwitchStuff"]
+margin_left = 210.0
+margin_top = 2.0
+margin_right = 310.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 100, 50 )
+text = "Time: 0"
+align = 1
+valign = 1
+
+[node name="VoteTime" type="Timer" parent="."]
 [connection signal="pressed" from="Controls/GameMode/LeftM" to="." method="_on_LeftM_pressed"]
 [connection signal="pressed" from="Controls/GameMode/RightM" to="." method="_on_RightM_pressed"]
 [connection signal="pressed" from="Controls/MapSelect/Left" to="." method="_on_Left_pressed"]
@@ -256,3 +308,6 @@ __meta__ = {
 [connection signal="pressed" from="Controls/Disconnect" to="." method="_on_Disconnect_pressed"]
 [connection signal="toggled" from="Team" to="." method="_on_Team_toggled"]
 [connection signal="toggled" from="IPStuff/Global" to="." method="_on_Global_toggled"]
+[connection signal="pressed" from="Twitch/Connect" to="." method="_on_Connect_pressed"]
+[connection signal="pressed" from="TwitchStuff/Map" to="." method="_on_Map_pressed"]
+[connection signal="timeout" from="VoteTime" to="." method="_on_VoteTime_timeout"]

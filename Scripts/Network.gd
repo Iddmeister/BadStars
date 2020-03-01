@@ -226,6 +226,7 @@ func disconnectServer():
 	searching = false
 	
 	Popups.serverClosed()
+	Twitch.leave_channel(Twitch.channel)
 	
 	pass
 	
