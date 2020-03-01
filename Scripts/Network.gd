@@ -45,7 +45,6 @@ var matchStats = {"places":[], "players":{}}
 remotesync var playersAlive = 0
 
 
-
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	pass

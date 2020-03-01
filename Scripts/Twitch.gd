@@ -10,6 +10,8 @@ var votes = {}
 
 var voted = []
 
+var blindUsed = []
+
 func _ready() -> void:
 	connect("cmd_no_permission", self, "no_permission")
 	connect("cmd_invalid_argcount", self, "invalid_args")
@@ -31,6 +33,9 @@ func setup(chan:String):
 	add_command("howzit", self, "checkup")
 	add_command("vote", self, "vote", 2, 2)
 	add_command("help", self, "help")
+	add_command("confetti", self, "confetti", 1, 1)
+	add_command("ip", self, "ip")
+	add_command("blind", self, "blind", 1, 1)
 	
 	pass
 	
@@ -70,9 +75,56 @@ func resetVotes():
 	
 	votes = {}
 	voted.clear()
+	blindUsed.clear()
 	
 	pass
 	
+func ip(cmd_info:CommandInfo):
+	
+	chat(Network.playerInfo.name + "'s IP is " + Network.upnpHost.query_external_address())
+	
+	pass
+	
+func confetti(cmd_info:CommandInfo, args:PoolStringArray):
+	
+	var done = false
+	
+	for player in get_tree().get_nodes_in_group("Player"):
+		
+		if Network.players[int(player.name)].name == args[0]:
+			player.rpc("confetti")
+			done = true
+		
+		pass
+		
+	if not done:
+		chat("Player not found")
+	
+	pass
+	
+func blind(cmd_info:CommandInfo, args:Array):
+	
+	if not cmd_info.sender_data.user in blindUsed:
+	
+		var done = false
+		
+		for player in get_tree().get_nodes_in_group("Player"):
+			
+			if Network.players[int(player.name)].name == args[0]:
+				blindUsed.append(cmd_info.sender_data.user)
+				player.rpc("blind", cmd_info.sender_data.user)
+				chat(args[0] + " Blinded")
+				done = true
+			
+			pass
+			
+		if not done:
+			chat("Player not found")
+			
+	else:
+		chat("You have already used your blind")
+	
+	pass
 	
 func checkup(cmd_info:CommandInfo):
 	chat("I'm doing good, thanks for asking, " + String(cmd_info.sender_data.user))

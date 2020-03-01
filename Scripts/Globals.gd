@@ -9,7 +9,7 @@ var killLines = ["destroyed", "rekt", "eliminated", "took out", "brutally murder
 
 var mobile = false
 
-var version = "0.6.0"
+var version = "0.6.2"
 
 var bounds = Vector2(2144, 1984)
 
@@ -75,9 +75,9 @@ var maps = {
 	
 var gameModes = {
 	
-	"Bad Royale":"res://Scenes/GameModes/BadRoyale.tscn",
-	"Team Deathmatch": "res://Scenes/GameModes/TeamDeathmatch.tscn",
-	"Bad Ball":"res://Scenes/GameModes/BadBall.tscn",
+	"Bad_Royale":"res://Scenes/GameModes/BadRoyale.tscn",
+	"Team_Deathmatch": "res://Scenes/GameModes/TeamDeathmatch.tscn",
+	"Bad_Ball":"res://Scenes/GameModes/BadBall.tscn",
 	
 	}
 	

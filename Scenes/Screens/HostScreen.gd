@@ -3,7 +3,7 @@ extends Control
 var currentMap = "Basic"
 var currentMapIndex = 0
 
-var currentGameMode = "Bad Royale"
+var currentGameMode = "Bad_Royale"
 var currentGameModeIndex = 0
 
 var tagScene = preload("res://Scenes/UI/JoinTag.tscn")
