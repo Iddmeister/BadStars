@@ -147,6 +147,7 @@ func _on_VoteTime_timeout():
 		
 func votingFinished():
 	
+	$TwitchStuff/Map.disabled = false
 	Twitch.votingFor = Twitch.NOTHING
 	var winner = findWinner()
 	Twitch.chat("Winner: "+ winner)
@@ -177,6 +178,7 @@ func findWinner() -> String:
 	pass
 
 func _on_Map_pressed():
+	$TwitchStuff/Map.disabled = true
 	voteTime = maxVoteTime
 	Twitch.resetVotes()
 	Twitch.votingFor = Twitch.MAP
