@@ -31,29 +31,31 @@ func _physics_process(delta):
 	
 
 	if get_tree().is_network_server():
-		if target:
+		if target and not target.dead:
 			look_at(target.global_position)
 			
 			if global_position.distance_to(target.global_position) > stopDist:
 			
 				velocity = Vector2(1, 0).rotated(rotation)
 				velocity = move_and_slide(velocity*speed)
+		else:
+			findTarget()
 				
-		rpc("updatePos", global_position)
-		rpc("updateRot", global_rotation)
+		rpc("updatePos", self.global_position)
+		rpc("updateRot", self.global_rotation)
 		
 	
 	pass
 	
 puppet func updatePos(pos:Vector2):
 	
-	global_position = pos
+	self.global_position = pos
 	
 	pass
 	
 remotesync func updateRot(rot:float):
 	
-	global_rotation = rot
+	self.global_rotation = rot
 	
 	pass
 	
