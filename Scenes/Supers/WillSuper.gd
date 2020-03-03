@@ -10,7 +10,12 @@ func _ready():
 	$Sprite.position = Vector2(distance, 0)
 	$Area.position = Vector2(distance, 0)
 	$Sprite.visible = false
-	$SelfCharge.call_deferred("start")
+	pass
+	
+func initialize():
+	
+	$SelfCharge.start()
+	
 	pass
 	
 remotesync func use(id:int):
