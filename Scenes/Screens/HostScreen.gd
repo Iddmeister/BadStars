@@ -140,6 +140,8 @@ func _on_VoteTime_timeout():
 	if voteTime <= 0:
 		$VoteTime.stop()
 		votingFinished()
+	elif voteTime == 30:
+		Twitch.chat("30 Seconds Left!")
 	elif voteTime == 10:
 		Twitch.chat("10 Seconds Left!")
 	elif voteTime == 5:

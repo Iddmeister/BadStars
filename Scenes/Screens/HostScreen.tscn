@@ -93,6 +93,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+maxVoteTime = 45
 
 [node name="Players" type="VBoxContainer" parent="."]
 margin_left = 86.0

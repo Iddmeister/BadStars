@@ -7,7 +7,7 @@ load_path = "res://.import/CaptureDrone.png-69237faacff553d4e44b89f4ce4058ad.ste
 
 [node name="Minion" instance=ExtResource( 1 )]
 maxHealth = 50
-speed = 150
+speed = 300
 stopDist = 75
 
 [node name="Sprite" parent="." index="0"]
