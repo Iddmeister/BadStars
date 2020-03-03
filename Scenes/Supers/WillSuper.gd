@@ -68,4 +68,4 @@ func aimVisible(val:bool):
 
 func _on_SelfCharge_timeout():
 	addCharge(selfChargeAmount)
-	get_parent().ui.setSuperCharge(charge)
+	
