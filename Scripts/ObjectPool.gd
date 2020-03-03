@@ -40,8 +40,9 @@ func createPools():
 			
 			for num in range(Globals.characterInfo[Network.players[player].character]["minions"].size()):
 				
-				var m = load(Globals.characterInfo[Network.players[player].character]["minions"][num]).instance()
-				m.name = String(player)+String(num)
+				var M = load(Globals.characterInfo[Network.players[player].character]["minions"][num])
+				var m = M.instance()
+				m.name = "m" + String(player) + String(num)
 				m.pOwner= player
 				m.initialize(player)
 				m.disable()

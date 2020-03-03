@@ -10,7 +10,13 @@ func _ready():
 	$Sprite.position = Vector2(distance, 0)
 	$Area.position = Vector2(distance, 0)
 	$Sprite.visible = false
-	$SelfCharge.start()
+	pass
+	
+func initialize():
+	
+	if get_parent().is_network_master():
+		$SelfCharge.start()
+	
 	pass
 	
 remotesync func use(id:int):
@@ -64,3 +70,4 @@ func aimVisible(val:bool):
 func _on_SelfCharge_timeout():
 	addCharge(selfChargeAmount)
 	get_parent().ui.setSuperCharge(charge)
+	

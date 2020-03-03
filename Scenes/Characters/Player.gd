@@ -407,6 +407,23 @@ remotesync func goInvincible(do:bool):
 	$Shield.visible = do
 	pass
 	
+remotesync func confetti():
+	
+	if not $Confetti.emitting:
+		$Confetti.emitting = true
+	
+	pass
+	
+master func blind(n:String):
+	
+	$Blind/Panel.visible = true
+	$Blind/Panel/CenterContainer/Label.bbcode_text = "[center][wave amp=50 freq=10]You Have Been Blinded By "+n+"[/wave][/center]"
+	$BlindTime.start()
+	yield($BlindTime, "timeout")
+	$Blind/Panel.visible = false
+	
+	pass
+	
 func setTeam(team:String):
 	$NameTag/CenterContainer/Label.add_color_override("font_color", Color(1, 1, 1))
 	if team == "Blue":

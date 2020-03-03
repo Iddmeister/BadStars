@@ -45,7 +45,6 @@ var matchStats = {"places":[], "players":{}}
 remotesync var playersAlive = 0
 
 
-
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	pass
@@ -226,6 +225,9 @@ func disconnectServer():
 	searching = false
 	
 	Popups.serverClosed()
+	Twitch.chat("Disconnected, ")
+	Twitch.websocket.disconnect_from_host()
+	Twitch.leave_channel(Twitch.channel)
 	
 	pass
 	

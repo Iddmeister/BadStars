@@ -3,15 +3,19 @@ extends Control
 var currentMap = "Basic"
 var currentMapIndex = 0
 
-var currentGameMode = "Bad Royale"
+var currentGameMode = "Bad_Royale"
 var currentGameModeIndex = 0
 
 var tagScene = preload("res://Scenes/UI/JoinTag.tscn")
+
+export var maxVoteTime = 20
+var voteTime = 0
 
 func _ready():
 	$Controls/MapSelect/CurrentMap.text = currentMap
 	$Controls/GameMode/CurrentMode.text = currentGameMode
 	$IPStuff/IP.text = "IP:  " + Globals.localIP
+	$TwitchStuff.visible = false
 	pass
 	
 func _process(delta):
@@ -122,3 +126,61 @@ func _on_Global_toggled(button_pressed):
 		globalHost()
 	else:
 		disconnectGlobalHost()
+
+
+func _on_Connect_pressed():
+	Twitch.setup($Twitch/Channel.text)
+	yield(Twitch, "twitch_connected")
+	$TwitchStuff.visible = true
+
+
+func _on_VoteTime_timeout():
+	voteTime-=1
+	$TwitchStuff/Time.text = "Time: "+String(voteTime)
+	if voteTime <= 0:
+		$VoteTime.stop()
+		votingFinished()
+	elif voteTime == 10:
+		Twitch.chat("10 Seconds Left!")
+	elif voteTime == 5:
+		Twitch.chat("5 Seconds Left!")
+		
+func votingFinished():
+	
+	$TwitchStuff/Map.disabled = false
+	Twitch.votingFor = Twitch.NOTHING
+	var winner = findWinner()
+	Twitch.chat("Winner: "+ winner)
+	if not winner == "":
+		$TwitchStuff/Time.text = winner
+	else:
+		$TwitchStuff/Time.text = "No Votes"
+	
+	pass
+
+func findWinner() -> String:
+	
+	var winner:String
+	
+	for map in Twitch.votes.keys():
+		
+		if winner == "":
+			winner = map
+			continue
+			
+		else:
+			if Twitch.votes[map] > Twitch.votes[winner]:
+				winner = map
+				
+	return winner
+		
+	
+	pass
+
+func _on_Map_pressed():
+	$TwitchStuff/Map.disabled = true
+	voteTime = maxVoteTime
+	Twitch.resetVotes()
+	Twitch.votingFor = Twitch.MAP
+	$VoteTime.start()
+	Twitch.chat("Map Voting Started!")

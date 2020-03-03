@@ -9,13 +9,13 @@ var killLines = ["destroyed", "rekt", "eliminated", "took out", "brutally murder
 
 var mobile = false
 
-var version = "0.5.8"
+var version = "0.6.2"
 
 var bounds = Vector2(2144, 1984)
 
 var localIP:String
 
-onready var currentGameMode = "Bad Royale"
+onready var currentGameMode = "Bad_Royale"
 
 var characterInfo = {
 	
@@ -46,27 +46,27 @@ var characterInfo = {
 	}
 var maps = {
 	
-	"Bad Royale":{
+	"Bad_Royale":{
 		"Basic":"res://Scenes/Maps/BadRoyale/BasicMap.tscn",
 		"BlockBlockBlock":"res://Scenes/Maps/BadRoyale/BlockBlockBlock.tscn",
-		"No Dummies": "res://Scenes/Maps/BadRoyale/NoDummies.tscn",
+		"No_Dummies": "res://Scenes/Maps/BadRoyale/NoDummies.tscn",
 		"Rings": "res://Scenes/Maps/BadRoyale/Rings.tscn",
-		"Tower Royale": "res://Scenes/Maps/BadRoyale/Tower Royale.tscn",
-		"Tower Of London":"res://Scenes/Maps/BadRoyale/TowerOfLondon.tscn",
+		"Tower_Royale": "res://Scenes/Maps/BadRoyale/Tower Royale.tscn",
+		"Tower_Of_London":"res://Scenes/Maps/BadRoyale/TowerOfLondon.tscn",
 		},
 		
-	"Team Deathmatch":{
+	"Team_Deathmatch":{
 		
 		"Straights":"res://Scenes/Maps/TeamDeathmatch/Straights.tscn",
-		"No Man's Land":"res://Scenes/Maps/TeamDeathmatch/NoMansLand.tscn",
+		"No_Man's_Land":"res://Scenes/Maps/TeamDeathmatch/NoMansLand.tscn",
 		"Bits":"res://Scenes/Maps/TeamDeathmatch/Bits.tscn",
 		"Towerland":"res://Scenes/Maps/TeamDeathmatch/TowerLand.tscn",
 		
 		},
 		
-	"Bad Ball":{
+	"Bad_Ball":{
 		
-		"Home Run":"res://Scenes/Maps/BadBall/HomeRun.tscn",
+		"Home_Run":"res://Scenes/Maps/BadBall/HomeRun.tscn",
 		"Swamp":"res://Scenes/Maps/BadBall/Swamp.tscn",
 		
 	},
@@ -75,9 +75,9 @@ var maps = {
 	
 var gameModes = {
 	
-	"Bad Royale":"res://Scenes/GameModes/BadRoyale.tscn",
-	"Team Deathmatch": "res://Scenes/GameModes/TeamDeathmatch.tscn",
-	"Bad Ball":"res://Scenes/GameModes/BadBall.tscn",
+	"Bad_Royale":"res://Scenes/GameModes/BadRoyale.tscn",
+	"Team_Deathmatch": "res://Scenes/GameModes/TeamDeathmatch.tscn",
+	"Bad_Ball":"res://Scenes/GameModes/BadBall.tscn",
 	
 	}
 	
@@ -97,9 +97,9 @@ func _ready() -> void:
 	Input.connect("joy_connection_changed", self, "setController")
 	
 	if not Input.get_connected_joypads().empty():
-		
+
 		setController(Input.get_connected_joypads()[0], true)
-		
+
 		pass
 	
 	if OS.get_name() == "Android" or OS.get_name() == "iOS":
