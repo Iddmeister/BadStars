@@ -17,7 +17,6 @@ func _ready():
 func addCharge(damage:int):
 	
 	charge += (damage*damageMultiplier)
-	get_parent().ui.setSuperCharge(charge)
 	
 	if charge >= maxCharge:
 		

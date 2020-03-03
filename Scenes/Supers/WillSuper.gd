@@ -14,7 +14,8 @@ func _ready():
 	
 func initialize():
 	
-	$SelfCharge.start()
+	if get_parent().is_network_master():
+		$SelfCharge.start()
 	
 	pass
 	
@@ -68,4 +69,5 @@ func aimVisible(val:bool):
 
 func _on_SelfCharge_timeout():
 	addCharge(selfChargeAmount)
+	get_parent().ui.setSuperCharge(charge)
 	
