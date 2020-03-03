@@ -44,7 +44,7 @@ remotesync func use(id:int):
 	emit_signal("charged", false)
 	charged = false
 	charge = 0
-	rpc("updateServerCharge", charge)
+	#rpc("updateServerCharge", charge)
 	get_parent().ui.setSuperCharge(0)
 	rpc("super", id)
 	if emitMessage:

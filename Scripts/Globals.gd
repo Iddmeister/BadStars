@@ -97,9 +97,9 @@ func _ready() -> void:
 	Input.connect("joy_connection_changed", self, "setController")
 	
 	if not Input.get_connected_joypads().empty():
-		
+
 		setController(Input.get_connected_joypads()[0], true)
-		
+
 		pass
 	
 	if OS.get_name() == "Android" or OS.get_name() == "iOS":
