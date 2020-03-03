@@ -9,7 +9,7 @@
 radius = 28.7925
 
 [node name="Player" instance=ExtResource( 1 )]
-maxHealth = 300
+maxHealth = 200
 moveSpeed = 310
 weaponPath = NodePath("Melee")
 
@@ -22,10 +22,14 @@ shape = SubResource( 1 )
 
 [node name="Melee" parent="." index="6" instance=ExtResource( 2 )]
 scale = Vector2( 1.5, 1.15 )
-damage = 250
+damage = 50
 
 [node name="Super" parent="." index="12" instance=ExtResource( 5 )]
 superMessage = "grew legs and moved"
 distance = 500
 speed = 0.5
 selfChargeAmount = 13
+
+[node name="Label" parent="Blind/Panel/CenterContainer" index="0"]
+margin_left = 112.0
+margin_right = 912.0

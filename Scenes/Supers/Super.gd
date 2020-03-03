@@ -21,7 +21,7 @@ func addCharge(damage:int):
 	if charge >= maxCharge:
 		
 		charge = maxCharge
-		rpc("updateServerCharge", charge)
+		#rpc("updateServerCharge", charge)
 		if not charged:
 			charged = true
 			emit_signal("charged", true)
