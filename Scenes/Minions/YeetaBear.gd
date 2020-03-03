@@ -41,21 +41,21 @@ func _physics_process(delta):
 		else:
 			findTarget()
 				
-		rpc("updatePos", self.global_position)
-		rpc("updateRot", self.global_rotation)
+		rpc("updatePos", global_position)
+		rpc("updateRot", global_rotation)
 		
 	
 	pass
 	
 puppet func updatePos(pos:Vector2):
 	
-	self.global_position = pos
+	global_position = pos
 	
 	pass
 	
 remotesync func updateRot(rot:float):
 	
-	self.global_rotation = rot
+	global_rotation = rot
 	
 	pass
 	
