@@ -5,7 +5,8 @@ export var autocharge = 50
 
 func initialize():
 	
-	$Autocharge.start()
+	if get_parent().is_network_master():
+		$Autocharge.start()
 	
 	pass
 
