@@ -9,3 +9,14 @@ damageMultiplier = 1.0
 emitMessage = false
 superMessage = "used Super"
 lineColour = Color( 0.941176, 0, 0, 1 )
+lineWidth = 50
+
+[node name="Timer" type="Timer" parent="." index="0"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="." index="1"]
+wait_time = 0.5
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

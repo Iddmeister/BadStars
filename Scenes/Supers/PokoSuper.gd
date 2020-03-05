@@ -16,6 +16,7 @@ func aimVisible(val:bool):
 remotesync func super(id:int):
 	
 	$Animation.play("Whoosh")
+	$Eye.emitting = true
 	
 	if get_parent().is_network_master():
 		

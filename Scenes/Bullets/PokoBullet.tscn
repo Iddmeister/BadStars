@@ -9,17 +9,18 @@ load_path = "res://.import/PokoBullet (2).png-480d65d7d39be2e16fe389003356d6fc.s
 points = PoolVector2Array( 0, -10, 15, 5, -15, 5 )
 
 [node name="Bullet" instance=ExtResource( 1 )]
-speed = 200
-damage = 23
+scale = Vector2( 1.25, 1.25 )
+damage = 10
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( -0.118616, -0.480113 )
 rotation = 1.5708
-scale = Vector2( 0.724994, 0.724994 )
+scale = Vector2( 1.25, 1.25 )
 texture = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = true
 position = Vector2( 0.104674, -0.209348 )
 rotation = 1.5708
+scale = Vector2( 1.25, 1.25 )
 shape = SubResource( 2 )
