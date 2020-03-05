@@ -6,11 +6,12 @@
 
 [node name="Super" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+selfCharge = true
+selfChargeAmount = 17
 emitMessage = false
-autocharge = 10
 
 [node name="Time" type="Timer" parent="." index="0"]
-wait_time = 0.6
+wait_time = 0.7
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 visible = false
@@ -18,7 +19,6 @@ scale = Vector2( 3, 3 )
 z_index = 1
 texture = ExtResource( 2 )
 
-[node name="Autocharge" type="Timer" parent="." index="2"]
-wait_time = 0.2
+[node name="Autocharge" parent="." index="2"]
+wait_time = 0.5
 [connection signal="timeout" from="Time" to="." method="_on_Time_timeout"]
-[connection signal="timeout" from="Autocharge" to="." method="_on_Autocharge_timeout"]

@@ -225,9 +225,11 @@ func disconnectServer():
 	searching = false
 	
 	Popups.serverClosed()
-	Twitch.chat("Disconnected, ")
-	Twitch.websocket.disconnect_from_host()
-	Twitch.leave_channel(Twitch.channel)
+	if Twitch.connected:
+		Twitch.connected = false
+		Twitch.chat("Disconnected, ")
+		Twitch.websocket.disconnect_from_host()
+		Twitch.leave_channel(Twitch.channel)
 	
 	pass
 	

@@ -1,7 +1,6 @@
 extends Super
 
 export var distance = 300
-export var selfChargeAmount = 10
 
 export var noGoColor = Color()
 export var goColor = Color()
@@ -12,12 +11,6 @@ func _ready():
 	$Sprite.visible = false
 	pass
 	
-func initialize():
-	
-	if get_parent().is_network_master():
-		$SelfCharge.start()
-	
-	pass
 	
 remotesync func use(id:int):
 	if $Area.get_overlapping_bodies().empty() and not Globals.outOfBounds($Area.global_position):
@@ -67,7 +60,4 @@ func aimVisible(val:bool):
 	pass
 
 
-func _on_SelfCharge_timeout():
-	addCharge(selfChargeAmount)
-	get_parent().ui.setSuperCharge(charge)
 	

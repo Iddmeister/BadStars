@@ -9,7 +9,7 @@ extents = Vector2( 20, 30 )
 [node name="Bullet" groups=[
 "SalmonBullet",
 ] instance=ExtResource( 1 )]
-speed = 650
+speed = 570
 damage = 300
 
 [node name="Sprite" parent="." index="0"]

@@ -5,7 +5,9 @@
 
 [node name="Super" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-superMessage = "grew legs and walked"
-
-[node name="Time" parent="." index="0"]
-one_shot = false
+selfCharge = true
+selfChargeAmount = 20
+damageMultiplier = 1.0
+emitMessage = false
+superMessage = "used Super"
+speed = 500

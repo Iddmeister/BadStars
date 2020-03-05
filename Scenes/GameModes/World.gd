@@ -5,7 +5,6 @@ extends Node2D
 func _ready():
 	createMode(Globals.currentGameMode)
 	if is_network_master():
-		#Network.connect("killPlayer", self, "killPlayer")
 		pass
 	pass
 	

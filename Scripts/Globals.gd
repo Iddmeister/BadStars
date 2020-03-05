@@ -41,8 +41,8 @@ var characterInfo = {
 	characters.BIGBRAIN:{"name":"Big Brain", "poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/BigBrain.tscn"},
 	characters.HARLEM: {"name":"Harlem", "poolSize":15, "bulletPath":"res://Scenes/Bullets/Bubble.tscn", "playerPath":"res://Scenes/Characters/Harlem.tscn"},
 	characters.KOWALSKI: {"name":"Kowalski", "poolSize":15, "bulletPath":"res://Scenes/Throwables/Kowalski.tscn", "playerPath":"res://Scenes/Characters/Kowalski.tscn"},
-	characters.THORN:{"name":"THORN", "poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/THORN.tscn"},
-	characters.CAPTURE:{"name":"Capture", "poolSize":30, "bulletPath":"res://Scenes/Bullets/CaptureBullet.tscn", "playerPath":"res://Scenes/Characters/Capture.tscn", "minions":["res://Scenes/Minions/CaptureDrone.tscn"]},
+	characters.THORN:{"name":"THORN", "poolSize":0, "bulletPath":"", "playerPath":"res://Scenes/Characters/thorn.tscn"},
+	characters.CAPTURE:{"name":"Capture", "poolSize":30, "bulletPath":"res://Scenes/Bullets/CaptureBullet.tscn", "playerPath":"res://Scenes/Characters/Capture.tscn", "minions":["res://Scenes/Minions/CaptureDrone.tscn", "res://Scenes/Minions/CaptureDrone.tscn", "res://Scenes/Minions/CaptureDrone.tscn"]},
 	}
 var maps = {
 	

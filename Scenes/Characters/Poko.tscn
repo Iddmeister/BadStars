@@ -12,7 +12,6 @@ points = PoolVector2Array( 15, -10, 15, 20, -15, 20, -15, -10 )
 
 [node name="Player" instance=ExtResource( 1 )]
 maxHealth = 200
-moveSpeed = 300
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( -0.0952765, -0.739806 )
@@ -44,6 +43,7 @@ margin_bottom = 20.0
 
 [node name="Gun" parent="." index="6" instance=ExtResource( 2 )]
 position = Vector2( 0, 1.36224 )
-distance = 200
+distance = 300
+spread = 40.0
 
 [node name="Super" parent="." index="7" instance=ExtResource( 3 )]

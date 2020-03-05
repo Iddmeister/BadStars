@@ -1,7 +1,6 @@
 extends Super
 
 var defaultSpeed:int
-
 export var speed = 1000
 
 func _ready():
@@ -14,10 +13,15 @@ remotesync func super(id:int):
 		$Time.start()
 	pass
 	
+	
 remotesync func resetSpeed():
 	get_parent().moveSpeed = defaultSpeed
 	pass
 
+	
 
 func _on_Time_timeout():
 	rpc("resetSpeed")
+	addCharge(selfChargeAmount)
+	get_parent().ui.setSuperCharge(charge)
+
