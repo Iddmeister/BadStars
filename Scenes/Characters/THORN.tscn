@@ -10,7 +10,7 @@ radius = 36.6459
 
 [node name="Player" instance=ExtResource( 1 )]
 maxHealth = 250
-moveSpeed = 200
+moveSpeed = 0
 weaponPath = NodePath("Melee")
 
 [node name="Sprite" parent="." index="0"]
