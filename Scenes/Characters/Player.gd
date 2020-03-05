@@ -41,6 +41,8 @@ var canRespawn = false
 
 var shot
 
+var angle:float
+
 func _ready():
 	pass
 	
@@ -114,16 +116,16 @@ func movement():
 		else:
 			
 			if Input.is_action_pressed("left"):
-				dir.x = -1
+				dir.x = -1*Input.get_action_strength("left")
 			elif Input.is_action_pressed("right"):
-				dir.x = 1
+				dir.x = 1*Input.get_action_strength("right")
 			else:
 				dir.x = 0
 				
 			if Input.is_action_pressed("up"):
-				dir.y = -1
+				dir.y = -1*Input.get_action_strength("up")
 			elif Input.is_action_pressed("down"):
-				dir.y = 1
+				dir.y = 1*Input.get_action_strength("down")
 			else:
 				dir.y = 0
 			
@@ -176,14 +178,25 @@ func actions():
 			
 		else:
 			
-			Globals.playerToMouse = get_global_mouse_position() - global_position
+			if Globals.usingController:
+				var angle2 = Vector2(Input.get_joy_axis(Globals.device, 2), Input.get_joy_axis(Globals.device, 3))
+				if angle2.length() > 0.5:
+					angle = angle2.angle()
+			else:
+				angle = get_angle_to(get_global_mouse_position())
+			
+			if Globals.usingController:
+				Globals.playerToMouse = (Vector2(Input.get_joy_axis(Globals.device, 2), Input.get_joy_axis(Globals.device, 3)))*500
+			else:
+				Globals.playerToMouse = get_global_mouse_position() - global_position
 			
 			if Input.is_action_just_pressed("autoaim"):
 				autoaim()
 			else:
 				if Input.is_action_pressed("shoot"):
+					
 					if weapon.canShoot:
-						rpc("aimGun", get_angle_to(get_global_mouse_position()))
+						rpc("aimGun", angle)
 						weapon.aim(true)
 			
 				elif Input.is_action_just_released("shoot"):
@@ -194,7 +207,7 @@ func actions():
 					
 			if super.charged:
 				if Input.is_action_pressed("super"):
-					super.rpc("aim", get_angle_to(get_global_mouse_position()))
+					super.rpc("aim", angle)
 					super.aimVisible(true)
 				elif Input.is_action_just_released("super"):
 					super.use(get_tree().get_network_unique_id())
@@ -376,6 +389,8 @@ func _on_Poison_timeout():
 		
 
 remotesync func respawn():
+#	$RespawnTimer.start()
+#	yield($RespawnTimer, "timeout")
 	dead = false
 	if is_network_master():
 		global_position = respawnPoint
@@ -390,6 +405,23 @@ remotesync func respawn():
 remotesync func goInvincible(do:bool):
 	invincible = do
 	$Shield.visible = do
+	pass
+	
+remotesync func confetti():
+	
+	if not $Confetti.emitting:
+		$Confetti.emitting = true
+	
+	pass
+	
+master func blind(n:String):
+	
+	$Blind/Panel.visible = true
+	$Blind/Panel/CenterContainer/Label.bbcode_text = "[center][wave amp=50 freq=10]You Have Been Blinded By "+n+"[/wave][/center]"
+	$BlindTime.start()
+	yield($BlindTime, "timeout")
+	$Blind/Panel.visible = false
+	
 	pass
 	
 func setTeam(team:String):

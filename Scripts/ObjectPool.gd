@@ -19,6 +19,7 @@ func createPools():
 		
 		pools[int(player)] = {}
 		pools[int(player)]["bullets"] = []
+		pools[int(player)]["minions"] = []
 		
 		
 		if not Globals.characterInfo[Network.players[player].character].poolSize == 0:
@@ -34,6 +35,21 @@ func createPools():
 				allObjects.add_child(b)
 				
 				pass
+				
+		if Globals.characterInfo[Network.players[player].character].has("minions"):
+			
+			for num in range(Globals.characterInfo[Network.players[player].character]["minions"].size()):
+				
+				var M = load(Globals.characterInfo[Network.players[player].character]["minions"][num])
+				var m = M.instance()
+				m.name = "m" + String(player) + String(num)
+				m.pOwner= player
+				m.initialize(player)
+				m.disable()
+				pools[int(player)].minions.append(m)
+				allObjects.add_child(m)
+			
+			pass
 				
 		
 		pass

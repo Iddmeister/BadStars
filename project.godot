@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "CommandData",
+"language": "GDScript",
+"path": "res://addons/gift/util/cmd_data.gd"
+}, {
+"base": "Reference",
+"class": "CommandInfo",
+"language": "GDScript",
+"path": "res://addons/gift/util/cmd_info.gd"
+}, {
 "base": "Node",
 "class": "DebugNode",
 "language": "GDScript",
@@ -18,6 +28,11 @@ _global_script_classes=[ {
 "class": "Effect",
 "language": "GDScript",
 "path": "res://Scenes/Effects/Effect.gd"
+}, {
+"base": "Node",
+"class": "Gift",
+"language": "GDScript",
+"path": "res://addons/gift/gift_node.gd"
 }, {
 "base": "Node2D",
 "class": "Gun",
@@ -30,9 +45,19 @@ _global_script_classes=[ {
 "path": "res://Scenes/Melee/Melee.gd"
 }, {
 "base": "KinematicBody2D",
+"class": "Minion",
+"language": "GDScript",
+"path": "res://Scenes/Minions/Minion.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Scenes/Characters/Player.gd"
+}, {
+"base": "Reference",
+"class": "SenderData",
+"language": "GDScript",
+"path": "res://addons/gift/util/sender_data.gd"
 }, {
 "base": "Node2D",
 "class": "Super",
@@ -55,11 +80,16 @@ _global_script_classes=[ {
 "path": "res://Scenes/UI/GameUI.gd"
 } ]
 _global_script_class_icons={
+"CommandData": "",
+"CommandInfo": "",
 "DebugNode": "",
 "Effect": "",
+"Gift": "",
 "Gun": "",
 "Melee": "",
+"Minion": "",
 "Player": "",
+"SenderData": "",
 "Super": "",
 "Throwable": "",
 "Thrower": "",
@@ -69,8 +99,6 @@ _global_script_class_icons={
 [application]
 
 config/name="Bad Stars"
-config/description="Epic Multiplayer Shooter
-Please don't sue us Supercell"
 run/main_scene="res://Scenes/UI/LoadingScreen.tscn"
 boot_splash/image="res://Graphics/UI/LoadingScreen.png"
 config/icon="res://Graphics/Icons/192x192Icon.png"
@@ -82,6 +110,8 @@ Globals="*res://Scripts/Globals.gd"
 Network="*res://Scripts/Network.gd"
 ObjectPool="*res://Scripts/ObjectPool.gd"
 Effects="*res://Scenes/Game/Effects.tscn"
+Popups="*res://Scenes/UI/Popups.tscn"
+Twitch="*res://Scripts/Twitch.gd"
 
 [debug]
 
@@ -96,6 +126,10 @@ gdscript/warnings/return_value_discarded=false
 
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "gift" )
 
 [importer_defaults]
 

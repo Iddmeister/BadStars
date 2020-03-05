@@ -7,6 +7,8 @@ signal allPlayersReady()
 
 signal eventHappened(text)
 
+signal killPlayer(id)
+
 var searchPeer = PacketPeerUDP.new()
 
 var broadcastAddress = "255.255.255.255"
@@ -41,7 +43,6 @@ var currentMap = "Basic"
 var matchStats = {"places":[], "players":{}}
 
 remotesync var playersAlive = 0
-
 
 
 func _ready():
@@ -175,6 +176,7 @@ func disconnectedFromHost():
 	matchStats = {"places":[], "players":{}}
 	searching = false
 	broadcasting = false
+	Popups.disconnected()
 	pass
 	
 	
@@ -187,6 +189,7 @@ func playerConnected(id:int):
 func playerDisconnected(id:int):
 	
 	players.erase(id)
+	emit_signal("killPlayer", id)
 	
 	pass
 	
@@ -220,6 +223,11 @@ func disconnectServer():
 	timeoutList = {}
 	broadcasting = false
 	searching = false
+	
+	Popups.serverClosed()
+	Twitch.chat("Disconnected, ")
+	Twitch.websocket.disconnect_from_host()
+	Twitch.leave_channel(Twitch.channel)
 	
 	pass
 	

@@ -23,10 +23,10 @@ texture = SubResource( 1 )
 position = Vector2( 1.50941, 0.754707 )
 shape = SubResource( 2 )
 
-[node name="Label" parent="NameTag/CenterContainer" index="0"]
-margin_left = 10.0
-margin_right = 110.0
-
 [node name="Super" parent="." index="11" instance=ExtResource( 3 )]
 
 [node name="Thrower" parent="." index="12" instance=ExtResource( 2 )]
+
+[node name="Label" parent="Blind/Panel/CenterContainer" index="0"]
+margin_left = 112.0
+margin_right = 912.0

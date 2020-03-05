@@ -12,8 +12,6 @@ script = ExtResource( 2 )
 damageMultiplier = 0.7
 superMessage = "Teleported"
 distance = 360
-noGoColor = Color( 1, 0, 0, 0.666667 )
-goColor = Color( 0.992157, 1, 0, 0.666667 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 modulate = Color( 0.992157, 1, 0, 0.666667 )

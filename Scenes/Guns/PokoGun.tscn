@@ -9,7 +9,7 @@ load_path = "res://.import/PokoGun.png-10cb4c1dbee7ed8a17fb72a5e8338393.stex"
 [node name="Gun" instance=ExtResource( 1 )]
 maxAmmo = 5
 distance = 170
-spread = 30.0
+spread = 37.5
 
 [node name="Reload" parent="." index="2"]
 wait_time = 0.75
@@ -24,7 +24,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" parent="." index="4"]
+[node name="Sprite" parent="." index="5"]
 position = Vector2( 26.1572, -0.917083 )
 scale = Vector2( 0.529894, 0.529894 )
 texture = SubResource( 1 )
