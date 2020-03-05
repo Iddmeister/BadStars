@@ -19,7 +19,7 @@ func _ready():
 func initialize():
 	
 	if get_parent().is_network_master() and selfCharge:
-		$Autocharge.start()
+		$SelfCharge.start()
 	
 	pass
 	
