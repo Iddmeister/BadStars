@@ -3,5 +3,6 @@
 [ext_resource path="res://Scenes/Supers/YeetaSuper.tscn" type="PackedScene" id=1]
 
 [node name="Super" instance=ExtResource( 1 )]
-damageMultiplier = 0.5
-superMessage = "Entered the mainframe"
+damageMultiplier = 1.0
+emitMessage = false
+superMessage = "used Super"
