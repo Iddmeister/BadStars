@@ -5,6 +5,8 @@ class_name Super
 signal charged(val)
 
 export var maxCharge = 100
+export var selfCharge:bool = false
+export var selfChargeAmount = 0
 export var damageMultiplier:float = 1
 export var emitMessage = true
 export var superMessage = "used Super"
@@ -12,6 +14,13 @@ onready var charge = 0
 var charged = false
 
 func _ready():
+	pass
+	
+func initialize():
+	
+	if get_parent().is_network_master() and selfCharge:
+		$Autocharge.start()
+	
 	pass
 	
 func addCharge(damage:int):
@@ -62,3 +71,8 @@ func playerDied():
 	
 	pass
 
+
+
+func _on_Autocharge_timeout():
+	addCharge(selfChargeAmount)
+	get_parent().ui.setSuperCharge(charge)

@@ -1,15 +1,5 @@
 extends Super
 
-
-export var autocharge = 50
-
-func initialize():
-	
-	if get_parent().is_network_master():
-		$Autocharge.start()
-	
-	pass
-
 remotesync func super(id:int):
 	
 	if is_network_master():
@@ -40,7 +30,3 @@ remotesync func off():
 	
 	pass
 
-
-func _on_Autocharge_timeout():
-	addCharge(autocharge)
-	get_parent().ui.setSuperCharge(charge)

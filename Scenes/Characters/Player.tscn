@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/icon.png" type="Texture" id=2]
@@ -38,6 +38,26 @@ bg_color = Color( 0, 0, 0, 1 )
 [sub_resource type="DynamicFont" id=7]
 size = 40
 font_data = ExtResource( 5 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.64497, 1 ), 0.0, 0.409697, 1, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 20.0
+scale = 35.0
+scale_random = 0.8
+scale_curve = SubResource( 9 )
+color = Color( 1, 0, 0, 1 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Autoaim",
@@ -148,9 +168,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Label" type="RichTextLabel" parent="Blind/Panel/CenterContainer"]
-margin_left = 111.0
+margin_left = 112.0
 margin_top = 250.0
-margin_right = 911.0
+margin_right = 912.0
 margin_bottom = 350.0
 rect_min_size = Vector2( 800, 100 )
 mouse_filter = 2
@@ -160,8 +180,16 @@ bbcode_text = "[center][wave amp=50 freq=10]You Have Been Blinded By EpicDude53[
 text = "You Have Been Blinded By EpicDude53"
 
 [node name="BlindTime" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
+
+[node name="Death" type="Particles2D" parent="."]
+emitting = false
+amount = 15
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource( 10 )
 [connection signal="timeout" from="Poison" to="." method="_on_Poison_timeout"]
 [connection signal="timeout" from="InvincibleTime" to="." method="_on_InvincibleTime_timeout"]
 [connection signal="timeout" from="Slow" to="." method="_on_Slow_timeout"]

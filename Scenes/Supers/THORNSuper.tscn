@@ -5,6 +5,8 @@
 
 [node name="Super" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+selfCharge = true
+selfChargeAmount = 20
 damageMultiplier = 1.0
 emitMessage = false
 superMessage = "used Super"

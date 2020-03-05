@@ -5,10 +5,11 @@
 
 [node name="Super" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+selfCharge = true
+selfChargeAmount = 50
 emitMessage = false
 distance = 350
 speed = 0.3
-selfChargeAmount = 50
 
 [node name="Aim" type="Line2D" parent="." index="0"]
 width = 20.0
@@ -21,11 +22,10 @@ __meta__ = {
 [node name="Move" type="Tween" parent="." index="1"]
 playback_process_mode = 0
 
-[node name="SelfCharge" type="Timer" parent="." index="2"]
-wait_time = 0.3
-
-[node name="Ray" type="RayCast2D" parent="." index="3"]
+[node name="Ray" type="RayCast2D" parent="." index="2"]
 enabled = true
 cast_to = Vector2( 100, 0 )
 collision_mask = 4
-[connection signal="timeout" from="SelfCharge" to="." method="_on_SelfCharge_timeout"]
+
+[node name="Autocharge" parent="." index="3"]
+wait_time = 0.5

@@ -9,7 +9,7 @@ extents = Vector2( 45.684, 29.7949 )
 
 [node name="Minion" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-maxHealth = 200
+maxHealth = 300
 speed = 120
 stopDist = 70
 
