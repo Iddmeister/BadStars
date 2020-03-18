@@ -20,14 +20,4 @@ func _on_Team_toggled(button_pressed):
 		Network.rpc_id(1, "addPlayerInfo", get_tree().get_network_unique_id(), Network.playerInfo)
 
 
-func _on_Button_pressed(Canpress):
-	if Canpress:
-		$Animation.play("Emote")
-		$Cooldown.start
-		CanPress = false
-	pass # Replace with function body.
 
-
-func _on_Cooldown_timeout(Canpress):
-	Canpress = true
-	pass # Replace with function body.

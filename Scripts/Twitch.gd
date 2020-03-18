@@ -12,6 +12,8 @@ var voted = []
 
 var blindUsed = []
 
+var connected = false
+
 func _ready() -> void:
 	connect("cmd_no_permission", self, "no_permission")
 	connect("cmd_invalid_argcount", self, "invalid_args")
@@ -22,7 +24,7 @@ func setup(chan:String):
 	channel = chan
 	connect_to_twitch()
 	yield(self, "twitch_connected")
-	
+	connected = true
 	authenticate_oauth("41ywhe0x72lu8elxs5t99e24d7wdkh", "oauth:hac0l6r8t8h6dhse1tbmct0u956qhu")
 	if(yield(self, "login_attempt") == false):
 	  Popups.failed()

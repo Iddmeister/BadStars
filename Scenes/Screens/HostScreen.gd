@@ -33,7 +33,7 @@ func _process(delta):
 			
 		else:
 			var tag = $Players.get_node(String(player))
-			if currentGameMode == "Team Deathmatch" or currentGameMode == "Bad Ball":
+			if currentGameMode == "Team_Deathmatch" or currentGameMode == "Bad_Ball":
 				tag.setTeam(Network.players[player].team)
 			else:
 				tag.setTeam("None")

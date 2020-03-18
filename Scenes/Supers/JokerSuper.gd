@@ -2,7 +2,6 @@ extends Super
 
 export var distance = 300
 export var speed:float = 1
-export var selfChargeAmount = 20
 
 func _ready():
 	$Ray.add_exception(get_parent())
@@ -13,11 +12,6 @@ func _ready():
 	pass
 	
 	
-
-func initialize():
-	if get_parent().is_network_master():
-		$SelfCharge.start()
-	pass
 	
 func aimVisible(val:bool):
 	$Aim.visible = val
@@ -53,7 +47,3 @@ remotesync func super(id:int):
 
 func playerDied():
 	$Move.stop_all()
-
-func _on_SelfCharge_timeout():
-	addCharge(selfChargeAmount)
-	get_parent().ui.setSuperCharge(charge)

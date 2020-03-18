@@ -287,6 +287,8 @@ remotesync func hit(damage:int, id:int, isSuper=false):
 		
 remotesync func die():
 	
+	$Death.emitting = true
+	
 	if is_network_master():
 		super.playerDied()
 	
