@@ -9,13 +9,17 @@ var killLines = ["destroyed", "rekt", "eliminated", "took out", "brutally murder
 
 var mobile = false
 
-var version = "1.0"
+var version = "1.1"
 
 var bounds = Vector2(2144, 1984)
 
 var localIP:String
 
+var retrievedVersion = false
+
 onready var currentGameMode = "Bad_Royale"
+
+signal versionDone
 
 var characterInfo = {
 	
@@ -109,14 +113,57 @@ func _ready() -> void:
 		
 		if ip.begins_with("192"):
 			localIP = ip
+			
+			
+	getVersion()
 		
-		pass
-		
-		
+func getVersion():
 	
+	var http = HTTPRequest.new()
+	add_child(http)
+	
+	var platform = OS.get_name()
+	
+	var channel:String
+	
+	match platform:
 		
+		"Windows":
+			channel = "win"
+			
+		"OSX":
+			channel = "mac"
+		"X11":
+			channel = "linux"
+	
+	var err = http.request("https://itch.io/api/1/x/wharf/latest?target=iddmeister/bad-stars&channel_name=%s" % channel)
+	
+	if err != OK:
+		print(err)
+		print("Could not retrieve Version")
+		version = "Version "+version
+		emit_signal("versionDone")
+		return
+	
+	var results = yield(http, "request_completed")
+	
+	var latest = String(parse_json(results[3].get_string_from_utf8())["latest"])
+	
+	if not latest == version:
+		
+		version = "You are using Version "+version+", Version "+latest+" is available"
+		
+	else:
+		
+		version = "Version "+version
+	
+	
+	emit_signal("versionDone")
+	
+	retrievedVersion = true
 	
 	pass
+		
 	
 func setController(d, c):
 	

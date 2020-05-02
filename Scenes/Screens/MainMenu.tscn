@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scenes/Screens/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/BadBackground.png" type="Texture" id=2]
@@ -179,6 +179,18 @@ bg_color = Color( 0.768627, 0.109804, 0.109804, 1 )
 [sub_resource type="StyleBoxFlat" id=24]
 bg_color = Color( 1, 0, 0, 1 )
 
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0.698039, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 1, 1, 1, 1 )
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -332,19 +344,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Version" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -100.0
-margin_right = 100.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 200, 20 )
-text = "Version"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="About" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
@@ -406,15 +405,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect3" type="TextureRect" parent="Back"]
-anchor_right = 0.527
-anchor_bottom = 0.067
-margin_left = 425.0
-margin_top = 18.0
-margin_right = 50.352
-margin_bottom = -3.2
-texture = ExtResource( 8 )
-stretch_mode = 1
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 41.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Version" type="Label" parent="CenterContainer2"]
+margin_left = 392.0
+margin_top = 8.0
+margin_right = 592.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 200, 20 )
+custom_styles/normal = SubResource( 25 )
+text = "Version"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

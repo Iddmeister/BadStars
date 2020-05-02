@@ -38,7 +38,12 @@ func _ready():
 	$CenterContainer/Options/PlayerName.text = Network.playerInfo.name
 	currentCharacter = characters.keys().find(int(Data.data["lastPlayed"]))
 	setCharacter(characters.keys()[currentCharacter])
-	$Version.text = "Version "+Globals.version
+	if not Globals.retrievedVersion:
+		$CenterContainer2/Version.text = "Version "+Globals.version
+		yield(Globals, "versionDone")
+		$CenterContainer2/Version.text = Globals.version
+	else:
+		$CenterContainer2/Version.text = Globals.version
 	pass
 
 
