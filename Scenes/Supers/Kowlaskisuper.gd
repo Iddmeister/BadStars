@@ -16,5 +16,5 @@ remotesync func enablePoison(val:bool):
 func _on_Time_timeout():
 	rpc("enablePoison", false)
 	get_parent().rpc("hit", 1000, get_parent().get_network_master())
-
+	$Animation.play("Skipper")
 	
