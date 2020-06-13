@@ -122,8 +122,12 @@ func disconnectGlobalHost():
 	pass
 
 func _on_Global_toggled(button_pressed):
+	
+	$IPStuff/Public.disabled = not button_pressed
+	
 	if button_pressed:
 		globalHost()
+		
 	else:
 		disconnectGlobalHost()
 
@@ -186,3 +190,22 @@ func _on_Map_pressed():
 	Twitch.votingFor = Twitch.MAP
 	$VoteTime.start()
 	Twitch.chat("Map Voting Started!")
+
+
+
+
+func _on_PublicConnect_pressed():
+	$HTTPRequest.request($IPStuff/Space/CenterContainer/PublicOptions/CenterContainer/VBoxContainer/Host.text, ["passcode: %s" % $IPStuff/Space/CenterContainer/PublicOptions/CenterContainer/VBoxContainer/Passcode.text, "type: add", "name: %s" % Network.playerInfo.name, "ip: %s" % Network.upnpHost.query_external_address()])
+
+func _on_HTTPRequest_request_completed(result, response_code, headers, body):
+	
+	if result == OK:
+		
+		print(body.get_string_from_utf8())
+		$IPStuff/Public.pressed = not $IPStuff/Public.pressed
+		
+		pass
+
+
+func _on_Public_pressed():
+	$IPStuff/Space/CenterContainer/PublicOptions.popup()

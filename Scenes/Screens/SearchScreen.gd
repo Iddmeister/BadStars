@@ -33,3 +33,7 @@ func _on_Cancel_pressed():
 	Network.joinableGames = {}
 	Network.timeoutList = {}
 	Network.searching = false
+
+
+func _on_GlobalGames_pressed():
+	get_tree().change_scene("res://Scenes/Screens/GlobalSearch.tscn")

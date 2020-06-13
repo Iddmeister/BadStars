@@ -55,4 +55,16 @@ margin_right = 1035.0
 margin_bottom = 617.0
 texture = ExtResource( 2 )
 expand = true
+
+[node name="GlobalGames" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -133.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "Find Global Games"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Cancel" to="." method="_on_Cancel_pressed"]
+[connection signal="pressed" from="GlobalGames" to="." method="_on_GlobalGames_pressed"]
