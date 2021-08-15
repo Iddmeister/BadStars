@@ -85,7 +85,7 @@ border_width_bottom = 1
 border_color = Color( 0.572549, 0.101961, 0.101961, 1 )
 
 [sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 1, 0, 0, 0.537255 )
+bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 1, 0, 0, 0.580392 )
@@ -194,9 +194,9 @@ expand_margin_bottom = 5.0
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 17.15
+margin_left = 21.1185
 margin_top = 20.0
-margin_right = -22.85
+margin_right = -18.8815
 margin_bottom = -20.0
 script = ExtResource( 1 )
 __meta__ = {
@@ -208,20 +208,21 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -564.0
-margin_top = -280.0
-margin_bottom = 280.0
+margin_left = -582.877
+margin_top = -198.214
+margin_right = -18.8774
+margin_bottom = 191.786
+rect_pivot_offset = Vector2( 399.962, 88.8885 )
 size_flags_horizontal = 3
-custom_constants/separation = 50
+custom_constants/separation = 30
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="FindGame" type="Button" parent="VBoxContainer"]
-margin_top = 65.0
 margin_right = 564.0
-margin_bottom = 169.0
+margin_bottom = 104.0
 rect_min_size = Vector2( 0, 100 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
@@ -229,9 +230,9 @@ custom_styles/normal = SubResource( 3 )
 icon = ExtResource( 5 )
 
 [node name="HostGame" type="Button" parent="VBoxContainer"]
-margin_top = 219.0
+margin_top = 134.0
 margin_right = 564.0
-margin_bottom = 323.0
+margin_bottom = 238.0
 rect_min_size = Vector2( 0, 100 )
 custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
@@ -239,9 +240,9 @@ custom_styles/normal = SubResource( 6 )
 icon = ExtResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 373.0
+margin_top = 268.0
 margin_right = 564.0
-margin_bottom = 495.0
+margin_bottom = 426.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
 margin_right = 564.0
@@ -259,25 +260,27 @@ icon = ExtResource( 4 )
 [node name="IP" type="LineEdit" parent="VBoxContainer/VBoxContainer"]
 margin_top = 108.0
 margin_right = 564.0
-margin_bottom = 122.0
+margin_bottom = 158.0
+rect_min_size = Vector2( 0, 50 )
 custom_icons/clear = ExtResource( 4 )
 custom_styles/normal = SubResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 1
 placeholder_text = "IP Address"
+placeholder_alpha = 0.7
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-margin_left = -3.90002
-margin_top = -2.03839
-margin_right = 455.1
-margin_bottom = 554.962
+margin_left = 78.5723
+margin_top = 49.3883
+margin_right = 378.572
+margin_bottom = 455.388
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Options" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 79.0
-margin_top = 75.0
-margin_right = 379.0
-margin_bottom = 481.0
+margin_right = 300.0
+margin_bottom = 406.0
 
 [node name="PlayerName" type="LineEdit" parent="CenterContainer/Options"]
 margin_right = 300.0
@@ -329,6 +332,8 @@ custom_colors/font_color = Color( 0.12549, 0, 0, 1 )
 icon = ExtResource( 11 )
 
 [node name="CharacterInfo" type="Label" parent="CenterContainer/Options/CharacterSelect"]
+anchor_top = 0.0165563
+anchor_bottom = 0.0165563
 margin_top = 288.0
 margin_right = 300.0
 margin_bottom = 302.0
@@ -365,6 +370,9 @@ margin_top = 479.0
 margin_right = 250.0
 margin_bottom = 499.0
 alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Random" type="Button" parent="VBoxContainer2"]
 margin_top = 3.0
@@ -379,6 +387,7 @@ icon = ExtResource( 10 )
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="Back"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 896.0
@@ -390,10 +399,10 @@ __meta__ = {
 }
 
 [node name="TextureRect2" type="TextureRect" parent="Back"]
-margin_left = 92.0
-margin_top = 482.61
-margin_right = 391.0
-margin_bottom = 498.61
+margin_left = 97.0
+margin_top = 460.0
+margin_right = 398.0
+margin_bottom = 485.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -425,7 +434,6 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="VBoxContainer/FindGame" to="." method="_on_Find_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HostGame" to="." method="_on_Host_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/HBoxContainer/DirectConnect" to="." method="_on_DirectConnect_pressed"]
 [connection signal="text_changed" from="CenterContainer/Options/PlayerName" to="." method="_on_PlayerName_text_changed"]
